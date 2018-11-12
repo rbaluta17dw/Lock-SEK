@@ -5,10 +5,10 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6">
-            <h2 class="heading mb-3">Fly makes you faster</h2>
+            <h2 class="heading mb-3">LockSEK</h2>
             <div class="sub-heading">
-              <p class="mb-4">New free template by <a href="http://uicookies.com" target="_blank">uicookies.com</a>. For more templates visit the <a href="http://uicookies.com" target="_blank">site</a>. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="#section-pricing"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">See Pricing</span></a></p>
+              <p class="mb-4">LockSEK es una plataforma para administrar llaves para cerraduras electronicas accionadas por dispositivos USB </p>
+              <p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="#section-contact"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Contacta con nosotros</span></a></p>
             </div>
           </div> 
           <div class="col-md-1">
@@ -96,7 +96,7 @@
             <div class="row">
               <div class="col">
                 <h2>Cerradura electronica</h2>
-                <p class="pb_font-20">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                <p class="pb_font-20">Administra tus cerraduras electronicas de una forma sencilla y eficaz</p>
               </div>
             </div>
             <div class="row">
@@ -156,7 +156,7 @@
             <div class="row">
               <div class="col">
                 <h2>Llave USB</h2>
-                <p class="pb_font-20">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                <p class="pb_font-20">Administra, crea y elimina tus llaves de forma sencilla y rapida</p>
               </div>
             </div>
             <div class="row">
@@ -165,16 +165,16 @@
                 <div class="media pb_feature-v2 text-left mb-1 mt-5">
                   <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-bookmarks-outline pb_icon-gradient"></i></div>
                   <div class="media-body">
-                    <h3 class="mt-2 mb-2 heading">Minimal Design</h3>
-                    <p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                    <h3 class="mt-2 mb-2 heading">Con un diseño sencillo y facil de utilizar</h3>
+
                   </div>
                 </div> 
                 
                 <div class="media pb_feature-v2 text-left mb-1 mt-5">
                   <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
                   <div class="media-body">
-                    <h3 class="mt-2 mb-2 heading">Unlimited Posibilities</h3>
-                    <p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                    <h3 class="mt-2 mb-2 heading">Sin limites</h3>
+                    
                   </div>
                 </div> 
 
@@ -184,18 +184,12 @@
                 <div class="media pb_feature-v2 text-left mb-1 mt-5">
                   <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-speedometer-outline pb_icon-gradient"></i></div>
                   <div class="media-body">
-                    <h3 class="mt-2 mb-2 heading">Fast Loading</h3>
-                    <p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                    <h3 class="mt-2 mb-2 heading">De forma rapida</h3>
+                    
                   </div>
                 </div>
 
-                <div class="media pb_feature-v2 text-left mb-1 mt-5">
-                  <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-color-filter-outline  pb_icon-gradient"></i></div>
-                  <div class="media-body">
-                    <h3 class="mt-2 mb-2 heading">Component Based Design</h3>
-                    <p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                  </div>
-                </div>    
+                  
 
               </div>
             </div>
@@ -206,12 +200,12 @@
     </section>
     <!-- END section -->
 
-    <section class="pb_section pb_slant-light pb_pb-220" id="section-reviews">
+    <section class="pb_section pb_slant-light pb_pb-220" id="section-contact">
       <div class="container">
         <div>
           <section>
             <div>
-              <div class="row">
+              <div class="row" >
                 <div class="col-sm-12">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2">
@@ -251,35 +245,27 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-6 text-center mb-5">
-            <h5 class="text-uppercase pb_font-15 mb-2 pb_color-dark-opacity-3 pb_letter-spacing-2"><strong>Pricing</strong></h5>
-            <h2>Choose Your Plans</h2>
+            <h2>Precios</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-md">
-            <div class="pb_pricing_v1 p-5 border text-center bg-white">
-              <h3>Basic</h3>
-              <span class="price"><sup>$</sup>19<span>month</span></span>
-              <p class="pb_font-15">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-              <p class="mb-0"><a href="#" role="button" class="btn btn-secondary">Get started</a></p>
+            <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
+              <h3>Uso de nuestra aplicación</h3>
+              <span class="price"><sup>€</sup>0<span></span></span>
+              <p class="pb_font-15">Utiliza nuestra plataforma de forma gratuita</p>
+              <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Empezar</a></p>
             </div>
           </div>
           <div class="col-md">
             <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
-              <h3>Business</h3>
-              <span class="price"><sup>$</sup>39<span>month</span></span>
-              <p class="pb_font-15">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-              <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Get started</a></p>
+              <h3>Cerraduras recomendadas</h3>
+              <span class="price"><span>Desde</span><sup>€</sup>19</span>
+              <p class="pb_font-15">Compra tu cerradura aqui</p>
+              <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>
             </div>
           </div>
-          <div class="col-md">
-            <div class="pb_pricing_v1 p-5 border text-center bg-white">
-              <h3>Free</h3>
-              <span class="price"><sup>$</sup>99<span>month</span></span>
-              <p class="pb_font-15">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-              <p class="mb-0"><a href="#" role="button" class="btn btn-secondary">Get started</a></p>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
