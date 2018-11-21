@@ -16,7 +16,7 @@
           <div class="col-md-5 relative align-self-center">
             
             <form action="#" class="bg-white rounded pb_form_v1">
-              <h2 class="mb-4 mt-0 text-center">Registrate GRATIS</h2>
+              <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
               <div class="form-group">
                 <input type="text" class="form-control pb_height-50 reverse" placeholder="Nombre">
               </div>
@@ -30,7 +30,7 @@
                 <input type="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control pb_height-50 reverse" placeholder="Repita la Contraseña">
+                <input type="password" class="form-control pb_height-50 reverse" placeholder="Repite la Contraseña">
               </div>
     
               <div class="form-group">
@@ -222,7 +222,7 @@
                           <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
                         </div>
                         <div class="form-group">
-                          <textarea class="form-control" name="mensaje" placeholder="Mensaje" rows="7" data-form-field="Message"></textarea>
+                          <textarea class="form-control" name="mensaje" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></textarea>
                         </div>
                         <div>
                           <button type="submit" class="btn btn-lg btn-primary">CONTÁCTANOS</button>

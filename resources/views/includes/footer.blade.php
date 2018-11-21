@@ -12,7 +12,7 @@
         <br>
         <div class="row">
           <div class="col text-center">
-            <p class="pb_font-14">&copy; 2018 Landing</a>All Rights Reserved. <br> Developed by <a href="https://uicookies.com/">uicookies.com</a> <small>(Don't remove credit link on this footer. See <a href="https://uicookies.com/license/" target="_blank">license</a>)</small></p>
+            <p class="pb_font-14">&copy; 2018 Landing</a>All Rights Reserved.</p>
             
           </div>
         </div>
