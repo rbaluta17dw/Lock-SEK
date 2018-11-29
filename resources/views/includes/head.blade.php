@@ -2,10 +2,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		
+
 		<meta name="description" content="Free Bootstrap 4 Template by uicookies.com">
 		<meta name="keywords" content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
 		<link rel="stylesheet" href="{{asset('assets/css/bootstrap/bootstrap.css')}}">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="{{asset('assets/fonts/law-icons/font/flaticon.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome/css/font-awesome.min.css')}}">
-    
-    
+
+
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slick-theme.css')}}">
 
@@ -23,3 +23,4 @@
     <link rel="stylesheet" href="{{asset('assets/css/landing-2.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/social.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/css/parallax.css')}}">
