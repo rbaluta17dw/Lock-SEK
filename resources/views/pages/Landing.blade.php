@@ -15,7 +15,7 @@
       </div>
       <div class="col-md-5 relative align-self-center">
 
-        <form action="#" class="bg-white rounded pb_form_v1">
+        <form method="POST" action="{{ route('register') }}" class="bg-white rounded pb_form_v1">
           <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
           <div class="form-group">
             <input type="email" class="form-control pb_height-50 reverse" placeholder="Email">
