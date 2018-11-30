@@ -19,5 +19,9 @@ Route::get('/', function () {
     return view('pages/Landing');
 });
 
-
 Route::post('form','FormularioController@insert');
+// Route::get('/eventos', ['as'=>'eventos','uses'=>'EventoController@index']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
