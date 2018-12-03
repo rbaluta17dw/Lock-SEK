@@ -21,6 +21,7 @@
         <div class="loginmodal-container">
           <h1>Inicia sesion con tu cuenta</h1><br>
           <form method="POST" action="{{ route('login') }}">
+            @csrf
             <input type="text" name="email" placeholder="Email" oninput="emailValido()" id="myEmail">
             <input type="password" name="password" placeholder="Contraseña">
             <input type="submit" name="login" class="login loginmodal-submit" value="Iniciar sesion" >

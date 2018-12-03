@@ -16,12 +16,13 @@
       <div class="col-md-5 relative align-self-center">
 
         <form method="POST" action="{{ route('register') }}" class="bg-white rounded pb_form_v1">
+          @csrf
           <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
           <div class="form-group">
-            <input type="email" class="form-control pb_height-50 reverse" placeholder="Email">
+            <input type="email" name="email" class="form-control pb_height-50 reverse" placeholder="Email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
+            <input type="password" name="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
           </div>
           <div class="form-group">
             <input type="password" class="form-control pb_height-50 reverse" placeholder="Repite la Contraseña">
