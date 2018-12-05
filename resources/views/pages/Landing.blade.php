@@ -14,25 +14,23 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-5 relative align-self-center">
-
         <form method="POST" action="{{ route('register') }}" class="bg-white rounded pb_form_v1">
           @csrf
           <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
           <div class="form-group">
+            <input type="hidden" name="name" value="prueba">
             <input type="email" name="email" class="form-control pb_height-50 reverse" placeholder="Email">
           </div>
           <div class="form-group">
             <input type="password" name="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control pb_height-50 reverse" placeholder="Repite la Contraseña">
+            <input type="password" name="password_confirmation" class="form-control pb_height-50 reverse" placeholder="Repite la Contraseña">
           </div>
-
           <div class="form-group">
             <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Registrarse">
           </div>
         </form>
-
       </div>
     </div>
   </div>
@@ -69,133 +67,134 @@
 </div>
 </section>
 <!-- END section -->
-
+<!--
 <section class="pb_section pb_slant-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 mb-5">
-        <img src="{{asset('assets/img/familia.svg')}}" alt="Image placeholder" class="img-fluid">
-      </div>
-      <div class="col-lg-8 pl-md-5 pl-sm-0">
-        <div class="row">
-          <div class="col">
-            <h2>Para uso particular</h2>
-            <p class="pb_font-20">Administra tus cerraduras electronicas de una forma sencilla y eficaz</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 mb-5">
+<img src="{{asset('assets/img/familia.svg')}}" alt="Image placeholder" class="img-fluid">
+</div>
+<div class="col-lg-8 pl-md-5 pl-sm-0">
+<div class="row">
+<div class="col">
+<h2>Para uso particular</h2>
+<p class="pb_font-20">Administra tus cerraduras electronicas de una forma sencilla y eficaz</p>
+</div>
+</div>
+<div class="row">
+<div class="col-lg">
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-checkmark-outline pb_icon-gradient"></i></div>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-checkmark-outline pb_icon-gradient"></i></div>
 
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Accesos fiables</h3>
-                <p class="text-sans-serif pb_font-16">Gestionar el acceso de trabajadores domesticos</p>
-              </div>
-            </div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Accesos fiables</h3>
+<p class="text-sans-serif pb_font-16">Gestionar el acceso de trabajadores domesticos</p>
+</div>
+</div>
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-                  <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
 
-              <div class="media-body">
+<div class="media-body">
 
-                <h3 class="mt-2 mb-2 heading">Olvidate de perder las llaves</h3>
-                <p class="text-sans-serif pb_font-16">Perder las llaves deja de ser un problema, elimina tu llave perdida y genera una nueva.</p>
-              </div>
-            </div>
+<h3 class="mt-2 mb-2 heading">Olvidate de perder las llaves</h3>
+<p class="text-sans-serif pb_font-16">Perder las llaves deja de ser un problema, elimina tu llave perdida y genera una nueva.</p>
+</div>
+</div>
 
-          </div>
-          <div class="col-lg">
+</div>
+<div class="col-lg">
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Una única llave</h3>
-                <p class="text-sans-serif pb_font-16">Lleva cuantas llaves quieras en un mismo dispositivo USB.</p>
-              </div>
-            </div>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Una única llave</h3>
+<p class="text-sans-serif pb_font-16">Lleva cuantas llaves quieras en un mismo dispositivo USB.</p>
+</div>
+</div>
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Alquila una vivienda</h3>
-                <p class="text-sans-serif pb_font-16">Crea y elimina llaves para tus inquilinos sin miedo.</p>
-              </div>
-            </div>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Alquila una vivienda</h3>
+<p class="text-sans-serif pb_font-16">Crea y elimina llaves para tus inquilinos sin miedo.</p>
+</div>
+</div>
 
-          </div>
-        </div>
+</div>
+</div>
 
-      </div>
-    </div>
-  </div>
-</section>
+</div>
+</div>
+</div>
+</section> -->
 <!-- END section -->
-
+<!--
 <section class="pb_section bg-light pb_slant-white">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 order-2">
-        <img src="{{asset('assets/img/empresa.png')}}" alt="Image placeholder" class="img-fluid">
-      </div>
-      <div class="col-lg-8 pr-md-5 pr-sm-0 order-1  mb-5">
-        <div class="row">
-          <div class="col">
-            <h2>Para empresas</h2>
-            <p class="pb_font-20">Administra, crea y elimina tus llaves de forma sencilla y rapida</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 order-2">
+<img src="{{asset('assets/img/empresa.png')}}" alt="Image placeholder" class="img-fluid">
+</div>
+<div class="col-lg-8 pr-md-5 pr-sm-0 order-1  mb-5">
+<div class="row">
+<div class="col">
+<h2>Para empresas</h2>
+<p class="pb_font-20">Administra, crea y elimina tus llaves de forma sencilla y rapida</p>
+</div>
+</div>
+<div class="row">
+<div class="col-lg">
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-bookmarks-outline pb_icon-gradient"></i></div>
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Administra permisos</h3>
-                <p class="text-sans-serif pb_font-16">Maneja los permisos de accesos de los empleados.</p>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-bookmarks-outline pb_icon-gradient"></i></div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Administra permisos</h3>
+<p class="text-sans-serif pb_font-16">Maneja los permisos de accesos de los empleados.</p>
 
-              </div>
-            </div>
+</div>
+</div>
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Cerraduras y llaves ilimitadas</h3>
-                <p class="text-sans-serif pb_font-16">Amplia tu infraestructura gracias a escalabilidad de este sistema.</p>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Cerraduras y llaves ilimitadas</h3>
+<p class="text-sans-serif pb_font-16">Amplia tu infraestructura gracias a escalabilidad de este sistema.</p>
 
-              </div>
-            </div>
+</div>
+</div>
 
-          </div>
-          <div class="col-lg">
+</div>
+<div class="col-lg">
 
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Establece horarios</h3>
-                <p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Establece horarios</h3>
+<p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
 
-              </div>
-            </div>
-            <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
-              <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Establece horarios</h3>
-                <p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
+</div>
+</div>
+<div class="media pb_feature-v2 text-left mb-1 mt-5">
+<div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
+<div class="media-body">
+<h3 class="mt-2 mb-2 heading">Establece horarios</h3>
+<p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
 
-              </div>
-            </div>
+</div>
+</div>
 
 
 
-          </div>
-        </div>
+</div>
+</div>
 
-      </div>
-    </div>
-  </div>
-</section>
+</div>
+</div>
+</div>
+
+</section> -->
 <!-- END section -->
 
 <section class="pb_section pb_slant-light pb_pb-220" id="section-contact">
@@ -249,18 +248,18 @@
       <div class="row">
         <div class="col-md">
           <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
-            <h3>Uso de nuestra aplicación</h3>
+            <h3>Basic</h3>
             <span class="price"><sup>€</sup>0<span></span></span>
-            <p class="pb_font-15">Utiliza nuestra plataforma de forma gratuita</p>
-            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Empezar</a></p>
+            <!--    <p class="pb_font-15">Utiliza nuestra plataforma de forma gratuita</p>
+            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Empezar</a></p> -->
           </div>
         </div>
         <div class="col-md">
           <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
-            <h3>Cerraduras recomendadas</h3>
-            <span class="price"><span>Desde</span><sup>€</sup>19</span>
-            <p class="pb_font-15">Compra tu cerradura aqui</p>
-            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>
+            <h3>Premium</h3>
+            <span class="price"><sup>€</sup>19</span>
+            <!--  <p class="pb_font-15">Compra tu cerradura aqui</p>
+            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p> -->
           </div>
         </div>
 
