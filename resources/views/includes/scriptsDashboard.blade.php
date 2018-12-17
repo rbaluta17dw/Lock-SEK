@@ -13,15 +13,11 @@
 <<<<<<< HEAD
 <!--Tablas-->
 <script src="{{asset('assets/table-resources/DataTables/datatables.min.js')}}"></script>
-<script src="{{asset('assets/table-resources/table.js')}}"></script> 
+<script src="{{asset('assets/table-resources/table.js')}}"></script>
 <!--Fin tablas-->
+<script src="{{asset('assets/js/customdash.js')}}"></script>
 
 <!--Form llave-->
-<script src="{{asset('assets/js/keyForm.js')}}"></script> 
+<script src="{{asset('assets/js/keyForm.js')}}"></script>
 
-<!--Fin form llave
-
-=======
-
-<script src="{{asset('assets/js/customdash.js')}}"></script>
->>>>>>> 276f9b039d64a1af35093433c56c32bc2f69d4d9
+<!--Fin form llave -->
