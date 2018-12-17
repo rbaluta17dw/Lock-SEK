@@ -29,4 +29,6 @@
          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
      <![endif]-->
 
-     
+     <!--Tablas-->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/table-resources/DataTables/datatables.min.css')}}">
+<!--Fin tablas-->
