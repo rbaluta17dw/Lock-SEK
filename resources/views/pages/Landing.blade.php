@@ -67,7 +67,7 @@
 </div>
 </section>
 <!-- END section -->
-<!--
+
 <section class="pb_section pb_slant-light">
 <div class="container">
 <div class="row">
@@ -128,9 +128,9 @@
 </div>
 </div>
 </div>
-</section> -->
+</section>
 <!-- END section -->
-<!--
+
 <section class="pb_section bg-light pb_slant-white">
 <div class="container">
 <div class="row">
@@ -194,7 +194,7 @@
 </div>
 </div>
 
-</section> -->
+</section>
 <!-- END section -->
 
 <section class="pb_section pb_slant-light pb_pb-220" id="section-contact">
@@ -248,21 +248,22 @@
       <div class="row">
         <div class="col-md">
           <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
-            <h3>Basic</h3>
+            <h3>Empezando desde</h3>
             <span class="price"><sup>€</sup>0<span></span></span>
-            <!--    <p class="pb_font-15">Utiliza nuestra plataforma de forma gratuita</p>
-            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Empezar</a></p> -->
+            <p class="pb_font-15">Utiliza nuestra plataforma de forma gratuita</p>
+            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Saber mas</a></p>
           </div>
         </div>
+        <!--
         <div class="col-md">
           <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
             <h3>Premium</h3>
             <span class="price"><sup>€</sup>19</span>
-            <!--  <p class="pb_font-15">Compra tu cerradura aqui</p>
-            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p> -->
+            <p class="pb_font-15">Compra tu cerradura aqui</p>
+            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>
           </div>
         </div>
-
+         -->
       </div>
     </div>
   </section>
