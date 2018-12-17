@@ -1,7 +1,9 @@
 @extends('layouts.landing')
 @section('title', 'LockSEK')
 @section('content')
+
 <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
+
   <div class="container">
     <div class="row align-items-center justify-content-center">
       <div class="col-md-6">
@@ -13,6 +15,7 @@
       </div>
       <div class="col-md-1">
       </div>
+      @guest
       <div class="col-md-5 relative align-self-center">
         <form method="POST" action="{{ route('register') }}" class="bg-white rounded pb_form_v1">
           @csrf
@@ -32,6 +35,7 @@
           </div>
         </form>
       </div>
+      @endguest
     </div>
   </div>
 </section>
