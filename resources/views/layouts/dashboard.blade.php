@@ -247,7 +247,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-user fa-fw"></i> User</a>
+                            <a href="profile"><i class="fa fa-user fa-fw"></i> User</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-key fa-fw"></i> Keys<span class="fa arrow"></span></a>
