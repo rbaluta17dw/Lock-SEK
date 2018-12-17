@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.landing')
 @section('title', 'LockSEK')
 @section('content')
 <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
