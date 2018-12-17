@@ -20,4 +20,8 @@ class KeysController extends Controller
     {
         return view('pages/key/keys');
     }
+    public function edit()
+    {
+        return view('pages/key/editKey');
+    }
 }

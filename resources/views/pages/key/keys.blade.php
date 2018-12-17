@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('title', 'LockSEK')
 @section('content')
-<p>ESTAS EN LLAVES</p>
+
 
 
 
@@ -13,6 +13,7 @@
             <th>Fecha</th>
             <th>Horario</th>
             <th>Cerradura</th>
+            <th>Acciones</th>
             
         </tr>
     </thead>
@@ -22,18 +23,30 @@
             <td>Fecha 1</td>
             <td>Horario 1 </td>
             <td>Cerradura 1</td>
+            <td>
+                <a href="#">Editar</a>/
+                <a href="#">Eliminar</a>
+            <td>
         </tr>
         <tr>
             <td>Llave 2</td>
             <td>Fecha 2</td>
             <td>Horario 1 </td>
             <td>Cerradura 2</td>
+            <td>
+                <a href="#">Editar</a>/
+                <a href="#">Eliminar</a>
+            <td>
         </tr>
         <tr>
             <td>Llave 3</td>
             <td>Fecha 3</td>
             <td>Horario 1 </td>
             <td>Cerradura 3</td>
+            <td>
+                <a href="#">Editar</a>/
+                <a href="#">Eliminar</a>
+            <td>
         </tr>
 
         
