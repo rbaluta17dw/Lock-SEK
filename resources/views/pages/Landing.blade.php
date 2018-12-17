@@ -310,7 +310,7 @@
  </div>
 </div>
 
-<!-- ENDs ection -->
+<!-- ENDs section -->
 
 <section class="pb_section pb_slant-white" id="section-faq">
   <div class="container">
