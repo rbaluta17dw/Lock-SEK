@@ -20,4 +20,9 @@ class DashboardController extends Controller
     {
         return view('pages/dashboard');
     }
+
+    public function profile()
+    {
+        return view('pages/user/profile');
+    }
 }
