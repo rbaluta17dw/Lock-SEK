@@ -218,9 +218,9 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="/profile"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{ route('logout') }}"
@@ -253,7 +253,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="profile"><i class="fa fa-user fa-fw"></i> User</a>
+                            <a href="/profile"><i class="fa fa-user fa-fw"></i> User</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-key fa-fw"></i> Keys<span class="fa arrow"></span></a>

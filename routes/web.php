@@ -22,10 +22,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('/profile', 'DashboardController@profile')->name('profile');
+Route::get('/profile', 'UserController@index')->name('profile');
+Route::get('/settings', 'UserController@settings')->name('settings');
 
 Route::get('/keys', 'KeysController@index')->name('keys');
-
 
 //Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 Route::get('/keys/edit', ['as'=>'key.edit','uses'=>'KeysController@edit']);
