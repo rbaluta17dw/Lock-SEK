@@ -13,9 +13,12 @@
         <li class="nav-item"><a class="nav-link" href="#section-contact">Contacto</a></li>
         <li class="nav-item"><a class="nav-link" href="#section-pricing">Precios</a></li>
         <li class="nav-item"><a class="nav-link" href="#section-faq">Preguntas Frecuentes</a></li>
+        @guest
         <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="#"><span class="pb_rounded-4 px-4 button" data-toggle="modal" data-target="#login-modal">Iniciar Sesion</span></a></li>
-
-
+        @endguest
+        @auth
+        <li class="nav-item"><a class="nav-link" href="profile">{{Auth::user()->email}}</a></li>
+        @endauth
 
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-dialog">
