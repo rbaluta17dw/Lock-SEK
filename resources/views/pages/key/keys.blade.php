@@ -3,9 +3,6 @@
 @section('content')
 
 
-
-
-
 <table id="table_id" class="display">
     <thead>
         <tr>

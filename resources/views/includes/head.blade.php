@@ -23,4 +23,5 @@
     <link rel="stylesheet" href="{{asset('assets/css/landing-2.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/social.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
-		<link rel="stylesheet" href="{{asset('assets/css/parallax.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/parallax.css')}}">
+    
