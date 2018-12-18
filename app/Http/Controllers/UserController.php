@@ -31,11 +31,11 @@ class UserController extends Controller
     if ($email != '') {
       $user->email = $email;
     }
-    if ($user->password == Hash::make($passwordold)) {
+
       if ($passwordnew != '') {
         $user->password = Hash::make($passwordnew);
       }
-    }
+    
 
     $user->save();
 
