@@ -15,7 +15,7 @@
 
 
      <!-- Custom CSS -->
-     <link href="{{asset('assets/dashboard-resources/css/menuadmin.css')}}" rel="stylesheet">
+     <link href="{{asset('assets/dashboard-resources/css/sb-admin-2.css')}}" rel="stylesheet">
 
 
      <!-- Custom Fonts -->

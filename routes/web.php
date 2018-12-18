@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/settings', 'UserController@settings')->name('settings');
+Route::post('/editprf', 'UserController@editprf')->name('editprf');
 
 Route::get('/keys', 'KeysController@index')->name('keys');
 
