@@ -9,7 +9,7 @@
 <table id="locksTable" class="display">
     <thead>
         <tr>
-            <th>Nombre</th>
+            <th>Cerradura</th>
             <th>Propietario</th>
             <th>Rol</th>
             <th>Acciones</th>
@@ -44,7 +44,7 @@
             <td>
         </tr>
 
-        
+
     </tbody>
 </table>
 
