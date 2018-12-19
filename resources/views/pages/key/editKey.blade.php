@@ -16,7 +16,7 @@
             
             
             
-            <form class="form" action="#" method="post" id="registrationForm">
+            <form class="form" action="#" method="post" >
                 <label for="date">Nuevo nombre de la llave</label>
                 <input type="text" name="newKeyName" placeholder="Nombre de la llave" />
                 
@@ -26,7 +26,7 @@
             </form>
             
             <br>
-            <form class="form" action="#" method="post" id="registrationForm">
+            <form class="form" action="#" method="post" >
                 
                 <label for="date">Nuevo rango de fechas</label>
                 

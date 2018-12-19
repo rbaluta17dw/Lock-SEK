@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <tr id="linea+i">
-            <td id="{{}}">Llave 1</td>
+            <td id="">Llave 1</td>
             <td>Fecha 1</td>
             <td>Horario 1 </td>
             <td>Cerradura 1</td>
