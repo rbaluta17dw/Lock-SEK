@@ -15,13 +15,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Llave 1</td>
+        <tr id="linea+i">
+            <td id="keyName1">Llave 1</td>
             <td>Fecha 1</td>
             <td>Horario 1 </td>
             <td>Cerradura 1</td>
             <td>
-                <a href="#">Editar</a>/
+                <a href="" class="editName">Editar</a>/
                 <a href="#">Eliminar</a>
             <td>
         </tr>

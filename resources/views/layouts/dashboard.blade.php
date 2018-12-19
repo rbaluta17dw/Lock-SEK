@@ -259,7 +259,7 @@
                             <a href="#"><i class="fa fa-key fa-fw"></i> Keys<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a href="{{route('keys')}}">Lista de llaves</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Morris.js Charts</a>

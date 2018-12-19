@@ -29,4 +29,4 @@ Route::post('/editprf', 'UserController@editprf')->name('editprf');
 Route::get('/keys', 'KeyController@index')->name('keys');
 
 //Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
-Route::get('/keys/edit', ['as'=>'key.edit','uses'=>'KeysController@edit']);
+Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
