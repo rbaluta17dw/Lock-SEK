@@ -32,4 +32,5 @@ Route::get('/keys', 'KeyController@index')->name('keys');
 Route::get('/keys/edit', ['as'=>'key.edit','uses'=>'KeysController@edit']);
 
 Route::get('/locks', 'LockController@index')->name('locks');
-Route::get('/registerLock', 'LockController@register')->name('locks');
+Route::get('/registerLock', 'LockController@register')->name('registerLock');
+Route::get('/lock', 'LockController@profile')->name('lock');

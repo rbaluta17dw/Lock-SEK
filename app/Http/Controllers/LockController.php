@@ -14,4 +14,8 @@ class LockController extends Controller
   {
       return view('pages/lock/registerLock');
   }
+  public function profile()
+  {
+      return view('pages/lock/lock');
+  }
 }
