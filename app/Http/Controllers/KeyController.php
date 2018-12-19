@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class KeyController extends Controller
 {
-/* public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
-    }*/
+    }
 
     /**
      * Show the application dashboard.
@@ -23,5 +23,9 @@ class KeyController extends Controller
     public function edit()
     {
         return view('pages/key/editKey');
+    }
+    public function create()
+    {
+        return view('pages/key/createKey');
     }
 }

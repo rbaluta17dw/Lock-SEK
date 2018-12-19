@@ -30,6 +30,7 @@ class CreateWhitelistTable extends Migration
             ->on('locks')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            
             $table->timestamps();
         });
     }
