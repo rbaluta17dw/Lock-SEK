@@ -28,5 +28,8 @@
 
     <!--Fechas-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/date-resources/css/daterangepicker.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/date-resources/datepicker-resources/css/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/date-resources/datepicker-resources/cssbootstrap-standalone.css')}}">
     
     <!--Fin fechas-->

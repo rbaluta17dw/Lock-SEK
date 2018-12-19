@@ -1,5 +1,5 @@
 $(function() {
-    $('input[name="dateRange"]').daterangepicker({
+    $('.rangeCalendar').daterangepicker({
       timePicker: true,
       startDate: moment().startOf('hour'),
       endDate: moment().startOf('hour').add(32, 'hour'),
@@ -40,8 +40,15 @@ $(function() {
     });
 
 
-    $('input[name="multipleDates"]').datepicker({
+	
+    $('.multiCalendar').datepicker({
+        maxViewMode: 3,
+        language: "es",
         multidate: true,
-          format: 'dd-mm-yyyy'
-      });
+        multidateSeparator: "-",
+        toggleActive: true,
+        defaultViewDate: { year: 2018, month: 12, day: 20 },
+        todayHighlight: true,
+
+    });
   });
