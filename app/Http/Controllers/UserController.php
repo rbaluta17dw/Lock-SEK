@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
   public function index()
   {
     return view('pages/user/profile');
@@ -32,10 +36,10 @@ class UserController extends Controller
       $user->email = $email;
     }
 
-      if ($passwordnew != '') {
-        $user->password = Hash::make($passwordnew);
-      }
-    
+    if ($passwordnew != '') {
+      $user->password = Hash::make($passwordnew);
+    }
+
 
     $user->save();
 
