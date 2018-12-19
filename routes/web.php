@@ -19,7 +19,6 @@ Route::post('form','FormularioController@insert');
 // Route::get('/eventos', ['as'=>'eventos','uses'=>'EventoController@index']);
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'UserController@index')->name('profile');
@@ -29,4 +28,11 @@ Route::post('/editprf', 'UserController@editprf')->name('editprf');
 Route::get('/keys', 'KeyController@index')->name('keys');
 
 //Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
+
 Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
+
+
+
+Route::get('/locks', 'LockController@index')->name('locks');
+Route::get('/registerLock', 'LockController@register')->name('locks');
+

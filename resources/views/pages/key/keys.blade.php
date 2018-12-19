@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <tr id="linea+i">
-            <td id="keyName1">Llave 1</td>
+            <td id="{{}}">Llave 1</td>
             <td>Fecha 1</td>
             <td>Horario 1 </td>
             <td>Cerradura 1</td>
@@ -25,6 +25,9 @@
                 <a href="#">Eliminar</a>
             <td>
         </tr>
+
+
+
         <tr>
             <td>Llave 2</td>
             <td>Fecha 2</td>

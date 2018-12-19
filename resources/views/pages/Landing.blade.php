@@ -286,26 +286,28 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
+            <div class="height-90 pb_pricing_v1 p-5 border border-primary text-center bg-white">
               <h3>Free</h3>
-              <span class="price"><sup>€</sup>19</span>
-              <ul>
-                <li></li>
+              <span class="price">0<sub>€</sub></span>
+              <ul style="text-align: left">
+                <li>Registra hasta 3 cerraduras!</li>
+                <li>Controla quien accede.</li>
+                <li>Crea hasta 5 llaves por cerradura.</li>
               </ul>
-              <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>
+              <!--  <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p> -->
             </div>
           </div>
           <div class="col-md-6">
-            <div class="pb_pricing_v1 p-5 border border-primary text-center bg-white">
+            <div class="height-90 pb_pricing_v1 p-5 border border-primary text-center bg-white">
               <h3>Premium</h3>
-              <span class="price"><sup>€</sup>19</span>                  
-              <ul>
-               <li>Establece horarios a las llaves</li>
-               <li>es</li>
-               <li>una</li>
-               <li>prueba</li>
+              <span class="price">19<sub>€</sub></span>  
+              <ul style="text-align: left">
+               <li>Registra cerraduras ilimitadas!</li>
+               <li>Crea cerraduras ilimitadas!</li>
+               <li>Establece horarios a las llaves.</li>
+               <li>Recibe avisos por email.</li>
              </ul>
-             <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>
+             <!-- <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>  -->
            </div>
          </div>
        </div>
