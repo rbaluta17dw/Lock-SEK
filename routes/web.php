@@ -10,18 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Landing Page
 Route::get('/', function () {
     return view('pages/Landing');
 });
-
+// Post mensaje formaulario contacto
 Route::post('form','FormularioController@insert');
 // Route::get('/eventos', ['as'=>'eventos','uses'=>'EventoController@index']);
 
+// Rutas autenticacion
 Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Rutas dashboard
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+// Rutas Perfil
 Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/settings', 'UserController@settings')->name('settings');
 Route::post('/editprf', 'UserController@editprf')->name('editprf');
