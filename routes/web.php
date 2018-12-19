@@ -20,14 +20,10 @@ Route::post('form','FormularioController@insert');
 
 // Rutas autenticacion
 Auth::routes();
-<<<<<<< HEAD
 Auth::routes(['verify' => true]);
 
 // Rutas dashboard
 //Route::get('/home', 'HomeController@index')->name('home');
-=======
-Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> 4889a98aaca7116bf6fe5d447497e037d0de7ed4
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Rutas Perfil
@@ -47,4 +43,3 @@ Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 Route::get('/locks', 'LockController@index')->name('locks');
 Route::get('/registerLock', 'LockController@register')->name('locks');
-
