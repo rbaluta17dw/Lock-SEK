@@ -119,10 +119,10 @@
               <a href="#"><i class="fa fa-key fa-fw"></i> Keys<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                 <li>
-                  <a href="keys">Lista Llaves</a>
+                  <a href="{{ route('keys') }}">Lista Llaves</a>
                 </li>
                 <li>
-                  <a href="createkey">Crear LLave</a>
+                  <a href="{{ route('keys.create') }}">Crear LLave</a>
                 </li>
               </ul>
               <!-- /.nav-second-level -->

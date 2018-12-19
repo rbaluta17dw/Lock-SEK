@@ -24,4 +24,8 @@ class KeyController extends Controller
     {
         return view('pages/key/editKey');
     }
+    public function create()
+    {
+        return view('pages/key/createKey');
+    }
 }

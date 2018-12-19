@@ -26,6 +26,7 @@ class CreatePrivilegesTable extends Migration
             ->on('locks')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            
             $table->boolean("privilege");
             $table->timestamps();
         });
