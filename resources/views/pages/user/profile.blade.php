@@ -23,8 +23,8 @@
 
       <ul class="list-group">
         <li class="list-group-item text-muted">Activos</li>
-        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong> Llaves</strong></span> 125</li>
-        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong> Cerraduras</strong></span> 13</li>
+        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span> 125</li>
+        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong><a href="/locks"> Cerraduras</a></strong></span> 13</li>
       </ul>
 
     </div><!--/col-3-->
@@ -76,9 +76,7 @@
             </div>
           </div>
         </form>
-
         <hr>
-
       </div>
     </div><!--/col-9-->
   </div><!--/row-->

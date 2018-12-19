@@ -26,7 +26,7 @@ Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/settings', 'UserController@settings')->name('settings');
 Route::post('/editprf', 'UserController@editprf')->name('editprf');
 
-Route::get('/keys', 'KeysController@index')->name('keys');
+Route::get('/keys', 'KeyController@index')->name('keys');
 
 //Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 Route::get('/keys/edit', ['as'=>'key.edit','uses'=>'KeysController@edit']);
