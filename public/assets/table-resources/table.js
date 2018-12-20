@@ -1,6 +1,6 @@
 
 $(document).ready( function () {
-    $('#table_id').DataTable();
+    $('#keys_table').DataTable();
 });
 $(document).ready( function () {
     $('#locksTable').DataTable();
