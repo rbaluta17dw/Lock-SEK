@@ -13,7 +13,26 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form>
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nombre</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -34,8 +53,8 @@
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">Para completar el registro de tu cerradura asegurate de tener cerca la cerradura, la necesitaras durante el proceso.</p>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Empezar!
-</button>
+      Empezar!
+    </button>
 
 
 
