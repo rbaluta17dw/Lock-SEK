@@ -2,8 +2,7 @@ $(document).ready(function () {
   $('#register').validate({
     errorPlacement: function(label, element) {
       element.addClass('error');
-
-      label.insertBefore(element);
+      return true;
     },
     rules: {
       email:{
