@@ -8,6 +8,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    public function locks()
+    {
+        return $this->hasMany('App\Lock');
+    }
+
+    public function keys()
+    {
+        return $this->hasMany('App\Lock');
+    }
+
+    public function privileges()
+    {
+        return $this->belongsToMany('App\User');
+    }
     use Notifiable;
 
     /**

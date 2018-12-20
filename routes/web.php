@@ -23,14 +23,14 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 // Rutas dashboard
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Rutas Perfil
 Route::get('/profile', 'UserController@index')->name('profile');
 Route::get('/settings', 'UserController@settings')->name('settings');
 Route::post('/editprf', 'UserController@editprf')->name('editprf');
-
+Route::post('/delete', 'UserController@delete')->name('delete');
 
 
 Route::get('/keys', 'KeyController@index')->name('keys');

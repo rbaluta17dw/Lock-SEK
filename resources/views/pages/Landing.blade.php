@@ -17,15 +17,14 @@
       </div>
       @guest
       <div class="col-md-5 relative align-self-center">
-        <form method="POST" action="{{ route('register') }}" class="bg-white rounded pb_form_v1">
+        <form method="POST" action="{{ route('register') }}" id="register" class="bg-white rounded pb_form_v1">
           @csrf
           <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
           <div class="form-group">
-            <input type="hidden" name="name" value="prueba">
             <input type="email" name="email" class="form-control pb_height-50 reverse" placeholder="Email">
           </div>
           <div class="form-group">
-            <input type="password" name="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
+            <input type="password" id="password" name="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
           </div>
           <div class="form-group">
             <input type="password" name="password_confirmation" class="form-control pb_height-50 reverse" placeholder="Repite la Contraseña">
@@ -300,7 +299,7 @@
           <div class="col-md-6">
             <div class="height-90 pb_pricing_v1 p-5 border border-primary text-center bg-white">
               <h3>Premium</h3>
-              <span class="price">19<sub>€</sub></span>  
+              <span class="price">19<sub>€</sub></span>
               <ul style="text-align: left">
                <li>Registra cerraduras ilimitadas!</li>
                <li>Crea cerraduras ilimitadas!</li>
