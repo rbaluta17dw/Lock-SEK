@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lock extends Model
 {
- 
- 
-
     public function user()
     {
         return $this->belongsTo('App\User');
     }
-    public function keys()
+
+    public function privileges()
     {
-        return $this->hasMany('App\Key');
+        return $this->belongsToMany('App\Privilege');
     }
 }
