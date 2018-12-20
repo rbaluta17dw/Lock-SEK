@@ -1,6 +1,6 @@
 <!-- jQuery -->
 <script src="{{asset('assets/dashboard-resources/js/jquery.min.js')}}"></script>
-
+<script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{asset('assets/dashboard-resources/js/bootstrap.min.js')}}"></script>
@@ -23,6 +23,9 @@
 <script src="{{asset('assets/date-resources/js/daterangepicker.min.js')}}"></script>
 <script src="{{asset('assets/date-resources/datepicker-resources/js/bootstrap-datepicker.min.js')}}"></script>
 
+<!-- Validate -->
+
+<script src="{{asset('assets/js/validation.js')}}"></script>
 
 
 
