@@ -29,9 +29,11 @@ Route::post('/editprf', 'UserController@editprf')->name('editprf');
 
 Route::get('/keys', 'KeyController@index')->name('keys');
 Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create']);
-//Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
-Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
+
+Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
+
+//Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 
 
