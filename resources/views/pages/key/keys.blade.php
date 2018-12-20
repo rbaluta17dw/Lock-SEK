@@ -19,10 +19,10 @@
     @foreach ($keys as $key)
 
         <tr >
-            <td href="{{route('key',$key->id)}}">{{ $key->name }}</td>
+            <td href="{{route('keys.index',$key->id)}}">{{ $key->name }}</td>
             <td>{{ $key->created_at }}</td>
             <td>Horario 1 </td>
-            <td>{{ $key->lock_id }} {{ $key->lock_id }} </td>
+            <td>{{ $key->lock_id }} </td>
             <td>
                 <button type="button" class="btn btn-primary">Editar</button>
                 <!--<a href="" class="editName">Editar</a>-->
@@ -39,8 +39,8 @@
             <td>Horario 1 </td>
             <td>Cerradura 2</td>
             <td>
-                <a href="#">Editar</a>/
-                <a href="#">Eliminar</a>
+            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-danger">Eliminar</button>
             <td>
         </tr>
         <tr>
@@ -49,8 +49,8 @@
             <td>Horario 1 </td>
             <td>Cerradura 3</td>
             <td>
-                <a href="#">Editar</a>/
-                <a href="#">Eliminar</a>
+            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-danger">Eliminar</button>
             <td>
         </tr>
 

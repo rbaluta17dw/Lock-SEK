@@ -14,6 +14,8 @@ class CreatePrivilegesTable extends Migration
     public function up()
     {
         Schema::create('privileges', function (Blueprint $table) {
+
+            
            
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')
@@ -29,6 +31,9 @@ class CreatePrivilegesTable extends Migration
             
             $table->boolean("privilege");
             $table->timestamps();
+
+
+            $table->primary(['user_id', 'lock_id']);
         });
     }
 

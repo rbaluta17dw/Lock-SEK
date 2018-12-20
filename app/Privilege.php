@@ -6,18 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Privilege extends Model
 {
-    public function users()
+    public function user()
     {
-      return $this->belongsToMany('App\User');
+        return $this->belongsTo('App\User');
     }
-
-    public function locks()
+    public function lock()
     {
-      return $this->belongsToMany('App\Lock');
+        return $this->belongsTo('App\Lock');
     }
-
-    public function key()
+    public function keys()
     {
-        return $this->belongsTo('App\Key);
+        return $this->hasMany('App\Key');
     }
 }
