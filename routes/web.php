@@ -23,7 +23,7 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 // Rutas dashboard
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Rutas Perfil
