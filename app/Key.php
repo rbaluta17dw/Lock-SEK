@@ -10,7 +10,7 @@ class Key extends Model
 
     public function privileges()
     {
-        return $this->hasMany('App\Privilege');
+        return $this->hasOne('App\Privilege');
     }
 
 }
