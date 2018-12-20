@@ -8,17 +8,9 @@ class Key extends Model
 {
     protected $table = 'whitelist';
 
-
-
-    public function user()
+    public function privileges()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany('App\Privilege');
     }
-    public function lock()
-    {
-        return $this->belongsTo('App\Lock');
-    }
-
-
 
 }
