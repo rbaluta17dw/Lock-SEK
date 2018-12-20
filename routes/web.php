@@ -23,11 +23,7 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 // Rutas dashboard
-<<<<<<< HEAD
-//Route::get('/home', 'HomeController@index')->name('home');
-=======
 Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> e94e04ea81f65b5a5f33d8bd8bb21f05b8b1bf11
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Rutas Perfil
@@ -46,9 +42,5 @@ Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 
 Route::get('/locks', 'LockController@index')->name('locks');
-<<<<<<< HEAD
 Route::get('/registerLock', 'LockController@register')->name('registerLock');
 Route::get('/lock', 'LockController@profile')->name('lock');
-=======
-Route::get('/registerLock', 'LockController@register')->name('locks');
->>>>>>> e94e04ea81f65b5a5f33d8bd8bb21f05b8b1bf11
