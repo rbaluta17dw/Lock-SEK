@@ -18,6 +18,7 @@ class Lock extends Model
 
     public function privileges()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User', 'privileges');
+
     }
 }

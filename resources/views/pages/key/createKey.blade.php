@@ -22,11 +22,6 @@
                 
                 
                 
-         
-            
-         
-         
-                
                <label for="date">Añade un dispositivo</label>
                 
                <p><input type="file"  name="newKey" /></p>

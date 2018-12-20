@@ -89,9 +89,9 @@
             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
           </a>
           <ul class="dropdown-menu dropdown-user">
-            <li><a href="/profile"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            <li><a href="{{ route('profile.index') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
             </li>
-            <li><a href="/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            <li><a href="{{ route('profile.settings') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
             </li>
             <li class="divider"></li>
             <li><a href="{{ route('logout') }}"
@@ -119,10 +119,10 @@
               <a href="#"><i class="fa fa-key fa-fw"></i> Keys<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                 <li>
-                  <a href="{{ route('keys') }}">Lista Llaves</a>
+                  <a href="{{ route('keys.index') }}">Lista Llaves</a>
                 </li>
                 <li>
-                  <a href="{{ route('keys.create') }}">Crear LLave</a>
+                  <a href="{{ route('keys.createView') }}">Crear LLave</a>
                 </li>
               </ul>
               <!-- /.nav-second-level -->

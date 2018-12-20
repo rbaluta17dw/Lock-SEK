@@ -24,7 +24,7 @@
           </div>
           <div class="titulo-config">
             <h4>Eliminar Cuenta</h4>
-            <form class="" action="delete" method="post">
+            <form class="" action="{{ route('profile.delete') }}" method="post">
               @csrf
               <button class="btn btn-lg btn-danger" type="submit"><i class="fa fa-trash fa-1x"></i> Eliminar</button>
             </form>
