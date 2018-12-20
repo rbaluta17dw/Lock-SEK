@@ -14,9 +14,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Lock');
     }
 
+    public function keys()
+    {
+        return $this->hasMany('App\Lock');
+    }
+
     public function privileges()
     {
-        return $this->belongsToMany('App\Privilege');
+        return $this->belongsToMany('App\User');
     }
     use Notifiable;
 

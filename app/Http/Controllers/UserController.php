@@ -47,4 +47,13 @@ class UserController extends Controller
 
     return view('pages/user/profile');
   }
+  public function delete()
+  {
+    $user = User::find(Auth::user()->id);
+    Auth::logout($user);
+    $user->delete();
+
+
+    return view('pages/Landing');
+  }
 }

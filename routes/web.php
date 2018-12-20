@@ -23,7 +23,7 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 // Rutas dashboard
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Rutas Perfil
@@ -32,7 +32,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', 'UserController@settings')->name('settings');
 Route::post('/editprf', 'UserController@editprf')->name('editprf');
-
+Route::post('/delete', 'UserController@delete')->name('delete');
 
 
 //Rutas llaves
