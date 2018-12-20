@@ -91,7 +91,7 @@
           <ul class="dropdown-menu dropdown-user">
             <li><a href="{{ route('profile.index') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
             </li>
-            <li><a href="/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            <li><a href="{{ route('profile.settings') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
             </li>
             <li class="divider"></li>
             <li><a href="{{ route('logout') }}"

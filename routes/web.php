@@ -23,16 +23,18 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 // Rutas dashboard
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('/home', ['as'=>'home.index','uses'=>'HomeController@index']);
+Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
+
 
 // Rutas Perfil
 
 
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
-Route::get('/settings', 'UserController@settings')->name('settings');
-Route::post('/editprf', 'UserController@editprf')->name('editprf');
-Route::post('/delete', 'UserController@delete')->name('delete');
+Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);
+Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf']);
+Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete']);
 
 
 //Rutas llaves
