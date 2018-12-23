@@ -46,7 +46,6 @@ Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 //Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 //Rutas cerraduras
-
-Route::get('/locks', 'LockController@index')->name('locks');
+Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);
 Route::get('/registerLock', 'LockController@register')->name('registerLock');
 Route::get('/lock', 'LockController@profile')->name('lock');

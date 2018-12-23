@@ -128,7 +128,7 @@
               <!-- /.nav-second-level -->
             </li>
             <li>
-              <a href="tables.html"><i class="fa fa-lock fa-fw"></i> Locks</a>
+              <a href="{{ route('locks.index') }}"><i class="fa fa-lock fa-fw"></i> Locks</a>
             </li>
           </ul>
         </div>
