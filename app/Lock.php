@@ -13,7 +13,7 @@ class Lock extends Model
 
     public function keys()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany('App\Key');
     }
 
     public function privileges()
