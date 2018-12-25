@@ -17,7 +17,7 @@
       @foreach ($locks as $lock)
         <tr>
             <td>{{ $lock->name }}</td>
-            <td>{{ $lock->user_id }}</td>
+            <td>{{ $lock->user->name }}</td>
             <!-- Aqui va un if para saber si el usuario es propietario o simplemente tiene acceso a la cerradura -->
             <td>Rol 1 </td>
             <!-- Solo aparecera boton editar si es propietario -->
