@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
      <!-- Bootstrap Core CSS -->
 
      <link href="{{asset('assets/dashboard-resources/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -31,5 +30,5 @@
 
     <link rel="stylesheet" href="{{asset('assets/date-resources/datepicker-resources/css/bootstrap-datepicker3.css')}}">
     <link rel="stylesheet" href="{{asset('assets/date-resources/datepicker-resources/cssbootstrap-standalone.css')}}">
-    
+
     <!--Fin fechas-->

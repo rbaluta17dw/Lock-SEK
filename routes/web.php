@@ -50,3 +50,7 @@ Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 Route::get('/locks', 'LockController@index')->name('locks');
 Route::get('/registerLock', 'LockController@register')->name('registerLock');
 Route::get('/lock', 'LockController@profile')->name('lock');
+
+// rutas Notificaciones
+
+Route::get('/notifications', 'AjaxController@getNotifications')->name('notifications');
