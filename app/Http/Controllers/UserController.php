@@ -23,10 +23,21 @@ class UserController extends Controller
   }
   public function editprf(Request $request)
   {
+
+
+    $validatedData = $request->validate([
+      'name' => 'required|unique:posts|max:255',
+      'body' => 'required',
+  ]);
+
+
     $name = $request->input('name');
     $email = $request->input('email');
     $passwordold = $request->input('password');
     $passwordnew = $request->input('password2');
+
+
+   
 
     $user = User::find(Auth::user()->id);
     if ($name != '') {
