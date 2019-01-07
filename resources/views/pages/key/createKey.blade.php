@@ -22,13 +22,10 @@
                 
                 
                 
-<<<<<<< HEAD
-=======
          
             
          
                 
->>>>>>> 2b4a62625bc1170dfe254970a5f3dba3fd8c71be
                <label for="date">Añade un dispositivo</label>
                 
                <p><input type="file"  name="newKey" /></p>

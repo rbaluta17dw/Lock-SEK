@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Key;
+use App\User;
+use Auth;
 
 class KeyController extends Controller
 {
@@ -19,8 +21,8 @@ class KeyController extends Controller
      */
     public function index()
     {
-
-        $keys=Key::all();
+       // $user = User::find(Auth::user()->id);
+        $keys =Key::where('user_id', 1);
         return view('pages/key/keys',['keys'=>$keys]);
     }
 

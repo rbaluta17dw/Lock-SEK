@@ -26,8 +26,17 @@ class UserController extends Controller
 
 
     $validatedData = $request->validate([
-      'name' => 'required|unique:posts|max:255',
-      'body' => 'required',
+      'email' => 'nullable|email|unique:users',
+      'name' => 'nullable|string|max:45',
+
+      'password' => ['required', 
+               'min:6', 
+               'regex:/^[a-zA-Z0-9]{6,45}$/'],
+
+      'password2' => ['nullable', 
+               'min:6', 
+               'regex:/^[a-zA-Z0-9]{6,45}$/']
+      
   ]);
 
 
@@ -46,6 +55,7 @@ class UserController extends Controller
     if ($email != '') {
       $user->email = $email;
     }
+
 
     if ($passwordnew != '') {
       $user->password = Hash::make($passwordnew);
