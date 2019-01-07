@@ -33,7 +33,7 @@ class CreateNotificationsTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->unsignedInteger('key_id');
+            $table->unsignedInteger('key_id')->nullable();
             $table->foreign('key_id')->references('id')
             ->on('whitelist')
             ->onDelete('cascade')
