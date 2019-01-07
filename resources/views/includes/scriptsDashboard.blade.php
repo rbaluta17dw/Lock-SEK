@@ -26,7 +26,7 @@
 <!-- Validate -->
 
 <script src="{{asset('assets/js/validation.js')}}"></script>
-
+<script src="{{asset('assets/js/ajax.js')}}"></script>
 
 
 <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>

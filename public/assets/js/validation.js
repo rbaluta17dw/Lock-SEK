@@ -30,10 +30,10 @@ $(document).ready(function () {
       },
       password: {
         required: true,
-        min: 6
+        minlength: 6
       },
       password2:{
-        min: 6,
+        minlength: 6,
         notEqualTo: "#password"
       }
     }
