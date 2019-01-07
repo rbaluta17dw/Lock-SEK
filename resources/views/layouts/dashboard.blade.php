@@ -109,13 +109,13 @@
         </li>
         <!-- /.dropdown -->
       </ul>
-      @endauth
+
       <!-- /.navbar-top-links -->
 
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
           <ul class="nav" id="side-menu">
-            @auth
+
             <li>
               <a href="/profile"><i class="fa fa-user fa-fw"></i> User</a>
             </li>
@@ -135,11 +135,13 @@
               <a href="{{ route('locks') }}"><i class="fa fa-lock fa-fw"></i> Locks</a>
             </li>
           </ul>
-          @endauth
+
         </div>
         <!-- /.sidebar-collapse -->
       </div>
+      @endauth
       <!-- /.navbar-static-side -->
+
     </nav>
 
     <!-- Page Content -->
