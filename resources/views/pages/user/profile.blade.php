@@ -19,6 +19,7 @@
             <input type="file" class="text-center center-block file-upload">
           </div>
 
+<<<<<<< HEAD
         </div></hr><br>
 
         <ul class="list-group">
@@ -26,6 +27,17 @@
           <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span> 125</li>
           <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong><a href="/locks"> Cerraduras</a></strong></span> 13</li>
         </ul>
+=======
+      </div></hr><br>
+      <a href="{{ route('change_lang', ['lang' => 'es']) }}">ES</a>
+      <a href="{{ route('change_lang', ['lang' => 'en']) }}">EN</a>
+      <a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU</a>
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Activos</li>
+        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span> 125</li>
+        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong><a href="/locks"> Cerraduras</a></strong></span> 13</li>
+      </ul>
+>>>>>>> df7c8ccc00087c2e84916dcb0843a572ba2924d9
 
       </div><!--/col-3-->
       <div class="col-sm-9">

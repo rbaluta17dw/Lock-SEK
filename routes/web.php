@@ -27,6 +27,15 @@ Auth::routes(['verify' => true]);
 Route::get('/home', ['as'=>'home.index','uses'=>'HomeController@index']);
 Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
 
+// Rutas Notificaciones
+Route::get('/notifications', function () {
+    return view('pages/notification/notifications');
+});
+// Idiomas
+Route::get('lang/{lang}', function($lang) {
+  \Session::put('lang', $lang);
+  return \Redirect::back();
+})->middleware('web')->name('change_lang');
 
 // Rutas Perfil
 
@@ -46,8 +55,7 @@ Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 //Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 //Rutas cerraduras
-
-Route::get('/locks', 'LockController@index')->name('locks');
+Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);
 Route::get('/registerLock', 'LockController@register')->name('registerLock');
 Route::get('/lock', 'LockController@profile')->name('lock');
 
