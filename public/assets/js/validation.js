@@ -11,7 +11,7 @@ $(document).ready(function () {
       },
       password: {
         required: true,
-        min: 6
+        minlength: 6
       },
       password_confirmation:{
         required: true,
