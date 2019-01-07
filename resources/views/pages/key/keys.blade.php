@@ -6,12 +6,12 @@
 <table id="keys_table" class="display">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Fecha</th>
-            <th>Horario</th>
-            <th>Cerradura</th>
-            <th>Acciones</th>
-            
+            <th>@lang('keys.name')</th>
+            <th>@lang('keys.date')</th>
+            <th>@lang('keys.schedule')</th>
+            <th>@lang('keys.lock')</th>
+            <th>@lang('keys.actions')</th>
+
         </tr>
     </thead>
     <tbody>
@@ -24,9 +24,9 @@
             <td>Horario 1 </td>
             <td>{{ $key->lock_id }} </td>
             <td>
-                <button type="button" class="btn btn-primary">Editar</button>
+                <button type="button" class="btn btn-primary">@lang('keys.edit')</button>
                 <!--<a href="" class="editName">Editar</a>-->
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-danger">@lang('keys.delete')</button>
                 <!--<a href="#">Eliminar</a>-->
             <td>
         </tr>
@@ -54,7 +54,7 @@
             <td>
         </tr>
 
-        
+
     </tbody>
 </table>
 
