@@ -32,6 +32,7 @@
 
 
 <script src="{{asset('assets/js/keyForm.js')}}"></script>
+<script src="{{asset('assets/js/editKey.js')}}"></script>
 
 
 
