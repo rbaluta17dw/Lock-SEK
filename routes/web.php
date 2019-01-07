@@ -27,6 +27,10 @@ Auth::routes(['verify' => true]);
 Route::get('/home', ['as'=>'home.index','uses'=>'HomeController@index']);
 Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
 
+// Rutas Notificaciones
+Route::get('/notifications', function () {
+    return view('pages/notification/notifications');
+});
 
 // Rutas Perfil
 
