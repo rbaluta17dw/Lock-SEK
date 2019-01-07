@@ -1,21 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header">{{ __('Verifique su correo electronico') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+                            {{ __('Un link de verificacion se ha enviado a su email.') }}
                         </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                    {{ __('Antes de proceder por favor confirme el email que le hemos enviado.') }}
+                    {{ __('Si no recibio el email ') }}, <a href="{{ route('verification.resend') }}">{{ __('haga click aqui para reenviar') }}</a>.
                 </div>
             </div>
         </div>

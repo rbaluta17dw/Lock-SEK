@@ -33,23 +33,23 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);
-Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf']);
+Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf'])->middleware('verified');
 Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete']);
 
 
 //Rutas llaves
-Route::get('/keys', ['as'=>'keys.index','uses'=>'KeyController@index']);
-Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create']);
-Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView']);
-Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
+Route::get('/keys', ['as'=>'keys.index','uses'=>'KeyController@index'])->middleware('verified');
+Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])->middleware('verified');
+Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView'])->middleware('verified');
+Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit'])->middleware('verified');
 
 //Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 //Rutas cerraduras
 
-Route::get('/locks', 'LockController@index')->name('locks');
-Route::get('/registerLock', 'LockController@register')->name('registerLock');
-Route::get('/lock', 'LockController@profile')->name('lock');
+Route::get('/locks', 'LockController@index')->name('locks')->middleware('verified');
+Route::get('/registerLock', 'LockController@register')->name('registerLock')->middleware('verified');
+Route::get('/lock', 'LockController@profile')->name('lock')->middleware('verified');
 
 // rutas Notificaciones
 
