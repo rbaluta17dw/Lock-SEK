@@ -30,10 +30,6 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 
 // Rutas Perfil
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 90287a3755ae70666b5dcf003409a10d273b8131
 
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);

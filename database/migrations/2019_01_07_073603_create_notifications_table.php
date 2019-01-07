@@ -15,6 +15,8 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('message');
             $table->integer('marker');
             $table->boolean('read');
             
