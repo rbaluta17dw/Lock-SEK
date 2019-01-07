@@ -30,6 +30,7 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 
 // Rutas Perfil
 
+
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);
 Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf']);
