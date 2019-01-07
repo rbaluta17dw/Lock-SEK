@@ -21,9 +21,10 @@
         <a class="navbar-brand" href="/">LockSEK</a>
       </div>
       <!-- /.navbar-header -->
-
+      @auth
       <ul class="nav navbar-top-links navbar-right">
         <!-- /.dropdown -->
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -83,6 +84,7 @@
           </ul>
           <!-- /.dropdown-alerts -->
         </li>
+
         <!-- /.dropdown -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -107,11 +109,13 @@
         </li>
         <!-- /.dropdown -->
       </ul>
+
       <!-- /.navbar-top-links -->
 
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
           <ul class="nav" id="side-menu">
+
             <li>
               <a href="/profile"><i class="fa fa-user fa-fw"></i> User</a>
             </li>
@@ -128,13 +132,16 @@
               <!-- /.nav-second-level -->
             </li>
             <li>
-              <a href="tables.html"><i class="fa fa-lock fa-fw"></i> Locks</a>
+              <a href="{{ route('locks') }}"><i class="fa fa-lock fa-fw"></i> Locks</a>
             </li>
           </ul>
+
         </div>
         <!-- /.sidebar-collapse -->
       </div>
+      @endauth
       <!-- /.navbar-static-side -->
+
     </nav>
 
     <!-- Page Content -->
