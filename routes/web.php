@@ -31,6 +31,11 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 Route::get('/notifications', function () {
     return view('pages/notification/notifications');
 });
+// Idiomas
+Route::get('lang/{lang}', function($lang) {
+  \Session::put('lang', $lang);
+  return \Redirect::back();
+})->middleware('web')->name('change_lang');
 
 // Rutas Perfil
 

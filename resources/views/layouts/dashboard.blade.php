@@ -113,22 +113,22 @@
         <div class="sidebar-nav navbar-collapse">
           <ul class="nav" id="side-menu">
             <li>
-              <a href="/profile"><i class="fa fa-user fa-fw"></i> User</a>
+              <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-key fa-fw"></i> Keys<span class="fa arrow"></span></a>
+              <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                 <li>
-                  <a href="{{ route('keys.index') }}">Lista Llaves</a>
+                  <a href="{{ route('keys.index') }}">@lang('dashboard.listkey')</a>
                 </li>
                 <li>
-                  <a href="{{ route('keys.createView') }}">Crear LLave</a>
+                  <a href="{{ route('keys.createView') }}">@lang('dashboard.createkey')</a>
                 </li>
               </ul>
               <!-- /.nav-second-level -->
             </li>
             <li>
-              <a href="{{ route('locks.index') }}"><i class="fa fa-lock fa-fw"></i> Locks</a>
+              <a href="{{ route('locks.index') }}"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')</a>
             </li>
           </ul>
         </div>

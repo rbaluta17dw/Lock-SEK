@@ -20,7 +20,9 @@
         </div>
 
       </div></hr><br>
-
+      <a href="{{ route('change_lang', ['lang' => 'es']) }}">ES</a>
+      <a href="{{ route('change_lang', ['lang' => 'en']) }}">EN</a>
+      <a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU</a>
       <ul class="list-group">
         <li class="list-group-item text-muted">Activos</li>
         <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span> 125</li>
