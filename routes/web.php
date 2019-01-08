@@ -34,6 +34,7 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);
 Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf'])->middleware('verified');
+Route::post('/editImg', ['as'=>'profile.editImg','uses'=>'UserController@editImg']);
 Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete']);
 
 
