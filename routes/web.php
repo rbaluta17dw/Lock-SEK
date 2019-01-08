@@ -56,17 +56,10 @@ Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit'])-
 //Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 //Rutas cerraduras
-<<<<<<< HEAD
 Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);
 Route::get('/registerLock', 'LockController@register')->name('registerLock');
 Route::get('/createLock', 'LockController@create')->name('createLock');
 Route::get('/lock', 'LockController@profile')->name('lock');
-=======
-
-Route::get('/locks', 'LockController@index')->name('locks')->middleware('verified');
-Route::get('/registerLock', 'LockController@register')->name('registerLock')->middleware('verified');
-Route::get('/lock', 'LockController@profile')->name('lock')->middleware('verified');
->>>>>>> aba719cd99637f4b15845ff414913571ba6411eb
 
 // rutas Notificaciones
 
