@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -15,6 +16,9 @@ class UserController extends Controller
   }
   public function index()
   {
+    //$user = User::find(Auth::user()->id);
+
+
     return view('pages/user/profile');
   }
   public function settings()
@@ -55,5 +59,20 @@ class UserController extends Controller
 
 
     return view('pages/Landing');
+  }
+  public function editImg(Request $request)
+  {
+      $image = $request->file('img');
+      $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
+      $request->file('img')->storeAs('public/avatars', $input['imagename']);
+
+      $user = User::find(Auth::user()->id);
+      if ($user->imgname != null) {
+        Storage::delete('avatars/'.$user->imgname);
+      }
+      $user->imgname = $input['imagename'];
+      $user->save();
+      Auth::login($user);
+      return view('pages/user/profile');
   }
 }

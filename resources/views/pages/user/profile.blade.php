@@ -13,11 +13,19 @@
 
 
         <div class="text-center">
+          @if (isset(Auth::user()->imgname))
+            <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" class="avatar img-circle img-thumbnail" alt="avatar">
+          @else
           <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+          @endif
           <h6>Imagen de perfil</h6>
-          <div class="prf-img-inp config">
-            <input type="file" class="text-center center-block file-upload">
-          </div>
+          <form class="form" action="{{ route('profile.editImg') }}" method="post" id="registrationForm" enctype="multipart/form-data" >
+            @csrf
+            <div class="prf-img-inp config">
+              <input type="file" name="img" class="text-center center-block file-upload">
+              <input type="submit" name="subir" value="subir">
+            </div>
+          </form>
 
       </div></hr><br>
       <a href="{{ route('change_lang', ['lang' => 'es']) }}">ES</a>
