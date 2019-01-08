@@ -19,19 +19,9 @@
             <form class="form" action="#" method="post">
                 <label for="date">Nombre de la llave</label>
                 <p> <input type="text" name="newKeyName" placeholder="Nombre de la llave" /></p>
-<<<<<<< HEAD
-                
-                
-                
-         
-            
-         
-                
-=======
 
 
 
->>>>>>> df7c8ccc00087c2e84916dcb0843a572ba2924d9
                <label for="date">Añade un dispositivo</label>
 
                <p><input type="file"  name="newKey" /></p>
