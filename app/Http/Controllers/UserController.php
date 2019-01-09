@@ -24,18 +24,21 @@ class UserController extends Controller
   public function editprf(Request $request)
   {
 
-
     $validatedData = $request->validate([
       'email' => 'nullable|email|unique:users',
-      'name' => 'nullable|string|max:45',
+      'name' => ['nullable', 
+                'string',
+                'max:45',
+                'min:4', 
+                'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.]+$'],
 
       'password' => ['required', 
                'min:6', 
-               'regex:/^[a-zA-Z0-9]{6,45}$/'],
+               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
 
       'password2' => ['nullable', 
                'min:6', 
-               'regex:/^[a-zA-Z0-9]{6,45}$/']
+               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$']
       
   ]);
 
@@ -75,6 +78,6 @@ class UserController extends Controller
     $user->delete();
 
 
-    return view('pages/Landing');
+    return view('pages/Landing/#section-contact');
   }
 }

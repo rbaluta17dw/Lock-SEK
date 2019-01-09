@@ -17,17 +17,18 @@
     <tbody>
 
     @foreach ($keys as $key)
-
+        <form>
         <tr >
-            <td href="{{route('keys.index',$key->id)}}" id="llave{{ $key->id }}">{{ $key->name }}</td>
+            <td href="{{route('keys.index',$key->id)}}" id="key{{ $key->id }}">{{ $key->name }}</td>
             <td>{{ $key->created_at }}</td>
             <td>Horario 1 </td>
             <td>{{ $key->lock->name }} </td>
             <td id="botones">
-                <button type="button" id="editName" class="btn btn-primary">Editar</button>
-                <button type="button" id="deleteKey" class="btn btn-danger">Eliminar</button>
+                <button type="button" id="editName{{$key->id}}" class="btn btn-primary">Editar</button>
+                <button type="button" id="deleteKey{{$key->id}}" class="btn btn-danger">Eliminar</button>
             <td>
         </tr>
+        </form>
     @endforeach
 
 

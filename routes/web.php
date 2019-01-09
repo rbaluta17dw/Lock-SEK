@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('pages/Landing');
 });
-// Post mensaje formaulario contacto
-Route::post('form','FormularioController@insert');
+// Post mensaje formulario contacto
+Route::post('/form',['as'=>'form.insert','uses'=>'FormController@insert']);
 // Route::get('/eventos', ['as'=>'eventos','uses'=>'EventoController@index']);
 
 // Rutas autenticacion

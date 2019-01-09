@@ -21,10 +21,20 @@ class KeyController extends Controller
      */
     public function index()
     {
-       // $user = User::find(Auth::user()->id);
-        $keys =Key::where('user_id', 1);
+
+
+      $keys = Key::where('user_id', Auth::user()->id)->get();
+
         return view('pages/key/keys',['keys'=>$keys]);
     }
+
+
+
+
+
+
+
+
 
     public function edit($id)
     {
