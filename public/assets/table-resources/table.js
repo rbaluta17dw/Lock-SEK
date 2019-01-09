@@ -5,3 +5,11 @@ $(document).ready( function () {
 $(document).ready( function () {
     $('#locksTable').DataTable();
 });
+$(document).ready( function () {
+    $('#aUsersTable').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+          'copy', 'excel', 'pdf'
+      ]
+  } );
+});
