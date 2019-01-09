@@ -26,6 +26,9 @@
 <!-- Validate -->
 
 <script src="{{asset('assets/js/validation.js')}}"></script>
+
+<!-- Ajax -->
+
 <script src="{{asset('assets/js/ajax.js')}}"></script>
 
 
@@ -35,6 +38,7 @@
 
 
 <script src="{{asset('assets/js/keyForm.js')}}"></script>
+<script src="{{asset('assets/js/editKey.js')}}"></script>
 
 
 

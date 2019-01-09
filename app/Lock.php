@@ -16,6 +16,11 @@ class Lock extends Model
         return $this->hasMany('App\Key');
     }
 
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
+    }
+
     public function privileges()
     {
         return $this->belongsToMany('App\User', 'privileges');

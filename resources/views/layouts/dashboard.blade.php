@@ -29,19 +29,16 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
           </a>
-          <ul class="dropdown-menu dropdown-alerts">
-            @if (@isset($notifications))
-              @foreach ($notifications as $notification)
-                <li>
+          <ul class="dropdown-menu dropdown-alerts" id="notifications">
+              <!--  <li>
                   <a href="#">
                     <div>
-                      <i class="fa fa-comment fa-fw"></i> {{$notification->title}}
-                      <span class="pull-right text-muted small">{{$notification->created_at}}</span>
+                      <i class="fa fa-comment fa-fw"></i>
+                      <span class="pull-right text-muted small"></span>
                     </div>
                   </a>
-                </li>
-              @endforeach
-            @endif
+                </li> -->
+
           </ul>
           <!-- /.dropdown-alerts -->
         </li>

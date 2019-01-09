@@ -27,10 +27,33 @@ class UserController extends Controller
   }
   public function editprf(Request $request)
   {
+
+    $validatedData = $request->validate([
+      'email' => 'nullable|email|unique:users',
+      'name' => ['nullable', 
+                'string',
+                'max:45',
+                'min:4', 
+                'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.]+$'],
+
+      'password' => ['required', 
+               'min:6', 
+               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
+
+      'password2' => ['nullable', 
+               'min:6', 
+               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$']
+      
+  ]);
+
+
     $name = $request->input('name');
     $email = $request->input('email');
     $passwordold = $request->input('password');
     $passwordnew = $request->input('password2');
+
+
+   
 
     $user = User::find(Auth::user()->id);
     if ($name != '') {
@@ -39,6 +62,7 @@ class UserController extends Controller
     if ($email != '') {
       $user->email = $email;
     }
+
 
     if ($passwordnew != '') {
       $user->password = Hash::make($passwordnew);
@@ -58,7 +82,7 @@ class UserController extends Controller
     $user->delete();
 
 
-    return view('pages/Landing');
+    return view('pages/Landing/#section-contact');
   }
   public function editImg(Request $request)
   {
@@ -67,7 +91,7 @@ class UserController extends Controller
       $request->file('img')->storeAs('public/avatars', $input['imagename']);
 
       $user = User::find(Auth::user()->id);
-      if ($user->imgname != null) {
+      if ($user->imgname != '') {
         Storage::delete('avatars/'.$user->imgname);
       }
       $user->imgname = $input['imagename'];

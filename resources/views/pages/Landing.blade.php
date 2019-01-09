@@ -212,19 +212,23 @@
                   <div>
                     <h2>CONTÁCTANOS</h2>
                   </div>
-                  <form action="form" method="post" data-form-title="CONTACTANOS">
+                  <form action="{{ route('form.insert')}}" method="post" data-form-title="CONTACTANOS">
                     @csrf
                     <input type="hidden" data-form-email="true">
                     <div class="form-group">
-                      <input type="text" class="form-control" name="nombre" required="" placeholder="Nombre*" data-form-field="Name">
+                      <input type="text" class="form-control" name="name" required="" placeholder="Nombre*" data-form-field="Name">
                     </div>
                     <div class="form-group">
                       <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control" name="mensaje" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></textarea>
+<<<<<<< HEAD
+                      <input class="form-control" type="text" name="mensaje" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></input>
+=======
+                      <textarea class="form-control" name="message" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></textarea>
+>>>>>>> ca86545caf4bb0745288492f5eda093a7b75d794
                     </div>
-                    <div>
+                    <div class="form-group">
                       <button type="submit" class="btn btn-lg btn-primary">CONTÁCTANOS</button>
                     </div>
                   </form>
@@ -238,6 +242,15 @@
         </div>
       </section>
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
   </section>
   <!-- END section -->
 

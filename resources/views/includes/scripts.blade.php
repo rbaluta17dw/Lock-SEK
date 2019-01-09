@@ -15,3 +15,4 @@
 <script src="{{asset('assets/js/parallax/parallax.min.js')}}"></script>
 
 <script src="{{asset('assets/js/validation.js')}}"></script>
+<script src="{{asset('assets/js/editKey.js')}}"></script>
