@@ -222,9 +222,9 @@
                       <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control" name="mensaje" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></textarea>
+                      <input class="form-control" type="text" name="mensaje" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></input>
                     </div>
-                    <div>
+                    <div class="form-group">
                       <button type="submit" class="btn btn-lg btn-primary">CONTÁCTANOS</button>
                     </div>
                   </form>
