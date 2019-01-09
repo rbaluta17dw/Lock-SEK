@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('pages/Landing');
 });
-// Post mensaje formaulario contacto
-Route::post('form','FormularioController@insert');
+// Post mensaje formulario contacto
+Route::post('/form',['as'=>'form.insert','uses'=>'FormController@insert']);
 // Route::get('/eventos', ['as'=>'eventos','uses'=>'EventoController@index']);
 
 // Rutas autenticacion
@@ -53,7 +53,7 @@ Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])
 Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView'])->middleware('verified');
 Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit'])->middleware('verified');
 
-//Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
+Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 //Rutas cerraduras
 Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);

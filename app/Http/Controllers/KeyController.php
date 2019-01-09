@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Key;
+use App\User;
+use Auth;
 
 class KeyController extends Controller
 {
@@ -20,9 +22,19 @@ class KeyController extends Controller
     public function index()
     {
 
-        $keys=Key::all();
+
+      $keys = Key::where('user_id', Auth::user()->id)->get();
+
         return view('pages/key/keys',['keys'=>$keys]);
     }
+
+
+
+
+
+
+
+
 
     public function edit($id)
     {
