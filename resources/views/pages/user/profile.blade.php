@@ -46,19 +46,19 @@
             <div class="form-group">
 
               <div class="col-xs-6">
-                <label for="first_name"><h4>Nombre</h4></label>
+                <label for="first_name"><h4>@lang('profile.name')</h4></label>
                 @if(Auth::user()->name == '')
                   <p>Ingrese un nombre con el boton de configuracion</p>
                 @else
                   <p>{{Auth::user()->name}}</p>
                 @endif
-                <input type="text" class="form-control config" name="name" id="first_name" placeholder="nombre" title="enter your first name if any.">
+                <input type="text" class="form-control config" name="name" id="first_name" placeholder="@lang('profile.name')" title="enter your first name if any.">
               </div>
             </div>
             <div class="form-group">
 
               <div class="col-xs-6">
-                <label for="email"><h4>Email</h4></label>
+                <label for="email"><h4>@lang('profile.email')</h4></label>
                 <h4>{{Auth::user()->email}}</h4>
                 <input type="email" class="form-control config" name="email" id="email" placeholder="you@email.com" title="enter your email.">
               </div>
@@ -66,23 +66,23 @@
             <div class="form-group">
 
               <div class="col-xs-6">
-                <label for="password" class="config"><h4>Contraseña Actual</h4></label>
-                <input type="password" class="form-control config" name="password" id="password" placeholder="Contraseña Actual" title="enter your password.">
+                <label for="password" class="config"><h4>@lang('profile.currentpassword')</h4></label>
+                <input type="password" class="form-control config" name="password" id="password" placeholder="@lang('profile.currentpassword')" title="enter your password.">
               </div>
             </div>
             <div class="form-group">
 
               <div class="col-xs-6">
-                <label for="password2" class="config"><h4>Contraseña Nueva</h4></label>
-                <input type="password" class="form-control config" name="password2" id="password2" placeholder="Contraseña Nueva" title="enter your password2.">
+                <label for="password2" class="config"><h4>@lang('profile.newpassword')</h4></label>
+                <input type="password" class="form-control config" name="password2" id="password2" placeholder="@lang('profile.newpassword')" title="enter your password2.">
               </div>
             </div>
             <div class="form-group">
               <div class="col-xs-12 ">
                 <br>
-                <button class="btn btn-lg" type="button" id="config"><i class="fa fa-cogs fa-1x"></i> Editar</button>
-                <button class="btn btn-lg btn-success config" type="submit"><i class="fa fa-check fa-1x"></i> Save</button>
-                <button class="btn btn-lg btn-danger config" type="reset"><i class="fa fa-retweet fa-1x"></i> Reset</button>
+                <button class="btn btn-lg" type="button" id="config"><i class="fa fa-cogs fa-1x"></i>@lang('profile.editbutton')</button>
+                <button class="btn btn-lg btn-success config" type="submit"><i class="fa fa-check fa-1x"></i>@lang('profile.savebutton')</button>
+                <button class="btn btn-lg btn-danger config" type="reset"><i class="fa fa-retweet fa-1x"></i>@lang('profile.resetbutton')</button>
               </div>
             </div>
           </form>
