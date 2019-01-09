@@ -31,11 +31,18 @@ Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@i
 Route::get('/notifications', function () {
     return view('pages/notification/notifications');
 });
+
 // Idiomas
 Route::get('lang/{lang}', function($lang) {
   \Session::put('lang', $lang);
   return \Redirect::back();
 })->middleware('web')->name('change_lang');
+
+//admin
+Route::get('/adashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
+Route::get('/ausers', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
+
+
 
 // Rutas Perfil
 

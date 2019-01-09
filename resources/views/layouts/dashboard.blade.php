@@ -73,7 +73,11 @@
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
           <ul class="nav" id="side-menu">
-
+            @if (Auth::user()->roleId == 2)
+            <li>
+              <a href="/profile"><i class="fa fa-user fa-fw"></i> Users</a>
+            </li>
+            @else
             <li>
               <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
             </li>
@@ -92,6 +96,7 @@
             <li>
               <a href="{{ route('locks.index') }}"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')</a>
             </li>
+            @endif
           </ul>
 
         </div>
