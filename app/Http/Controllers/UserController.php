@@ -67,7 +67,7 @@ class UserController extends Controller
       $request->file('img')->storeAs('public/avatars', $input['imagename']);
 
       $user = User::find(Auth::user()->id);
-      if ($user->imgname != null) {
+      if ($user->imgname != '') {
         Storage::delete('avatars/'.$user->imgname);
       }
       $user->imgname = $input['imagename'];

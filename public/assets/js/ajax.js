@@ -1,6 +1,7 @@
 
 $(window).click(function(){
-  $.ajax({url: "/notifications", success: function(result){
-    alert("si");
+  $.ajax({url: "https://www.google.es/", success: function(result){
+
+      alert(result);
   }});
 });

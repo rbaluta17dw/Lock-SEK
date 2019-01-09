@@ -17,7 +17,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function keys()
     {
-        return $this->hasMany('App\Lock');
+        return $this->hasMany('App\Key');
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
     }
 
     public function privileges()

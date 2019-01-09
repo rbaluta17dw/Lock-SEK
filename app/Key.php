@@ -17,4 +17,9 @@ class Key extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
+    }
 }

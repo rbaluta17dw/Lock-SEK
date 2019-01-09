@@ -17,6 +17,7 @@ class AjaxController extends Controller
 
     public function getNotifications(){
         $notifications = Notification::where('user_id', Auth::user()->id);
-        return $notifications;
+        $titulo = $notifications->title;
+        return $titulo;
     }
 }

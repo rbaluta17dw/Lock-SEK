@@ -26,6 +26,9 @@
 <!-- Validate -->
 
 <script src="{{asset('assets/js/validation.js')}}"></script>
+
+<!-- Ajax -->
+
 <script src="{{asset('assets/js/ajax.js')}}"></script>
 
 

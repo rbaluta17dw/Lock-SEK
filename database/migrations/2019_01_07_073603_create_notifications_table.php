@@ -19,15 +19,15 @@ class CreateNotificationsTable extends Migration
             $table->string('message');
             $table->integer('marker');
             $table->boolean('read');
-            
-            
+
+
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
-            $table->unsignedInteger('lock_id');
+
+            $table->unsignedInteger('lock_id')->nullable();
             $table->foreign('lock_id')->references('id')
             ->on('locks')
             ->onDelete('cascade')
@@ -38,7 +38,7 @@ class CreateNotificationsTable extends Migration
             ->on('whitelist')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
+
             $table->timestamps();
         });
     }
