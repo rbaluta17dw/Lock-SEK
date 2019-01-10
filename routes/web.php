@@ -39,10 +39,11 @@ Route::get('lang/{lang}', function($lang) {
 })->middleware('web')->name('change_lang');
 
 //admin
-Route::get('/adashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
-Route::get('/ausers', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
-Route::get('/akeys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
-Route::get('/alocks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
+Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
+Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
+Route::get('/admin/user', ['as'=>'admin.user','uses'=>'AdminController@user'])->middleware('admin');
+Route::get('/admin/keys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
+Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
 
 // Rutas Perfil
 

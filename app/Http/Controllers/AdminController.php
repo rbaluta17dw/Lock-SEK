@@ -31,6 +31,10 @@ class AdminController extends Controller
     $users = User::all();
     return view('pages/admin/users',['users'=>$users]);
   }
+  public function user()
+  {
+    return view('pages/admin/user');
+  }
   public function keys()
   {
     $keys = Key::all();
