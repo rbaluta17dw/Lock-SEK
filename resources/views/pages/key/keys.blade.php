@@ -3,22 +3,22 @@
 @section('content')
 
 
-<table id="keys_table" class="display">
+  <table id="keys_table" class="display">
     <thead>
-        <tr>
-            <th>@lang('keys.name')</th>
-            <th>@lang('keys.date')</th>
-            <th>@lang('keys.schedule')</th>
-            <th>@lang('keys.lock')</th>
-            <th>@lang('keys.actions')</th>
+      <tr>
+        <th>@lang('keys.name')</th>
+        <th>@lang('keys.date')</th>
+        <th>@lang('keys.schedule')</th>
+        <th>@lang('keys.lock')</th>
+        <th>@lang('keys.actions')</th>
 
-        </tr>
+      </tr>
     </thead>
     <tbody>
 
-    @foreach ($keys as $key)
+      @foreach ($keys as $key)
         <form>
-        <tr >
+          <tr >
             <td href="{{route('keys.index',$key->id)}}" id="key{{ $key->id }}">{{ $key->name }}</td>
             <td>{{ $key->created_at }}</td>
             <td>Horario 1 </td>
