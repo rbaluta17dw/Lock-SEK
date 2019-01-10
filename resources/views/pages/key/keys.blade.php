@@ -28,7 +28,7 @@
                 <!--<a href="" class="editName">Editar</a>-->
                 <button type="button" class="btn btn-danger">@lang('keys.delete')</button>
                 <!--<a href="#">Eliminar</a>-->
-            <td>
+</td>
         </tr>
         </form>
     @endforeach
@@ -42,7 +42,7 @@
             <td>
             <button type="button" class="btn btn-primary">Editar</button>
             <button type="button" class="btn btn-danger">Eliminar</button>
-            <td>
+</td>
         </tr>
         <tr>
             <td>Llave 3</td>
@@ -52,7 +52,7 @@
             <td>
             <button type="button" class="btn btn-primary">Editar</button>
             <button type="button" class="btn btn-danger">Eliminar</button>
-            <td>
+</td>
         </tr>
 
 
