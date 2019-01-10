@@ -28,6 +28,17 @@ class AdminController extends Controller
   }
   public function users()
   {
-    return view('pages/admin/users');
+    $users = User::all();
+    return view('pages/admin/users',['users'=>$users]);
+  }
+  public function keys()
+  {
+    $keys = Key::all();
+    return view('pages/admin/keys',['keys'=>$keys]);
+  }
+  public function locks()
+  {
+    $locks = Lock::all();
+    return view('pages/admin/locks',['locks'=>$locks]);
   }
 }

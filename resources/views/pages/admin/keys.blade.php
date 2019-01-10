@@ -14,20 +14,20 @@
                                   <tr>
                                       <th>ID</th>
                                       <th>Nombre</th>
-                                      <th>Email</th>
-                                      <th>Tipo de usuario</th>
-                                      <th>Email verificado</th>
+                                      <th>Usuario</th> <!--no se si msotrar el name del user o el id -->
+                                      <th>Cerradura</th> <!--no se si msotrar el name dela cerradura o el id -->
+                                      <th>Estado</th> <!--soft delete, active or deleted -->
                                   </tr>
                               </thead>
                               <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($keys as $key)
                                   <tr>
-                                      <td>{{ $user->id }}</td>
-                                      <td>{{ $user->name }}</td>
-                                      <td>{{ $user->email }}</td>
-                                      <td>{{ $user->roleId }}</td>
+                                      <td>{{ $key->id }}</td>
+                                      <td>{{ $key->name }}</td>
+                                      <td>{{ $key->user->name }}</td>
+                                      <td>{{ $key->lock->name }}</td>
                                       <td>
-                                          @if ( $user->email_verified_at == null)
+                                          @if ( 1== 1) <!--el if es temporal para que no pete, soy un vago si -->
                                           <span class="badge badge-warning">Warning</span>
                                           @else
                                           <span class="badge badge-pill badge-success">Success</span>
