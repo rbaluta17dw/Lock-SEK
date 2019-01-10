@@ -12,44 +12,52 @@ use Auth;
 
 class KeyController extends Controller
 {
+
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
-
-      $keys = Key::where('user_id', Auth::user()->id)->get();
+        
+        $keys = Key::where('user_id', Auth::user()->id)->get();
 
         return view('pages/key/keys',['keys'=>$keys]);
+
+
     }
 
-
-
-
-    public function edit($id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-      $key= Key::find($id);
-
-      return view('key.edit')->with('key', $key);
+        return view('pages/key/create');
     }
 
-
-
-    public function create(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
+        
 
         $user = User::find(Auth::user()->id);
         
         $key = new Key; 
-        $key->name = $request->input('newKeyName');
+        $key->name = $request->input('keyName');
         $key->device = 2;
         $key->user_id = $user->id;
         $key->lock_id = 1;
@@ -62,29 +70,78 @@ class KeyController extends Controller
        Storage::put("/storage/keys/".time().".key", $hashed);
        
        return Storage::download("/storage/keys/".time().".key");
-       
 
-
-        
 
     }
 
-    
-    public function createView()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return view('pages/key/createKey');
+        
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $key= Key::find($id);
+
+        return view('pages/key/editKey')->with('key', $key);
 
 
 
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        
+        $key=Key::find($id);
+
+        $key->name = $request->input('newKeyName');
+
+        $key->save();
+
+        $keys = Key::where('user_id', Auth::user()->id)->get();
+
+        return view('pages/key/keys',['keys'=>$keys]);
+
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
 
 
 
+        $key = Key::find($id);
+        $key->delete();
 
+       
+        $keys = Key::where('user_id', Auth::user()->id)->get();
 
-
-
-   
-  
+        return view('pages/key/keys',['keys'=>$keys]);;
+        
+    }
 }

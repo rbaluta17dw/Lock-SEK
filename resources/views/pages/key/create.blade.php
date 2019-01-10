@@ -7,10 +7,10 @@
       <div class="tab-content">
         <hr>
 
-        <form class="form" action="{{route('keys.create')}}" method="post">
+        <form class="form" action="{{route('keys.store')}}" method="post">
           @csrf
           <label for="date">Nombre de la llave</label>
-          <p> <input type="text" name="newKeyName" placeholder="Nombre de la llave" /></p>
+          <p> <input type="text" name="keyName" placeholder="Nombre de la llave" /></p>
 
          
           <button type="submit" class="btn btn-default btn-primary">Añadir</button>
