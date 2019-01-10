@@ -92,3 +92,11 @@ a:hover{
   color: red;
   font-weight: bold;
 }
+
+.azureback{
+  background-color: lightblue !important;
+}
+
+.yellowback{
+  background-color: yellow !important;
+}
