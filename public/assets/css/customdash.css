@@ -87,3 +87,8 @@ a:hover{
 .negrita{
   font-weight: bold;
 }
+
+.notSeen{
+  color: red;
+  font-weight: bold;
+}

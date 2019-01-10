@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AjaxController extends Controller
 {
     public function checkNotification(){
-        
+
         if (true) {
           $this->getNotifications();
         }
