@@ -3,7 +3,7 @@
 @section('content')
 
 
-<table id="locksTable" class="display">
+<table width="100%" class="table table-striped table-bordered table-hover" id="locksTable">
     <thead>
         <tr>
             <th>Cerradura</th>
@@ -23,7 +23,7 @@
             <!-- Solo aparecera boton editar si es propietario -->
             <td>
                 <button type="button" class="btn btn-primary">Editar</button>
-            <td>
+            </td>
         </tr>
       @endforeach
         <tr>
@@ -33,7 +33,7 @@
             <td>
                 <a href="#">Editar</a>/
                 <a href="#">Eliminar</a>
-            <td>
+            </td>
         </tr>
         <tr>
             <td>Nombre 3</td>
@@ -42,7 +42,7 @@
             <td>
                 <a href="#">Editar</a>/
                 <a href="#">Eliminar</a>
-            <td>
+            </td>
         </tr>
 
 

@@ -3,7 +3,7 @@
 @section('content')
 
 
-  <table id="keys_table" class="display">
+  <table width="100%" class="table table-striped table-bordered table-hover" id="keys_table">
     <thead>
       <tr>
         <th>@lang('keys.name')</th>
@@ -25,8 +25,8 @@
             <td>{{ $key->lock->name }} </td>
             <td id="botones">
               <button type="button" id="editName{{$key->id}}" class="btn btn-primary">Editar</button>
-              <button type="button" id="deleteKey{{$key->id}}" class="btn btn-danger">Eliminar</button
-                <td>
+              <button type="button" id="deleteKey{{$key->id}}" class="btn btn-danger">Eliminar</button>
+                </td>
                 </tr>
               </form>
             @endforeach
@@ -40,7 +40,7 @@
               <td>
                 <button type="button" class="btn btn-primary">Editar</button>
                 <button type="button" class="btn btn-danger">Eliminar</button>
-                <td>
+                </td>
                 </tr>
                 <tr>
                   <td>Llave 3</td>
@@ -50,7 +50,7 @@
                   <td>
                     <button type="button" class="btn btn-primary">Editar</button>
                     <button type="button" class="btn btn-danger">Eliminar</button>
-                    <td>
+                    </td>
                     </tr>
 
 
