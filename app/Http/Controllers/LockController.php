@@ -35,8 +35,15 @@ class LockController extends Controller
       return view('pages/lock/lock');
   }
 
-  public function profile()
+  public function show()
   {
       return view('pages/lock/lock');
+  }
+
+  public function edit($id)
+  {
+    $lock= Lock::find($id);
+
+    return view('lock.edit')->with('lock', $lock);
   }
 }

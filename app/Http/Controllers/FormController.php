@@ -20,9 +20,21 @@ class FormController extends Controller
                   
                         'message' => ['required', 
                                  'min:1', 
-                                 'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.\s]+$/']
+                                 'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.\s]+$/'],
+                                
                         
                     ]);
+
+
+
+
+                    $this->validate(
+                        $request, 
+                        ['thing' => 'required'],
+                        ['thing.required' => 'this is my custom error message for required']
+                    );
+
+
                     
         $data= new Form;
 

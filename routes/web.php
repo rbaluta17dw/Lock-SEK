@@ -60,13 +60,14 @@ Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])
 Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView'])->middleware('verified');
 Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit'])->middleware('verified');
 
-Route::get('/key/edit', ['as'=>'key.edit','uses'=>'KeyController@edit']);
 
 //Rutas cerraduras
 Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);
-Route::get('/registerLock', 'LockController@register')->name('registerLock');
-Route::get('/createLock', 'LockController@create')->name('createLock');
-Route::get('/lock', 'LockController@profile')->name('lock');
+Route::get('/locks/register', ['as'=>'locks.register','uses'=>'LockController@register']);
+Route::get('/locks/create', ['as'=>'locks.create','uses'=>'LockController@create']);
+Route::get('/locks/{lock}', ['as'=>'locks.show','uses'=>'LockController@show']);
+Route::get('/locks/{lock}/edit', ['as'=>'lock.edit','uses'=>'LockController@edit']);
+
 
 // rutas Notificaciones
 
