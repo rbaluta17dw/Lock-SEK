@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use App\Key;
 use App\User;
+use App\Lock;
 use Auth;
 
 class KeyController extends Controller
@@ -31,11 +34,6 @@ class KeyController extends Controller
 
 
 
-
-
-
-
-
     public function edit($id)
     {
       $key= Key::find($id);
@@ -45,16 +43,29 @@ class KeyController extends Controller
 
 
 
-    public function create()
+    public function create(Request $request)
     {
 
-
+        $user = User::find(Auth::user()->id);
+        
         $key = new Key; 
         $key->name = $request->input('newKeyName');
+        $key->device = 2;
+        $key->user_id = $user->id;
+        $key->lock_id = 1;
+        $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
+            'rounds' => 12
+            ]);
        //Aqui faltan cosas
-        $key->save(); 
+       $key->save();
 
-        return view ('keys.index'); 
+       Storage::put("/storage/keys/".time().".key", $hashed);
+       
+       return Storage::download("/storage/keys/".time().".key");
+       
+
+
+        
 
     }
 

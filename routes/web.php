@@ -56,7 +56,7 @@ Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete'])
 
 //Rutas llaves
 Route::get('/keys', ['as'=>'keys.index','uses'=>'KeyController@index'])->middleware('verified');
-Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])->middleware('verified');
+Route::post('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])->middleware('verified');
 Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView'])->middleware('verified');
 Route::get('/keys/{key}/edit', ['as'=>'key.edit','uses'=>'KeyController@edit'])->middleware('verified');
 
