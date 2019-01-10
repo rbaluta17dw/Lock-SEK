@@ -41,8 +41,8 @@ Route::get('lang/{lang}', function($lang) {
 //admin
 Route::get('/adashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
 Route::get('/ausers', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
-
-
+Route::get('/akeys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
+Route::get('/alocks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
 
 // Rutas Perfil
 

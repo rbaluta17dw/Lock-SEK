@@ -14,25 +14,19 @@
                                   <tr>
                                       <th>ID</th>
                                       <th>Nombre</th>
-                                      <th>Email</th>
-                                      <th>Tipo de usuario</th>
-                                      <th>Email verificado</th>
+                                      <th>Numero Serial</th>
+                                      <th>Usuario</th>
+                                      <th>Fecha de registro</th>
                                   </tr>
                               </thead>
                               <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($locks as $lock)
                                   <tr>
-                                      <td>{{ $user->id }}</td>
-                                      <td>{{ $user->name }}</td>
-                                      <td>{{ $user->email }}</td>
-                                      <td>{{ $user->roleId }}</td>
-                                      <td>
-                                          @if ( $user->email_verified_at == null)
-                                          <span class="badge badge-warning">Warning</span>
-                                          @else
-                                          <span class="badge badge-pill badge-success">Success</span>
-                                          @endif
-                                      </td>
+                                      <td>{{ $lock->id }}</td>
+                                      <td>{{ $lock->name }}</td>
+                                      <td>{{ $lock->serial_n }}</td>
+                                      <td>{{ $lock->user->name }}</td>
+                                      <td>{{ $lock->created_at }}</td>
                                   </tr>
                                 @endforeach
                                   <tr class="odd gradeX">
