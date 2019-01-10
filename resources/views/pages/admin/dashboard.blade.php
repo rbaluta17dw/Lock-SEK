@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/ausers">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -36,15 +36,15 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-lock fa-5x"></i>
+                                    <i class="fa fa-key fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{$locks}}</div>
-                                    <div>Cerraduras</div>
+                                    <div class="huge">{{$keys}}</div>
+                                    <div>Llaves</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/akeys">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -58,15 +58,15 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-key fa-5x"></i>
+                                    <i class="fa fa-lock fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{$keys}}</div>
-                                    <div>Llaves</div>
+                                    <div class="huge">{{$locks}}</div>
+                                    <div>Cerraduras</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/alocks">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

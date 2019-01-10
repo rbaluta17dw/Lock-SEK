@@ -75,8 +75,15 @@
           <ul class="nav" id="side-menu">
             @if (Auth::user()->roleId == 2)
             <li>
-              <a href="/profile"><i class="fa fa-user fa-fw"></i> Users</a>
+              <a href="/ausers"><i class="fa fa-users fa-fw"></i> Users</a>
             </li>
+            <li>
+              <a href="/akeys"><i class="fa fa-key fa-fw"></i> Keys</a>
+            </li>
+            <li>
+              <a href="/alocks"><i class="fa fa-lock fa-fw"></i> Locks</a>
+            </li>
+
             @else
             <li>
               <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
