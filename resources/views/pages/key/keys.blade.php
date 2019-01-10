@@ -3,7 +3,7 @@
 @section('content')
 
 
-  <table id="keys_table" class="display">
+  <table width="100%" class="table table-striped table-bordered table-hover" id="keys_table">
     <thead>
       <tr>
         <th>@lang('keys.name')</th>
