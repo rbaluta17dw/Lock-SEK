@@ -22,7 +22,7 @@
       <link href="{{asset('assets/css/customdash.css')}}" rel="stylesheet" type="text/css">
 
      <!--Tablas-->
-     <link rel="stylesheet" type="text/css" href="{{asset('assets/table-resources/DataTables/datatables.min.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/table-resources/DataTables/datatables.min.css')}}">
     <!--Fin tablas-->
 
     <!--Fechas-->
