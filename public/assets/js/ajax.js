@@ -1,4 +1,3 @@
-
 $(window).click(function(){
   $.ajax({url: "notifications", success: function(result){
     $('#notifications').html('');
@@ -8,7 +7,30 @@ $(window).click(function(){
       }else {
         result[i].read = "";
       }
-      $('#notifications').append('<li><a href="notificaion"><div class="'+result[i].read+'"><i class="fa fa-comment fa-fw"></i>'+result[i].title+'<span class="pull-right text-muted small">'+result[i].message+'</span></div></a></li>');
+      var color = "white";
+      var texto = "black";
+      switch (result[i].marker) {
+        case 0:
+        result[i].marker = "fa-info-circle";
+        color = "azureback";
+        break;
+        case 1:
+        result[i].marker = "fa-exclamation-triangle";
+        color = "yellowback";
+        break;
+        case 2:
+        result[i].marker = "fa-user";
+        break;
+        case 3:
+        result[i].marker = "fa-lock";
+        break;
+        case 3:
+        result[i].marker = "fa-key";
+        break;
+        default:
+        result[i].marker = "";
+      }
+      $('#notifications').append('<li><a href="notificaion"><div class="'+color+'"><i class="fa '+result[i].marker+' fa-fw"></i>'+result[i].title+'<b class="'+result[i].read+'" > !</b></div></a></li>');
     }
   }});
 });
@@ -26,7 +48,30 @@ $(window).ready(function(){
       }else {
         result[i].read = "";
       }
-      $('#notifications').append('<li><a href="notificaion"><div class="'+result[i].read+'"><i class="fa fa-comment fa-fw"></i>'+result[i].title+'<span class="pull-right text-muted small">'+result[i].message+'</span></div></a></li>');
+      var color = "white";
+      var texto = "black";
+      switch (result[i].marker) {
+        case 0:
+        result[i].marker = "fa-info-circle azul";
+        color = "azureback";
+        break;
+        case 1:
+        result[i].marker = "fa-exclamation-triangle amarillo";
+        color = "yellowback";
+        break;
+        case 2:
+        result[i].marker = "fa-user";
+        break;
+        case 3:
+        result[i].marker = "fa-lock";
+        break;
+        case 3:
+        result[i].marker = "fa-key";
+        break;
+        default:
+        result[i].marker = "";
+      }
+      $('#notifications').append('<li><a href="notificaion"><div><i class="fa '+result[i].marker+' fa-fw"></i>'+result[i].title+'<b class="'+result[i].read+'"> !</b></div></a></li>');
     }
   }});
 });
