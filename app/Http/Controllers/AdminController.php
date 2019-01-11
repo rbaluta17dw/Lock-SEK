@@ -40,9 +40,17 @@ class AdminController extends Controller
     $keys = Key::all();
     return view('pages/admin/keys',['keys'=>$keys]);
   }
+  public function key()
+  {
+    return view('pages/admin/key');
+  }
   public function locks()
   {
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
+  }
+  public function lock()
+  {
+    return view('pages/admin/lock');
   }
 }
