@@ -34,11 +34,7 @@ class UserController extends Controller
                 'string',
                 'max:45',
                 'min:4',
-<<<<<<< HEAD
-                'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.]+$'],
-=======
                 'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.]+$/'],
->>>>>>> 05689e1d75d50b68955f2acc6aa3310b0e718c78
 
       'password' => ['required',
                'min:6',
@@ -46,11 +42,7 @@ class UserController extends Controller
 
       'password2' => ['nullable',
                'min:6',
-<<<<<<< HEAD
-               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$']
-=======
                'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/']
->>>>>>> 05689e1d75d50b68955f2acc6aa3310b0e718c78
 
   ]);
 
