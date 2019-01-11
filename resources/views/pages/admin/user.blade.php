@@ -70,10 +70,13 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-          @if (isset(Auth::user()->name))
-          <h1>{{Auth::user()->name}}</h1>
+          @if (isset($user->name))
+          <h1>{{$user->name}}</h1>
           @else
           <h1>Sin nombre</h1>
+          @endif
+          @if (isset($user->deleted_at))
+          <h3><span class="label label-warning">Borrado</span></h3>
           @endif
         </div>
         <div class="col-sm-2">
@@ -261,6 +264,7 @@
 
                     <hr>
                     <form class="form" action="##" method="post" id="registrationForm">
+                      @csrf
                         <div class="form-group">
 
                             <div class="col-xs-6">
@@ -331,6 +335,11 @@
                                 <br>
                                 <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                 <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                @if (isset($user->deleted_at))
+                                <button class="btn btn-lg btn-warning" formaction="/admin/user/recover/{{$user->id}}" type="submit"><i class="glyphicon glyphicon-remove"></i> Recuperar</button>
+                                @else
+                                <button class="btn btn-lg btn-danger" formaction="/admin/user/delete/{{$user->id}}" type="submit"><i class="glyphicon glyphicon-folder-open"></i> Delete</button>
+                                @endif
                             </div>
                         </div>
                     </form>

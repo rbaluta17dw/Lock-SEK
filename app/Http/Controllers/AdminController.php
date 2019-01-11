@@ -29,10 +29,31 @@ class AdminController extends Controller
   public function users()
   {
     $users = User::all();
-    return view('pages/admin/users',['users'=>$users]);
+    $button = true;
+    return view('pages/admin/users',['users'=>$users,'button'=>$button]);
+  }
+  public function usersDeleted()
+  {
+    $users = User::onlyTrashed()->get();
+    $button = false;
+    return view('pages/admin/users',['users'=>$users,'button'=>$button]);
   }
   public function user($id)
   {
+    $user = User::withTrashed()->find($id);
+
+    return view('pages/admin/user',['user'=>$user]);
+  }
+  public function userDelete($id)
+  {
+    User::find($id)->delete();
+    $user = User::onlyTrashed()->find($id);
+
+    return view('pages/admin/user',['user'=>$user]);
+  }
+  public function userRecover($id)
+  {
+    User::onlyTrashed()->find($id)->restore();
     $user = User::find($id);
 
     return view('pages/admin/user',['user'=>$user]);
