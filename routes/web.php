@@ -43,6 +43,8 @@ Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@ind
 Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
 Route::get('/admin/users/deleted', ['as'=>'admin.users.deleted','uses'=>'AdminController@usersDeleted'])->middleware('admin');
 Route::get('/admin/user/{id}', ['as'=>'admin.user','uses'=>'AdminController@user'])->middleware('admin');
+Route::get('/admin/usernew', ['as'=>'admin.user.new','uses'=>'AdminController@newUser'])->middleware('admin');
+Route::post('/admin/userinsert', ['as'=>'admin.user.insert','uses'=>'AdminController@insertUser'])->middleware('admin');
 Route::post('/admin/user/recover/{id}', ['as'=>'admin.userDelete','uses'=>'AdminController@userRecover'])->middleware('admin');
 Route::post('/admin/user/edit/{id}', ['as'=>'admin.userEdit','uses'=>'AdminController@userEdit'])->middleware('admin');
 Route::post('/admin/user/editimg/{id}', ['as'=>'admin.userEditImg','uses'=>'AdminController@userEditImg'])->middleware('admin');
