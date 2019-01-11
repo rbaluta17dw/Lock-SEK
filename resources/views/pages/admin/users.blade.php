@@ -8,7 +8,8 @@
                 @else
                 <a class="btn btn-success" href="/admin/users" role="button">Usuarios Activos</a>
                 @endif
-                <a class="btn btn-primary" href="/admin/usernew" role="button">Crear Usuario</a>
+                <div class="pull-right"><a class="btn btn-primary" href="/admin/usernew" role="button">Crear Usuario</a></div>
+
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           DataTables Advanced Tables

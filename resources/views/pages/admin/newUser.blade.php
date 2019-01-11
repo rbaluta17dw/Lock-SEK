@@ -8,7 +8,7 @@
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess4">Nombre</label>
         <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-users fa-fw"></i></span>
+          <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
           <input type="text" name="name" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
         </div>
         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
@@ -26,7 +26,7 @@
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess3">Contraseña</label>
         <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-at fa-fw"></i></span>
+          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
           <input type="password" name="password" class="form-control" id="inputGroupSuccess3" aria-describedby="inputGroupSuccess3Status">
         </div>
         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
@@ -35,7 +35,7 @@
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess3">Tipo de Usuario</label>
         <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-at fa-fw"></i></span>
+          <span class="input-group-addon"><i class="fa fa-user-plus fa-fw"></i></span>
           <select name="role" class="form-control">
           <option value="0">Basico</option>
           <option value="1">Premium</option>
