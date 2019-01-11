@@ -2,7 +2,7 @@
 @section('title', 'LockSEK')
 @section('content')
 
-<section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
+<section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"  id="section-home">
 
   <div class="container">
     <div class="row align-items-center justify-content-center">
@@ -16,6 +16,9 @@
       <div class="col-md-1">
       </div>
       @guest
+
+
+
       <div class="col-md-5 relative align-self-center">
         <form method="POST" action="{{ route('register') }}" id="register" class="bg-white rounded pb_form_v1">
           @csrf
@@ -222,7 +225,8 @@
                       <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control" name="message" required="" placeholder="Mensaje*" rows="7" data-form-field="Message"></textarea>
+                      <input type="text" class="form-control" name="message" required="" placeholder="Mensaje*" rows="7" data-form-field="Message">
+                      
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-lg btn-primary">CONTÁCTANOS</button>
