@@ -41,6 +41,11 @@
 <script src="{{asset('assets/js/keyForm.js')}}"></script>
 <script src="{{asset('assets/js/editKey.js')}}"></script>
 
+<!-- graficos -->
+
+<script src="{{asset('assets/js/chart.bundle.js')}}"></script>
+<script src="{{asset('assets/js/charts.js')}}"></script>
+
 
 
 <!--Fin form llave -->
