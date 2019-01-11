@@ -44,6 +44,8 @@ Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users']
 Route::get('/admin/users/deleted', ['as'=>'admin.users.deleted','uses'=>'AdminController@usersDeleted'])->middleware('admin');
 Route::get('/admin/user/{id}', ['as'=>'admin.user','uses'=>'AdminController@user'])->middleware('admin');
 Route::post('/admin/user/recover/{id}', ['as'=>'admin.userDelete','uses'=>'AdminController@userRecover'])->middleware('admin');
+Route::post('/admin/user/edit/{id}', ['as'=>'admin.userEdit','uses'=>'AdminController@userEdit'])->middleware('admin');
+Route::post('/admin/user/editimg/{id}', ['as'=>'admin.userEditImg','uses'=>'AdminController@userEditImg'])->middleware('admin');
 Route::post('/admin/user/delete/{id}', ['as'=>'admin.userDelete','uses'=>'AdminController@userDelete'])->middleware('admin');
 Route::get('/admin/keys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
 Route::get('/admin/key', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
@@ -63,7 +65,7 @@ Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete'])
 //Rutas llaves
 Route::get('/keys', ['as'=>'keys.index','uses'=>'KeyController@index'])->middleware('verified');
 Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])->middleware('verified');// vista crear
-Route::post('/keys', ['as'=>'keys.store','uses'=>'KeyController@store'])->middleware('verified'); //crear llave 
+Route::post('/keys', ['as'=>'keys.store','uses'=>'KeyController@store'])->middleware('verified'); //crear llave
 //Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView'])->middleware('verified');
 Route::get('/keys/{key}/edit', ['as'=>'keys.edit','uses'=>'KeyController@edit'])->middleware('verified');
 Route::post('/keys/{key}', ['as'=>'keys.update','uses'=>'KeyController@update'])->middleware('verified');

@@ -34,7 +34,7 @@ class UserController extends Controller
                 'string',
                 'max:45',
                 'min:4',
-                'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.]+$/'],
+                'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.]+$/'],
 
       'password' => ['required',
                'min:6',
