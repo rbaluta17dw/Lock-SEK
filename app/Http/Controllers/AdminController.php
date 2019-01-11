@@ -77,6 +77,39 @@ class AdminController extends Controller
 
     return view('pages/admin/user',['user'=>$user]);
   }
+  public function userEdit(Request $request, $id)
+  {
+    $name = $request->input('name');
+    $email = $request->input('email');
+    $password = $request->input('password');
+    $user = User::find($id);
+    if ($name != '') {
+      $user->name = $name;
+    }
+    if ($email != '') {
+      $user->email = $email;
+    }
+    if ($password != '') {
+      $user->password = Hash::make($password);
+    }
+    $user->save();
+    return view('pages/admin/user',['user'=>$user]);
+  }
+  public function userEditImg(Request $request, $id)
+  {
+      $image = $request->file('img');
+      $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
+      $request->file('img')->storeAs('public/avatars', $input['imagename']);
+
+      $user = User::find($id);
+      if ($user->imgname != '') {
+        Storage::delete('avatars/'.$user->imgname);
+      }
+      $user->imgname = $input['imagename'];
+      $user->save();
+      Auth::login($user);
+      return view('pages/admin/user',['user'=>$user]);
+  }
   public function keys()
   {
     $keys = Key::all();
