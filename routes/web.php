@@ -39,10 +39,16 @@ Route::get('lang/{lang}', function($lang) {
 })->middleware('web')->name('change_lang');
 
 //admin
-Route::get('/adashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
-Route::get('/ausers', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
-Route::get('/akeys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
-Route::get('/alocks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
+Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
+Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
+Route::get('/admin/users/deleted', ['as'=>'admin.users.deleted','uses'=>'AdminController@usersDeleted'])->middleware('admin');
+Route::get('/admin/user/{id}', ['as'=>'admin.user','uses'=>'AdminController@user'])->middleware('admin');
+Route::post('/admin/user/recover/{id}', ['as'=>'admin.userDelete','uses'=>'AdminController@userRecover'])->middleware('admin');
+Route::post('/admin/user/delete/{id}', ['as'=>'admin.userDelete','uses'=>'AdminController@userDelete'])->middleware('admin');
+Route::get('/admin/keys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
+Route::get('/admin/key', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
+Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
+Route::get('/admin/lock', ['as'=>'admin.lock','uses'=>'AdminController@lock'])->middleware('admin');
 
 // Rutas Perfil
 

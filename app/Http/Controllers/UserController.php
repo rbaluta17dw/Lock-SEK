@@ -30,20 +30,17 @@ class UserController extends Controller
 
     $validatedData = $request->validate([
       'email' => 'nullable|email|unique:users',
-      'name' => ['nullable', 
+      'name' => ['nullable',
                 'string',
                 'max:45',
                 'min:4', 
                 'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.]+$/'],
-
-      'password' => ['required', 
-               'min:6', 
+      'password' => ['required',
+               'min:6',
                'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
-
-      'password2' => ['nullable', 
-               'min:6', 
+      'password2' => ['nullable',
+               'min:6',
                'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/']
-      
   ]);
 
 
@@ -53,7 +50,7 @@ class UserController extends Controller
     $passwordnew = $request->input('password2');
 
 
-   
+
 
     $user = User::find(Auth::user()->id);
     if ($name != '') {
@@ -82,7 +79,7 @@ class UserController extends Controller
     $user->delete();
 
 
-    return view('pages/Landing/#section-contact');
+    return view('pages/Landing');
   }
   public function editImg(Request $request)
   {
