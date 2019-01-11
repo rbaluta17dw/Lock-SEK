@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/ausers">
+                        <a href="{{route('admin.users')}}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/akeys">
+                        <a href="{{route('admin.keys')}}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/alocks">
+                        <a href="{{route('admin.locks')}}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

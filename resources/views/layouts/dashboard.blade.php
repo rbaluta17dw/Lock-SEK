@@ -18,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">LockSEK</a>
+        <a class="navbar-brand" href="{{route('admin.index')}}">LockSEK</a>
       </div>
       <!-- /.navbar-header -->
       @auth
@@ -75,13 +75,13 @@
           <ul class="nav" id="side-menu">
             @if (Auth::user()->roleId == 2)
             <li>
-              <a href="/ausers"><i class="fa fa-users fa-fw"></i> Users</a>
+              <a href="{{route('admin.users')}}"><i class="fa fa-users fa-fw"></i> Users</a>
             </li>
             <li>
-              <a href="/akeys"><i class="fa fa-key fa-fw"></i> Keys</a>
+              <a href="{{route('admin.keys')}}"><i class="fa fa-key fa-fw"></i> Keys</a>
             </li>
             <li>
-              <a href="/alocks"><i class="fa fa-lock fa-fw"></i> Locks</a>
+              <a href="{{route('admin.locks')}}"><i class="fa fa-lock fa-fw"></i> Locks</a>
             </li>
 
             @else

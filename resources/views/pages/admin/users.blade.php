@@ -3,6 +3,12 @@
 @section('content')
 <div class="row">
               <div class="col-lg-12">
+                @if ($button)
+                <a class="btn btn-warning" href="/admin/users/deleted" role="button">Usuarios Eliminados</a>
+                @else
+                <a class="btn btn-success" href="/admin/users" role="button">Usuarios Activos</a>
+                @endif
+
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           DataTables Advanced Tables
@@ -22,7 +28,7 @@
                               <tbody>
                                 @foreach ($users as $user)
                                   <tr>
-                                      <td>{{ $user->id }}</td>
+                                      <td><a href="/admin/user/{{ $user->id }}">{{ $user->id }}</a></td>
                                       <td>{{ $user->name }}</td>
                                       <td>{{ $user->email }}</td>
                                       <td>{{ $user->roleId }}</td>

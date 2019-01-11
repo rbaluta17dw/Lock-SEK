@@ -6,9 +6,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\VerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+  use SoftDeletes;
+  protected $dates = ['deleted_at'];
 
     public function locks()
     {
