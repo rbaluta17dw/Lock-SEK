@@ -10,7 +10,7 @@
         <th>@lang('keys.date')</th>
         <th>@lang('keys.schedule')</th>
         <th>@lang('keys.lock')</th>
-        <th>@lang('keys.actions')</th>
+        
 
       </tr>
     </thead>
@@ -19,16 +19,10 @@
       @foreach ($keys as $key)
         <form>
           <tr >
-            <td href="{{route('keys.index',$key->id)}}" id="key{{ $key->id }}">{{ $key->name }}</td>
+            <td> <a  href="{{route('keys.edit',$key->id)}}" id="key{{ $key->id }}">{{ $key->name }}</td>
             <td>{{ $key->created_at }}</td>
             <td>Horario 1 </td>
             <td>{{ $key->lock_id }} </td>
-            <td>
-                <button type="button" class="btn btn-primary">@lang('keys.edit')</button>
-                <!--<a href="" class="editName">Editar</a>-->
-                <button type="button" class="btn btn-danger">@lang('keys.delete')</button>
-                <!--<a href="#">Eliminar</a>-->
-</td>
         </tr>
         </form>
     @endforeach
@@ -39,20 +33,14 @@
             <td>Fecha 2</td>
             <td>Horario 1 </td>
             <td>Cerradura 2</td>
-            <td>
-            <button type="button" class="btn btn-primary">Editar</button>
-            <button type="button" class="btn btn-danger">Eliminar</button>
-</td>
+
         </tr>
         <tr>
             <td>Llave 3</td>
             <td>Fecha 3</td>
             <td>Horario 1 </td>
             <td>Cerradura 3</td>
-            <td>
-            <button type="button" class="btn btn-primary">Editar</button>
-            <button type="button" class="btn btn-danger">Eliminar</button>
-</td>
+            
         </tr>
 
 

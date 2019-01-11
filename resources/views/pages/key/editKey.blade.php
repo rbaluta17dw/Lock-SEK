@@ -16,17 +16,24 @@
             
             
             
-            <form class="form" action="#" method="post" >
+            <form class="form" action="{{route('keys.update',$key->id)}}" method="post" >
+            @csrf
                 <label for="date">Nuevo nombre de la llave</label>
-                <input type="text" name="newKeyName" placeholder="Nombre de la llave" />
+                <input type="text" name="newKeyName" placeholder="{{$key->name}}" />
                 
                 
                 <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
                 
             </form>
+
+            <form class="form" action="{{route('keys.destroy',$key->id)}}" method="get" >
+            @csrf
+                <button type="submit" class="btn btn-default btn-danger">Eliminar llave</button>
+                
+            </form>
             
             <br>
-            <form class="form" action="#" method="post" >
+            <!--<form class="form" action="#" method="post" >
                 
                 <label for="date">Nuevo rango de fechas</label>
                 
@@ -44,6 +51,8 @@
                 
                 <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
             </form>
+        
+        -->
             
             
             

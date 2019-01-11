@@ -95,7 +95,7 @@
                   <a href="{{ route('keys.index') }}">@lang('dashboard.listkey')</a>
                 </li>
                 <li>
-                  <a href="{{ route('keys.createView') }}">@lang('dashboard.createkey')</a>
+                  <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
                 </li>
               </ul>
               <!-- /.nav-second-level -->
