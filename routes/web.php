@@ -41,7 +41,7 @@ Route::get('lang/{lang}', function($lang) {
 //admin
 Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
 Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
-Route::get('/admin/user', ['as'=>'admin.user','uses'=>'AdminController@user'])->middleware('admin');
+Route::get('/admin/user/{id}', ['as'=>'admin.user','uses'=>'AdminController@user'])->middleware('admin');
 Route::get('/admin/keys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
 Route::get('/admin/key', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
 Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');

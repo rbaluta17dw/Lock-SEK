@@ -77,8 +77,8 @@
           @endif
         </div>
         <div class="col-sm-2">
-          @if (isset(Auth::user()->imgname))
-          <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="{{Storage::url('avatars/'.Auth::user()->imgname)}}"></a>
+          @if (isset($user->imgname))
+          <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="{{Storage::url('avatars/'.$user->imgname)}}"></a>
           @else
           <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
           @endif
@@ -90,15 +90,15 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Profile</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{Auth::user()->created_at}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{$user->created_at}}</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
                 <li class="list-group-item text-right">
                   <span class="pull-left">
                     <strong>Tipo de cuenta</strong>
                   </span>
-                  @if (Auth::user()->roleId == 2)
+                  @if ($user->roleId == 2)
                   <span class="label label-info">Admin</span>
-                  @elseif (Auth::user()->roleId == 1)
+                  @elseif ($user->roleId == 1)
                   <span class="label label-success">Premiun</span>
                   @else
                   <span class="label label-primary">Basico</span>
@@ -109,7 +109,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">Email <i class="fa fa-at fa-1x"></i></div>
-                <div class="panel-body">{{Auth::user()->email}}</div>
+                <div class="panel-body">{{$user->email}}</div>
             </div>
 
             <ul class="list-group">
