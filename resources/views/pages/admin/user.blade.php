@@ -9,13 +9,13 @@
         @if (isset($user->name))
           <h1>{{$user->name}}</h1>
         @else
-          <h1>Sin nombre</h1>
+          <h1>@lang('adminUser.noName')</h1>
         @endif
         @if (isset($user->deleted_at))
-          <h3><span class="label label-warning">Borrado</span></h3>
+          <h3><span class="label label-warning">@lang('adminUser.deleted')</span></h3>
         @endif
         @if ($user->email_verified_at == null)
-          <h3><span class="label label-warning">No verificado</span></h3>
+          <h3><span class="label label-warning">@lang('adminUser.notVerified')</span></h3>
         @endif
       </div>
       <div class="col-sm-2">
@@ -38,26 +38,26 @@
         <!--left col-->
 
         <ul class="list-group">
-          <li class="list-group-item text-muted">Profile</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{$user->created_at}}</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
+          <li class="list-group-item text-muted">@lang('adminUser.profile')</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>@lang('adminUser.joined')</strong></span> {{$user->created_at}}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>@lang('adminUser.lastSeen')</strong></span> Yesterday</li>
           <li class="list-group-item text-right">
             <span class="pull-left">
-              <strong>Tipo de cuenta</strong>
+              <strong>@lang('adminUser.typeAccount')</strong>
             </span>
             @if ($user->roleId == 2)
-              <span class="label label-info">Admin</span>
+              <span class="label label-info">@lang('adminUser.admin')</span>
             @elseif ($user->roleId == 1)
-              <span class="label label-success">Premiun</span>
+              <span class="label label-success">@lang('adminUser.premiun')</span>
             @else
-              <span class="label label-primary">Basico</span>
+              <span class="label label-primary">@lang('adminUser.basic')</span>
             @endif
           </li>
 
         </ul>
 
         <div class="panel panel-default">
-          <div class="panel-heading">Email <i class="fa fa-at fa-1x"></i></div>
+          <div class="panel-heading">@lang('adminUser.email') <i class="fa fa-at fa-1x"></i></div>
           <div class="panel-body">{{$user->email}}</div>
         </div>
 
@@ -81,10 +81,10 @@
       <div class="col-sm-9">
 
         <ul class="nav nav-tabs" id="myTab">
-          <li class="active"><a href="#locks" data-toggle="tab">Cerraduras</a></li>
-          <li><a href="#keys" data-toggle="tab">Llaves</a></li>
-          <li><a href="#messages" data-toggle="tab">Notificaciones</a></li>
-          <li><a href="#settings" data-toggle="tab">Settings</a></li>
+          <li class="active"><a href="#locks" data-toggle="tab">@lang('adminUser.locks')</a></li>
+          <li><a href="#keys" data-toggle="tab">@lang('adminUser.keys')</a></li>
+          <li><a href="#messages" data-toggle="tab">@lang('adminUser.notifications')</a></li>
+          <li><a href="#settings" data-toggle="tab">@lang('adminUser.settings')</a></li>
         </ul>
 
         <div class="tab-content">
@@ -94,10 +94,10 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Numero Serial</th>
-                    <th>Dueño </th>
-                    <th>Fecha de registro </th>
+                    <th>@lang('adminUser.name')</th>
+                    <th>@lang('adminUser.serialNumber')</th>
+                    <th>@lang('adminUser.owner') </th>
+                    <th>@lang('adminUser.registerDate') </th>
                   </tr>
                 </thead>
                 <tbody id="items">
@@ -139,9 +139,9 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Cerradura</th>
-                    <th>Estado </th>
+                    <th>@lang('adminUser.name')</th>
+                    <th>@lang('adminUser.lock')</th>
+                    <th>@lang('adminUser.status')</th>
                   </tr>
                 </thead>
                 <tbody id="items">
@@ -174,7 +174,7 @@
             <h2></h2>
 
             <ul class="list-group">
-              <li class="list-group-item text-muted">Inbox</li>
+              <li class="list-group-item text-muted">@lang('adminUser.inbox')</li>
               @foreach ($user->notifications as $notification)
                 <li class="list-group-item text-right"><a href="#" class="pull-left">{{$notification->title}}</a> {{$notification->message}}</li>
               @endforeach
@@ -192,7 +192,7 @@
 
                 <div class="col-xs-6">
                   <label for="name">
-                    <h4>Name</h4></label>
+                    <h4>@lang('adminUser.name')</h4></label>
                     <input type="text" class="form-control" name="name" id="first_name" placeholder="name" title="Change name.">
                   </div>
                 </div>
@@ -201,7 +201,7 @@
 
                   <div class="col-xs-6">
                     <label for="email">
-                      <h4>Email</h4></label>
+                      <h4>@lang('adminUser.email')</h4></label>
                       <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
                     </div>
                   </div>
@@ -209,7 +209,7 @@
 
                     <div class="col-xs-6">
                       <label for="password">
-                        <h4>Password</h4></label>
+                        <h4>@lang('adminUser.password')</h4></label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
                       </div>
                     </div>
@@ -217,12 +217,12 @@
                     <div class="form-group">
                       <div class="col-xs-12">
                         <br>
-                        <button class="btn btn-lg btn-success" formaction="/admin/user/edit/{{$user->id}}" type="submit"><i class="fa fa-check fa-1x"></i> Save</button>
-                        <button class="btn btn-lg" type="reset"><i class="fa fa-retweet fa-1x"></i> Reset</button>
+                        <button class="btn btn-lg btn-success" formaction="/admin/user/edit/{{$user->id}}" type="submit"><i class="fa fa-check fa-1x"></i>@lang('adminUser.save')</button>
+                        <button class="btn btn-lg" type="reset"><i class="fa fa-retweet fa-1x"></i>@lang('adminUser.reset')</button>
                         @if (isset($user->deleted_at))
-                          <button class="btn btn-lg btn-warning" formaction="/admin/user/recover/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i> Recuperar</button>
+                          <button class="btn btn-lg btn-warning" formaction="/admin/user/recover/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i>@lang('adminUser.recover')</button>
                         @else
-                          <button class="btn btn-lg btn-danger" formaction="/admin/user/delete/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i> Delete</button>
+                          <button class="btn btn-lg btn-danger" formaction="/admin/user/delete/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i>@lang('adminUser.delete')</button>
                         @endif
                       </div>
                     </div>

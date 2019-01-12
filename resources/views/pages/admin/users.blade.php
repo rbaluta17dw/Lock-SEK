@@ -4,13 +4,13 @@
 <div class="row">
               <div class="col-lg-12">
                 @if ($button)
-                <a class="btn btn-success disabled" href="/admin/users" role="button">Usuarios Activos</a>
-                <a class="btn btn-warning" href="/admin/users/deleted" role="button">Usuarios Eliminados</a>
+                <a class="btn btn-success disabled" href="/admin/users" role="button">@lang('adminUsers.activeUsers')</a>
+                <a class="btn btn-warning" href="/admin/users/deleted" role="button">@lang('adminUsers.deletedUsers')</a>
                 @else
-                <a class="btn btn-success" href="/admin/users" role="button">Usuarios Activos</a>
-                <a class="btn btn-warning disabled" href="/admin/users/deleted" role="button">Usuarios Eliminados</a>
+                <a class="btn btn-success" href="/admin/users" role="button">@lang('adminUsers.activeUsers')</a>
+                <a class="btn btn-warning disabled" href="/admin/users/deleted" role="button">@lang('adminUsers.deletedUsers')</a>
                 @endif
-                <div class="pull-right"><a class="btn btn-primary" href="/admin/usernew" role="button">Crear Usuario</a></div>
+                <div class="pull-right"><a class="btn btn-primary" href="/admin/usernew" role="button">@lang('adminUsers.createUser')</a></div>
 
                   <div class="panel panel-default">
                       <div class="panel-heading">
@@ -22,10 +22,10 @@
                               <thead>
                                   <tr>
                                       <th>ID</th>
-                                      <th>Nombre</th>
-                                      <th>Email</th>
-                                      <th>Tipo de usuario</th>
-                                      <th>Email verificado</th>
+                                      <th>@lang('adminUsers.name')</th>
+                                      <th>@lang('adminUsers.email')</th>
+                                      <th>@lang('adminUsers.typeUser')</th>
+                                      <th>@lang('adminUsers.verifiedEmail')</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -36,18 +36,18 @@
                                       <td>{{ $user->email }}</td>
                                       <td>
                                         @if ($user->roleId == 2)
-                                          <span class="label label-info">Admin</span>
+                                          <span class="label label-info">@lang('adminUsers.admin')</span>
                                         @elseif ($user->roleId == 1)
-                                          <span class="label label-success">Premiun</span>
+                                          <span class="label label-success">@lang('adminUsers.premiun')</span>
                                         @else
-                                          <span class="label label-primary">Basico</span>
+                                          <span class="label label-primary">@lang('adminUsers.basic')</span>
                                         @endif
                                       </td>
                                       <td>
                                           @if ( $user->email_verified_at == null)
-                                          <span class="label label-warning">No verificado</span>
+                                          <span class="label label-warning">@lang('adminUsers.notVerified')</span>
                                           @else
-                                          <span class="label label-pill label-success">Verificado</span>
+                                          <span class="label label-pill label-success">@lang('adminUsers.verified')</span>
                                           @endif
                                       </td>
                                   </tr>
