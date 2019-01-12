@@ -66,16 +66,16 @@ class AdminController extends Controller
   public function userDelete($id)
   {
     User::find($id)->delete();
-    $user = User::onlyTrashed()->find($id);
-
-    return view('pages/admin/user',['user'=>$user]);
+    //$user = User::onlyTrashed()->find($id);
+    return redirect()->action('AdminController@user', ['id' => $id]);
+    //return view('pages/admin/user',['user'=>$user]);
   }
   public function userRecover($id)
   {
     User::onlyTrashed()->find($id)->restore();
-    $user = User::find($id);
-
-    return view('pages/admin/user',['user'=>$user]);
+    //$user = User::find($id);
+    return redirect()->action('AdminController@user', ['id' => $id]);
+    //return view('pages/admin/user',['user'=>$user]);
   }
   public function userEdit(Request $request, $id)
   {
