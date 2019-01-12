@@ -14,6 +14,9 @@
         @if (isset($user->deleted_at))
           <h3><span class="label label-warning">Borrado</span></h3>
         @endif
+        @if ($user->email_verified_at == null)
+          <h3><span class="label label-warning">No verificado</span></h3>
+        @endif
       </div>
       <div class="col-sm-2">
         @if (isset($user->imgname))

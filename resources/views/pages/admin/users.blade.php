@@ -4,9 +4,11 @@
 <div class="row">
               <div class="col-lg-12">
                 @if ($button)
+                <a class="btn btn-success disabled" href="/admin/users" role="button">Usuarios Activos</a>
                 <a class="btn btn-warning" href="/admin/users/deleted" role="button">Usuarios Eliminados</a>
                 @else
                 <a class="btn btn-success" href="/admin/users" role="button">Usuarios Activos</a>
+                <a class="btn btn-warning disabled" href="/admin/users/deleted" role="button">Usuarios Eliminados</a>
                 @endif
                 <div class="pull-right"><a class="btn btn-primary" href="/admin/usernew" role="button">Crear Usuario</a></div>
 
@@ -32,12 +34,20 @@
                                       <td><a href="/admin/user/{{ $user->id }}">{{ $user->id }}</a></td>
                                       <td>{{ $user->name }}</td>
                                       <td>{{ $user->email }}</td>
-                                      <td>{{ $user->roleId }}</td>
+                                      <td>
+                                        @if ($user->roleId == 2)
+                                          <span class="label label-info">Admin</span>
+                                        @elseif ($user->roleId == 1)
+                                          <span class="label label-success">Premiun</span>
+                                        @else
+                                          <span class="label label-primary">Basico</span>
+                                        @endif
+                                      </td>
                                       <td>
                                           @if ( $user->email_verified_at == null)
-                                          <span class="badge badge-warning">Warning</span>
+                                          <span class="label label-warning">No verificado</span>
                                           @else
-                                          <span class="badge badge-pill badge-success">Success</span>
+                                          <span class="label label-pill label-success">Verificado</span>
                                           @endif
                                       </td>
                                   </tr>
