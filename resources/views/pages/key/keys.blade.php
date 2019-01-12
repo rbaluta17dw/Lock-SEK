@@ -20,7 +20,7 @@
           <tr >
             <td> <a  href="{{route('keys.edit',$key->id)}}" id="key{{ $key->id }}">{{ $key->name }}</td>
             <td>{{ $key->created_at }}</td>
-            <td>{{ $key->lock_id }} </td>
+            <td>{{ $key->lock->name }} </td>
         </tr>
         </form>
     @endforeach
