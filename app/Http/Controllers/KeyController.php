@@ -116,8 +116,7 @@ class KeyController extends Controller
                 if (Auth::user()->id == $key->user_id){
                     $key->name = $request->input('newKeyName');
                     $key->save();
-                    $keys = Key::where('user_id', Auth::user()->id)->get();
-                    return view('pages/key/keys',['keys'=>$keys]);
+                    return view('pages/key/editKey',['key'=>$key]);
                 }else{
                     abort(404);
                 }
