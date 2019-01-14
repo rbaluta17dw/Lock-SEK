@@ -41,7 +41,7 @@
                                 <form class="form" action="{{route('keys.update',$key->id)}}" method="post" >
                                     @csrf
                                     @method('PUT')
-                                    <label for="name">Nuevo nombre de la llave:</label>
+                                    <label for="newKeyName">Nuevo nombre de la llave:</label>
                                     <br>
                                     <input type="text" name="newKeyName" placeholder="{{$key->name}}" />
                                     <br>
@@ -57,6 +57,15 @@
                                     <button type="submit" class="btn btn-default btn-danger">Eliminar llave</button> 
                                 </form>
                             </div>  
+                            @if ($errors->any())
+                             <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <hr>
