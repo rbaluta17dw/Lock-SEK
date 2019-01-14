@@ -50,7 +50,7 @@ Route::post('/admin/user/delete/{id}', ['as'=>'admin.userDelete','uses'=>'AdminC
 Route::get('/admin/keys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
 Route::get('/admin/key', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
 Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
-Route::get('/admin/lock', ['as'=>'admin.lock','uses'=>'AdminController@lock'])->middleware('admin');
+Route::get('/admin/lock/{id}', ['as'=>'admin.lock','uses'=>'AdminController@lock'])->middleware('admin');
 
 // Rutas Perfil
 

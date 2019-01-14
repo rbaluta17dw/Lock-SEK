@@ -78,18 +78,18 @@ class AdminController extends Controller
   }
   public function userEditImg(Request $request, $id)
   {
-      $image = $request->file('img');
-      $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-      $request->file('img')->storeAs('public/avatars', $input['imagename']);
+    $image = $request->file('img');
+    $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
+    $request->file('img')->storeAs('public/avatars', $input['imagename']);
 
-      $user = User::find($id);
-      if ($user->imgname != '') {
-        Storage::delete('avatars/'.$user->imgname);
-      }
-      $user->imgname = $input['imagename'];
-      $user->save();
-      Auth::login($user);
-      return view('pages/admin/user',['user'=>$user]);
+    $user = User::find($id);
+    if ($user->imgname != '') {
+      Storage::delete('avatars/'.$user->imgname);
+    }
+    $user->imgname = $input['imagename'];
+    $user->save();
+    Auth::login($user);
+    return view('pages/admin/user',['user'=>$user]);
   }
   public function keys()
   {
@@ -105,8 +105,9 @@ class AdminController extends Controller
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
   }
-  public function lock()
+  public function lock($id)
   {
-    return view('pages/admin/lock');
+    $lock = Lock::find($id);
+    return view('pages/admin/lock',['lock'=>$lock]);
   }
 }

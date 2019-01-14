@@ -23,7 +23,7 @@
               @foreach ($locks as $lock)
                 <tr>
                   <td>{{ $lock->id }}</td>
-                  <td>{{ $lock->name }}</td>
+                  <td><a href="/admin/lock/{{$lock->id}}">{{ $lock->name }}</a></td>
                   <td>{{ $lock->serial_n }}</td>
                   <td>{{ $lock->user->name }}</td>
                   <td>{{ $lock->created_at }}</td>
