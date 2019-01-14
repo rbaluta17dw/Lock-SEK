@@ -6,7 +6,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Atencion!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -14,11 +14,16 @@
 
         <div class="modal-body">
 
-
+        <h1>Esta usted a punto de eliminar la llave {{$lock->name}}</h1>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Registrar</button>
+
+          <form class="form" action="{{route('locks.destroy',$lock->id)}}" method="POST" >
+            @csrf
+            @method('DELETE')
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
         </div>
     </div>
   </div>

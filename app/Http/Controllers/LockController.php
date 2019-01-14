@@ -73,17 +73,18 @@ class LockController extends Controller
 
   public function destroy($id)
   {
+      if (Lock::where('id',$id)->exists()) {
 
-
-
-      $lock = Lock::find($id);
-      $lock->delete();
-
-
-      $keys = Key::where('user_id', Auth::user()->id)->get();
-
-      return view('pages/key/keys',['keys'=>$keys]);;
-
+          $lock = Lock::find($id);
+          if (Auth::user()->id == $lock->user_id){
+              $lock->delete();
+              return redirect()->action('LockController@index');
+          }else{
+              abort(404);
+          }
+      }else{
+          abort(404);
+      }
   }
 
 
