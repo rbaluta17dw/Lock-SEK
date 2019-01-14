@@ -18,13 +18,13 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">{{$users}}</div>
-                                    <div>Usuarios</div>
+                                    <div>@lang('adminDashboard.users')</div>
                                 </div>
                             </div>
                         </div>
                         <a href="{{route('admin.users')}}">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -40,13 +40,13 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">{{$keys}}</div>
-                                    <div>Llaves</div>
+                                    <div>@lang('adminDashboard.keys')</div>
                                 </div>
                             </div>
                         </div>
                         <a href="{{route('admin.keys')}}">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -62,13 +62,13 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">{{$locks}}</div>
-                                    <div>Cerraduras</div>
+                                    <div>@lang('adminDashboard.locks')</div>
                                 </div>
                             </div>
                         </div>
                         <a href="{{route('admin.locks')}}">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -84,13 +84,13 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>
-                                    <div>Mensajes</div>
+                                    <div>@lang('adminDashboard.messages')</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
