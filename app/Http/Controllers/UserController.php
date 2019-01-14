@@ -7,6 +7,7 @@ use App\User;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UserEditRequest;
 
 class UserController extends Controller
 {
@@ -25,26 +26,9 @@ class UserController extends Controller
   {
     return view('pages/user/settings');
   }
-  public function editprf(Request $request)
+  public function editprf(UserEditRequest $request)
   {
-
-    $validatedData = $request->validate([
-      'email' => 'nullable|email|unique:users',
-      'name' => ['nullable',
-                'string',
-                'max:45',
-                'min:4',
-                'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.]+$/'],
-
-      'password' => ['required',
-               'min:6',
-               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
-
-      'password2' => ['nullable',
-               'min:6',
-               'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/']
-
-  ]);
+    $validated = $request->validated();
 
 
     $name = $request->input('name');

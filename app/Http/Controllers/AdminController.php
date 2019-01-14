@@ -7,6 +7,8 @@ use Auth;
 use App\User;
 use App\Lock;
 use App\Key;
+use Hash;
+
 
 class AdminController extends Controller
 {
@@ -43,6 +45,23 @@ class AdminController extends Controller
     $user = User::withTrashed()->find($id);
 
     return view('pages/admin/user',['user'=>$user]);
+  }
+  public function newUser()
+  {
+    return view('pages/admin/newUser');
+  }
+  public function insertUser(Request $request)
+  {
+    $user = new User;
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+    $user->password = Hash::make($request->input('password'));
+    $user->roleId = $request->input('role');
+    $user->save();
+
+    $newUser = User::where('email',$request->input('email'))->first();
+
+    return view('pages/admin/user',['user'=>$newUser]);
   }
   public function userDelete($id)
   {
