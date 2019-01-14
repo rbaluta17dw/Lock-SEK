@@ -78,7 +78,7 @@ Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index'])->midd
 Route::get('/locks/register', ['as'=>'locks.register','uses'=>'LockController@register'])->middleware('verified');
 Route::post('/locks/create', ['as'=>'locks.create','uses'=>'LockController@create'])->middleware('verified');
 Route::get('/locks/{lock}', ['as'=>'locks.show','uses'=>'LockController@show'])->middleware('verified');
-Route::get('/locks/{lock}/edit', ['as'=>'lock.edit','uses'=>'LockController@edit'])->middleware('verified');
+Route::put('/locks/{lock}', ['as'=>'locks.update','uses'=>'LockController@update'])->middleware('verified');
 
 
 // rutas Notificaciones

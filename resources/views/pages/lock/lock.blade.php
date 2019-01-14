@@ -1,7 +1,29 @@
 @extends('layouts.dashboard')
 @section('title', 'LockSEK')
 @section('content')
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
+        <div class="modal-body">
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal -->
 
 
 <div class="row">
@@ -25,23 +47,39 @@
 
                           </div><!--/col-3-->
                           <div class="col-sm-9">
-                            <div class="tab-content">
-                              <hr>
-                                @csrf
-                                <div class="form-group">
+                              <div class="tab-content">
+                                  <hr>
+                                  <div class="form-group">
+                                      <div class="col-xs-6">
+                                          <label for="keyName">Nombre de la cerradura:</label>
+                                          <p>{{$lock->name}}</p>
+                                      </div>
 
-                                  <div class="col-xs-6">
-                                    <label for="first_name"><h4>{{$lock->name}}</h4></label>
-                                    <p>Cerradura 1</p>
+                                      <div class="col-xs-6">
+                                          <label for="keyName">Creada:</label>
+                                          <p>{{$lock->created_at}}</p>
+                                      </div>
+
+                                      <div class="col-xs-6">
+                                          <form class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
+                                              @csrf
+                                              @method('put')
+                                              <label for="name">Nuevo nombre de la cerradura:</label>
+                                              <br>
+                                              <input type="text" name="newLockName" placeholder="{{$lock->name}}" />
+                                              <br>
+                                              <br>
+                                              <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
+                                          </form>
+                                      </div>
+
+                                      <div class="col-xs-6">
+                                              <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar llave</button>
+                                      </div>
                                   </div>
-                                </div>
-
-
-
-
+                              </div>
                               <hr>
-                            </div>
-                          </div><!--/col-9-->
+                          </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
