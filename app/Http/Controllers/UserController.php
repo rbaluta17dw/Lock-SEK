@@ -17,11 +17,18 @@ class UserController extends Controller
   }
   public function index()
   {
-    //$user = User::find(Auth::user()->id);
-
-
-    return view('pages/user/profile');
+    $user = User::find(Auth::user()->id);
+    $numKeys = 0;
+    $numLocks = 0;
+    for ($i=0; $i < count($user->keys); $i++) {
+      $numKeys++;
+    }
+    for ($i=0; $i < count($user->Locks); $i++) {
+      $numLocks++;
+    }
+    return view('pages/user/profile', ['user'=> $user, 'numKeys'=>$numKeys, 'numLocks'=>$numLocks]);
   }
+
   public function settings()
   {
     return view('pages/user/settings');
