@@ -31,7 +31,7 @@
                                 <div class="form-group">
 
                                   <div class="col-xs-6">
-                                    <label for="first_name"><h4>Nombre de la cerradura</h4></label>
+                                    <label for="first_name"><h4>{{$lock->name}}</h4></label>
                                     <p>Cerradura 1</p>
                                   </div>
                                 </div>

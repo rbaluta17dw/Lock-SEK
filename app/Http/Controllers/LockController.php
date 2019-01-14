@@ -32,12 +32,20 @@ class LockController extends Controller
       $lock->user_id = Auth::user()->id;
       $lock->save();
 
-      return view('pages/lock/lock');
+      $newLock = Lock::where('serial_n',$request->input('numSerie'))->first();
+      return redirect()->action('LockController@show', ['id' => $newLock]);
+      //return view('pages/lock/lock',['lock'=>$lock]);
   }
 
-  public function show()
+  public function show($id)
   {
-      return view('pages/lock/lock');
+      $lock= Lock::find($id);
+      if (Auth::user()->id == $lock->user_id) {
+        return view('pages/lock/lock',['lock'=>$lock]);
+      }else{
+        abort(404);
+      }
+
   }
 
   public function edit($id)

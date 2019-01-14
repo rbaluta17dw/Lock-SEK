@@ -3,7 +3,9 @@
 return [
   'user' => 'Usuario',
   'keys' => 'Llaves',
-  'listkey' => 'Lista llaves',
+  'listkeys' => 'Lista llaves',
   'createkey' => 'Crear llave',
   'locks' => 'Cerraduras',
+  'listlocks' => 'Lista cerraduras',
+  'registerlock' => 'Registrar cerradura',
 ];

@@ -74,11 +74,11 @@ Route::post('/keys/{key}', ['as'=>'keys.update','uses'=>'KeyController@update'])
 Route::get('/keys/{key}', ['as'=>'keys.destroy','uses'=>'KeyController@destroy'])->middleware('verified');
 
 //Rutas cerraduras
-Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);
-Route::get('/locks/register', ['as'=>'locks.register','uses'=>'LockController@register']);
-Route::get('/locks/create', ['as'=>'locks.create','uses'=>'LockController@create']);
-Route::get('/locks/{lock}', ['as'=>'locks.show','uses'=>'LockController@show']);
-Route::get('/locks/{lock}/edit', ['as'=>'lock.edit','uses'=>'LockController@edit']);
+Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index'])->middleware('verified');
+Route::get('/locks/register', ['as'=>'locks.register','uses'=>'LockController@register'])->middleware('verified');
+Route::post('/locks/create', ['as'=>'locks.create','uses'=>'LockController@create'])->middleware('verified');
+Route::get('/locks/{lock}', ['as'=>'locks.show','uses'=>'LockController@show'])->middleware('verified');
+Route::get('/locks/{lock}/edit', ['as'=>'lock.edit','uses'=>'LockController@edit'])->middleware('verified');
 
 
 // rutas Notificaciones

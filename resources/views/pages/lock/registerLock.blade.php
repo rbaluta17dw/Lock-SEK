@@ -12,7 +12,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="createLock" method="get">
+      <form action="{{route('locks.create')}}" method="post">
+        @csrf
         <div class="modal-body">
           <div class="form-group row">
             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nombre</label>
