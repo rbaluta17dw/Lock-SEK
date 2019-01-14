@@ -25,9 +25,6 @@ class FormController extends Controller
                         
                     ]);
 
-
-
-
                     $this->validate(
                         $request, 
                         ['thing' => 'required'],

@@ -23,8 +23,8 @@
               @foreach ($keys as $key)
                 <tr>
                   <td>{{ $key->id }}</td>
-                  <td>{{ $key->name }}</td>
-                  <td>{{ $key->user->name }}</td>
+                  <td><a href="/admin/key/{{$key->id}}">{{ $key->name }}</td>
+                  <td>{{ $key->user->email }}</td>
                   <td>{{ $key->lock->name }}</td>
                   <td>
                     @if ( 1== 1) <!--el if es temporal para que no pete, soy un vago si -->
