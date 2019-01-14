@@ -70,8 +70,8 @@ Route::get('/keys/create', ['as'=>'keys.create','uses'=>'KeyController@create'])
 Route::post('/keys', ['as'=>'keys.store','uses'=>'KeyController@store'])->middleware('verified'); //crear llave
 //Route::get('/keys/createView', ['as'=>'keys.createView','uses'=>'KeyController@createView'])->middleware('verified');
 Route::get('/keys/{key}/edit', ['as'=>'keys.edit','uses'=>'KeyController@edit'])->middleware('verified');
-Route::post('/keys/{key}', ['as'=>'keys.update','uses'=>'KeyController@update'])->middleware('verified');
-Route::get('/keys/{key}', ['as'=>'keys.destroy','uses'=>'KeyController@destroy'])->middleware('verified');
+Route::put('/keys/{key}', ['as'=>'keys.update','uses'=>'KeyController@update'])->middleware('verified');
+Route::delete('/keys/{key}', ['as'=>'keys.destroy','uses'=>'KeyController@destroy'])->middleware('verified');
 
 //Rutas cerraduras
 Route::get('/locks', ['as'=>'locks.index','uses'=>'LockController@index']);
