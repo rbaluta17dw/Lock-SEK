@@ -17,11 +17,10 @@ class UserController extends Controller
   }
   public function index()
   {
-    //$user = User::find(Auth::user()->id);
-
 
     return view('pages/user/profile');
   }
+
   public function settings()
   {
     return view('pages/user/settings');
