@@ -33,13 +33,8 @@
       <a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU</a>
       <ul class="list-group">
         <li class="list-group-item text-muted">Activos</li>
-<<<<<<< HEAD
-        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span>{{$numKeys}}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong><a href="/locks"> Cerraduras</a></strong></span>{{$numLocks}}</li>
-=======
         <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span>{{Auth::user()->keys->count()}}</li>
         <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong><a href="/locks"> Cerraduras</a></strong></span> {{Auth::user()->locks->count()}}</li>
->>>>>>> af80e7a91bc21f4d02d7b61994883ce97327fb34
       </ul>
 
       </div><!--/col-3-->
