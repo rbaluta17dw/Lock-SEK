@@ -23,10 +23,8 @@ class SetLang
         if (Session::has("lang")) {
             $lang = Session::get("lang");
         }else if (Cookie::get('language') !== null) {
-          $value = Cookie::get('name');
-        }
-
-         else {
+          $lang = Cookie::get('language');
+        }else {
             // check browser lang - https://learninglaravel.net/detect-and-change-language-on-the-fly-with-laravel
             $lang = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
 
