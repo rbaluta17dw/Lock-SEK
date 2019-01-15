@@ -9,7 +9,7 @@ $(document).ready( function () {
     $('#aUsersTable').DataTable( {
       dom: 'Bfrtip',
       buttons: [
-          'copy', 'excel', 'pdf'
+          'copy', 'excel', 'pdf', 'print'
       ]
   } );
 });
