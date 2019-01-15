@@ -95,7 +95,7 @@
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
               <thead>

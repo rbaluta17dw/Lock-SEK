@@ -31,9 +31,9 @@
                               <tbody>
                                 @foreach ($users as $user)
                                   <tr>
-                                      <td><a href="/admin/user/{{ $user->id }}">{{ $user->id }}</a></td>
+                                      <td>{{ $user->id }}</td>
                                       <td>{{ $user->name }}</td>
-                                      <td>{{ $user->email }}</td>
+                                      <td><a href="/admin/user/{{ $user->id }}">{{ $user->email }}</a></td>
                                       <td>
                                         @if ($user->roleId == 2)
                                           <span class="label label-info">@lang('adminUsers.admin')</span>
