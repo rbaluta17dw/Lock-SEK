@@ -39,6 +39,7 @@ class CreateNotificationsTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

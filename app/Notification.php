@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
 
 class Notification extends Model
 {
+  use SoftDeletes; 
   public function users()
   {
       return $this->belongsTo('App\User');

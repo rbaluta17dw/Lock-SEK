@@ -7,12 +7,17 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
+
+
 
 
 class User extends Authenticatable implements MustVerifyEmail
 {
   use SoftDeletes;
+  use SoftCascadeTrait;
   protected $dates = ['deleted_at'];
+  protected $softCascade = ['locks','keys','notifications','privileges'];
 
     public function locks()
     {
