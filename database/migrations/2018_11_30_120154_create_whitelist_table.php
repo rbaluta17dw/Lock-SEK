@@ -17,20 +17,21 @@ class CreateWhitelistTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('device');
-            
-            
+
+
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
+
             $table->unsignedInteger('lock_id');
             $table->foreign('lock_id')->references('id')
             ->on('locks')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

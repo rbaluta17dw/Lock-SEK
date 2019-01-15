@@ -3,9 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
+
 
 class Lock extends Model
 {
+
+  use SoftDeletes;
+  use SoftCascadeTrait;
+  protected $dates = ['deleted_at'];
+  protected $softCascade = ['keys','notifications','privileges'];
+
     public function user()
     {
         return $this->belongsTo('App\User');
