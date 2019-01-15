@@ -43,7 +43,7 @@
                                     @method('PUT')
                                     <label for="newKeyName">Nuevo nombre de la llave:</label>
                                     <br>
-                                    <input type="text" name="newKeyName" placeholder="{{$key->name}}" />
+                                    <input type="text" name="newKeyName" class="{{ $errors->has('newKeyName') ? 'alert-danger':''}}" placeholder="{{$key->name}}" value="{{old('newKeyName')}}" />
                                     <br>
                                     <br>                                
                                     <button type="submit" class="btn btn-default btn-primary">Cambiar</button>

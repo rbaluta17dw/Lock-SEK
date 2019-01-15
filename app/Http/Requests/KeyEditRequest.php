@@ -24,7 +24,7 @@ class KeyEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'newKeyName' => ['nullable',
+            'newKeyName' => ['required',
                       'string',
                       'max:45',
                       'min:4', 
@@ -36,6 +36,7 @@ class KeyEditRequest extends FormRequest
     public function messages()
     {
         return [
+            'newKeyName.required' => 'El nuevo nombre no puede estar vacio',
             'newKeyName.regex' => 'El nombre no acepta caracteres especiales',
             'newKeyName.min' => 'El nombre debe de tener minimo 4 caracteres',
             'newKeyName.max' => 'El nombre no puede ser tan largo'
