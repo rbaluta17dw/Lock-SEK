@@ -89,11 +89,11 @@ class LockController extends Controller
   {
     $lock = Lock::find($id);
     $email = $request->input('email');
-    $mod = 0;
-    $user = User::where('email', $email);
-    $lock->privileges()->sync($user);
-    $lock->privileges->privilege = $mod;
-    return redirect()->action('LockController@show');
+    $mod = $request->input('role');
+    $user = User::where('email', $email)->get();
+    $lock->privileges()->attach($user,['privilege' => $mod]);
+
+    return redirect()->action('LockController@show',['lock'=>$lock]);
 }
 
 }
