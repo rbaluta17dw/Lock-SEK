@@ -145,6 +145,16 @@ class AdminController extends Controller
 
     return view('pages/admin/lock',['lock'=>$lock]);
   }
+  public function lockInsertPrivilege(Request $request, $id)
+  {
+    $lock = Lock::find($id);
+    $email = $request->input('email');
+    $mod = $request->input('role');
+    $user = User::where('email', $email)->get();
+    $lock->privileges()->attach($user,['privilege' => $mod]);
+
+    return redirect()->action('AdminController@lock',['id'=>$lock->id]);
+  }
   public function lock($id)
   {
     $lock = Lock::find($id);

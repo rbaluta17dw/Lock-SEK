@@ -104,6 +104,24 @@
             </div>
             <!-- /.table-responsive -->
           </div>
+          <div class="col-xs-4 pull-right">
+            <form class="form" action="{{route('admin.locks.insertPrivilege',$lock->id)}}" method="post" >
+              @csrf
+              @method('post')
+              <label for="name">Email:</label>
+              <br>
+              <input type="text" name="email" placeholder="Inserta un email" />
+              <br>
+              <label for="name">Permiso:</label>
+              <br>
+              <select name="role" class="form-control">
+              <option value="0">Basico</option>
+              <option value="1">Administrador</option>
+              </select>
+              <br>
+              <button type="submit" class="btn btn-default btn-primary">Dar permiso</button>
+            </form>
+          </div>
 
         </div>
         <div class="panel-body">
