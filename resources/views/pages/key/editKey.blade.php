@@ -40,6 +40,7 @@
                             <div class="col-xs-6">
                                 <form class="form" action="{{route('keys.update',$key->id)}}" method="post" >
                                     @csrf
+                                    @method('PUT')
                                     <label for="name">Nuevo nombre de la llave:</label>
                                     <br>
                                     <input type="text" name="newKeyName" placeholder="{{$key->name}}" />
@@ -50,8 +51,9 @@
                             </div>
 
                             <div class="col-xs-6">
-                                <form class="form" action="{{route('keys.destroy',$key->id)}}" method="get" >
+                                <form class="form" action="{{route('keys.destroy',$key->id)}}" method="POST" >
                                     @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-default btn-danger">Eliminar llave</button> 
                                 </form>
                             </div>  

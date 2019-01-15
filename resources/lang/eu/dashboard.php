@@ -3,7 +3,9 @@
 return [
   'user' => 'Erabiltzailea',
   'keys' => 'Giltzak',
-  'listkey' => 'Giltza zerrenda',
+  'listkeys' => 'Giltza zerrenda',
   'createkey' => 'Giltza sortu',
   'locks' => 'Sarraila',
+  'listlocks' => 'Sarraila zerrenda',
+  'registerlock' => 'Sarraila erregistratu',
 ];

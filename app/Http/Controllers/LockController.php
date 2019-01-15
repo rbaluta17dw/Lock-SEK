@@ -32,18 +32,60 @@ class LockController extends Controller
       $lock->user_id = Auth::user()->id;
       $lock->save();
 
-      return view('pages/lock/lock');
+      $newLock = Lock::where('serial_n',$request->input('numSerie'))->first();
+
+      //añadir a la tabla privileges
+
+      return redirect()->action('LockController@show', ['id' => $newLock]);
+      //return view('pages/lock/lock',['lock'=>$lock]);
   }
 
-  public function show()
+  public function show($id)
   {
-      return view('pages/lock/lock');
+
+      if (Lock::where('id',$id)->exists()) {
+        $lock= Lock::find($id);
+        if (Auth::user()->id == $lock->user_id) {
+          return view('pages/lock/lock',['lock'=>$lock]);
+        }else{
+          abort(404);
+        }
+
+      }else{
+        abort(404);
+      }
+
+
   }
 
-  public function edit($id)
+  public function update(Request $request, $id)
   {
-    $lock= Lock::find($id);
+    $lock=Lock::find($id);
 
-    return view('lock.edit')->with('lock', $lock);
+    $lock->name = $request->input('newLockName');
+
+    $lock->save();
+
+
+    return view('pages/lock/lock',['lock'=>$lock]);
+
   }
+
+  public function destroy($id)
+  {
+      if (Lock::where('id',$id)->exists()) {
+
+          $lock = Lock::find($id);
+          if (Auth::user()->id == $lock->user_id){
+              $lock->delete();
+              return redirect()->action('LockController@index');
+          }else{
+              abort(404);
+          }
+      }else{
+          abort(404);
+      }
+  }
+
+
 }

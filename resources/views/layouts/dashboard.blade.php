@@ -92,7 +92,7 @@
               <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                 <li>
-                  <a href="{{ route('keys.index') }}">@lang('dashboard.listkey')</a>
+                  <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
                 </li>
                 <li>
                   <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
@@ -101,7 +101,16 @@
               <!-- /.nav-second-level -->
             </li>
             <li>
-              <a href="{{ route('locks.index') }}"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')</a>
+              <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                <li>
+                  <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
+                </li>
+                <li>
+                  <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
+                </li>
+              </ul>
+              <!-- /.nav-second-level -->
             </li>
             @endif
           </ul>

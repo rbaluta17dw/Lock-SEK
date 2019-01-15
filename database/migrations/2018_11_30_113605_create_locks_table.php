@@ -16,15 +16,15 @@ class CreateLocksTable extends Migration
         Schema::create('locks', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string("serial_n");
+            $table->string("serial_n")->unique();
             $table->string("name");
-           
+
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
+
             $table->timestamps();
         });
     }
