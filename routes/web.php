@@ -79,8 +79,9 @@ Route::get('/locks/register', ['as'=>'locks.register','uses'=>'LockController@re
 Route::post('/locks/create', ['as'=>'locks.create','uses'=>'LockController@create'])->middleware('verified');
 Route::get('/locks/{lock}', ['as'=>'locks.show','uses'=>'LockController@show'])->middleware('verified');
 Route::put('/locks/{lock}', ['as'=>'locks.update','uses'=>'LockController@update'])->middleware('verified');
-Route::delete('/$locks/{lock}', ['as'=>'locks.destroy','uses'=>'LockController@destroy'])->middleware('verified');
-
+Route::delete('/locks/{lock}', ['as'=>'locks.destroy','uses'=>'LockController@destroy'])->middleware('verified');
+//Privilegios
+Route::post('/locks/{lock}/insertPrivilege', ['as'=>'locks.insertPrivilege','uses'=>'LockController@insertPrivilege'])->middleware('verified');
 
 
 // rutas Notificaciones
