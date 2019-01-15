@@ -62,7 +62,7 @@ class UserController extends Controller
     }
     
     $request->session()->flash('failure', 'Contraseña erronea, los cambios no se han guardado');
-    
+    //return view('pages/user/profile');
     return back();
     
   }

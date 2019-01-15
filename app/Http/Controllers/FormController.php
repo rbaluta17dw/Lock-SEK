@@ -1,35 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\ContactFormRequest;
 use Illuminate\Http\Request;
 use App\Form;
 
 class FormController extends Controller
 {
     
-	public function insert(Request $request){
-        
-                $validatedData = $request->validate([
-                        'email' => 'nullable|email|unique:users',
-                        'name' => ['nullable', 
-                                  'string',
-                                  'max:45',
-                                  'min:1', 
-                                  'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.\s]+$/'],
-                  
-                        'message' => ['required', 
-                                 'min:1', 
-                                 'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.\s]+$/'],
-                                
-                        
-                    ]);
-
-                    $this->validate(
-                        $request, 
-                        ['thing' => 'required'],
-                        ['thing.required' => 'this is my custom error message for required']
-                    );
+	public function insert(ContactFormRequest $request){
+        $validated = $request->validated();
 
 
                     
@@ -44,7 +24,9 @@ class FormController extends Controller
         $data->save();
 
         
-        return view('pages/Landing');
+        //return view('pages/Landing');
+
+        return redirect('pages/Landing#section-contact');
     
         }
 }
