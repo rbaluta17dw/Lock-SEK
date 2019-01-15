@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Lock;
 use App\Key;
+use App\Form;
 use Hash;
 
 
@@ -23,16 +24,21 @@ class AdminController extends Controller
     $locks = Lock::select('id')->count();
     $keys = Key::select('id')->count();
     //$users = User::select('id')->count();
+    $messages = Form::select('id')->count();
 
 
-
-    return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys]);
+    return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages]);
   }
   public function users()
   {
     $users = User::all();
     $button = true;
     return view('pages/admin/users',['users'=>$users,'button'=>$button]);
+  }
+  public function messages()
+  {
+    $messages = Form::all();
+    return view('pages/admin/messages',['messages'=>$messages]);
   }
   public function usersDeleted()
   {
@@ -123,6 +129,10 @@ class AdminController extends Controller
   {
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
+  }
+  public function lockDelete($id){
+    Lock::find($id)->delete();
+    return view('pages/admin/dashboard');
   }
   public function lock($id)
   {

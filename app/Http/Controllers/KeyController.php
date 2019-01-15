@@ -26,7 +26,7 @@ class KeyController extends Controller
      */
     public function index()
     {
-        
+
         $keys = Key::where('user_id', Auth::user()->id)->get();
 
         return view('pages/key/keys',['keys'=>$keys]);
@@ -52,15 +52,15 @@ class KeyController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $user = User::find(Auth::user()->id);
-        
-        $key = new Key; 
+
+        $key = new Key;
         $key->name = $request->input('keyName');
         $key->device = 2;
         $key->user_id = $user->id;
-        $key->lock_id = 1;
+        $key->lock_id = 2;
         $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
             'rounds' => 12
             ]);
@@ -68,7 +68,7 @@ class KeyController extends Controller
        $key->save();
 
        Storage::put("/storage/keys/".time().".key", $hashed);
-       
+
        return Storage::download("/storage/keys/".time().".key");
 
 
@@ -82,7 +82,7 @@ class KeyController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -110,7 +110,7 @@ class KeyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $key=Key::find($id);
 
         $key->name = $request->input('newKeyName');
@@ -138,10 +138,10 @@ class KeyController extends Controller
         $key = Key::find($id);
         $key->delete();
 
-       
+
         $keys = Key::where('user_id', Auth::user()->id)->get();
 
         return view('pages/key/keys',['keys'=>$keys]);;
-        
+
     }
 }

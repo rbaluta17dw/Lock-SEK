@@ -61,21 +61,6 @@
           <div class="panel-body">{{$user->email}}</div>
         </div>
 
-        <ul class="list-group">
-          <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-        </ul>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Social Media</div>
-          <div class="panel-body">
-            <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-          </div>
-        </div>
-
       </div>
       <!--/col-3-->
       <div class="col-sm-9">
@@ -222,7 +207,7 @@
                         @if (isset($user->deleted_at))
                           <button class="btn btn-lg btn-warning" formaction="/admin/user/recover/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i>@lang('adminUser.recover')</button>
                         @else
-                          <button class="btn btn-lg btn-danger" formaction="/admin/user/delete/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i>@lang('adminUser.delete')</button>
+                          <button class="btn btn-lg btn-danger" formaction="/admin/user/delete/{{$user->id}}" type="submit"><i class="fa fa-trash fa-1x"></i> @lang('adminUser.delete')</button>
                         @endif
                       </div>
                     </div>
