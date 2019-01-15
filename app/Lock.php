@@ -23,7 +23,7 @@ class Lock extends Model
 
     public function privileges()
     {
-        return $this->belongsToMany('App\User', 'privileges');
+        return $this->belongsToMany('App\User', 'privileges')->withPivot('privilege');;
 
     }
 }
