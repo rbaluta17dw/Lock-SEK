@@ -64,7 +64,7 @@ class KeyController extends Controller
         $key->name = $request->input('keyName');
         $key->device = 2;
         $key->user_id = $user->id;
-        $key->lock_id = 2;
+        $key->lock_id = $request->input('lock');
         $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
             'rounds' => 12
             ]);

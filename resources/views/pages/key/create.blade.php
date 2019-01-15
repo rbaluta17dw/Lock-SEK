@@ -12,12 +12,12 @@
           <label for="date">Nombre de la llave</label>
           <p> <input type="text" name="keyName" placeholder="Nombre de la llave" class="{{ $errors->has('keyName') ? 'alert-danger':''}}" value="{{old('keyName')}}"/></p>
         
-          <select>
+          <select name="lock">
             @foreach(Auth::user()->privileges as $privilege)
-              <option value="$privilege->id">{{$privilege->name}}</option>
+              <option value="{{$privilege->id}}">{{$privilege->name}}</option>
             @endforeach
             @foreach(Auth::user()->locks as $lock)
-              <option value="$lock->id">{{$lock->name}}</option>
+              <option value="{{$lock->id}}">{{$lock->name}}</option>
             @endforeach
           </select> 
          
