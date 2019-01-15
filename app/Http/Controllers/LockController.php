@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Lock;
+use App\User;
 
 class LockController extends Controller
 {
@@ -73,19 +74,26 @@ class LockController extends Controller
 
   public function destroy($id)
   {
-      if (Lock::where('id',$id)->exists()) {
 
-          $lock = Lock::find($id);
+
+          $lock = Lock::findOrFail($id);
           if (Auth::user()->id == $lock->user_id){
               $lock->delete();
               return redirect()->action('LockController@index');
           }else{
               abort(404);
           }
-      }else{
-          abort(404);
-      }
-  }
 
+  }
+  public function insertPrivilege(Request $request, $id)
+  {
+    $lock = Lock::find($id);
+    $email = $request->input('email');
+    $mod = 0;
+    $user = User::where('email', $email);
+    $lock->privileges()->sync($user);
+    $lock->privileges->privilege = $mod;
+    return redirect()->action('LockController@show');
+}
 
 }
