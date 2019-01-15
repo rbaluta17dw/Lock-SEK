@@ -135,6 +135,16 @@ class AdminController extends Controller
     Lock::find($id)->delete();
     return view('pages/admin/dashboard');
   }
+  public function lockUpdate(Request $request, $id){
+    $lock=Lock::find($id);
+
+    $lock->name = $request->input('newLockName');
+
+    $lock->save();
+
+
+    return view('pages/admin/lock',['lock'=>$lock]);
+  }
   public function lock($id)
   {
     $lock = Lock::find($id);

@@ -47,6 +47,25 @@
                 <label for="first_name"><h4>Fecha de Registro</h4></label>
                 <p>{{$lock->created_at}}</p>
               </div>
+              <div class="col-lg-6">
+                <form class="" action="##" method="post">
+                  @csrf
+                  <button class="btn btn-lg btn-danger" formaction="/admin/lock/delete/{{$lock->id}}" type="submit"><i class="fa fa-trash fa-1x"></i> @lang('adminUser.delete')</button>
+                </form>
+                <!-- /.table-responsive -->
+              </div>
+              <div class="col-xs-6">
+                  <form class="form" action="{{route('admin.locks.update',$lock->id)}}" method="post" >
+                      @csrf
+                      @method('put')
+                      <label for="name">Nuevo nombre de la cerradura:</label>
+                      <br>
+                      <input type="text" name="newLockName" placeholder="{{$lock->name}}" />
+                      <br>
+                      <br>
+                      <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
+                  </form>
+              </div>
               <hr>
             </div>
           </div><!--/col-9-->
@@ -77,7 +96,7 @@
                       <td>{{$privilege->id}}</td>
                       <td>{{$privilege->name}}</td>
                       <td>{{$privilege->created_at}}</td>
-                      <td>{{$privilege->privilege}}</td>
+                      <td>{{$privilege->pivot->privilege}}</td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -85,13 +104,7 @@
             </div>
             <!-- /.table-responsive -->
           </div>
-          <div class="col-lg-6">
-            <form class="" action="##" method="post">
-              @csrf
-              <button class="btn btn-lg btn-danger" formaction="/admin/lock/delete/{{$lock->id}}" type="submit"><i class="fa fa-trash fa-1x"></i> @lang('adminUser.delete')</button>
-            </form>
-            <!-- /.table-responsive -->
-          </div>
+
         </div>
         <div class="panel-body">
           <div class="col-lg-6">
