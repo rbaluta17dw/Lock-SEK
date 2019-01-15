@@ -28,7 +28,7 @@ class KeyEditRequest extends FormRequest
                       'string',
                       'max:45',
                       'min:4', 
-                      'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.]+$/']
+                      'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.\s]+$/']
            
         ];
     }

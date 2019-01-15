@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\KeyEditRequest;
+use App\Http\Requests\CreateKeyRequest;
 use App\Key;
 use App\User;
 use App\Lock;
@@ -51,17 +52,19 @@ class KeyController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(CreateKeyRequest $request)
     {
 
+     
 
         $user = User::find(Auth::user()->id);
+        $validated = $request->validated();
 
         $key = new Key;
         $key->name = $request->input('keyName');
         $key->device = 2;
         $key->user_id = $user->id;
-        $key->lock_id = 2;
+        $key->lock_id = $request->input('lock');
         $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
             'rounds' => 12
             ]);
@@ -90,9 +93,6 @@ class KeyController extends Controller
         */
         public function edit($id)
         {
-
-           
-
 
             if (Key::where('id',$id)->exists()) {
                 $key= Key::find($id);

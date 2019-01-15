@@ -219,13 +219,13 @@
                     @csrf
                     <input type="hidden" data-form-email="true">
                     <div class="form-group">
-                      <input type="text" class="form-control" name="name" required="" placeholder="Nombre*" data-form-field="Name">
+                      <input type="text" class="form-control {{ $errors->has('name') ? 'alert-danger':''}}" name="name" required="" placeholder="Nombre*" data-form-field="Name" value="{{old('name')}}">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
+                      <input type="email" class="form-control {{ $errors->has('email') ? 'alert-danger':''}}" name="email" required="" placeholder="Email*" data-form-field="Email" value="{{old('email')}}">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" name="message" required="" placeholder="Mensaje*" rows="7" data-form-field="Message">
+                      <input type="text" class="form-control {{ $errors->has('message') ? 'alert-danger':''}}" name="message" required="" placeholder="Mensaje*" rows="7" data-form-field="Message" value="{{old('message')}}">
                       
                     </div>
                     <div class="form-group">
