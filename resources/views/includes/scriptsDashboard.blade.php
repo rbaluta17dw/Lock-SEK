@@ -43,9 +43,6 @@
 
 <!-- graficos -->
 
-<script src="{{asset('assets/js/chart.bundle.js')}}"></script>
-<script src="{{asset('assets/js/charts.js')}}"></script>
-
 
 
 <!--Fin form llave -->

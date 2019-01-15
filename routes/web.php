@@ -35,7 +35,8 @@ Route::get('/notifications', function () {
 // Idiomas
 Route::get('lang/{lang}', function($lang) {
   \Session::put('lang', $lang);
-  return \Redirect::back();
+  $cookie = cookie('language', $lang, 43200);
+  return \Redirect::back()->cookie($cookie);
 })->middleware('web')->name('change_lang');
 
 //admin

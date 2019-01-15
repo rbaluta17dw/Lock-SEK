@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
      <!-- Bootstrap Core CSS -->
-
+     <script src="{{asset('assets/js/chart.js')}}"></script>
      <link href="{{asset('assets/dashboard-resources/css/bootstrap.min.css')}}" rel="stylesheet">
 
 
