@@ -52,7 +52,7 @@
                 @else
                   <p>{{Auth::user()->name}}</p>
                 @endif
-                <input type="text" class="form-control config" name="name" id="first_name" placeholder="@lang('profile.name')" title="enter your first name if any.">
+                <input type="text" class="form-control config {{ $errors->has('name') ? 'alert-danger':''}}" name="name" id="first_name" placeholder="@lang('profile.name')" title="enter your first name if any."  value="{{old('name')}}">
               </div>
             </div>
             <div class="form-group">
@@ -60,21 +60,21 @@
               <div class="col-xs-6">
                 <label for="email"><h4>@lang('profile.email')</h4></label>
                 <h4>{{Auth::user()->email}}</h4>
-                <input type="email" class="form-control config" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                <input type="text" class="form-control config {{ $errors->has('email') ? 'alert-danger':''}}" name="email" id="email" placeholder="you@email.com" title="enter your email."  value="{{old('email')}}">
               </div>
             </div>
             <div class="form-group">
 
               <div class="col-xs-6">
                 <label for="password" class="config"><h4>@lang('profile.currentpassword')</h4></label>
-                <input type="password" class="form-control config" name="password" id="password" placeholder="@lang('profile.currentpassword')" title="enter your password.">
+                <input type="password" class="form-control config {{ $errors->has('password') ? 'alert-danger':''}}" name="password" id="password" placeholder="@lang('profile.currentpassword')" title="enter your password.">
               </div>
             </div>
             <div class="form-group">
 
               <div class="col-xs-6">
                 <label for="password2" class="config"><h4>@lang('profile.newpassword')</h4></label>
-                <input type="password" class="form-control config" name="password2" id="password2" placeholder="@lang('profile.newpassword')" title="enter your password2.">
+                <input type="password" class="form-control config {{ $errors->has('password2') ? 'alert-danger':''}}" name="password2" id="password2" placeholder="@lang('profile.newpassword')" title="enter your password2.">
               </div>
             </div>
             <div class="form-group">
@@ -101,5 +101,13 @@
             @endforeach
         </ul>
     </div>
-@endif
+    
+    @endif
+    @if (Session::has('success'))
+        <div class="alert alert-success">{!! Session::get('success') !!}</div>
+    @endif
+
+    @if (Session::has('failure'))
+        <div class="alert alert-danger">{!! Session::get('failure') !!}</div>
+    @endif
   @stop

@@ -46,6 +46,7 @@ class UserEditRequest extends FormRequest
             'name.regex' => 'El nombre no acepta caracteres especiales',
             'name.min' => 'El nombre debe de tener minimo 4 caracteres',
             'name.max' => 'El nombre no puede ser tan largo', 
+            'email.email' => 'Debe introducir un email valido',
             'password.required' => 'Es necesario introducir la contraseña',
             'password.regex' => 'La contraseña debe contener al menos una letra un numero y un caracter especial "mipassword123!"',
             'password.min' => 'La contraseña debe de tener al menos 6 caracteres',

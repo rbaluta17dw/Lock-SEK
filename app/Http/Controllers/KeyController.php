@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\KeyEditRequest;
 use App\Key;
 use App\User;
 use App\Lock;
@@ -89,6 +90,10 @@ class KeyController extends Controller
         */
         public function edit($id)
         {
+
+           
+
+
             if (Key::where('id',$id)->exists()) {
                 $key= Key::find($id);
                 if (Auth::user()->id == $key->user_id) {
@@ -108,15 +113,17 @@ class KeyController extends Controller
         * @param  int  $id
         * @return \Illuminate\Http\Response
         */
-        public function update(Request $request, $id)
+        public function update(KeyEditRequest $request, $id)
         {
-
+            $validated = $request->validated();
+            
             if (Key::where('id',$id)->exists()) {
                 $key=Key::find($id);
                 if (Auth::user()->id == $key->user_id){
                     $key->name = $request->input('newKeyName');
                     $key->save();
-                    return view('pages/key/editKey',['key'=>$key]);
+                    //return view('pages/key/editKey',['key'=>$key]);
+                    return redirect()->action('KeyController@edit',['key'=>$key]);
                 }else{
                     abort(404);
                 }
@@ -139,7 +146,8 @@ class KeyController extends Controller
                 if (Auth::user()->id == $key->user_id){
                     $key->delete();
                     $keys = Key::where('user_id', Auth::user()->id)->get();
-                    return view('pages/key/keys',['keys'=>$keys]);;
+                    //return view('pages/key/keys',['keys'=>$keys]);
+                    return redirect()->action('KeyController@index');
                 }else{
                     abort(404);
                 }
