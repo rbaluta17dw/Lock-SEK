@@ -25,7 +25,7 @@
                   <td>{{ $lock->id }}</td>
                   <td><a href="/admin/lock/{{$lock->id}}">{{ $lock->name }}</a></td>
                   <td>{{ $lock->serial_n }}</td>
-                  <td>{{ $lock->user->name }}</td>
+                  <td><a href="/admin/user/{{$lock->user->id}}">{{ $lock->user->name }}</a></td>
                   <td>{{ $lock->created_at }}</td>
                 </tr>
               @endforeach

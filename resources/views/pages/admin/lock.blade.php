@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-xs-6">
                   <label for="first_name"><h4>Dueño</h4></label>
-                  <p>{{$lock->user->name}}</p>
+                  <p><a href="/admin/user/{{$lock->user->id}}">{{$lock->user->email}}</a></p>
                 </div>
                 <div class="col-xs-6">
                   <label for="first_name"><h4>Numero de serie</h4></label>
@@ -94,7 +94,7 @@
                   @foreach ($lock->privileges as $privilege)
                     <tr>
                       <td>{{$privilege->id}}</td>
-                      <td>{{$privilege->name}}</td>
+                      <td><a href="/admin/user/{{$privilege->id}}">{{$privilege->email}}</a></td>
                       <td>{{$privilege->created_at}}</td>
                       <td>{{$privilege->pivot->privilege}}</td>
                     </tr>

@@ -36,23 +36,23 @@
                 </div>
                 <div class="col-xs-6">
                   <label for="first_name"><h4>Dueño</h4></label>
-                  <p>{{$key->user->email}}</p>
+                  <p> <a href="/admin/user/{{$key->user->id}}">{{$key->user->email}}</a></p>
                 </div>
                 <div class="col-xs-6">
-                <label for="first_name"><h4>Fecha de Registro</h4></label>
-                <p>{{$key->created_at}}</p>
-              </div>
-      
+                  <label for="first_name"><h4>Fecha de Registro</h4></label>
+                  <p>{{$key->created_at}}</p>
+                </div>
+
               </div>
               <div class="col-xs-6">
-                  <label for="first_name"><h4>Cerradura</h4></label>
-                  <p>{{$key->lock->name}}</p>
-                </div>
-                <div class="col-xs-6">
-                  <label for="first_name"><h4>Dueño de la Cerradura</h4></label>
-                  <p>{{$key->lock->user->email}}</p>
-                </div>
-             
+                <label for="first_name"><h4>Cerradura</h4></label>
+                <p> <a href="/admin/lock/{{$key->lock->id}}">{{$key->lock->name}}</a></p>
+              </div>
+              <div class="col-xs-6">
+                <label for="first_name"><h4>Dueño de la Cerradura</h4></label>
+                <p> <a href="/admin/user/{{$key->lock->user->id}}">{{$key->lock->user->email}} </a></p>
+              </div>
+
               <hr>
             </div>
           </div><!--/col-9-->
@@ -60,4 +60,4 @@
         <!-- /.panel-body -->
       </div>
 
-@stop
+    @stop

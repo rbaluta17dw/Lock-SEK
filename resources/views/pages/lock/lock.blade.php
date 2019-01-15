@@ -110,7 +110,7 @@
               <tbody>
               @foreach ($lock->privileges as $privilege)
                 <tr>
-                  <td>{{$privilege->name}}</td>
+                  <td>{{$privilege->email}}</td>
                   <td>
                   @if ($privilege->privilege == 1)
                     <span class="label label-info">admin</span>

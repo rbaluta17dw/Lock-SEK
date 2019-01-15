@@ -24,8 +24,8 @@
                 <tr>
                   <td>{{ $key->id }}</td>
                   <td><a href="/admin/key/{{$key->id}}">{{ $key->name }}</td>
-                  <td>{{ $key->user->email }}</td>
-                  <td>{{ $key->lock->name }}</td>
+                  <td><a href="/admin/user/{{$key->user->id}}">{{ $key->user->email }}</a></td>
+                  <td><a href="/admin/lock/{{$key->lock->id}}">{{ $key->lock->name }}</a></td>
                   <td>
                     @if ( 1== 1) <!--el if es temporal para que no pete, soy un vago si -->
                       <span class="badge badge-warning">Warning</span>

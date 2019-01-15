@@ -90,7 +90,7 @@
                     <tr>
                       <td>{{$lock->id}}</td>
                       <td>{{$lock->name}}</td>
-                      <td>{{$lock->serial_n}}</td>
+                      <td><a href="/admin/lock/{{$lock->id}}">{{$lock->serial_n}}</a></td>
                       <td>{{$lock->user->name}}</td>
                       <td>{{$lock->created_at}}</td>
                     </tr>
@@ -99,8 +99,8 @@
                     <tr>
                       <td>{{$privilege->id}}</td>
                       <td>{{$privilege->name}}</td>
-                      <td>{{$privilege->serial_n}}</td>
-                      <td>{{$privilege->user->name}}</td>
+                      <td><a href="/admin/lock/{{$privilege->id}}">{{$privilege->serial_n}}</a></td>
+                      <td><a href="/admin/user/{{$privilege->user->id}}">{{$privilege->user->name}}</a></td>
                       <td>{{$privilege->created_at}}</td>
                     </tr>
                   @endforeach
@@ -132,9 +132,9 @@
                 <tbody id="items">
                   @foreach ($user->keys as $key)
                     <tr>
-                      <td>{{$key->id}}</td>
+                      <td><a href="/admin/key/{{$key->id}}">{{$key->id}}</a></td>
                       <td>{{$key->name}}</td>
-                      <td>{{$key->lock->name}}</td>
+                      <td><a href="/admin/lock/{{$key->lock->id}}">{{$key->lock->name}}</a></td>
                       <td>Activo</td>
                     </tr>
                   @endforeach
