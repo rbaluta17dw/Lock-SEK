@@ -85,10 +85,17 @@
             </div>
             <!-- /.table-responsive -->
           </div>
+          <div class="col-lg-6">
+            <form class="" action="##" method="post">
+              @csrf
+              <button class="btn btn-lg btn-danger" formaction="/admin/lock/delete/{{$lock->id}}" type="submit"><i class="fa fa-trash fa-1x"></i> @lang('adminUser.delete')</button>
+            </form>
+            <!-- /.table-responsive -->
+          </div>
         </div>
         <div class="panel-body">
           <div class="col-lg-6">
-            
+
             <!-- /.table-responsive -->
           </div>
         </div>

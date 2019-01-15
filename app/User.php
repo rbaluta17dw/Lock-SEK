@@ -31,7 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function privileges()
     {
-        return $this->belongsToMany('App\Lock', 'privileges');
+        return $this->belongsToMany('App\Lock', 'privileges')->withPivot('privilege');
     }
     use Notifiable;
 

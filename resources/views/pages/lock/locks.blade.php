@@ -22,23 +22,6 @@
             </td>
         </tr>
       @endforeach
-        <tr>
-            <td>Nombre 2</td>
-            <td>Propietario 2</td>
-            <td>
-                <a href="#">Editar</a>/
-                <a href="#">Eliminar</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Nombre 3</td>
-            <td>Propietario 3</td>
-            <td>
-                <a href="#">Editar</a>/
-                <a href="#">Eliminar</a>
-            </td>
-        </tr>
-
 
     </tbody>
 </table>
