@@ -18,13 +18,13 @@
           <div class="form-group row">
             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nombre</label>
             <div class="col-sm-10">
-              <input type="text" name="name" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
+              <input type="text" name="name" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Inserte un nombre">
             </div>
           </div>
           <div class="form-group row">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Numero de serie</label>
             <div class="col-sm-10">
-              <input type="number" name="numSerie" class="form-control" id="colFormLabel" placeholder="col-form-label">
+              <input type="number" name="numSerie" class="form-control" id="colFormLabel" placeholder="Inserte el numero de serie">
             </div>
           </div>
         </div>
