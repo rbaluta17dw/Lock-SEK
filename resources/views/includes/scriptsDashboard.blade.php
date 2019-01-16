@@ -42,7 +42,7 @@
 <script src="{{asset('assets/js/editKey.js')}}"></script>
 
 <!-- graficos -->
-<script src="{{asset('assets/js/Chart.js')}}"></script>
+<script src="{{asset('assets/js/chart.js')}}"></script>
 
 
 
