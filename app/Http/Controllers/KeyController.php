@@ -55,7 +55,7 @@ class KeyController extends Controller
     public function store(CreateKeyRequest $request)
     {
 
-     
+
 
         $user = User::find(Auth::user()->id);
         $validated = $request->validated();
@@ -64,11 +64,7 @@ class KeyController extends Controller
         $key->name = $request->input('keyName');
         $key->device = 2;
         $key->user_id = $user->id;
-<<<<<<< HEAD
         $key->lock_id = $request->input('lock');
-=======
-        $key->lock_id = 1; 
->>>>>>> cbb73bdf74c57d4406b90c7010f30da398d7e1eb
         $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
             'rounds' => 12
             ]);
@@ -98,12 +94,6 @@ class KeyController extends Controller
         public function edit($id)
         {
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> cbb73bdf74c57d4406b90c7010f30da398d7e1eb
             if (Key::where('id',$id)->exists()) {
                 $key= Key::find($id);
                 if (Auth::user()->id == $key->user_id) {
