@@ -4,8 +4,12 @@
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header"></h1>
-
-    @foreach($months as $month)
+    PREMIUM:
+    @foreach($monthsPremium as $month)
+    {{$month->count()}}
+    @endforeach
+    BASICO:
+    @foreach($monthsBasic as $month)
     {{$month->count()}}
     @endforeach
   </div>
