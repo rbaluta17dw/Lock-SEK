@@ -3,7 +3,11 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">{{$months}}</h1>
+    <h1 class="page-header"></h1>
+
+    @foreach($months as $month)
+    {{$month->count()}}
+    @endforeach
   </div>
   <!-- /.col-lg-12 -->
 </div>

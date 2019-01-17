@@ -13,6 +13,7 @@ use DB;
 use Carbon\Carbon;
 
 
+
 class AdminController extends Controller
 {
 
@@ -38,12 +39,29 @@ class AdminController extends Controller
     ->where('roleId', 1)
     ->count();
 
+  //  $months = User::whereBetween('created_at', [now(), now()->subYear(1)])
+  //      ->orderBy('created_at')
+  //      ->get()
+  //      ->groupBy(function ($val) {
+  //          return Carbon::parse($val->created_at)->format('m');
+  //      });
 
-    $months = User::get()->groupBy(function($d) {
-    return Carbon::parse($d->created_at)->format('m');
-})->count();
+//        $months = User::groupBy(function($d) {
+//     return Carbon::parse($d->created_at)->format('m');
+//    })->get();
+$months = array();
+$months = User::orderBy('created_at', 'ASC')->get()
+    ->groupBy(function($date) {
+        //return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+        return Carbon::parse($date->created_at)->format('m/y'); // grouping by months
+    });
 
-
+    //$months=User::where('created_at', '>', \Carbon\Carbon::now()->subYear())->groupBy(function($data) {
+// day
+//month
+//return Carbon::parse($data->created_at)->format('Y-m');
+//week
+//});
 
     return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'months' => $months]);
   }
