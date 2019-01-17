@@ -24,7 +24,7 @@ $(window).click(function(){
         case 3:
         result[i].marker = "fa-lock";
         break;
-        case 3:
+        case 4:
         result[i].marker = "fa-key";
         break;
         default:
