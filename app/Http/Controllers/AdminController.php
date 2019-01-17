@@ -9,6 +9,8 @@ use App\Lock;
 use App\Key;
 use App\Form;
 use Hash;
+use DB;
+use Carbon\Carbon;
 
 
 class AdminController extends Controller
@@ -26,8 +28,24 @@ class AdminController extends Controller
     //$users = User::select('id')->count();
     $messages = Form::select('id')->count();
 
+   //Cantidad de users Basicos
+    $statBasic=DB::table('users')
+    ->where('roleId', 0)
+    ->count();
 
-    return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages]);
+   //Cantidad de users Premium
+    $statPremium=DB::table('users')
+    ->where('roleId', 1)
+    ->count();
+
+
+    $months = User::get()->groupBy(function($d) {
+    return Carbon::parse($d->created_at)->format('m');
+})->count();
+
+
+
+    return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'months' => $months]);
   }
   public function users()
   {
