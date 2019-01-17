@@ -20,56 +20,70 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+    
     use RegistersUsers;
-
+    
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
+    * Where to redirect users after registration.
+    *
+    * @var string
+    */
     protected $redirectTo = '/home';
-
+    
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->middleware('guest');
     }
-
+    
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+    * Get a validator for an incoming registration request.
+    *
+    * @param  array  $data
+    * @return \Illuminate\Contracts\Validation\Validator
+    */
     protected function validator(array $data)
     {
+        
+        $messages = [
+            'password.required' => 'Es necesario introducir una contraseña',
+            'password.regex' => 'La contraseña debe contener al menos una letra un numero y un caracter especial',
+            'password.min' => 'La contraseña debe contener al menos 6 caracteres',
+
+            'email.required' => 'Es necesario introducir un email',
+            'email.email' => 'El email introducido no es valido',
+            'email.max' => 'El email introducido no es demasiado largo',
+            'email.unique' => 'El email introducido ya ha sido registrado, por favor incie sesion',
+            
+        ];
+        
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             //'password' => ['required', 'string', 'min:6', 'confirmed'],
             'password' => ['required',
-                     'min:6',
-                     'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/',
-                    'string',
-                'confirmed'],
-        ]);
+            'min:6',
+            'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/',
+            'string',
+            'confirmed'],
+        ],$messages);
     }
-
+    
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
+    * Create a new user instance after a valid registration.
+    *
+    * @param  array  $data
+    * @return \App\User
+    */
     protected function create(array $data)
     {
         return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+            ]);
+        }
     }
-}
+    
