@@ -51,7 +51,7 @@ class RegisterController extends Controller
         
         $messages = [
             'password.required' => 'Es necesario introducir una contraseña',
-            'password.regex' => 'La contraseña debe contener al menos una letra un nuemero y un caracter especial',
+            'password.regex' => 'La contraseña debe contener al menos una letra un numero y un caracter especial',
             'password.min' => 'La contraseña debe contener al menos 6 caracteres',
 
             'email.required' => 'Es necesario introducir un email',
