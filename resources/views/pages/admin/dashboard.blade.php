@@ -14,28 +14,29 @@
 <!-- /.row -->
 <div class="row">
   <div class="col-lg-3 col-md-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-users fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge">{{$users}}</div>
-            <div>@lang('adminDashboard.users')</div>
+    <a href="{{route('admin.users')}}">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-users fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge">{{$users}}</div>
+              <div>@lang('adminDashboard.users')</div>
+            </div>
           </div>
         </div>
-      </div>
-      <a href="{{route('admin.users')}}">
         <div class="panel-footer">
           <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
   </div>
   <div class="col-lg-3 col-md-6">
+    <a href="{{route('admin.keys')}}">
     <div class="panel panel-green">
       <div class="panel-heading">
         <div class="row">
@@ -48,16 +49,16 @@
           </div>
         </div>
       </div>
-      <a href="{{route('admin.keys')}}">
         <div class="panel-footer">
           <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
     </div>
+      </a>
   </div>
   <div class="col-lg-3 col-md-6">
+    <a href="{{route('admin.locks')}}">
     <div class="panel panel-yellow">
       <div class="panel-heading">
         <div class="row">
@@ -70,16 +71,16 @@
           </div>
         </div>
       </div>
-      <a href="{{route('admin.locks')}}">
         <div class="panel-footer">
           <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
     </div>
+    </a>
   </div>
   <div class="col-lg-3 col-md-6">
+    <a href="{{route('admin.messsages')}}">
     <div class="panel panel-red">
       <div class="panel-heading">
         <div class="row">
@@ -92,14 +93,13 @@
           </div>
         </div>
       </div>
-      <a href="{{route('admin.messsages')}}">
         <div class="panel-footer">
           <span class="pull-left">@lang('adminDashboard.viewDetails')</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
     </div>
+  </a>
   </div>
 </div>
 <div class="row">
