@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="row">  
+<div class="row">
     <div class="col-sm-9">
         <h4>Editar Llave</h4>
         <div class="tab-content">
@@ -15,7 +15,7 @@
             <div class="">
                 <div class="col-sm-3"><!--left col-->
                     <div class="text-center">
-                        <img src="https://us.123rf.com/450wm/artforeveryone/artforeveryone1708/artforeveryone170800036/83814878-golden-key-icon-isolated-concept-soluci%C3%B3n-acceso-desbloquear.jpg?ver=6" class="avatar img-thumbnail" alt="avatar">     
+                        <img src="https://us.123rf.com/450wm/artforeveryone/artforeveryone1708/artforeveryone170800036/83814878-golden-key-icon-isolated-concept-soluci%C3%B3n-acceso-desbloquear.jpg?ver=6" class="avatar img-thumbnail" alt="avatar">
                     </div></hr><br>
                 </div><!--/col-3-->
 
@@ -45,7 +45,7 @@
                                     <br>
                                     <input type="text" name="newKeyName" class="{{ $errors->has('newKeyName') ? 'alert-danger':''}}" placeholder="{{$key->name}}" value="{{old('newKeyName')}}" />
                                     <br>
-                                    <br>                                
+                                    <br>
                                     <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
                                 </form>
                             </div>
@@ -54,9 +54,9 @@
                                 <form class="form" action="{{route('keys.destroy',$key->id)}}" method="POST" >
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-default btn-danger">Eliminar llave</button> 
+                                    <button type="submit" class="btn btn-default btn-danger">Eliminar llave</button>
                                 </form>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -75,51 +75,22 @@
         </ul>
     </div>
 @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--<form class="form" action="#" method="post" >
-    
+
     <label for="date">Nuevo rango de fechas</label>
-    
+
     <input type="text" class="form rangeCalendar" name="newDateRange" />
-    
+
     <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
-    
+
 </form>
 <br>
 
 <form action="#" method="post" class="form">
-    
+
     <label for="date">Nuevas fechas</label>
     <input type="text" class="form multiCalendar" name="newMultiDate">
-    
+
     <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
 </form>
 
