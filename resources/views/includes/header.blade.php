@@ -2,7 +2,8 @@
 
 
   <div class="container">
-    <a class="navbar-brand" href="/">LOGO</a>
+    <a class="navbar-brand" href="/"><img class="logo-white" src="{{asset('assets/img/logo.png')}}" alt=""></a>
+
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span><i class="ion-navicon"></i></span>
     </button>

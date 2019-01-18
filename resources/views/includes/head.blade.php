@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+<link rel="icon" href="{{asset('assets/img/favicon.png')}}">
 <meta name="description" content="Free Bootstrap 4 Template by uicookies.com">
 <meta name="keywords" content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
 

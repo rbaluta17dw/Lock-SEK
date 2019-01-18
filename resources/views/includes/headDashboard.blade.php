@@ -5,6 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
      <!-- Bootstrap Core CSS -->
+     <link rel="icon" href="{{asset('assets/img/favicon.png')}}">
      <script src="{{asset('assets/js/chart.js')}}"></script>
      <link href="{{asset('assets/dashboard-resources/css/bootstrap.min.css')}}" rel="stylesheet">
 

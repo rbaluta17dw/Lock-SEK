@@ -99,3 +99,7 @@ a:hover{
 .yellowback{
   background-color: yellow !important;
 }
+
+.logo-no-icon{
+  width: 100px;
+}
