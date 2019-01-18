@@ -31,10 +31,8 @@ class ContactFormRequest extends FormRequest
                       'max:45',
                       'min:1', 
                       'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.\s]+$/']
-      
         ];
     }
-
 
     public function messages()
     {
