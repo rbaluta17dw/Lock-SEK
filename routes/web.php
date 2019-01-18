@@ -91,6 +91,7 @@ Route::put('/locks/{lock}', ['as'=>'locks.update','uses'=>'LockController@update
 Route::delete('/locks/{lock}', ['as'=>'locks.destroy','uses'=>'LockController@destroy'])->middleware('verified');
 //Privilegios
 Route::post('/locks/{lock}/insertPrivilege', ['as'=>'locks.insertPrivilege','uses'=>'LockController@insertPrivilege'])->middleware('verified');
+Route::delete('/locks/{lock}/{user}/delete', ['as'=>'locks.deletePrivilege','uses'=>'LockController@deletePrivilege'])->middleware('verified');
 
 
 // rutas Notificaciones
