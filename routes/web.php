@@ -39,6 +39,8 @@ Route::get('lang/{lang}', function($lang) {
   return \Redirect::back()->cookie($cookie);
 })->middleware('web')->name('change_lang');
 
+Route::get('/liveStats', ['as'=>'liveStats','uses'=>'StatsController@index'])->middleware('admin');
+
 //admin
 Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
 Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');

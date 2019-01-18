@@ -39,33 +39,23 @@ class AdminController extends Controller
     ->where('roleId', 1)
     ->count();
 
-  //  $months = User::whereBetween('created_at', [now(), now()->subYear(1)])
-  //      ->orderBy('created_at')
-  //      ->get()
-  //      ->groupBy(function ($val) {
-  //          return Carbon::parse($val->created_at)->format('m');
-  //      });
+    $monthsBasic =$this->queryRegistros(0);
+    $monthsPremium =$this->queryRegistros(1);
 
-//        $months = User::groupBy(function($d) {
-//     return Carbon::parse($d->created_at)->format('m');
-//    })->get();
+    $year=now()->year;
+    $month=date('m');
+    $day=now()->day;
 
-$monthsPremium = User::where('roleId',1)->orderBy('created_at', 'ASC')->get()
-    ->groupBy(function($date) {
-        //return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-        return Carbon::parse($date->created_at)->format('m/y'); // grouping by months
-    });
-    $monthsBasic = User::where('roleId',0)->orderBy('created_at', 'ASC')->get()
-        ->groupBy(function($date) {
-            //return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-            return Carbon::parse($date->created_at)->format('m/y'); // grouping by months
-        });
-    //$months=User::where('created_at', '>', \Carbon\Carbon::now()->subYear())->groupBy(function($data) {
-// day
-//month
-//return Carbon::parse($data->created_at)->format('Y-m');
-//week
-//});
+/*  <  for ($i=0; $i < 13 ; $i++) {
+      if ($monthsBasic[$i]['fecha'] == $year.$month) {
+        $regBasic[i]= $monthsBasic[$i]['contador'];
+      }else{
+        $regBasic[i]=0;
+      }
+
+    }
+    */
+
 
     return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'monthsPremium' => $monthsPremium,'monthsBasic' => $monthsBasic]);
   }
@@ -200,4 +190,9 @@ $monthsPremium = User::where('roleId',1)->orderBy('created_at', 'ASC')->get()
     $lock = Lock::find($id);
     return view('pages/admin/lock',['lock'=>$lock]);
   }
+  public function queryRegistros($roleId)
+  {
+  $months=DB::select("SELECT count(*) as contador, date_format(created_at, '%Y%m') as fecha FROM users WHERE roleId='$roleId' GROUP BY fecha ORDER BY fecha desc");
+return $months;
+}
 }

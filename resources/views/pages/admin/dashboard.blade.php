@@ -4,14 +4,9 @@
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header"></h1>
-    PREMIUM:
-    @foreach($monthsPremium as $month)
-    {{$month->count()}}
-    @endforeach
-    BASICO:
-    @foreach($monthsBasic as $month)
-    {{$month->count()}}
-    @endforeach
+
+  <!--  PREMIUM:
+    <?php echo print_r($monthsPremium);?> -->
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -133,34 +128,7 @@
   </div>
   <!-- /.panel -->
 </div>
-<div class="col-lg-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Line Chart Example
-    </div>
-    <!-- /.panel-heading -->
-    <div class="panel-body">
-      <div class="chartjs-wrapper">
-        <iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1">
-        </iframe>
-        <canvas id="chartjs-2" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;">
-        </canvas>
-        <script>
-        new Chart(document.getElementById("chartjs-2"),
-          {"type":"bar","data":
-              {"labels":["Usuario basico","Usuario premium"],"datasets":[
-                  {"label":"My First Dataset","data":[{{$statBasic}},{{$statPremium}}],"backgroundColor":["rgb(255, 99, 132)","rgb(54, 162, 235)"]
-                  }]
-              }
-          });
 
-        </script>
-      </div>
-    </div>
-    <!-- /.panel-body -->
-  </div>
-  <!-- /.panel -->
-</div>
 <div class="col-lg-6">
   <div class="panel panel-default">
     <div class="panel-heading">
