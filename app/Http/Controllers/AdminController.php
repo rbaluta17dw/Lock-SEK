@@ -148,6 +148,22 @@ class AdminController extends Controller
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
   }
+  public function newLock()
+  {
+    $locks = Lock::all();
+    $user = User::all();
+    return view('pages/admin/newLock',['locks'=>$locks, 'users'=>$user]);
+  }
+  public function insertLock(Request $request)
+  {
+    $lock = new Lock;
+    $lock->name = $request->input('name');
+    $lock->serial_n = $request->input('serial_n');
+    $lock->user_id = $request->input('user');
+    $lock->save();
+    $locks = Lock::all();
+    return view('pages/admin/locks',['locks'=>$locks]);
+  }
   public function lockDelete($id){
     Lock::find($id)->delete();
     return view('pages/admin/dashboard');

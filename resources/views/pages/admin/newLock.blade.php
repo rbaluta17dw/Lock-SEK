@@ -3,29 +3,27 @@
 @section('content')
   <div class="row">
     <div class="col-lg-4">
-      <form method="post" action="/admin/insertKey">
+      <form method="post" action="/admin/insertLock">
         @csrf
         <div class="form-group">
-          <label class="control-label" for="name">Nombre</label>
+          <label class="control-label" for="inputGroupSuccess4">Nombre</label>
           <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
             <input type="text" name="name" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
           </div>
-          <label class="control-label" for="name">Usuario</label>
+        <div class="form-group">
+          <label class="control-label" for="serial_n">Numero de serie</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+            <input type="text" name="serial_n" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
+          </div>
+        </div>
+        <label class="control-label" for="user">Usuario</label>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user-plus fa-fw"></i></span>
           <select name="user" class="form-control">
             @foreach ($users as $user)
               <option value="{{$user->id}}">{{$user->email}}</option>
-            @endforeach
-          </select>
-        </div>
-        <label class="control-label" for="name">Cerradura</label>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
-          <select name="lock" class="form-control">
-            @foreach ($locks as $lock)
-              <option value="{{$lock->id}}">{{$lock->name}}</option>
             @endforeach
           </select>
         </div>

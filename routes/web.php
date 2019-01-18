@@ -55,6 +55,8 @@ Route::get('/admin/newKey', ['as'=>'admin.key.new','uses'=>'AdminController@newK
 Route::post('/admin/insertKey', ['as'=>'admin.key.insert','uses'=>'AdminController@insertKey'])->middleware('admin');
 Route::get('/admin/key/{id}', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
 Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
+Route::get('/admin/newLock', ['as'=>'admin.lock.new','uses'=>'AdminController@newLock'])->middleware('admin');
+Route::post('/admin/insertLock', ['as'=>'admin.lock.insert','uses'=>'AdminController@insertLock'])->middleware('admin');
 Route::get('/admin/lock/{id}', ['as'=>'admin.lock','uses'=>'AdminController@lock'])->middleware('admin');
 Route::post('/admin/lock/delete/{id}', ['as'=>'admin.lock.delete','uses'=>'AdminController@lockDelete'])->middleware('admin');
 Route::put('/admin/locks/{lock}', ['as'=>'admin.locks.update','uses'=>'AdminController@lockUpdate'])->middleware('admin');
