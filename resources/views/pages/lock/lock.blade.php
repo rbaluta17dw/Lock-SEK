@@ -14,7 +14,7 @@
 
       <div class="modal-body">
 
-        <h1>Esta usted a punto de eliminar la llave {{$lock->name}}</h1>
+        <h1>Esta usted a punto de eliminar la cerradura {{$lock->name}}</h1>
       </div>
       <div class="modal-footer">
 
@@ -79,7 +79,7 @@
               </div>
 
               <div class="col-xs-6">
-                <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar llave</button>
+                <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar cerradura</button>
               </div>
             </div>
           </div>
@@ -151,12 +151,12 @@
   </div>
   <!-- /.col-lg-8 -->
 
-  <div class="col-lg-4">
+ <!-- <div class="col-lg-4">
     <div class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-bell fa-fw"></i> Notifications Panel
       </div>
-      <!-- /.panel-heading -->
+     
       <div class="panel-body">
         <div class="list-group">
           <a href="#" class="list-group-item list-group-item-success">
@@ -205,11 +205,11 @@
             </span>
           </a>
         </div>
-        <!-- /.list-group -->
+        
         <a href="#" class="btn btn-default btn-block">View All Alerts</a>
       </div>
-      <!-- /.panel-body -->
-    </div>
+     
+    </div>-->
     <!-- /.panel -->
 
 
