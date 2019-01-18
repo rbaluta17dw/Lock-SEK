@@ -14,6 +14,7 @@
 
         <div class="modal-body">
 
+<<<<<<< HEAD
           <h1>Esta usted a punto de eliminar la llave {{$lock->name}}</h1>
         </div>
         <div class="modal-footer">
@@ -25,6 +26,18 @@
             <button type="submit" class="btn btn-danger">Eliminar</button>
           </form>
         </div>
+=======
+        <h1>Esta usted a punto de eliminar la cerradura <strong> {{$lock->name}}</strong></h1>
+      </div>
+      <div class="modal-footer">
+
+        <form class="form" action="{{route('locks.destroy',$lock->id)}}" method="POST" >
+          @csrf
+          @method('DELETE')
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+>>>>>>> f1a01b372fe30a750ea2e5019041f20f45aa68ca
       </div>
     </div>
   </div>
@@ -48,6 +61,7 @@
                 <input type="file" class="text-center center-block file-upload">
               </div>
 
+<<<<<<< HEAD
             </div></hr><br>
 
           </div><!--/col-3-->
@@ -81,6 +95,23 @@
                 <div class="col-xs-6">
                   <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar llave</button>
                 </div>
+=======
+              <div class="col-xs-6">
+                <form class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
+                  @csrf
+                  @method('put')
+                  <label for="name">Nuevo nombre de la cerradura:</label>
+                  <br>
+                  <input type="text" name="newLockName" placeholder="{{$lock->name}}" />
+                  <br>
+                  <br>
+                  <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
+                </form>
+              </div>
+
+              <div class="col-xs-6">
+                <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar cerradura</button>
+>>>>>>> f1a01b372fe30a750ea2e5019041f20f45aa68ca
               </div>
             </div>
             <hr>
