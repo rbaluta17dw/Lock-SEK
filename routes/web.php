@@ -39,6 +39,8 @@ Route::get('lang/{lang}', function($lang) {
   return \Redirect::back()->cookie($cookie);
 })->middleware('web')->name('change_lang');
 
+Route::get('/liveStats', ['as'=>'liveStats','uses'=>'StatsController@index'])->middleware('admin');
+
 //admin
 Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');
 Route::get('/admin/users', ['as'=>'admin.users','uses'=>'AdminController@users'])->middleware('admin');
@@ -55,6 +57,8 @@ Route::get('/admin/newKey', ['as'=>'admin.key.new','uses'=>'AdminController@newK
 Route::post('/admin/insertKey', ['as'=>'admin.key.insert','uses'=>'AdminController@insertKey'])->middleware('admin');
 Route::get('/admin/key/{id}', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
 Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
+Route::get('/admin/newLock', ['as'=>'admin.lock.new','uses'=>'AdminController@newLock'])->middleware('admin');
+Route::post('/admin/insertLock', ['as'=>'admin.lock.insert','uses'=>'AdminController@insertLock'])->middleware('admin');
 Route::get('/admin/lock/{id}', ['as'=>'admin.lock','uses'=>'AdminController@lock'])->middleware('admin');
 Route::post('/admin/lock/delete/{id}', ['as'=>'admin.lock.delete','uses'=>'AdminController@lockDelete'])->middleware('admin');
 Route::put('/admin/locks/{lock}', ['as'=>'admin.locks.update','uses'=>'AdminController@lockUpdate'])->middleware('admin');
@@ -89,6 +93,7 @@ Route::put('/locks/{lock}', ['as'=>'locks.update','uses'=>'LockController@update
 Route::delete('/locks/{lock}', ['as'=>'locks.destroy','uses'=>'LockController@destroy'])->middleware('verified');
 //Privilegios
 Route::post('/locks/{lock}/insertPrivilege', ['as'=>'locks.insertPrivilege','uses'=>'LockController@insertPrivilege'])->middleware('verified');
+Route::delete('/locks/{lock}/{user}/delete', ['as'=>'locks.deletePrivilege','uses'=>'LockController@deletePrivilege'])->middleware('verified');
 
 
 // rutas Notificaciones

@@ -9,6 +9,9 @@ use App\Lock;
 use App\Key;
 use App\Form;
 use Hash;
+use DB;
+use Carbon\Carbon;
+
 
 
 class AdminController extends Controller
@@ -26,8 +29,35 @@ class AdminController extends Controller
     //$users = User::select('id')->count();
     $messages = Form::select('id')->count();
 
+   //Cantidad de users Basicos
+    $statBasic=DB::table('users')
+    ->where('roleId', 0)
+    ->count();
 
-    return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages]);
+   //Cantidad de users Premium
+    $statPremium=DB::table('users')
+    ->where('roleId', 1)
+    ->count();
+
+    $monthsBasic =$this->queryRegistros(0);
+    $monthsPremium =$this->queryRegistros(1);
+
+    $year=now()->year;
+    $month=date('m');
+    $day=now()->day;
+
+/*  <  for ($i=0; $i < 13 ; $i++) {
+      if ($monthsBasic[$i]['fecha'] == $year.$month) {
+        $regBasic[i]= $monthsBasic[$i]['contador'];
+      }else{
+        $regBasic[i]=0;
+      }
+
+    }
+    */
+
+
+    return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'monthsPremium' => $monthsPremium,'monthsBasic' => $monthsBasic]);
   }
   public function users()
   {
@@ -148,6 +178,22 @@ class AdminController extends Controller
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
   }
+  public function newLock()
+  {
+    $locks = Lock::all();
+    $user = User::all();
+    return view('pages/admin/newLock',['locks'=>$locks, 'users'=>$user]);
+  }
+  public function insertLock(Request $request)
+  {
+    $lock = new Lock;
+    $lock->name = $request->input('name');
+    $lock->serial_n = $request->input('serial_n');
+    $lock->user_id = $request->input('user');
+    $lock->save();
+    $locks = Lock::all();
+    return view('pages/admin/locks',['locks'=>$locks]);
+  }
   public function lockDelete($id){
     Lock::find($id)->delete();
     return view('pages/admin/dashboard');
@@ -177,4 +223,9 @@ class AdminController extends Controller
     $lock = Lock::find($id);
     return view('pages/admin/lock',['lock'=>$lock]);
   }
+  public function queryRegistros($roleId)
+  {
+  $months=DB::select("SELECT count(*) as contador, date_format(created_at, '%Y%m') as fecha FROM users WHERE roleId='$roleId' GROUP BY fecha ORDER BY fecha desc");
+return $months;
+}
 }

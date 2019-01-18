@@ -15,13 +15,13 @@ use Auth;
 
 class KeyController extends Controller
 {
-    
-    
+
+
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     /**
     * Display a listing of the resource.
     *
@@ -29,14 +29,14 @@ class KeyController extends Controller
     */
     public function index()
     {
-        
+
         $keys = Key::where('user_id', Auth::user()->id)->get();
-        
+
         return view('pages/key/keys',['keys'=>$keys]);
-        
-        
+
+
     }
-    
+
     /**
     * Show the form for creating a new resource.
     *
@@ -46,7 +46,7 @@ class KeyController extends Controller
     {
         return view('pages/key/create');
     }
-    
+
     /**
     * Store a newly created resource in storage.
     *
@@ -55,12 +55,12 @@ class KeyController extends Controller
     */
     public function store(CreateKeyRequest $request)
     {
-        
-        
+
+
         
         $user = User::find(Auth::user()->id);
         $validated = $request->validated();
-        
+
         $key = new Key;
         $key->name = $request->input('keyName');
         $key->device = 2;
@@ -82,7 +82,7 @@ class KeyController extends Controller
             Storage::put("/storage/keys/".time().".key", $hashed);
             return Storage::download("/storage/keys/".time().".key");
         }
-        
+
         /**
         * Display the specified resource.
         *
@@ -91,9 +91,9 @@ class KeyController extends Controller
         */
         public function show($id)
         {
-            
+
         }
-        
+
         /**
         * Show the form for editing the specified resource.
         *
@@ -113,7 +113,7 @@ class KeyController extends Controller
                 abort(404);
             }
         }
-        
+
         /**
         * Update the specified resource in storage.
         *
@@ -124,7 +124,7 @@ class KeyController extends Controller
         public function update(KeyEditRequest $request, $id)
         {
             $validated = $request->validated();
-            
+
             if (Key::where('id',$id)->exists()) {
                 $key=Key::find($id);
                 if (Auth::user()->id == $key->user_id){
@@ -139,7 +139,7 @@ class KeyController extends Controller
                     $notification->save();
                     $key->name = $request->input('newKeyName');
                     $key->save();
-                    
+
                     //return view('pages/key/editKey',['key'=>$key]);
                     return redirect()->action('KeyController@edit',['key'=>$key]);
                 }else{
@@ -149,8 +149,17 @@ class KeyController extends Controller
                 abort(404);
             }
         }
+<<<<<<< HEAD
         
         
+=======
+
+
+
+
+
+
+>>>>>>> aa2ff727deffed9ee9154d2eab61b7018e7b4a8c
         /**
         * Remove the specified resource from storage.
         *
@@ -160,7 +169,7 @@ class KeyController extends Controller
         public function destroy($id)
         {
             if (Key::where('id',$id)->exists()) {
-                
+
                 $key = Key::find($id);
                 if (Auth::user()->id == $key->user_id){
                     $key->delete();
@@ -174,7 +183,6 @@ class KeyController extends Controller
                 abort(404);
             }
         }
-        
-        
+
+
     }
-    

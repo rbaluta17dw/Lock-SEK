@@ -3,6 +3,7 @@
 
 <head>
   @include('includes.headDashboard')
+  @yield('header')
   <title>@yield('title')</title>
 </head>
 
