@@ -98,7 +98,7 @@ class LockController extends Controller
 public function deletePrivilege($lock, $user)
 {
   $lockd = Lock::find($lock);
-  $lockd->privileges()->detach($product_id);
+  $lockd->privileges()->detach($user);
 
   return redirect()->action('LockController@show',['lock'=>$lockd]);
 }
