@@ -14,7 +14,7 @@
 
       <div class="modal-body">
 
-        <h1>Esta usted a punto de eliminar la llave {{$lock->name}}</h1>
+        <h1>Esta usted a punto de eliminar la cerradura <strong> {{$lock->name}}</strong></h1>
       </div>
       <div class="modal-footer">
 
@@ -79,7 +79,7 @@
               </div>
 
               <div class="col-xs-6">
-                <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar llave</button>
+                <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar cerradura</button>
               </div>
             </div>
           </div>

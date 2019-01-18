@@ -28,9 +28,11 @@
           </form>
 
       </div></hr><br>
-      <a href="{{ route('change_lang', ['lang' => 'es']) }}">ES</a>
-      <a href="{{ route('change_lang', ['lang' => 'en']) }}">EN</a>
-      <a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU</a>
+
+      <!-- De aqui saco las banderas https://icon-icons.com -->
+      <a href="{{ route('change_lang', ['lang' => 'es']) }}"><img src="{{asset('assets/images/es.ico')}}" ></a>
+      <a href="{{ route('change_lang', ['lang' => 'en']) }}"><img src="{{asset('assets/images/en.ico')}}" ></a>
+      <a href="{{ route('change_lang', ['lang' => 'eu']) }}"><img src="{{asset('assets/images/eu.ico')}}" ></a>
       <ul class="list-group">
         <li class="list-group-item text-muted">Activos</li>
         <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span>{{Auth::user()->keys->count()}}</li>
@@ -101,7 +103,7 @@
             @endforeach
         </ul>
     </div>
-    
+
     @endif
     @if (Session::has('success'))
         <div class="alert alert-success">{!! Session::get('success') !!}</div>
