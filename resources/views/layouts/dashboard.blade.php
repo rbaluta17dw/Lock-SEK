@@ -19,7 +19,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        @if (Auth::user()->roleId == 2)
         <a class="navbar-brand" href="{{route('admin.index')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
+          <span class="label label-warning">Admin</span>
+        @else
+        <a class="navbar-brand" href="{{route('home.index')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
+        @endif
       </div>
       <!-- /.navbar-header -->
       @auth
