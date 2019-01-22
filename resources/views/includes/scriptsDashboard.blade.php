@@ -21,8 +21,6 @@
 <script src="{{asset('assets/js/keyForm.js')}}"></script>
 
 <script src="{{asset('assets/date-resources/js/moment.min.js')}}"></script>
-<script src="{{asset('assets/date-resources/js/daterangepicker.min.js')}}"></script>
-<script src="{{asset('assets/date-resources/datepicker-resources/js/bootstrap-datepicker.min.js')}}"></script>
 
 <!-- Validate -->
 
@@ -32,10 +30,6 @@
 
 <script src="{{asset('assets/js/ajax.js')}}"></script>
 
-
-<script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
-    <!-- Languaje -->
-<script src="{{asset('assets/date-resources/datepicker-resources/locales/bootstrap-datepicker.es.min.js')}}"></script>
 
 
 <script src="{{asset('assets/js/keyForm.js')}}"></script>
