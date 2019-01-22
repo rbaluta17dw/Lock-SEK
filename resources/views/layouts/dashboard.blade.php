@@ -90,7 +90,7 @@
             <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')<span class="fa arrow"></span></a>
+            <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')  ({{Auth::user()->keys->count()}})<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
                 <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
@@ -102,7 +102,7 @@
             <!-- /.nav-second-level -->
           </li>
           <li>
-            <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')<span class="fa arrow"></span></a>
+            <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')    ({{Auth::user()->locks->count()}})<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
                 <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>

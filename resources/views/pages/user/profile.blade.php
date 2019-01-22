@@ -33,11 +33,7 @@
       <a href="{{ route('change_lang', ['lang' => 'es']) }}"><img src="{{asset('assets/images/es.ico')}}" ></a>
       <a href="{{ route('change_lang', ['lang' => 'en']) }}"><img src="{{asset('assets/images/en.ico')}}" ></a>
       <a href="{{ route('change_lang', ['lang' => 'eu']) }}"><img src="{{asset('assets/images/eu.ico')}}" ></a>
-      <ul class="list-group">
-        <li class="list-group-item text-muted">Activos</li>
-        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-key fa-1x"></i><strong><a href="/keys"> Llaves</a></strong></span>{{Auth::user()->keys->count()}}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-lock fa-1x"></i><strong><a href="/locks"> Cerraduras</a></strong></span> {{Auth::user()->locks->count()}}</li>
-      </ul>
+      
 
       </div><!--/col-3-->
       <div class="col-sm-9">
