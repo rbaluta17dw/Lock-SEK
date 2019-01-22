@@ -6,6 +6,8 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Lock;
 use App\User;
+use App\Http\Requests\EditLockRequest;
+use App\Http\Requests\CreateLockRequest;
 
 class LockController extends Controller
 {
@@ -25,8 +27,9 @@ class LockController extends Controller
       return view('pages/lock/registerLock');
   }
 
-  public function create(Request $request)
+  public function create(CreateLockRequest $request)
   {
+      $validated = $request->validated();
       $lock = new Lock;
       $lock->name = $request->input('name');
       $lock->serial_n = $request->input('numSerie');
@@ -59,8 +62,10 @@ class LockController extends Controller
 
   }
 
-  public function update(Request $request, $id)
+  public function update(EditLockRequest $request, $id)
   {
+
+    $validated = $request->validated();
     $lock=Lock::find($id);
 
     $lock->name = $request->input('newLockName');

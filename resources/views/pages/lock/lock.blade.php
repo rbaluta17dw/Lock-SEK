@@ -76,13 +76,18 @@
                 </form>
               </div>
 
+  
+
               <div class="col-xs-6">
                 <button type="submit" class="btn btn-default btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar cerradura</button>
               </div>
             </div>
             <hr>
           </div>
+          
         </div>
+
+        
         <!-- /.panel-body -->
       </div>
       <!-- /.panel -->
@@ -146,6 +151,15 @@
         <!-- /.panel-body -->
       </div>
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <!-- /.col-lg-8 -->
 
  <!-- <div class="col-lg-4">
