@@ -19,140 +19,145 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{route('admin.index')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
+        <a class="navbar-brand" href="/home"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
       </div>
       <!-- /.navbar-header -->
       @auth
         <ul class="nav navbar-top-links navbar-right">
           <!-- /.dropdown -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {{App::getLocale()}} <img class="flag" src="{{asset('assets/images/'.App::getLocale().'.ico')}}"></i> <i class="fa fa-caret-down"></i>
+            </a>
 
+            <ul class="dropdown-menu dropdown-language">
+
+              <li><a href="{{ route('change_lang', ['lang' => 'es']) }}">ES <img class="flag" src="{{asset('assets/images/es.ico')}}"></a>
+              </li>
+              <li><a href="{{ route('change_lang', ['lang' => 'en']) }}">EN <img class="flag" src="{{asset('assets/images/en.ico')}}"></a>
+              </li>
+              <li><a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU <img class="flag" src="{{asset('assets/images/eu.ico')}}"></a>
+              </li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-alerts" id="notifications">
-              <!--  <li>
-              <a href="#">
-              <div>
-              <i class="fa fa-comment fa-fw"></i>
-              <span class="pull-right text-muted small"></span>
-            </div>
-          </a>
-        </li> -->
-
-      </ul>
-      <!-- /.dropdown-alerts -->
-    </li>
-
-    <!-- /.dropdown -->
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-user">
-        <li><a href="{{ route('profile.index') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
-        </li>
-        <li><a href="{{ route('profile.settings') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
-        </li>
-        <li class="divider"></li>
-        <li><a href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-          <i class="fa fa-sign-out fa-fw"></i> {{ __('Logout') }}</a>
-        </li>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-      </ul>
-      <!-- /.dropdown-user -->
-    </li>
-    <!-- /.dropdown -->
-  </ul>
-
-  <!-- /.navbar-top-links -->
-
-  <div class="navbar-default sidebar" role="navigation">
-    <div class="sidebar-nav navbar-collapse">
-      <ul class="nav" id="side-menu">
-        @if (Auth::user()->roleId == 2)
-          <li>
-            <a href="{{route('admin.users')}}"><i class="fa fa-users fa-fw"></i> Users</a>
-          </li>
-          <li>
-            <a href="{{route('admin.keys')}}"><i class="fa fa-key fa-fw"></i> Keys</a>
-          </li>
-          <li>
-            <a href="{{route('admin.locks')}}"><i class="fa fa-lock fa-fw"></i> Locks</a>
-          </li>
-
-        @else
-          <li>
-            <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-              <li>
-                <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
-              </li>
-              <li>
-                <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
-              </li>
             </ul>
-            <!-- /.nav-second-level -->
+            <!-- /.dropdown-alerts -->
           </li>
-          <li>
-            <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-              <li>
-                <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
+
+          <!-- /.dropdown -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="{{ route('profile.index') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
               </li>
-              <li>
-                <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
+              <li><a href="{{ route('profile.settings') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
               </li>
+              <li class="divider"></li>
+              <li><a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out fa-fw"></i> {{ __('Logout') }}</a>
+              </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
             </ul>
-            <!-- /.nav-second-level -->
+            <!-- /.dropdown-user -->
           </li>
-        @endif
-      </ul>
+          <!-- /.dropdown -->
+        </ul>
 
-    </div>
-    <!-- /.sidebar-collapse -->
-  </div>
-@endauth
-<!-- /.navbar-static-side -->
+        <!-- /.navbar-top-links -->
 
-</nav>
+        <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              @if (Auth::user()->roleId == 2)
+                <li>
+                  <a href="{{route('admin.users')}}"><i class="fa fa-users fa-fw"></i> Users</a>
+                </li>
+                <li>
+                  <a href="{{route('admin.keys')}}"><i class="fa fa-key fa-fw"></i> Keys</a>
+                </li>
+                <li>
+                  <a href="{{route('admin.locks')}}"><i class="fa fa-lock fa-fw"></i> Locks</a>
+                </li>
 
-<!-- Page Content -->
-<div id="page-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
-          @yield('subtitle')</h1>
+              @else
+                <li>
+                  <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')<span class="fa arrow"></span></a>
+                  <ul class="nav nav-second-level">
+                    <li>
+                      <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
+                    </li>
+                    <li>
+                      <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
+                    </li>
+                  </ul>
+                  <!-- /.nav-second-level -->
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')<span class="fa arrow"></span></a>
+                  <ul class="nav nav-second-level">
+                    <li>
+                      <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
+                    </li>
+                    <li>
+                      <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
+                    </li>
+                  </ul>
+                  <!-- /.nav-second-level -->
+                </li>
+              @endif
+            </ul>
+
+          </div>
+          <!-- /.sidebar-collapse -->
         </div>
-        <!-- /.col-lg-12 -->
+      @endauth
+      <!-- /.navbar-static-side -->
+
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header">
+              @yield('subtitle')</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+
+        <!--Aqui va el contenido jibiri jibiri-->
+        @yield('content')
+
+
       </div>
-      <!-- /.row -->
+      <!-- /#page-wrapper -->
+
     </div>
-    <!-- /.container-fluid -->
-
-    <!--Aqui va el contenido jibiri jibiri-->
-    @yield('content')
-
-
-  </div>
-  <!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
+    <!-- /#wrapper -->
 
 
 
 
-</body>
+  </body>
 
-@include('includes.scriptsDashboard')
+  @include('includes.scriptsDashboard')
 
-</html>
+  </html>
