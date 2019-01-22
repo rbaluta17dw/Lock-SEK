@@ -149,17 +149,8 @@ class KeyController extends Controller
                 abort(404);
             }
         }
-<<<<<<< HEAD
         
         
-=======
-
-
-
-
-
-
->>>>>>> aa2ff727deffed9ee9154d2eab61b7018e7b4a8c
         /**
         * Remove the specified resource from storage.
         *
