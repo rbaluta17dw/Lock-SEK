@@ -7,12 +7,13 @@
   <title>@yield('title')</title>
 </head>
 
-<body>
+<body {!!Auth::user()->roleId == 2 ?  'class="oscuro"' : ""!!}>
+
 
   <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <nav class="navbar navbar-default navbar-static-top {!!Auth::user()->roleId == 2 ?  'oscuro' : ""!!}" role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
