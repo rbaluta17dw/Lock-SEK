@@ -156,6 +156,8 @@ class KeyController extends Controller
             return Storage::download("/storage/keys/".time().".key");
         }
 
+      }
+
         /**
         * Display the specified resource.
         *
