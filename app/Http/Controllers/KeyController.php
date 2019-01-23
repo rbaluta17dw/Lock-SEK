@@ -92,7 +92,17 @@ class KeyController extends Controller
   */
   public function show($id)
   {
+    if (Key::where('id',$id)->exists()) {
+      $key= Key::find($id);
+      if (Auth::user()->id == $key->user_id) {
+        return view('pages/key/key',['key'=>$key]);
+      }else{
+        abort(404);
+      }
 
+    }else{
+      abort(404);
+    }
   }
 
   /**
