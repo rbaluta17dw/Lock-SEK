@@ -95,5 +95,12 @@ class LockController extends Controller
 
     return redirect()->action('LockController@show',['lock'=>$lock]);
 }
+public function deletePrivilege($lock, $user)
+{
+  $lockd = Lock::find($lock);
+  $lockd->privileges()->detach($user);
+
+  return redirect()->action('LockController@show',['lock'=>$lockd]);
+}
 
 }

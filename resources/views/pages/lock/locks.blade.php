@@ -8,7 +8,7 @@
         <tr>
             <th>Cerradura</th>
             <th>Propietario</th>
-            <th>Acciones</th>
+            <th>Fecha de creación</th>
         </tr>
     </thead>
     <tbody>
@@ -17,9 +17,7 @@
         <tr>
             <td><a href="/locks/{{ $lock->id }}">{{ $lock->name }}</a></td>
             <td>{{ $lock->user->name }}</td>
-            <td>
-                <button type="button" class="btn btn-primary">Editar</button>
-            </td>
+            <td>{{$lock->created_at}}</td>
         </tr>
       @endforeach
 

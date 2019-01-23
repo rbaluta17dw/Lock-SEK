@@ -53,8 +53,12 @@ Route::post('/admin/user/edit/{id}', ['as'=>'admin.userEdit','uses'=>'AdminContr
 Route::post('/admin/user/editimg/{id}', ['as'=>'admin.userEditImg','uses'=>'AdminController@userEditImg'])->middleware('admin');
 Route::post('/admin/user/delete/{id}', ['as'=>'admin.userDelete','uses'=>'AdminController@userDelete'])->middleware('admin');
 Route::get('/admin/keys', ['as'=>'admin.keys','uses'=>'AdminController@keys'])->middleware('admin');
+Route::get('/admin/newKey', ['as'=>'admin.key.new','uses'=>'AdminController@newKey'])->middleware('admin');
+Route::post('/admin/insertKey', ['as'=>'admin.key.insert','uses'=>'AdminController@insertKey'])->middleware('admin');
 Route::get('/admin/key/{id}', ['as'=>'admin.key','uses'=>'AdminController@key'])->middleware('admin');
 Route::get('/admin/locks', ['as'=>'admin.locks','uses'=>'AdminController@locks'])->middleware('admin');
+Route::get('/admin/newLock', ['as'=>'admin.lock.new','uses'=>'AdminController@newLock'])->middleware('admin');
+Route::post('/admin/insertLock', ['as'=>'admin.lock.insert','uses'=>'AdminController@insertLock'])->middleware('admin');
 Route::get('/admin/lock/{id}', ['as'=>'admin.lock','uses'=>'AdminController@lock'])->middleware('admin');
 Route::post('/admin/lock/delete/{id}', ['as'=>'admin.lock.delete','uses'=>'AdminController@lockDelete'])->middleware('admin');
 Route::put('/admin/locks/{lock}', ['as'=>'admin.locks.update','uses'=>'AdminController@lockUpdate'])->middleware('admin');
@@ -89,6 +93,7 @@ Route::put('/locks/{lock}', ['as'=>'locks.update','uses'=>'LockController@update
 Route::delete('/locks/{lock}', ['as'=>'locks.destroy','uses'=>'LockController@destroy'])->middleware('verified');
 //Privilegios
 Route::post('/locks/{lock}/insertPrivilege', ['as'=>'locks.insertPrivilege','uses'=>'LockController@insertPrivilege'])->middleware('verified');
+Route::get('/locks/{lock}/{user}/delete', ['as'=>'locks.deletePrivilege','uses'=>'LockController@deletePrivilege'])->middleware('verified');
 
 
 // rutas Notificaciones

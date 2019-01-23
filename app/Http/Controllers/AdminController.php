@@ -156,8 +156,41 @@ class AdminController extends Controller
     $key = Key::find($id);
     return view('pages/admin/key',['key'=>$key]);
   }
+  public function newKey()
+  {
+    $locks = Lock::all();
+    $user = User::all();
+    return view('pages/admin/newKey',['locks'=>$locks, 'users'=>$user]);
+  }
+  public function insertKey(Request $request)
+  {
+    $key = new Key;
+    $key->name = $request->input('name');
+    $key->device = rand(10000, 999999999);
+    $key->user_id = $request->input('user');
+    $key->lock_id = $request->input('lock');
+    $key->save();
+    $keys = Key::all();
+    return view('pages/admin/keys',['keys'=>$keys]);
+  }
   public function locks()
   {
+    $locks = Lock::all();
+    return view('pages/admin/locks',['locks'=>$locks]);
+  }
+  public function newLock()
+  {
+    $locks = Lock::all();
+    $user = User::all();
+    return view('pages/admin/newLock',['locks'=>$locks, 'users'=>$user]);
+  }
+  public function insertLock(Request $request)
+  {
+    $lock = new Lock;
+    $lock->name = $request->input('name');
+    $lock->serial_n = $request->input('serial_n');
+    $lock->user_id = $request->input('user');
+    $lock->save();
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
   }

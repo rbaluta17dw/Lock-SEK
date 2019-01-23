@@ -99,10 +99,15 @@ a:hover{
 .yellowback{
   background-color: yellow !important;
 }
+
 .oscuro{
 filter: invert(80%);
 }
 body.oscuro{
   background-color: #333;
   filter: invert(0%);
+
+
+.logo-no-icon{
+  width: 100px;
 }

@@ -10,6 +10,7 @@ use App\Http\Requests\CreateKeyRequest;
 use App\Key;
 use App\User;
 use App\Lock;
+use App\Notification;
 use Auth;
 
 class KeyController extends Controller
@@ -65,7 +66,14 @@ class KeyController extends Controller
         $key->device = 2;
         $key->user_id = $user->id;
         $key->lock_id = $request->input('lock');
-
+        $notification = new Notification;
+        $notification->title = "Se ha creado la llave ".$key->name;
+        $notification->message = "Has creado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
+        $notification->marker = 4;
+        $notification->read = 1;
+        $notification->user_id = Auth::user()->id;
+        $notification->lock_id = $key->lock->id;
+        $notification->key_id = $key->id;
         $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
             'rounds' => 12
             ]);
@@ -94,8 +102,6 @@ class KeyController extends Controller
         */
         public function edit($id)
         {
-
-
             if (Key::where('id',$id)->exists()) {
                 $key= Key::find($id);
                 if (Auth::user()->id == $key->user_id) {
@@ -122,8 +128,18 @@ class KeyController extends Controller
             if (Key::where('id',$id)->exists()) {
                 $key=Key::find($id);
                 if (Auth::user()->id == $key->user_id){
+                    $notification = new Notification;
+                    $notification->title = "Se ha actualizado la llave ".$key->name;
+                    $notification->message = "Has actualizado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
+                    $notification->marker = 4;
+                    $notification->read = 1;
+                    $notification->user_id = Auth::user()->id;
+                    $notification->lock_id = $key->lock->id;
+                    $notification->key_id = $key->id;
+                    $notification->save();
                     $key->name = $request->input('newKeyName');
                     $key->save();
+
                     //return view('pages/key/editKey',['key'=>$key]);
                     return redirect()->action('KeyController@edit',['key'=>$key]);
                 }else{
@@ -157,4 +173,6 @@ class KeyController extends Controller
                 abort(404);
             }
         }
+
+
     }
