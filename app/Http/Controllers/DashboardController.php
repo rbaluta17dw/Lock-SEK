@@ -20,6 +20,10 @@ class DashboardController extends Controller
   {
       return view('pages/dashboard');
   }
+  public function userIndex()
+  {
+      return view('pages/userDashboard');
+  }
 
   public function profile()
   {

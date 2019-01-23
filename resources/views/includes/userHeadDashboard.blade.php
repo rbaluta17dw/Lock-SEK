@@ -13,13 +13,13 @@
 <link href="{{asset('assets/user/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
 <!-- Waves Effect Css -->
-<link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+<link href="{{asset('assets/user/plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
 <!-- Animation Css -->
-<link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+<link href="{{asset('assets/user/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
 <!-- Custom Css -->
-<link href="../../css/style.css" rel="stylesheet">
+<link href="{{asset('assets/user/css/style.css')}}" rel="stylesheet">
 
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-<link href="../../css/themes/all-themes.css" rel="stylesheet" />
+<link href="{{asset('assets/user/css/themes/all-themes.css')}}" rel="stylesheet" />
