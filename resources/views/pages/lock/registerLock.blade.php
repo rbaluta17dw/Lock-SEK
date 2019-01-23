@@ -30,13 +30,18 @@
           <div class="form-group row">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-10">
-              <input type="text" name="address" class="form-control" id="address" placeholder="Ciudad, calle numero">
+              
+              
+              <div id="mapid"></div>
+              <input type="text" id="latitud" name="latitud" value="" hidden>
+              <input type="text" id="longitud" name="longitud" value="" hidden>
+              <input type="text" id="dir" name="dir" value="" hidden>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Registrar</button>
+          <button type="submit" class="btn btn-primary" id="regist">Registrar</button>
         </div>
       </form>
     </div>

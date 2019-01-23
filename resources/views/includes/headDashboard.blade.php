@@ -26,13 +26,10 @@
       <link rel="stylesheet" type="text/css" href="{{asset('assets/table-resources/DataTables/datatables.min.css')}}">
     <!--Fin tablas-->
 
-    <!--Fechas-->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/date-resources/css/daterangepicker.css')}}">
-
-    <link rel="stylesheet" href="{{asset('assets/date-resources/datepicker-resources/css/bootstrap-datepicker3.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/date-resources/datepicker-resources/cssbootstrap-standalone.css')}}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    <!-- search mapa -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-   crossorigin=""/>
-
-    <!--Fin fechas-->
+   crossorigin=""/> -->
+   <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+<!-- /search mapa -->
+  

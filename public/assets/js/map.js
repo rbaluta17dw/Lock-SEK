@@ -1,5 +1,13 @@
 
 
+document.getElementById("regist").onclick = function () {
+    document.getElementById('exampleModal').style.display = 'block';
+    setTimeout(function() {
+        mymap.invalidateSize();
+    }, 100);
+}
+
+
 var mapa = L.map('mapid').setView([43.3073225, -1.9914354], 13);
 
 var baselayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
