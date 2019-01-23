@@ -6,45 +6,42 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Lock;
 use App\User;
-<<<<<<< HEAD
 use App\Http\Requests\EditLockRequest;
 use App\Http\Requests\CreateLockRequest;
-
-=======
 use App\Notification;
->>>>>>> b634047a9f1059e6907e245a79d14c92be015882
 class LockController extends Controller
 {
   public function __construct()
   {
     $this->middleware('auth');
   }
-
+  
   public function index()
   {
     $locks=Lock::where('user_id', Auth::user()->id)->get();
     return view('pages/lock/locks',['locks'=>$locks]);
   }
-
+  
   public function register()
   {
     return view('pages/lock/registerLock');
   }
-
+  
   public function create(CreateLockRequest $request)
   {
-<<<<<<< HEAD
-      $validated = $request->validated();
-      $lock = new Lock;
-      $lock->name = $request->input('name');
-      $lock->serial_n = $request->input('numSerie');
-      $lock->user_id = Auth::user()->id;
-      $lock->save();
-=======
+    $validated = $request->validated();
+    
     $lock = new Lock;
-    $lock->name = $request->input('name');
-    $lock->serial_n = $request->input('numSerie');
+    $lock->name = $request->input('lockName');
+    $lock->serial_n = $request->input('lockSerial');
+    $lock->address = $request->input('address');
     $lock->user_id = Auth::user()->id;
+    $lock->save();     $lock = new Lock;
+    $lock->name = $request->input('lockName');
+    $lock->serial_n = $request->input('lockSerial');
+    $lock->address = $request->input('address');
+    $lock->user_id = Auth::user()->id;
+    $lock->save();
     $notification = new Notification;
     $notification->title = "Se ha creado la cerradura ".$lock->name;
     $notification->message = "Has creado la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
@@ -54,19 +51,18 @@ class LockController extends Controller
     $notification->lock_id = $lock->id;
     $notification->save();
     $lock->save();
->>>>>>> b634047a9f1059e6907e245a79d14c92be015882
-
-    $newLock = Lock::where('serial_n',$request->input('numSerie'))->first();
-
+    
+    $newLock = Lock::where('serial_n',$request->input('lockSerial'))->first();
+    
     //añadir a la tabla privileges
-
+    
     return redirect()->action('LockController@show', ['id' => $newLock]);
     //return view('pages/lock/lock',['lock'=>$lock]);
   }
-
+  
   public function show($id)
   {
-
+    
     if (Lock::where('id',$id)->exists()) {
       $lock= Lock::find($id);
       if (Auth::user()->id == $lock->user_id) {
@@ -74,20 +70,20 @@ class LockController extends Controller
       }else{
         abort(404);
       }
-
+      
     }else{
       abort(404);
     }
-
-
+    
+    
   }
-
+  
   public function update(EditLockRequest $request, $id)
   {
-
+    
     $validated = $request->validated();
     $lock=Lock::find($id);
-
+    
     $lock->name = $request->input('newLockName');
     $notification = new Notification;
     $notification->title = "Se ha actualizado la cerradura ".$lock->name;
@@ -98,16 +94,16 @@ class LockController extends Controller
     $notification->lock_id = $lock->id;
     $notification->save();
     $lock->save();
-
-
+    
+    
     return view('pages/lock/lock',['lock'=>$lock]);
-
+    
   }
-
+  
   public function destroy($id)
   {
-
-
+    
+    
     $lock = Lock::findOrFail($id);
     if (Auth::user()->id == $lock->user_id){
       $lock->delete();
@@ -115,7 +111,7 @@ class LockController extends Controller
     }else{
       abort(404);
     }
-
+    
   }
   public function insertPrivilege(Request $request, $id)
   {
@@ -135,7 +131,7 @@ class LockController extends Controller
     $notification->save();
     return redirect()->action('LockController@show',['lock'=>$lock]);
   }
-
+  
   public function deletePrivilege($lock, $user)
   {
     $lockd = Lock::find($lock);
@@ -150,5 +146,5 @@ class LockController extends Controller
     $notification->save();
     return redirect()->action('LockController@show',['lock'=>$lockd]);
   }
-
+  
 }
