@@ -17,9 +17,6 @@
 <!--Fin tablas-->
 <script src="{{asset('assets/js/customdash.js')}}"></script>
 
-<!--Form llave-->
-<script src="{{asset('assets/js/keyForm.js')}}"></script>
-
 <script src="{{asset('assets/date-resources/js/moment.min.js')}}"></script>
 
 <!-- Validate -->
@@ -30,9 +27,6 @@
 
 <script src="{{asset('assets/js/ajax.js')}}"></script>
 
-
-
-<script src="{{asset('assets/js/keyForm.js')}}"></script>
 <script src="{{asset('assets/js/editKey.js')}}"></script>
 
 <!-- graficos -->
