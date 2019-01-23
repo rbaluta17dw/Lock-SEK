@@ -31,26 +31,36 @@
 
 
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-10">
       <div class="panel panel-default">
         <div class="panel-heading">
           <i class="fa fa-bar-chart-o fa-fw"></i> Cerradura
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
-          <div class="col-sm-3"><!--left col-->
+          <div class="col-sm-6"><!--left col-->
+  <form method="post" action="#" enctype="multipart/form-data">
+    @csrf
+      <p>Dirección: (Busca la dirección mediante el buscador)</p>
+      <div id="mapid"></div>
+      <input type="text" id="latitud" name="latitud" value="" hidden>
+      <input type="text" id="longitud" name="longitud" value="" hidden>
+      <input type="text" id="dir" name="dir" value="" hidden>
+    <input type="submit" name="submit" class="btn btn-success" value="Enviar">
+  </form>
 
 
-            <div class="text-center">
+
+            <!--<div class="text-center">
               <img src="https://cdn.website.thryv.com/716ee54454d94272ba5bf64e492f084d/MOBILE/png/961.png" class="avatar img-thumbnail" alt="avatar">
               <div class="prf-img-inp config">
                 <input type="file" class="text-center center-block file-upload">
-              </div>
+              </div>-->
 
             </div></hr><br>
 
           </div><!--/col-3-->
-          <div class="col-sm-9">
+          <div class="col-sm-6">
             <div class="tab-content">
               <hr>
               <div class="form-group">

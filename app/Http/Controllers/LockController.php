@@ -31,12 +31,13 @@ class LockController extends Controller
   {
       $validated = $request->validated();
       $lock = new Lock;
-      $lock->name = $request->input('name');
-      $lock->serial_n = $request->input('numSerie');
+      $lock->name = $request->input('lockName');
+      $lock->serial_n = $request->input('lockSerial');
+      $lock->address = $request->input('address');
       $lock->user_id = Auth::user()->id;
       $lock->save();
 
-      $newLock = Lock::where('serial_n',$request->input('numSerie'))->first();
+      $newLock = Lock::where('serial_n',$request->input('lockSerial'))->first();
 
       //añadir a la tabla privileges
 

@@ -103,3 +103,7 @@ a:hover{
 .logo-no-icon{
   width: 100px;
 }
+#mapid { 
+  height: 400px;
+  width: 400px;
+}

@@ -27,4 +27,5 @@
 
 <link rel="stylesheet" href="{{asset('assets/css/parallax.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/customLanding.css')}}">
+
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
