@@ -3,12 +3,11 @@
 
 <head>
   @include('includes.headDashboard')
-  @yield('header')
   <title>@yield('title')</title>
 </head>
 
 <body>
-
+  @yield('header')
   <div id="wrapper">
 
     <!-- Navigation -->
