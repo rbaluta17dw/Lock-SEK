@@ -17,7 +17,9 @@ Route::get('/', function () {
 // Post mensaje formulario contacto
 Route::post('/form',['as'=>'form.insert','uses'=>'FormController@insert']);
 // Route::get('/eventos', ['as'=>'eventos','uses'=>'EventoController@index']);
-
+Route::get('/password/reset', function () {
+    return view('resources/views/auth/passwords');
+});
 // Rutas autenticacion
 Auth::routes();
 Auth::routes(['verify' => true]);
