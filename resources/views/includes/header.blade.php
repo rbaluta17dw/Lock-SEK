@@ -38,7 +38,7 @@
                 <input type="submit" name="login" class="login loginmodal-submit" value="Iniciar sesion" >
               </form>
               <div class="login-help">
-                <a href="#">Registrate</a> - <a href="#">¿Olvidaste tu contraseña?</a>
+                <a href="/password/reset">¿Olvidaste tu contraseña?</a>
               </div>
             </div>
           </div>
