@@ -24,7 +24,7 @@ class KeyController extends Controller
   public function index()
   {
     $keys = Key::where('user_id', Auth::user()->id)->get();
-    return view('pages/key/keys',['keys'=>$keys]);
+    return view('pages/key/userKeys',['keys'=>$keys]);
   }
   /**
   * Show the form for creating a new resource.
