@@ -115,6 +115,7 @@ class KeyController extends Controller
     }
   }
 
+<<<<<<< HEAD
   /**
   * Update the specified resource in storage.
   *
@@ -146,16 +147,17 @@ class KeyController extends Controller
             return Storage::download("/storage/keys/".time().".key");
         }
 
+      }
+
+=======
+>>>>>>> f887845f330006ebd27f262b4fae93d20a8075e9
         /**
         * Display the specified resource.
         *
         * @param  int  $id
         * @return \Illuminate\Http\Response
         */
-        public function show($id)
-        {
 
-        }
 
         /**
         * Show the form for editing the specified resource.
@@ -163,19 +165,7 @@ class KeyController extends Controller
         * @param  int  $id
         * @return \Illuminate\Http\Response
         */
-        public function edit($id)
-        {
-            if (Key::where('id',$id)->exists()) {
-                $key= Key::find($id);
-                if (Auth::user()->id == $key->user_id) {
-                    return view('pages/key/editKey')->with('key', $key);
-                }else{
-                    abort(404);
-                }
-            }else{
-                abort(404);
-            }
-        }
+      
 
         /**
         * Update the specified resource in storage.
