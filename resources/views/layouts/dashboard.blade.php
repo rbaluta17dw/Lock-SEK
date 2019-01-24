@@ -4,6 +4,8 @@
 <head>
   @include('includes.headDashboard')
   @yield('header')
+  @yield('css')
+  @yield('scriptsTop')
   <title>@yield('title')</title>
 </head>
 

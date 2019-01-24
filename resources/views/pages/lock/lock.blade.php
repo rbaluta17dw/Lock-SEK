@@ -1,6 +1,19 @@
 @extends('layouts.dashboard')
+@section('css')
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+@stop
+
+@section('scriptsTop')
+<script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+<script src="https://unpkg.com/esri-leaflet"></script>
+<script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+@stop
 @section('title', 'LockSEK')
 @section('content')
+
+
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -42,11 +55,10 @@
             <form method="post" action="#" enctype="multipart/form-data">
               @csrf
               <p>Dirección: (Busca la dirección mediante el buscador)</p>
-              <div id="mapid"></div>
-              <input type="text" id="latitud" name="latitud" value="" hidden>
-              <input type="text" id="longitud" name="longitud" value="" hidden>
-              <input type="text" id="dir" name="dir" value="" hidden>
-              <input type="submit" name="submit" class="btn btn-success" value="Enviar">
+              <div id="lockMap"></div>
+              <input type="text" id="latitude" name="latitude" value="" hidden>
+              <input type="text" id="longitude" name="longitude" value="" hidden>
+            
             </form>
 
 
