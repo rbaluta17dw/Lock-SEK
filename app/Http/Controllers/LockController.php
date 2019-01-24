@@ -34,14 +34,11 @@ class LockController extends Controller
     $lock = new Lock;
     $lock->name = $request->input('lockName');
     $lock->serial_n = $request->input('lockSerial');
-    $lock->address = $request->input('address');
-    $lock->user_id = Auth::user()->id;
-    $lock->save();     $lock = new Lock;
-    $lock->name = $request->input('lockName');
-    $lock->serial_n = $request->input('lockSerial');
-    $lock->address = $request->input('address');
+    $lock->latitude = $request->input('latitude');
+    $lock->longitude = $request->input('longitude');
     $lock->user_id = Auth::user()->id;
     $lock->save();
+
     $notification = new Notification;
     $notification->title = "Se ha creado la cerradura ".$lock->name;
     $notification->message = "Has creado la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
@@ -85,6 +82,8 @@ class LockController extends Controller
     $lock=Lock::find($id);
     
     $lock->name = $request->input('newLockName');
+    $lock->latitude = $request->input('newLatitude');
+    $lock->longitude = $request->input('newLongitude');
     $notification = new Notification;
     $notification->title = "Se ha actualizado la cerradura ".$lock->name;
     $notification->message = "Has actualizado el nombre de la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");

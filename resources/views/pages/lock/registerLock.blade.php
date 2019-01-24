@@ -29,12 +29,14 @@
           </div>
           <div class="form-group row">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Dirección</label>
+            Si:<input type="radio" id="addressYes" name="address" checked>
+            No:<input type="radio" id="addressNo" name="address" >
 
             <div class="col-sm-10">
-              <div id="mapid"></div>
-              <input type="text" id="latitud" name="latitud" value="" hidden>
-              <input type="text" id="longitud" name="longitud" value="" hidden>
-              <input type="text" id="dir" name="dir" value="" hidden>
+              <div id="mapid" hidden></div>
+              <input type="text" id="latitude" name="latitude" value="" hidden>
+              <input type="text" id="longitude" name="longitude" value="" hidden>
+            
             </div>
           </div>
         </div>
