@@ -15,22 +15,22 @@ class LockController extends Controller
   {
     $this->middleware('auth');
   }
-  
+
   public function index()
   {
     $locks=Lock::where('user_id', Auth::user()->id)->get();
-    return view('pages/lock/locks',['locks'=>$locks]);
+    return view('pages/lock/userLocks',['locks'=>$locks]);
   }
-  
+
   public function register()
   {
     return view('pages/lock/registerLock');
   }
-  
+
   public function create(CreateLockRequest $request)
   {
     $validated = $request->validated();
-    
+
     $lock = new Lock;
     $lock->name = $request->input('lockName');
     $lock->serial_n = $request->input('lockSerial');
@@ -51,39 +51,39 @@ class LockController extends Controller
     $notification->lock_id = $lock->id;
     $notification->save();
     $lock->save();
-    
+
     $newLock = Lock::where('serial_n',$request->input('lockSerial'))->first();
-    
+
     //añadir a la tabla privileges
-    
+
     return redirect()->action('LockController@show', ['id' => $newLock]);
     //return view('pages/lock/lock',['lock'=>$lock]);
   }
-  
+
   public function show($id)
   {
-    
+
     if (Lock::where('id',$id)->exists()) {
       $lock= Lock::find($id);
       if (Auth::user()->id == $lock->user_id) {
-        return view('pages/lock/lock',['lock'=>$lock]);
+        return view('pages/lock/userLock',['lock'=>$lock]);
       }else{
         abort(404);
       }
-      
+
     }else{
       abort(404);
     }
-    
-    
+
+
   }
-  
+
   public function update(EditLockRequest $request, $id)
   {
-    
+
     $validated = $request->validated();
     $lock=Lock::find($id);
-    
+
     $lock->name = $request->input('newLockName');
     $notification = new Notification;
     $notification->title = "Se ha actualizado la cerradura ".$lock->name;
@@ -94,16 +94,16 @@ class LockController extends Controller
     $notification->lock_id = $lock->id;
     $notification->save();
     $lock->save();
-    
-    
+
+
     return view('pages/lock/lock',['lock'=>$lock]);
-    
+
   }
-  
+
   public function destroy($id)
   {
-    
-    
+
+
     $lock = Lock::findOrFail($id);
     if (Auth::user()->id == $lock->user_id){
       $lock->delete();
@@ -111,7 +111,7 @@ class LockController extends Controller
     }else{
       abort(404);
     }
-    
+
   }
   public function insertPrivilege(Request $request, $id)
   {
@@ -131,7 +131,7 @@ class LockController extends Controller
     $notification->save();
     return redirect()->action('LockController@show',['lock'=>$lock]);
   }
-  
+
   public function deletePrivilege($lock, $user)
   {
     $lockd = Lock::find($lock);
@@ -146,5 +146,5 @@ class LockController extends Controller
     $notification->save();
     return redirect()->action('LockController@show',['lock'=>$lockd]);
   }
-  
+
 }

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  @yield('css')
   @include('includes.userHeadDashboard')
   <title>@yield('title')</title>
 </head>
@@ -477,8 +478,8 @@
             </div>
         </div>
     </section>
-
     @include('includes.userScriptsDashboard')
+    @yield('scripts')
 </body>
 
 </html>
