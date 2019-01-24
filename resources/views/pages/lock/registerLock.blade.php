@@ -33,29 +33,16 @@
             No:<input type="radio" id="addressNo" name="address" >
 
             <div class="col-sm-10">
-<<<<<<< HEAD
-              
-              
-              <div id="mapid"></div>
-              <input type="text" id="latitud" name="latitud" value="" hidden>
-              <input type="text" id="longitud" name="longitud" value="" hidden>
-              <input type="text" id="dir" name="dir" value="" hidden>
-=======
               <div id="mapid" hidden></div>
               <input type="text" id="latitude" name="latitude" value="" hidden>
               <input type="text" id="longitude" name="longitude" value="" hidden>
-            
->>>>>>> cfb44f8c6dac94010189abe74f8078ab76bfd9ba
+
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-<<<<<<< HEAD
-          <button type="submit" class="btn btn-primary" id="regist">Registrar</button>
-=======
           <button type="submit" class="btn btn-primary" >Registrar</button>
->>>>>>> cfb44f8c6dac94010189abe74f8078ab76bfd9ba
         </div>
       </form>
     </div>

@@ -42,11 +42,7 @@
             <form method="post" action="#" enctype="multipart/form-data">
               @csrf
               <p>Dirección: (Busca la dirección mediante el buscador)</p>
-<<<<<<< HEAD
-              <div id="mapaid"></div>
-=======
               <div id="mapid"></div>
->>>>>>> cfb44f8c6dac94010189abe74f8078ab76bfd9ba
               <input type="text" id="latitud" name="latitud" value="" hidden>
               <input type="text" id="longitud" name="longitud" value="" hidden>
               <input type="text" id="dir" name="dir" value="" hidden>
