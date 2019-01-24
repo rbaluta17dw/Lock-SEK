@@ -81,7 +81,7 @@ class KeyController extends Controller
     *
     * @param  int  $id
     * @return \Illuminate\Http\Response
-    
+    */
     /*
     * Display the specified resource.
     *
