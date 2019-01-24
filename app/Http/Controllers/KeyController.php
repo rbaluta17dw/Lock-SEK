@@ -115,37 +115,6 @@ class KeyController extends Controller
     }
   }
 
-  /**
-  * Update the specified resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
-  public function update(KeyEditRequest $request, $id)
-  {
-    $validated = $request->validated();
-
-    if (Key::where('id',$id)->exists()) {
-      $key=Key::find($id);
-      if (Auth::user()->id == $key->user_id){
-        $notification = new Notification;
-        $notification->title = "Se ha actualizado la llave ".$key->name;
-        $notification->message = "Has actualizado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
-        $notification->marker = 4;
-        $notification->read = 1;
-        $notification->user_id = Auth::user()->id;
-        $notification->lock_id = $key->lock->id;
-        $notification->key_id = $key->id;
-        $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
-            'rounds' => 12
-            ]);
-            //Aqui faltan cosas
-            $key->save();
-            Storage::put("/storage/keys/".time().".key", $hashed);
-            return Storage::download("/storage/keys/".time().".key");
-        }
-
         /**
         * Display the specified resource.
         *
