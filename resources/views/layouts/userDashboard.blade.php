@@ -67,7 +67,7 @@
                                                 <i class="material-icons">person_add</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4>12 new members joined</h4>
+                                                <h4>Nuevo permiso otorgado</h4>
                                                 <p>
                                                     <i class="material-icons">access_time</i> 14 mins ago
                                                 </p>
@@ -77,10 +77,10 @@
                                     <li>
                                         <a href="javascript:void(0);">
                                             <div class="icon-circle bg-cyan">
-                                                <i class="material-icons">add_shopping_cart</i>
+                                                <i class="material-icons">lock_open</i>
                                             </div>
                                             <div class="menu-info">
-                                                <h4>4 sales made</h4>
+                                                <h4>Acceso autorizado</h4>
                                                 <p>
                                                     <i class="material-icons">access_time</i> 22 mins ago
                                                 </p>
@@ -282,34 +282,31 @@
                     </li>
 
 
-                    <li class="active">
+                    <li class="{{ Route::is('keys.index') ? 'active' : '' }}{{ Route::is('keys.create') ? 'active' : '' }}">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">vpn_key</i>
                             <span>@lang('dashboard.keys')</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="{{ Route::is('keys.index') ? 'active' : '' }}">
                                 <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
                             </li>
-                            <li>
+                            <li class="{{ Route::is('keys.create') ? 'active' : '' }}">
                                 <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="{{ Route::is('locks.index') ? 'active' : '' }}{{ Route::is('locks.register') ? 'active' : '' }}">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">lock</i>
                             <span>@lang('dashboard.locks')</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="{{ Route::is('locks.index') ? 'active' : '' }}">
                                 <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
                             </li>
-                            <li>
+                            <li class="{{ Route::is('locks.register') ? 'active' : '' }}">
                                 <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/maps/jvectormap.html">jVectorMap</a>
                             </li>
                         </ul>
                     </li>
