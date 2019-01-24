@@ -1,27 +1,52 @@
 
 
+<<<<<<< HEAD
 
 
    
+=======
+document.getElementById("begin").onclick = function () {
+	document.getElementById('exampleModal').style.display = 'block';
+	setTimeout(function() {
+		mapa.invalidateSize();
+	}, 100);
+}
+>>>>>>> 13614d03e3d9e4dca73cbb968db5393e1dc95509
 
 
+
+<<<<<<< HEAD
+
+=======
+var marcador;
 var mapa = L.map('mapid').setView([43.3073225, -1.9914354], 13);
-
-
+mapa.on('click',function(e){
+	
+	if(typeof(marcador)=="undefined"){
+		marcador= new L.marker(e.latlng,{draggable:true});
+		marcador.addTo(mapa);
+		alert(e.latlng);
+	}else{
+		marcador.setLatLng(e.latlng);
+		alert(e.latlng);
+	}
+});
+>>>>>>> 13614d03e3d9e4dca73cbb968db5393e1dc95509
 var baselayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets',
-	}).addTo(mapa);
+attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+id: 'mapbox.streets',
+}).addTo(mapa);
 
 var toplayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets-satellite',
-	});
+attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+id: 'mapbox.streets-satellite',
+});
 
+<<<<<<< HEAD
 	var layers = {
 		'Basico': baselayer,
 		'Satelite': toplayer
@@ -32,31 +57,37 @@ var toplayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png
           map.invalidateSize();
         }, 10);
        });
+=======
+var layers = {
+	'Basico': baselayer,
+	'Satelite': toplayer
+};
+>>>>>>> 13614d03e3d9e4dca73cbb968db5393e1dc95509
 
-	L.control.layers(layers).addTo(mapa);
+L.control.layers(layers).addTo(mapa);
 
 
 // 	$('#geolocate').on('click', function(){
 //   mapa.locate({setView: true, maxZoom: 15});
 // });
 
-	// create the geocoding control and add it to the map
-	 var searchControl = L.esri.Geocoding.geosearch({
-  	useMapBounds:false,																			//quitar filtración de mapa
-  	providers: [ L.esri.Geocoding.arcgisOnlineProvider() ] //de donde pilla la data
-	}).addTo(mapa);
+// create the geocoding control and add it to the map
+var searchControl = L.esri.Geocoding.geosearch({
+	useMapBounds:false,																			//quitar filtración de mapa
+	providers: [ L.esri.Geocoding.arcgisOnlineProvider() ] //de donde pilla la data
+}).addTo(mapa);
 
-	 // create an empty layer group to store the results and add it to the map
-	 var results = L.layerGroup().addTo(mapa);
+// create an empty layer group to store the results and add it to the map
+var results = L.layerGroup().addTo(mapa);
 
-	 // listen for the results event and add every result to the map
-	 searchControl.on("results", function(data) {
-			 results.clearLayers();
-			 for (var i = data.results.length - 1; i >= 0; i--) {
-					 results.addLayer(L.marker(data.results[i].latlng));
-					 getAseos(data.results[i].latlng.lat,data.results[i].latlng.lng);
-			 }
-	 });
+// listen for the results event and add every result to the map
+searchControl.on("results", function(data) {
+	results.clearLayers();
+	for (var i = data.results.length - 1; i >= 0; i--) {
+		results.addLayer(L.marker(data.results[i].latlng));
+		getAseos(data.results[i].latlng.lat,data.results[i].latlng.lng);
+	}
+});
 
 
 
@@ -78,13 +109,13 @@ var toplayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png
 var aseos=[];
 
 var aseoIcon = L.icon({
-    iconUrl: '/img/marker.png',
-
-    iconSize:     [25, 35], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 35], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+	iconUrl: '/img/marker.png',
+	
+	iconSize:     [25, 35], // size of the icon
+	shadowSize:   [50, 64], // size of the shadow
+	iconAnchor:   [22, 35], // point of the icon which will correspond to marker's location
+	shadowAnchor: [4, 62],  // the same for the shadow
+	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
 function getAseos(x,y){
@@ -126,20 +157,20 @@ function limpiarMapa(){
 }
 
 function markerOnClick(e){
-		var mapaSection = document.getElementById('section');
-    var aside = document.getElementById('aside');
-    mapaSection.classList.remove('col-md-12');
-    mapaSection.classList.add('col-md-9');
-    aside.hidden = false;
+	var mapaSection = document.getElementById('section');
+	var aside = document.getElementById('aside');
+	mapaSection.classList.remove('col-md-12');
+	mapaSection.classList.add('col-md-9');
+	aside.hidden = false;
 	setVista(e.latlng.lat,e.latlng.lng);
 	var aseo={id: e.target.aseo};
-
-
- 	$.get( "/api/mapa/getAseo/"+ e.target.aseo, function( data ) {
+	
+	
+	$.get( "/api/mapa/getAseo/"+ e.target.aseo, function( data ) {
 		cambiarInfoFicha(data);
 	});
-
-
+	
+	
 }
 function setVista(x,y){
 	mapa.setView([x, y],16);
