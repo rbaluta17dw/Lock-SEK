@@ -115,6 +115,7 @@ class KeyController extends Controller
     }
   }
 
+<<<<<<< HEAD
   /**
   * Update the specified resource in storage.
   *
@@ -148,6 +149,8 @@ class KeyController extends Controller
 
       }
 
+=======
+>>>>>>> f887845f330006ebd27f262b4fae93d20a8075e9
         /**
         * Display the specified resource.
         *
