@@ -75,6 +75,15 @@ class LockController extends Controller
     
   }
   
+  public function updateLocation($id, $lat, $lng){
+    $lock=Lock::find($id);
+    $lock->latitude = $lat;
+    $lock->longitude = $lng;
+    $lock->save();
+
+    return "Ubicacion actualizada";
+  }
+
   public function update(EditLockRequest $request, $id)
   {
     
@@ -82,8 +91,7 @@ class LockController extends Controller
     $lock=Lock::find($id);
     
     $lock->name = $request->input('newLockName');
-    $lock->latitude = $request->input('newLatitude');
-    $lock->longitude = $request->input('newLongitude');
+
     $notification = new Notification;
     $notification->title = "Se ha actualizado la cerradura ".$lock->name;
     $notification->message = "Has actualizado el nombre de la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");

@@ -108,6 +108,11 @@ a:hover{
   width: 25px !important;
 }
 #mapid { 
-  height: 400px;
-  width: 400px;
+  height: 37vh;
+  width: 90%;
+  margin: 0px auto;
+}
+#lockMap { 
+  height: 37vh;
+  width: 27vw;
 }
