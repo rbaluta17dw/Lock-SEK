@@ -11,16 +11,19 @@ class ApiController extends Controller
 {
 
   public function check(Request $request){
-    $lockKey =false;
-    if (Lock::where('id',$request->lock_id)->exists()) {
+    $authorized =false;
+    /*if (Lock::where('id',$request->lock_id)->exists()) {
       $lock = Lock::find($request->lock_id);
       foreach ($lock->keys as $key) {
         if ($key->id == $request->keys_id) {
-          $lockKey =true;
+          $authorized =true;
         }
       }
+    }*/
+    if (Key::where([['device',$request->device],['lock_id',$request->lock_id]])->exists()){
+    $authorized =true;
     }
-    if ($lockKey) {
+    if ($authorized) {
       return "true";
     }else {
       return "false";
