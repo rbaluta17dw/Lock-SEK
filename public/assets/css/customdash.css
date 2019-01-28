@@ -112,8 +112,23 @@ body.oscuro{
   width: 100px;
 }
 
+<<<<<<< HEAD
 
 #mapid {
   height: 400px;
   width: 400px;
 }
+=======
+.flag{
+  width: 25px !important;
+}
+#mapid { 
+  height: 37vh;
+  width: 90%;
+  margin: 0px auto;
+}
+#lockMap { 
+  height: 37vh;
+  width: 27vw;
+}
+>>>>>>> 644fd30a061672196bc6f45bcd5d3a64e6fccb03

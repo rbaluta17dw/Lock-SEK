@@ -3,6 +3,12 @@
 
 <head>
   @include('includes.headDashboard')
+<<<<<<< HEAD
+=======
+  @yield('header')
+  @yield('css')
+  @yield('scriptsTop')
+>>>>>>> 644fd30a061672196bc6f45bcd5d3a64e6fccb03
   <title>@yield('title')</title>
 </head>
 

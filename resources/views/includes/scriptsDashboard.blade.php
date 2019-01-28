@@ -36,12 +36,12 @@
 <!--mapa-->
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+   <link rel="stylesheet" href="{{asset('assets/js/leaflet/leaflet.css')}}" />
+    <script src="{{asset('assets/js/leaflet/leaflet.js')}}"></script>
 
      <!-- Esri Leaflet Geocoder -->
-     <script src="https://unpkg.com/esri-leaflet"></script>
-<script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+     <script src="{{asset('assets/js/esri-leaflet.js')}}"></script>
+<script src="{{asset('assets/js/map-search.js')}}"></script>
 
    <script src="{{asset('assets/js/map.js')}}"></script>
 
