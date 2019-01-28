@@ -16,7 +16,7 @@
       @foreach ($locks as $lock)
         <tr>
             <td><a href="/locks/{{ $lock->id }}">{{ $lock->name }}</a></td>
-            <td>{{ $lock->user->name }}</td>
+            <td>{{ $lock->user->email }}</td>
             <td>{{$lock->created_at}}</td>
         </tr>
       @endforeach

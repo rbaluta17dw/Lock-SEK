@@ -24,6 +24,9 @@ class CreateLocksTable extends Migration
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->double('latitude',25,20)->nullable();
+            $table->double('longitude',25,20)->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

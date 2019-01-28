@@ -111,3 +111,11 @@ body.oscuro{
 .logo-no-icon{
   width: 100px;
 }
+
+.flag{
+  width: 25px !important;
+}
+#mapid { 
+  height: 400px;
+  width: 400px;
+}
