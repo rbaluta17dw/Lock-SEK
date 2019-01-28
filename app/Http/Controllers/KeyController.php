@@ -24,7 +24,7 @@ class KeyController extends Controller
   public function index()
   {
     $keys = Key::where('user_id', Auth::user()->id)->get();
-    return view('pages/key/keys',['keys'=>$keys]);
+    return view('pages/key/userKeys',['keys'=>$keys]);
   }
   /**
   * Show the form for creating a new resource.
@@ -33,7 +33,7 @@ class KeyController extends Controller
   */
   public function create()
   {
-    return view('pages/key/create');
+    return view('pages/key/userCreate');
   }
   /**
   * Store a newly created resource in storage.
@@ -67,13 +67,13 @@ class KeyController extends Controller
       Storage::put("/storage/keys/".time().".key", $hashed);
       return Storage::download("/storage/keys/".time().".key");
     }
-    
+
     public function edit($id)
     {
       if (Key::where('id',$id)->exists()) {
         $key= Key::find($id);
         if (Auth::user()->id == $key->user_id) {
-          return view('pages/key/editKey')->with('key', $key);
+          return view('pages/key/userEditKey')->with('key', $key);
         }else{
           abort(404);
         }

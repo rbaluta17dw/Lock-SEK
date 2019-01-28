@@ -112,10 +112,8 @@ body.oscuro{
   width: 100px;
 }
 
-.flag{
-  width: 25px !important;
-}
-#mapid { 
+
+#mapid {
   height: 400px;
   width: 400px;
 }

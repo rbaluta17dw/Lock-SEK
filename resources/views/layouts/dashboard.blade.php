@@ -3,13 +3,11 @@
 
 <head>
   @include('includes.headDashboard')
-  @yield('header')
   <title>@yield('title')</title>
 </head>
 
-<body {!!Auth::user()->roleId == 2 ?  'class="oscuro"' : ""!!}>
-
-
+<body>
+  @yield('header')
   <div id="wrapper">
 
     <!-- Navigation -->

@@ -36,7 +36,7 @@
               <div id="mapid" hidden></div>
               <input type="text" id="latitude" name="latitude" value="" hidden>
               <input type="text" id="longitude" name="longitude" value="" hidden>
-            
+
             </div>
           </div>
         </div>
