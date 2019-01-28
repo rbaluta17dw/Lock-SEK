@@ -33,7 +33,7 @@ class KeyController extends Controller
   */
   public function create()
   {
-    return view('pages/key/create');
+    return view('pages/key/userCreate');
   }
   /**
   * Store a newly created resource in storage.
@@ -101,7 +101,7 @@ class KeyController extends Controller
       if (Key::where('id',$id)->exists()) {
         $key= Key::find($id);
         if (Auth::user()->id == $key->user_id) {
-          return view('pages/key/editKey')->with('key', $key);
+          return view('pages/key/userEditKey')->with('key', $key);
         }else{
           abort(404);
         }

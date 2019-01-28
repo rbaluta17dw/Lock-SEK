@@ -24,7 +24,7 @@ class LockController extends Controller
 
   public function register()
   {
-    return view('pages/lock/registerLock');
+    return view('pages/lock/userRegisterLock');
   }
 
   public function create(CreateLockRequest $request)
