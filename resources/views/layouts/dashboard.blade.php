@@ -3,12 +3,10 @@
 
 <head>
   @include('includes.headDashboard')
-<<<<<<< HEAD
-=======
+
   @yield('header')
   @yield('css')
   @yield('scriptsTop')
->>>>>>> 644fd30a061672196bc6f45bcd5d3a64e6fccb03
   <title>@yield('title')</title>
 </head>
 
@@ -17,7 +15,8 @@
   <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top {!!Auth::user()->roleId == 2 ?  'oscuro' : ""!!}" role="navigation" style="margin-bottom: 0">
+    <!-- {!!Auth::user()->roleId == 2 ?  'oscuro' : ""!!}  -->
+    <nav class="navbar navbar-default navbar-static-top " role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
