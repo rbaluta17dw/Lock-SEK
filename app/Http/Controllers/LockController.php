@@ -83,7 +83,14 @@ class LockController extends Controller
 
     return "Ubicacion actualizada";
   }
+  public function deleteLocation($id){
+    $lock=Lock::find($id);
+    $lock->latitude = null;
+    $lock->longitude = null;
+    $lock->save();
 
+    return "Ubicacion eliminada";
+  }
   public function update(EditLockRequest $request, $id)
   {
     
