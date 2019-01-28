@@ -11,19 +11,21 @@ class ApiController extends Controller
 {
 
   public function check(Request $request){
+    $lockKey =false;
     if (Lock::where('id',$request->lock_id)->exists()) {
-      $lock = Lock::find($requet->lock_id);
-      if (in_array ( $key_id, $lock->keys )) {
-        if (in_array ( $user_id, $lock->user ) || in_array ( $key_id, $lock->keys )) {
-
+      $lock = Lock::find($request->lock_id);
+      foreach ($lock->keys as $key) {
+        if ($key->id == $request->keys_id) {
+          $lockKey =true;
         }
       }
     }
-    if ($request->lock_id == ) {
-      // code...
+    if ($lockKey) {
+      return "true";
+    }else {
+      return "false";
     }
   }
-
   /**
   * Display a listing of the resource.
   *
@@ -31,7 +33,6 @@ class ApiController extends Controller
   */
   public function index()
   {
-
   }
 
   /**
@@ -53,7 +54,7 @@ class ApiController extends Controller
   */
   public function show($id)
   {
-    //
+
   }
 
   /**
