@@ -30,9 +30,9 @@ Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
 // Rutas dashboard
 
-Route::get('/home', ['as'=>'home.index','uses'=>'HomeController@index']);
-Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
-Route::get('/userDashboard', ['as'=>'dashboard.user','uses'=>'DashboardController@userIndex']);
+//Route::get('/home', ['as'=>'home.index','uses'=>'HomeController@index']);
+//Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
+Route::get('/home', ['as'=>'dashboard.home','uses'=>'DashboardController@index']);
 
 
 // Rutas Notificaciones

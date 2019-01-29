@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Key;
+use App\Lock;
+use Auth;
+
 
 class DashboardController extends Controller
 {
@@ -16,13 +20,13 @@ class DashboardController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
+
   public function index()
   {
-      return view('pages/dashboard');
-  }
-  public function userIndex()
-  {
-      return view('pages/userDashboard');
+    $locks=Lock::where('user_id', Auth::user()->id)->count();
+    $keys = Key::where('user_id', Auth::user()->id)->count();
+
+      return view('pages/userDashboard',['locks'=>$locks, 'keys'=>$keys]);
   }
 
   public function profile()

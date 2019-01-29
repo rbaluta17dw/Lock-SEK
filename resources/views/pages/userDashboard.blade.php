@@ -11,7 +11,7 @@
             </div>
             <div class="content">
                 <div class="text">Cerraduras</div>
-                <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+                <div class="number count-to" data-from="0" data-to="{{$locks}}" data-speed="15" data-fresh-interval="20"></div>
             </div>
         </div>
     </div>
@@ -21,8 +21,8 @@
                 <i class="material-icons">vpn_key</i>
             </div>
             <div class="content">
-                <div class="text">NEW TICKETS</div>
-                <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                <div class="text">Llaves</div>
+                <div class="number count-to" data-from="0" data-to="{{$keys}}" data-speed="1000" data-fresh-interval="20"></div>
             </div>
         </div>
     </div>
@@ -307,5 +307,19 @@
 </div>
 @stop
 @section('scripts')
-<script src="{{asset('assets/user/plugins/jquery-datatable/jquery.dataTables.jsplugins/jquery-countto/jquery.countTo.js')}}"></script>
+<script>
+$(function () {
+    //Widgets count
+    $('.count-to').countTo();
+
+    //Sales count to
+    $('.sales-count-to').countTo({
+        formatter: function (value, options) {
+            return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ' ').replace('.', ',');
+        }
+    });
+
+});
+</script>
+<script src="{{asset('assets/user/plugins/jquery-countto/jquery.countTo.js')}}"></script>
 @stop

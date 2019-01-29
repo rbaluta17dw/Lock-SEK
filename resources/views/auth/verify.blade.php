@@ -1,5 +1,7 @@
-@extends('layouts.dashboard')
-
+@extends('layouts.userDashboard')
+@section('css')
+@stop
+@section('title', 'LockSEK')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -21,4 +23,6 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
 @endsection

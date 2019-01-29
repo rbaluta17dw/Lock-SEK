@@ -224,8 +224,8 @@
       <div class="menu">
         <ul class="list">
           <li class="header">MAIN NAVIGATION</li>
-          <li>
-            <a href="../../index.html">
+          <li class="{{ Route::is('dashboard.home') ? 'active' : '' }}">
+            <a href="{{ route('dashboard.home') }}">
               <i class="material-icons">home</i>
               <span>Home</span>
             </a>
