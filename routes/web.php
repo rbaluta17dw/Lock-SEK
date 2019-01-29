@@ -24,6 +24,10 @@ Route::get('/password/reset', function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 
+//Rutas Login Google
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+
 // Rutas dashboard
 
 Route::get('/home', ['as'=>'home.index','uses'=>'HomeController@index']);

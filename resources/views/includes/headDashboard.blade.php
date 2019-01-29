@@ -32,4 +32,3 @@
    crossorigin=""/> -->
    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
 <!-- /search mapa -->
-  
