@@ -15,7 +15,8 @@
         <li class="nav-item"><a class="nav-link" href="#section-pricing">Precios</a></li>
         <li class="nav-item"><a class="nav-link" href="#section-faq">Preguntas Frecuentes</a></li>
         @guest
-        <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="#"><span class="pb_rounded-4 px-4 button" data-toggle="modal" data-target="#login-modal">Iniciar Sesion</span></a></li>
+        <li class="nav-item cta-btn ml-xl-1 ml-lg-1 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="#"><span class="pb_rounded-4 px-4 button" data-toggle="modal" data-target="#login-modal">Iniciar Sesion</span></a></li>
+        <li class="nav-item cta-btn ml-xl-1 ml-lg-1 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="/redirect"><img class="logo-white" src="{{asset('assets/img/btn_google_normal.png')}}" alt=""> </a></li>
         @endguest
         @auth
         <li class="nav-item"><a class="nav-link" href="profile">{{Auth::user()->email}}</a></li>
