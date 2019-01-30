@@ -129,9 +129,12 @@ body {
                   <span class="inner-status">Oops! You're lost</span>
                   <span class="inner-detail" style="color:#fff;">
                       We can not find the page you're looking for.
-                      <a href="#" class="btn btn-info mtl"><i class="fa fa-home"></i>&nbsp;
+                      <a href="{{route('dashboard.home')}}" class="btn btn-info mtl"><i class="fa fa-home"></i>&nbsp;
                           Return home
                       </a>
+                  </span>
+                  <span class="inner-status">
+                    <img height="40px" src="{{asset('assets/img/logodash.png')}}" alt="">
                   </span>
               </div>
           </div>
