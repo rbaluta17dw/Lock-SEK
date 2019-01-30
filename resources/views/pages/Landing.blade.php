@@ -62,7 +62,7 @@
           @csrf
           <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
           <div class="form-group">
-            <input type="email" name="email" class="form-control pb_height-50 reverse" placeholder="Email">
+            <input type="email" name="email" class="form-control pb_height-50 reverse" placeholder="Email" value="{{ old('email') }}">
           </div>
           <div class="form-group">
             <input type="password" id="password" name="password" class="form-control pb_height-50 reverse" placeholder="Contraseña">
