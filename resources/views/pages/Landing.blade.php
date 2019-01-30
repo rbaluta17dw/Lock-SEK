@@ -57,8 +57,8 @@
 
 
 
-      <div class="col-md-5 relative align-self-center">
-        <form method="POST" action="{{ route('register') }}" id="register" class="bg-white rounded pb_form_v1">
+      <div class="col-md-5 relative align-self-center" >
+        <form method="POST" action="{{ route('register') }}" id="register" class="bg-white rounded pb_form_v1 reg">
           @csrf
           <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
           <div class="form-group">
@@ -85,7 +85,7 @@
   <div class="container">
     <div class="row justify-content-center mb-5">
       <div class="col-md-6 text-center mb-5">
-        <h2>Se tu propio cerrajero</h2>
+        <h2>Producto</h2>
       </div>
     </div>
     <div class="row">
@@ -138,7 +138,7 @@
             </div>
 
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-happy-outline pb_icon-gradient"></i></div>
 
               <div class="media-body">
 
@@ -151,15 +151,15 @@
           <div class="col-lg">
 
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-key pb_icon-gradient"></i></div>
               <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Una única llave</h3>
+                <h3 class="mt-2 mb-2 heading">Un dispositivo único llave</h3>
                 <p class="text-sans-serif pb_font-16">Lleva cuantas llaves quieras en un mismo dispositivo USB.</p>
               </div>
             </div>
 
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
+              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-home pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Alquila una vivienda</h3>
                 <p class="text-sans-serif pb_font-16">Crea y elimina llaves para tus inquilinos sin miedo.</p>
@@ -204,7 +204,7 @@
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Cerraduras y llaves ilimitadas</h3>
-                <p class="text-sans-serif pb_font-16">Amplia tu infraestructura gracias a escalabilidad de este sistema.</p>
+                <p class="text-sans-serif pb_font-16">Amplia tu infraestructura gracias a la escalabilidad de este sistema.</p>
 
               </div>
             </div>
@@ -221,12 +221,12 @@
               </div>
             </div>
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
+              {{-- <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
               <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Establece horarios</h3>
+                <h3 class="mt-2 mb-2 heading">Gestión sencilla</h3>
                 <p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
 
-              </div>
+              </div> --}}
             </div>
 
 

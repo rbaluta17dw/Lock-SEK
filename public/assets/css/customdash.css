@@ -115,3 +115,12 @@ body.oscuro{
 .flag{
   width: 25px !important;
 }
+#mapid { 
+  height: 37vh;
+  width: 90%;
+  margin: 0px auto;
+}
+#lockMap { 
+  height: 37vh;
+  width: 27vw;
+}
