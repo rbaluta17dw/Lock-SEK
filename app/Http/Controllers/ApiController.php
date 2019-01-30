@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Lock;
 use App\Key;
+use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
@@ -20,9 +21,24 @@ class ApiController extends Controller
         }
       }
     }*/
-    if (Key::where([['device',$request->device],['lock_id',$request->lock_id]])->exists()){
-    $authorized =true;
+    $key = Key::find($request->keyId);
+    if (isset($key->device)) {
+      if ($key->device == $request->usbId) {
+        if (Hash::check($key->user_id.$key->lock_id, $request->hash)) {
+          $authorized =true;
+        }
+      }
+
+    }else{
+      $key->device = $request->usbId;
+      $key->save();
+      $authorized = true;
     }
+
+    //$key = Key::where([['device',$request->device],['lock_id',$request->lock_id]])->get();
+
+
+
     if ($authorized) {
       return "true";
     }else {
