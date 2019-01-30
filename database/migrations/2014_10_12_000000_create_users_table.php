@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('imgname')->nullable();
             $table->integer('roleId')->default('0');
-            $table->string('google_id');
+            $table->string('google_id')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

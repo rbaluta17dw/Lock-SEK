@@ -16,7 +16,7 @@ class CreateWhitelistTable extends Migration
         Schema::create('whitelist', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('device');
+            $table->string('device')->nullable();
 
 
             $table->unsignedInteger('user_id');
