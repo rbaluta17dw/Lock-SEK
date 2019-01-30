@@ -3,9 +3,6 @@
 
 <head>
   @include('includes.headDashboard')
-
-  @yield('header')
-  @yield('css')
   @yield('scriptsTop')
   <title>@yield('title')</title>
   <!-- Matomo -->
@@ -24,7 +21,6 @@
   </script>
   <!-- End Matomo Code -->
 </head>
-
 <body>
   @yield('header')
   <div id="wrapper">

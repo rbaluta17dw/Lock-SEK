@@ -35,10 +35,6 @@
               <div id="mapid" hidden></div>
               <input type="text" id="latitude" name="latitude" value="" hidden>
               <input type="text" id="longitude" name="longitude" value="" hidden>
-<<<<<<< HEAD
-
-=======
->>>>>>> 644fd30a061672196bc6f45bcd5d3a64e6fccb03
             </div>
           </div>
         </div>
