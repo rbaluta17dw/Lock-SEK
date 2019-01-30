@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Lock;
 use App\Key;
+use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
