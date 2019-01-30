@@ -6,9 +6,9 @@
 
 @stop
 @section('scriptsTop')
-<script src="{{asset('assets/js/leaflet/leaflet.js')}}"></script>
-<script src="{{asset('assets/js/esri-leaflet.js')}}"></script>
-<script src="{{asset('assets/js/map-search.js')}}"></script>
+  <script src="{{asset('assets/js/leaflet/leaflet.js')}}"></script>
+  <script src="{{asset('assets/js/esri-leaflet.js')}}"></script>
+  <script src="{{asset('assets/js/map-search.js')}}"></script>
 @stop
 @section('title', 'LockSEK')
 @section('content')
@@ -20,7 +20,7 @@
       </div>
       <div class="body">
         <div class="row clearfix">
-          <div class="col-sm-5"><!--left col-->
+          <div class="col-sm-6"><!--left col-->
             <h4>Haz  doble click para actualizar la ubicación o Haz click derecho para eliminar la ubicación</h4>
             <div id="lockMap"></div>
             <!--<div class="text-center">
@@ -29,10 +29,10 @@
             <input type="file" class="text-center center-block file-upload">
           </div>-->
 
-        </div></hr><br>
+        </div>
 
       </div><!--/col-3-->
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <div class="tab-content">
           <hr>
           <div class="form-group">
@@ -40,7 +40,6 @@
               <label for="lockName">Nombre de la cerradura:</label>
               <p>{{$lock->name}}</p>
             </div>
-
             <div class="col-xs-6">
               <label for="lockName">Creada:</label>
               <p>{{$lock->created_at}}</p>
@@ -59,9 +58,6 @@
                 <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cambiar</button>
               </form>
             </div>
-
-
-
             <div class="col-xs-3">
               <div class="button-demo js-modal-buttons">
                 <button type="button" data-color="red" class="btn btn-danger m-t-15 waves-effect">Eliminar Cerradura</button>
@@ -70,9 +66,7 @@
           </div>
           <hr>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
@@ -167,102 +161,102 @@
 
 
 
-  var lockLat = {{$lock->latitude? $lock->latitude : '43.3073225' }};
-  var lockLng = {{$lock->longitude? $lock->longitude  : '-1.9914354'}};
+var lockLat = {{$lock->latitude? $lock->latitude : '43.3073225' }};
+var lockLng = {{$lock->longitude? $lock->longitude  : '-1.9914354'}};
 
 
 
-  //var mapa = L.map('lockMap').setView([[43.3073225, -1.9914354]], 13);
+//var mapa = L.map('lockMap').setView([[43.3073225, -1.9914354]], 13);
 
-  var mapa = L.map('lockMap').setView([lockLat, lockLng], 13);
-  mapa.doubleClickZoom.disable();
+var mapa = L.map('lockMap').setView([lockLat, lockLng], 13);
+mapa.doubleClickZoom.disable();
 
-  var baselayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets',
-  }).addTo(mapa);
+var baselayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+  '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+  'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  id: 'mapbox.streets',
+}).addTo(mapa);
 
-  var toplayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets-satellite',
-  });
+var toplayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+  '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+  'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  id: 'mapbox.streets-satellite',
+});
 
-  var layers = {
-    'Basico': baselayer,
-    'Satelite': toplayer
-  };
+var layers = {
+  'Basico': baselayer,
+  'Satelite': toplayer
+};
 
-  L.control.layers(layers).addTo(mapa);
-
-
-  // 	$('#geolocate').on('click', function(){
-    //   mapa.locate({setView: true, maxZoom: 15});
-    // });
-
-    // create the geocoding control and add it to the map
-    var searchControl = L.esri.Geocoding.geosearch({
-      useMapBounds:false,																			//quitar filtración de mapa
-      providers: [ L.esri.Geocoding.arcgisOnlineProvider() ] //de donde pilla la data
-    }).addTo(mapa);
-
-    // create an empty layer group to store the results and add it to the map
-    var results = L.layerGroup().addTo(mapa);
-
-    // listen for the results event and add every result to the map
-    searchControl.on("results", function(data) {
-      results.clearLayers();
-      for (var i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
-        //getAseos(data.results[i].latlng.lat,data.results[i].latlng.lng);
-      }
-    });
-
-    var lockIcon = L.icon({
-      iconUrl: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTM2IDE2aC0ydi00YzAtNS41Mi00LjQ4LTEwLTEwLTEwcy0xMCA0LjQ4LTEwIDEwdjRoLTJjLTIuMjEgMC00IDEuNzktNCA0djIwYzAgMi4yMSAxLjc5IDQgNCA0aDI0YzIuMjEgMCA0LTEuNzkgNC00di0yMGMwLTIuMjEtMS43OS00LTQtNHptLTEyIDE4Yy0yLjIxIDAtNC0xLjc5LTQtNHMxLjc5LTQgNC00IDQgMS43OSA0IDQtMS43OSA0LTQgNHptNi4yLTE4aC0xMi40di00YzAtMy40MiAyLjc4LTYuMiA2LjItNi4yIDMuNDIgMCA2LjIgMi43OCA2LjIgNi4ydjR6Ii8+PC9zdmc+',
-      iconSize:     [25, 35], // size of the icon
-      shadowSize:   [50, 64], // size of the shadow
-      iconAnchor:   [15, 25], // point of the icon which will correspond to marker's location
-      shadowAnchor: [4, 62],  // the same for the shadow
-      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
+L.control.layers(layers).addTo(mapa);
 
 
+// 	$('#geolocate').on('click', function(){
+//   mapa.locate({setView: true, maxZoom: 15});
+// });
 
-    var marcador;
-    @if ($lock->latitude && $lock->longitude)
-    marcador= new L.marker([{{$lock->latitude}}, {{$lock->longitude}}],{icon:lockIcon}).addTo(mapa);
-    @endif
-    mapa.on('dblclick',function(e){
+// create the geocoding control and add it to the map
+var searchControl = L.esri.Geocoding.geosearch({
+  useMapBounds:false,																			//quitar filtración de mapa
+  providers: [ L.esri.Geocoding.arcgisOnlineProvider() ] //de donde pilla la data
+}).addTo(mapa);
 
-      if(typeof(marcador)=="undefined"){
+// create an empty layer group to store the results and add it to the map
+var results = L.layerGroup().addTo(mapa);
 
-        var latlng = L.latLng();
+// listen for the results event and add every result to the map
+searchControl.on("results", function(data) {
+  results.clearLayers();
+  for (var i = data.results.length - 1; i >= 0; i--) {
+    results.addLayer(L.marker(data.results[i].latlng));
+    //getAseos(data.results[i].latlng.lat,data.results[i].latlng.lng);
+  }
+});
 
-        marcador= new L.marker(e.latlng,{icon:lockIcon});
-        marcador.addTo(mapa);
-        $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
-          alert(result);
-        }});
-      }else{
-        marcador.setLatLng(e.latlng);
-        marcador.addTo(mapa);
-        $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
-          alert(result);
-        }});
-      }
+var lockIcon = L.icon({
+  iconUrl: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTM2IDE2aC0ydi00YzAtNS41Mi00LjQ4LTEwLTEwLTEwcy0xMCA0LjQ4LTEwIDEwdjRoLTJjLTIuMjEgMC00IDEuNzktNCA0djIwYzAgMi4yMSAxLjc5IDQgNCA0aDI0YzIuMjEgMCA0LTEuNzkgNC00di0yMGMwLTIuMjEtMS43OS00LTQtNHptLTEyIDE4Yy0yLjIxIDAtNC0xLjc5LTQtNHMxLjc5LTQgNC00IDQgMS43OSA0IDQtMS43OSA0LTQgNHptNi4yLTE4aC0xMi40di00YzAtMy40MiAyLjc4LTYuMiA2LjItNi4yIDMuNDIgMCA2LjIgMi43OCA2LjIgNi4ydjR6Ii8+PC9zdmc+',
+  iconSize:     [25, 35], // size of the icon
+  shadowSize:   [50, 64], // size of the shadow
+  iconAnchor:   [15, 25], // point of the icon which will correspond to marker's location
+  shadowAnchor: [4, 62],  // the same for the shadow
+  popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 
-    });
-    mapa.on("contextmenu", function () {
-      mapa.removeLayer(marcador);
-      $.ajax({url: "/locks/"+{{$lock->id}}+"/deleteLocation", success: function(result){
-        alert(result);
-      }});
-    });
-  </script>
+
+
+var marcador;
+@if ($lock->latitude && $lock->longitude)
+marcador= new L.marker([{{$lock->latitude}}, {{$lock->longitude}}],{icon:lockIcon}).addTo(mapa);
+@endif
+mapa.on('dblclick',function(e){
+
+  if(typeof(marcador)=="undefined"){
+
+    var latlng = L.latLng();
+
+    marcador= new L.marker(e.latlng,{icon:lockIcon});
+    marcador.addTo(mapa);
+    $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
+      alert(result);
+    }});
+  }else{
+    marcador.setLatLng(e.latlng);
+    marcador.addTo(mapa);
+    $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
+      alert(result);
+    }});
+  }
+
+});
+mapa.on("contextmenu", function () {
+  mapa.removeLayer(marcador);
+  $.ajax({url: "/locks/"+{{$lock->id}}+"/deleteLocation", success: function(result){
+    alert(result);
+  }});
+});
+</script>
 @stop
 @section('scripts')
   <!-- Custom Js -->
