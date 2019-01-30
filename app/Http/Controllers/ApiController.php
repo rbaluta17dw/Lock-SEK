@@ -36,6 +36,7 @@ class ApiController extends Controller
   */
   public function index()
   {
+
   }
 
   /**
@@ -57,7 +58,8 @@ class ApiController extends Controller
   */
   public function show($id)
   {
-
+    $key = Key::find($id);
+    return $key;
   }
 
   /**

@@ -633,3 +633,12 @@
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+	#mapid {
+	  height: 37vh;
+	  width: 90%;
+	  margin: 0px auto;
+	}
+	#lockMap {
+	  height: 37vh;
+	  width: 27vw;
+	}

@@ -7,12 +7,12 @@ use App\Form;
 
 class FormController extends Controller
 {
-    
+
 	public function insert(ContactFormRequest $request){
         $validated = $request->validated();
 
 
-                    
+
         $data= new Form;
 
         $data->name = $request->input('name');
@@ -23,10 +23,10 @@ class FormController extends Controller
 
         $data->save();
 
-        
+
         //return view('pages/Landing');
 
-        return redirect('pages/Landing#section-contact');
-    
+        return redirect('pages/Landing');
+
         }
 }

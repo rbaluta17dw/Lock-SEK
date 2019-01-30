@@ -59,12 +59,13 @@ class KeyController extends Controller
     $notification->lock_id = $key->lock->id;
     $notification->key_id = $key->id;
     $notification->save();
-    $hashed = Hash::make($key->device.$key->user_id.$key->lock_id, [
+    $hashed = Hash::make($key->user_id.$key->lock_id, [
       'rounds' => 12
       ]);
+      $finalkey = $key->id."?".$hashed;
       //Aqui faltan cosas
       $key->save();
-      Storage::put("/storage/keys/".time().".key", $hashed);
+      Storage::put("/storage/keys/".time().".key", $finalkey);
       return Storage::download("/storage/keys/".time().".key");
     }
 
