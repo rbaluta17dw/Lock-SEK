@@ -133,7 +133,7 @@ class LockController extends Controller
     $email = $request->input('email');
     $mod = $request->input('role');
 
-    
+
     $user = User::where('email', $email)->first();
     
     if (isset($user)) {
@@ -144,8 +144,6 @@ class LockController extends Controller
     }
 
   
-    
-
     $lock->privileges()->attach($user,['privilege' => $mod]);
     $nomMod = "basico";
     $notification = new Notification;
