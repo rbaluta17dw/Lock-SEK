@@ -47,7 +47,7 @@ class CreateLockRequest extends FormRequest
             'lockSerial.required' => 'Es necesario introducir un numero de serie',
             'lockSerial.regex' => 'El numero de serie no es correcto',
             'lockSerial.min' => 'El numero de serie no es correcto',
-            'lockSerial.min' => 'El numero de serie no es correcto'
+            'lockSerial.max' => 'El numero de serie no es correcto'
         ];
     }
 }

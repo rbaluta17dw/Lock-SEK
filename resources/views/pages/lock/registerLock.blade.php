@@ -24,7 +24,7 @@
           <div class="form-group row">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Numero de serie</label>
             <div class="col-sm-10">
-              <input type="text" name="lockSerial" class="form-control" id="lockSerial" placeholder="XGY43123456789Y">
+              <input type="text" name="lockSerial" class="form-control" id="lockSerial" placeholder="" >
             </div>
           </div>
           <div class="form-group row">
@@ -38,6 +38,7 @@
             </div>
           </div>
         </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           <button type="submit" class="btn btn-primary" >Registrar</button>
