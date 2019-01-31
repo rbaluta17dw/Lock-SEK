@@ -39,7 +39,7 @@
             @endforeach
           </select>
           <p>
-            <button type="input" class="btn bg-lime waves-effect">
+            <button type="submit" class="btn bg-lime waves-effect">
               <i class="material-icons">vpn_key</i>
               <span>Añadir</span>
             </button>

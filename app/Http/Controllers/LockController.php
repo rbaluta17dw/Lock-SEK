@@ -132,7 +132,18 @@ class LockController extends Controller
     $lock = Lock::find($id);
     $email = $request->input('email');
     $mod = $request->input('role');
-    $user = User::where('email', $email)->get();
+
+
+    $user = User::where('email', $email)->first();
+    
+    if (isset($user)) {
+      $request->session()->flash('privilegeOk', 'Permiso otorgado con exito');
+    }else{
+      $request->session()->flash('privilegeFail', 'El permiso no ha podido ser otorgado, compruebe que el email existe');
+      return back();
+    }
+
+  
     $lock->privileges()->attach($user,['privilege' => $mod]);
     $nomMod = "basico";
     $notification = new Notification;
