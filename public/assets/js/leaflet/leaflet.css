@@ -641,4 +641,5 @@
 	#lockMap {
 	  height: 37vh;
 	  width: 27vw;
+	  z-index: 0;
 	}

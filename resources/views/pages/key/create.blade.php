@@ -20,7 +20,7 @@
               <option value="{{$lock->id}}">{{$lock->name}}</option>
             @endforeach
           </select> 
-         
+         <input type="submit"class="btn btn-default btn-primary">Añadir
           <button type="submit" class="btn btn-default btn-primary">Añadir</button>
         </form>
         <br>
