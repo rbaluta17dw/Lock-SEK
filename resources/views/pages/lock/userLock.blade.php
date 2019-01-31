@@ -20,9 +20,9 @@
     </div>
     <div class="body">
       <div class="row clearfix">
-        <div class="col-sm-6"><!--left col-->
+        <div class="col-sm-6 "><!--left col-->
           <h4>Haz  doble click para actualizar la ubicación o Haz click derecho para eliminar la ubicación</h4>
-          <div id="lockMap"></div>
+          <div id="lockMap" class="col-sm-6"></div>
           <!--<div class="text-center">
             <img src="https://cdn.website.thryv.com/716ee54454d94272ba5bf64e492f084d/MOBILE/png/961.png" class="avatar img-thumbnail" alt="avatar">
             <div class="prf-img-inp config">
@@ -30,35 +30,36 @@
             </div>-->
           </div>
           
-       <!--/col-3-->
-        <div class="col-sm-4">
-          <div class="tab-content">
-            <div class="form-group">
-              <div class="col-xs-6">
-                <label for="lockName">Nombre de la cerradura:</label>
-                <p>{{$lock->name}}</p>
-              </div>
-              <div class="col-xs-6">
-                <label for="lockName">Creada:</label>
-                <p>{{$lock->created_at}}</p>
-              </div>
-              <div class="col-xs-6">
-                <form class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
-                  @csrf
-                  @method('put')
-                  <label for="name">Nuevo nombre de la cerradura:</label>
-                  <br>
-                  <div class="form-line">
-                    <input type="text" class="form-control" name="newLockName" placeholder="{{$lock->name}}" />
+          <!--/col-3-->
+          <div class="col-sm-4">
+            <div class="tab-content">
+              <div class="form-group">
+                <div class="col-xs-6">
+                  <label for="lockName">Nombre de la cerradura:</label>
+                  <p>{{$lock->name}}</p>
+                </div>
+                <div class="col-xs-6">
+                  <label for="lockName">Creada:</label>
+                  <p>{{$lock->created_at}}</p>
+                </div>
+                <div class="col-xs-6">
+                  <form class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
+                    @csrf
+                    @method('put')
+                    <label for="name">Nuevo nombre de la cerradura:</label>
+                    <br>
+                    <div class="form-line">
+                      <input type="text" class="form-control" name="newLockName" placeholder="{{$lock->name}}" />
+                    </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cambiar</button>
+                  </form>
+                </div>
+                <div class="col-xs-3">
+                  <div class="button-demo js-modal-buttons">
+                    <button type="button" data-color="red" class="btn btn-danger m-t-15 waves-effect">Eliminar Cerradura</button>
                   </div>
-                  <br>
-                  <br>
-                  <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cambiar</button>
-                </form>
-              </div>
-              <div class="col-xs-3">
-                <div class="button-demo js-modal-buttons">
-                  <button type="button" data-color="red" class="btn btn-danger m-t-15 waves-effect">Eliminar Cerradura</button>
                 </div>
               </div>
             </div>
@@ -67,7 +68,6 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
   <div class="card">
@@ -99,7 +99,7 @@
                     @else
                     <span class="label label-primary">basico</span>
                     @endif
-                 
+                    
                   </td>
                   <td>{{$privilege->created_at}}</td>
                   <td><a class="btn btn-danger m-t-15 waves-effect" href="/locks/{{$lock->id}}/{{$privilege->id}}/delete" role="button">Eliminar</a></td>
@@ -110,7 +110,7 @@
           </div>
           <!-- /.table-responsive -->
         </div>
-        <div class="col-xs-3 pull-right">
+        <div class="col-sm-4 pull-right">
           <form class="form" action="{{route('locks.insertPrivilege',$lock->id)}}" method="post" >
             @csrf
             @method('post')
@@ -140,7 +140,7 @@
       <div class="alert alert-danger">{!! Session::get('privilegeFail') !!}</div>
       @endif
       <!--End Privilege -->
-
+      
       <!-- For Material Design Colors -->
       <div class="modal fade" id="mdModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
