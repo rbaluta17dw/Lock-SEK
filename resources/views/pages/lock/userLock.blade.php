@@ -175,7 +175,7 @@
   
   
   
-  //var mapa = L.map('lockMap').setView([[43.3073225, -1.9914354]], 13);
+  
   
   var mapa = L.map('lockMap').setView([lockLat, lockLng], 13);
   mapa.doubleClickZoom.disable();
@@ -240,23 +240,16 @@
     marcador= new L.marker([{{$lock->latitude}}, {{$lock->longitude}}],{icon:lockIcon}).addTo(mapa);
     @endif
     mapa.on('dblclick',function(e){
-      
       if(typeof(marcador)=="undefined"){
-        
         var latlng = L.latLng();
-        
         marcador= new L.marker(e.latlng,{icon:lockIcon});
-        marcador.addTo(mapa);
-        $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
-          alert(result);
-        }});
       }else{
         marcador.setLatLng(e.latlng);
-        marcador.addTo(mapa);
-        $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
-          alert(result);
-        }});
       }
+      marcador.addTo(mapa);
+      $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
+        alert(result);
+      }});
       
     });
     mapa.on("contextmenu", function () {
