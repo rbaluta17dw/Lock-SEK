@@ -12,11 +12,11 @@
 @stop
 @section('title', 'LockSEK')
 @section('content')
-<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
   <div class="card">
     <div class="header">
       <h2>TASK INFOS</h2>
-      
+
     </div>
     <div class="body">
       <div class="row clearfix">
@@ -29,9 +29,9 @@
               <input type="file" class="text-center center-block file-upload">
             </div>-->
           </div>
-          
+
           <!--/col-3-->
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="tab-content">
               <div class="form-group">
                 <div class="col-xs-6">
@@ -68,16 +68,30 @@
       </div>
     </div>
   </div>
-</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div class="card">
+      <div class="header">
+        <h2>Notificaciones</h2>
+
+      </div>
+      <div class="body">
+        <div class="row clearfix">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
   <div class="card">
     <div class="header">
       <h2>TASK INFOS</h2>
-      
+
     </div>
     <div class="body">
       <div class="row clearfix">
-        
+
         <div class="col-lg-8">
           <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
@@ -99,7 +113,7 @@
                     @else
                     <span class="label label-primary">basico</span>
                     @endif
-                    
+
                   </td>
                   <td>{{$privilege->created_at}}</td>
                   <td><a class="btn btn-danger m-t-15 waves-effect" href="{{route('locks.deletePrivilege',[$lock->id, $privilege->id]) }}" role="button">Eliminar</a></td>
@@ -120,7 +134,7 @@
             <br>
             <label for="role">Permiso:</label>
             <br>
-            
+
             <select name="role" class="form-control show-tick">
               <option value="">-- Please select --</option>
               <option value="0">Basico</option>
@@ -135,12 +149,12 @@
       @if (Session::has('privilegeOk'))
       <div class="alert alert-success">{!! Session::get('privilegeOk') !!}</div>
       @endif
-      
+
       @if (Session::has('privilegeFail'))
       <div class="alert alert-danger">{!! Session::get('privilegeFail') !!}</div>
       @endif
       <!--End Privilege -->
-      
+
       <!-- For Material Design Colors -->
       <div class="modal fade" id="mdModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -166,55 +180,55 @@
   </div>
 </div>
 <script>
-  
-  
-  
-  
+
+
+
+
   var lockLat = {{$lock->latitude? $lock->latitude : '43.3073225' }};
   var lockLng = {{$lock->longitude? $lock->longitude  : '-1.9914354'}};
-  
-  
-  
-  
-  
+
+
+
+
+
   var mapa = L.map('lockMap').setView([lockLat, lockLng], 13);
   mapa.doubleClickZoom.disable();
-  
+
   var baselayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     id: 'mapbox.streets',
   }).addTo(mapa);
-  
+
   var toplayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5kZXJsYWIiLCJhIjoiY2pyOTBmc3R6MGJmaTQzbWx6YzBpN25lbSJ9.hkFzj6uoWVw8Yx5IsTYQLw', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     id: 'mapbox.streets-satellite',
   });
-  
+
   var layers = {
     'Basico': baselayer,
     'Satelite': toplayer
   };
-  
+
   L.control.layers(layers).addTo(mapa);
-  
-  
+
+
   // 	$('#geolocate').on('click', function(){
     //   mapa.locate({setView: true, maxZoom: 15});
     // });
-    
+
     // create the geocoding control and add it to the map
     var searchControl = L.esri.Geocoding.geosearch({
       useMapBounds:false,																			//quitar filtración de mapa
       providers: [ L.esri.Geocoding.arcgisOnlineProvider() ] //de donde pilla la data
     }).addTo(mapa);
-    
+
     // create an empty layer group to store the results and add it to the map
     var results = L.layerGroup().addTo(mapa);
-    
+
     // listen for the results event and add every result to the map
     searchControl.on("results", function(data) {
       results.clearLayers();
@@ -223,7 +237,7 @@
         //getAseos(data.results[i].latlng.lat,data.results[i].latlng.lng);
       }
     });
-    
+
     var lockIcon = L.icon({
       iconUrl: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTM2IDE2aC0ydi00YzAtNS41Mi00LjQ4LTEwLTEwLTEwcy0xMCA0LjQ4LTEwIDEwdjRoLTJjLTIuMjEgMC00IDEuNzktNCA0djIwYzAgMi4yMSAxLjc5IDQgNCA0aDI0YzIuMjEgMCA0LTEuNzkgNC00di0yMGMwLTIuMjEtMS43OS00LTQtNHptLTEyIDE4Yy0yLjIxIDAtNC0xLjc5LTQtNHMxLjc5LTQgNC00IDQgMS43OSA0IDQtMS43OSA0LTQgNHptNi4yLTE4aC0xMi40di00YzAtMy40MiAyLjc4LTYuMiA2LjItNi4yIDMuNDIgMCA2LjIgMi43OCA2LjIgNi4ydjR6Ii8+PC9zdmc+',
       iconSize:     [25, 35], // size of the icon
@@ -232,9 +246,9 @@
       shadowAnchor: [4, 62],  // the same for the shadow
       popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-    
-    
-    
+
+
+
     var marcador;
     @if ($lock->latitude && $lock->longitude)
     marcador= new L.marker([{{$lock->latitude}}, {{$lock->longitude}}],{icon:lockIcon}).addTo(mapa);
@@ -250,7 +264,7 @@
       $.ajax({url: "/locks/"+{{$lock->id}}+"/"+e.latlng.lat+"/"+e.latlng.lng+"", success: function(result){
         alert(result);
       }});
-      
+
     });
     mapa.on("contextmenu", function () {
       mapa.removeLayer(marcador);
@@ -264,4 +278,3 @@
   <!-- Custom Js -->
   <script src="{{asset('assets/user/js/pages/ui/modals.js')}}"></script>
   @stop
-  
