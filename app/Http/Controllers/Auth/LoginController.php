@@ -98,6 +98,7 @@ class LoginController extends Controller
             $name = $user->name . time() . '.' . 'jpg';
             Storage::put('public/avatars/'.$name, $contents);
             $newUser->imgname = $name;
+            $newUser->email_verified_at = now();
 
 
             $newUser->save();
