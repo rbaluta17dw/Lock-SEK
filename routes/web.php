@@ -103,7 +103,7 @@ Route::get('/locks/{lock}/{lat}/{lng}', ['as'=>'locks.updateLocation','uses'=>'L
 Route::delete('/locks/{lock}', ['as'=>'locks.destroy','uses'=>'LockController@destroy'])->middleware('verified');
 //Privilegios
 Route::post('/locks/{lock}/insertPrivilege', ['as'=>'locks.insertPrivilege','uses'=>'LockController@insertPrivilege'])->middleware('verified');
-Route::get('/locks/{lock}/{user}/delete', ['as'=>'locks.deletePrivilege','uses'=>'LockController@deletePrivilege'])->middleware('verified');
+Route::get('/locks/{lock}/{user}', ['as'=>'locks.deletePrivilege','uses'=>'LockController@deletePrivilege'])->middleware('verified');
 
 
 // rutas Notificaciones
