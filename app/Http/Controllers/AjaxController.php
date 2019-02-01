@@ -7,15 +7,9 @@ use Illuminate\Http\Request;
 
 class AjaxController extends Controller
 {
-    public function checkNotification(){
-
-        if (true) {
-          $this->getNotifications();
-        }
-    }
 
     public function getNotifications(){
-        $notifications = Notification::where('user_id', Auth::user()->id)->get();
+        $notifications = Notification::where('user_id' => Auth::user()->id, 'notificable' => 1)->get();
         return $notifications;
     }
 }
