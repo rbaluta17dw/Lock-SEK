@@ -15,30 +15,13 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('message');
-            $table->integer('marker');
-            $table->boolean('read');
-
-
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')
-            ->on('users')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-
-            $table->unsignedInteger('lock_id')->nullable();
-            $table->foreign('lock_id')->references('id')
-            ->on('locks')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-
-            $table->unsignedInteger('key_id')->nullable();
-            $table->foreign('key_id')->references('id')
-            ->on('whitelist')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-
+            $table->string('title')->nullable();
+            $table->string('message')->nullable();
+            $table->integer('marker')->nullable();
+            $table->boolean('notificable');
+            $table->integer('user_id')->nullable();
+            $table->integer('lock_id')->nullable();
+            $table->integer('key_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

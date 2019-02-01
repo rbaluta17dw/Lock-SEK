@@ -94,21 +94,45 @@ class AdminController extends Controller
     $user->password = Hash::make($request->input('password'));
     $user->roleId = $request->input('role');
     $user->save();
-
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha creado el usuario ". $user->email;
+    $notification->message = "El administrador ".Auth::user()->email." ha creado el usuario ". $user->email." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->user_id = $user->id;
+    $notification->save();
     $newUser = User::where('email',$request->input('email'))->first();
 
     return view('pages/admin/user',['user'=>$newUser]);
   }
   public function userDelete($id)
   {
-    User::find($id)->delete();
+
+    $user = User::find($id);
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha eliminado el usuario ". $user->email;
+    $notification->message = "El administrador ".Auth::user()->email." ha eliminado el usuario ". $user->email." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 0;
+    $notification->user_id = $user->id;
+    $notification->save();
+    $user->delete();
+
     //$user = User::onlyTrashed()->find($id);
     return redirect()->action('AdminController@user', ['id' => $id]);
     //return view('pages/admin/user',['user'=>$user]);
   }
   public function userRecover($id)
   {
-    User::onlyTrashed()->find($id)->restore();
+    $user = User::onlyTrashed()->find($id);
+    $user->restore();
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha desbaneado el usuario ". $user->email;
+    $notification->message = "El administrador ".Auth::user()->email." ha desbaneado el usuario ". $user->email." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->user_id = $user->id;
+    $notification->save();
     //$user = User::find($id);
     return redirect()->action('AdminController@user', ['id' => $id]);
     //return view('pages/admin/user',['user'=>$user]);
@@ -129,6 +153,14 @@ class AdminController extends Controller
       $user->password = Hash::make($password);
     }
     $user->save();
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha editado el usuario ". $user->email;
+    $notification->message = "El administrador ".Auth::user()->email." ha editado el usuario ". $user->email." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->user_id = $user->id;
+    $notification->save();
+
     return view('pages/admin/user',['user'=>$user]);
   }
   public function userEditImg(Request $request, $id)
@@ -144,6 +176,13 @@ class AdminController extends Controller
     $user->imgname = $input['imagename'];
     $user->save();
     Auth::login($user);
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha editado la imagen del usuario ". $user->email;
+    $notification->message = "El administrador ".Auth::user()->email." ha editado la imagen del usuario ". $user->email." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->user_id = $user->id;
+    $notification->save();
     return view('pages/admin/user',['user'=>$user]);
   }
   public function keys()
@@ -169,7 +208,18 @@ class AdminController extends Controller
     $key->device = rand(10000, 999999999);
     $key->user_id = $request->input('user');
     $key->lock_id = $request->input('lock');
+    $user = User::find($key->user_id);
+    $lock = Lock::find($key->lock_id);
     $key->save();
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha creado la llave ". $key->name." para el usuario ".$user->name. " para la cerradura ".$lock->name;
+    $notification->message = "El administrador ".Auth::user()->email." ha creado la llave ". $key->name." para el usuario ".$user->name. " para la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->user_id = $user->id;
+    $notification->key_id = $key->id;
+    $notification->lock_id = $lock->id;
+    $notification->save();
     $keys = Key::all();
     return view('pages/admin/keys',['keys'=>$keys]);
   }
@@ -190,19 +240,45 @@ class AdminController extends Controller
     $lock->name = $request->input('name');
     $lock->serial_n = $request->input('serial_n');
     $lock->user_id = $request->input('user');
+    $user = User::find($lock->user_id);
     $lock->save();
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha creado la cerradura ". $lock->name." para el usuario ".$user->name;
+    $notification->message = "El administrador ".Auth::user()->email." ha creado la cerradura ". $lock->name." para el usuario ".$user->name." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->user_id = $user->id;
+    $notification->lock_id = $lock->id;
+    $notification->save();
     $locks = Lock::all();
     return view('pages/admin/locks',['locks'=>$locks]);
   }
   public function lockDelete($id){
-    Lock::find($id)->delete();
+    $lock = Lock::find($id);
+    $user = User::find($lock->user->id);
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha eliminado la cerradura ". $lock->name." para el usuario ".$user->name;
+    $notification->message = "El administrador ".Auth::user()->email." ha eliminado la cerradura ". $lock->name." para el usuario ".$user->name." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->lock_id = $lock->id;
+    $notification->user_id = $user->id;
+    $notification->save();
+    $lock->delete();
     return view('pages/admin/dashboard');
   }
   public function lockUpdate(Request $request, $id){
     $lock=Lock::find($id);
-
+    $user = User::find($lock->user->id);
     $lock->name = $request->input('newLockName');
-
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha actualizado la cerradura ". $lock->name." para el usuario ".$user->name;
+    $notification->message = "El administrador ".Auth::user()->email." ha actualizado la cerradura ". $lock->name." para el usuario ".$user->name." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->lock_id = $lock->id;
+    $notification->user_id = $user->id;
+    $notification->save();
     $lock->save();
 
 
@@ -215,6 +291,29 @@ class AdminController extends Controller
     $mod = $request->input('role');
     $user = User::where('email', $email)->get();
     $lock->privileges()->attach($user,['privilege' => $mod]);
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha dado acceso a la cerradura ". $lock->name." para el usuario ".$user->name;
+    $notification->message = "El administrador ".Auth::user()->email." ha dado acceso a la cerradura ". $lock->name." para el usuario ".$user->name." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->lock_id = $lock->id;
+    $notification->user_id = $user->id;
+    $notification->save();
+    return redirect()->action('AdminController@lock',['id'=>$lock->id]);
+  }
+  public function lockDeletePrivilege($lock, $user)
+  {
+    $lock = Lock::find($lock);
+    $user = User::find($user);
+    $notification = new Notification;
+    $notification->title = "El administrador ".Auth::user()->email." ha quitado acceso a la cerradura ". $lock->name." para el usuario ".$user->name;
+    $notification->message = "El administrador ".Auth::user()->email." ha quitado acceso a la cerradura ". $lock->name." para el usuario ".$user->name." el ".date("Y-m-d H:i:s");
+    $notification->marker = 5;
+    $notification->notificable = 1;
+    $notification->lock_id = $lock->id;
+    $notification->user_id = $user->id;
+    $notification->save();
+    $lock->privileges()->detach($user);
 
     return redirect()->action('AdminController@lock',['id'=>$lock->id]);
   }
