@@ -145,7 +145,7 @@
                       @endif
                     </td>
                     <td>{{$privilege->created_at}}</td>
-                    <td><a class="btn btn-danger" href="/locks/{{$lock->id}}/{{$privilege->id}}/delete" role="button">Eliminar</a></td>
+                    <td><a class="btn btn-danger" href="{{ route(locks.deletePrivilege), $lock->id, $privilege->id }}" role="button">Eliminar</a></td>
                   </tr>
                   @endforeach
                 </tbody>

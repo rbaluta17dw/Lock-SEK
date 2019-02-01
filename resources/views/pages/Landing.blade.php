@@ -162,7 +162,7 @@
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-home pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Alquila una vivienda</h3>
-                <p class="text-sans-serif pb_font-16">Crea y elimina llaves para tus inquilinos sin miedo.</p>
+                <p class="text-sans-serif pb_font-16">Crea y elimina llaves para tus inquilinos sin preocupaciones.</p>
               </div>
             </div>
 
@@ -210,7 +210,7 @@
             </div>
 
           </div>
-          <div class="col-lg">
+          {{-- <div class="col-lg">
 
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
@@ -221,17 +221,17 @@
               </div>
             </div>
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
-              {{-- <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
+              <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Gestión sencilla</h3>
                 <p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
 
-              </div> --}}
+              </div>
             </div>
 
 
 
-          </div>
+          </div> --}}
         </div>
 
       </div>
