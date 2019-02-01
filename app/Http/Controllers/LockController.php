@@ -15,22 +15,22 @@ class LockController extends Controller
   {
     $this->middleware('auth');
   }
-
+  
   public function index()
   {
     $locks=Lock::where('user_id', Auth::user()->id)->get();
     return view('pages/lock/userLocks',['locks'=>$locks]);
   }
-
+  
   public function register()
   {
     return view('pages/lock/userRegisterLock');
   }
-
+  
   public function create(CreateLockRequest $request)
   {
     $validated = $request->validated();
-
+    
     $lock = new Lock;
     $lock->name = $request->input('lockName');
     $lock->serial_n = $request->input('lockSerial');
@@ -38,7 +38,7 @@ class LockController extends Controller
     $lock->longitude = $request->input('longitude');
     $lock->user_id = Auth::user()->id;
     $lock->save();
-
+    
     $notification = new Notification;
     $notification->title = "Se ha creado la cerradura ".$lock->name;
     $notification->message = "Has creado la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
@@ -48,18 +48,18 @@ class LockController extends Controller
     $notification->lock_id = $lock->id;
     $notification->save();
     $lock->save();
-
+    
     $newLock = Lock::where('serial_n',$request->input('lockSerial'))->first();
-
+    
     //añadir a la tabla privileges
-
+    
     return redirect()->action('LockController@show', ['id' => $newLock]);
     //return view('pages/lock/lock',['lock'=>$lock]);
   }
-
+  
   public function show($id)
   {
-
+    
     if (Lock::where('id',$id)->exists()) {
       $lock= Lock::find($id);
       if (Auth::user()->id == $lock->user_id) {
@@ -67,12 +67,12 @@ class LockController extends Controller
       }else{
         abort(404);
       }
-
+      
     }else{
       abort(404);
     }
-
-
+    
+    
   }
   
   public function updateLocation($id, $lat, $lng){
@@ -80,7 +80,7 @@ class LockController extends Controller
     $lock->latitude = $lat;
     $lock->longitude = $lng;
     $lock->save();
-
+    
     return "Ubicacion actualizada";
   }
   public function deleteLocation($id){
@@ -88,17 +88,17 @@ class LockController extends Controller
     $lock->latitude = null;
     $lock->longitude = null;
     $lock->save();
-
+    
     return "Ubicacion eliminada";
   }
   public function update(EditLockRequest $request, $id)
   {
-
+    
     $validated = $request->validated();
     $lock=Lock::find($id);
-
+    
     $lock->name = $request->input('newLockName');
-
+    
     $notification = new Notification;
     $notification->title = "Se ha actualizado la cerradura ".$lock->name;
     $notification->message = "Has actualizado el nombre de la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
@@ -108,16 +108,16 @@ class LockController extends Controller
     $notification->lock_id = $lock->id;
     $notification->save();
     $lock->save();
-
-
+    
+    
     return view('pages/lock/lock',['lock'=>$lock]);
-
+    
   }
-
+  
   public function destroy($id)
   {
-
-
+    
+    
     $lock = Lock::findOrFail($id);
     if (Auth::user()->id == $lock->user_id){
       $lock->delete();
@@ -125,38 +125,35 @@ class LockController extends Controller
     }else{
       abort(404);
     }
-
+    
   }
   public function insertPrivilege(Request $request, $id)
   {
     $lock = Lock::find($id);
     $email = $request->input('email');
     $mod = $request->input('role');
-
-
-    $user = User::where('email', $email)->first();
     
+    
+    $user = User::where('email', $email)->first();
     if (isset($user)) {
       $request->session()->flash('privilegeOk', 'Permiso otorgado con exito');
+      $lock->privileges()->attach($user,['privilege' => $mod]);
+      $nomMod = "basico";
+      $notification = new Notification;
+      $notification->title = "Se ha añadido permisos en la cerradura ".$lock->name;
+      $notification->message = "Has dado permiso a".$email." con permiso ".$nomMod." en la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
+      $notification->marker = 0;
+      $notification->read = 1;
+      $notification->user_id = Auth::user()->id;
+      $notification->lock_id = $lock->id;
+      $notification->save();
+      return redirect()->action('LockController@show',['lock'=>$lock]);
     }else{
       $request->session()->flash('privilegeFail', 'El permiso no ha podido ser otorgado, compruebe que el email existe');
       return back();
     }
-
-  
-    $lock->privileges()->attach($user,['privilege' => $mod]);
-    $nomMod = "basico";
-    $notification = new Notification;
-    $notification->title = "Se ha añadido permisos en la cerradura ".$lock->name;
-    $notification->message = "Has dado permiso a".$email." con permiso ".$nomMod." en la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
-    $notification->marker = 0;
-    $notification->read = 1;
-    $notification->user_id = Auth::user()->id;
-    $notification->lock_id = $lock->id;
-    $notification->save();
-    return redirect()->action('LockController@show',['lock'=>$lock]);
   }
-
+  
   public function deletePrivilege($lock, $user)
   {
     $lockd = Lock::find($lock);
@@ -171,5 +168,5 @@ class LockController extends Controller
     $notification->save();
     return redirect()->action('LockController@show',['lock'=>$lockd]);
   }
-
+  
 }
