@@ -48,8 +48,9 @@
 <!-- CPU Usage -->
 
 <!-- #END# CPU Usage -->
+<!--
 <div class="row clearfix">
-    <!-- Visitors -->
+
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="card">
             <div class="body bg-pink">
@@ -76,8 +77,10 @@
             </div>
         </div>
     </div>
+  -->
     <!-- #END# Visitors -->
     <!-- Latest Social Trends -->
+    <!--
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="card">
             <div class="body bg-cyan">
@@ -108,8 +111,10 @@
             </div>
         </div>
     </div>
+  -->
     <!-- #END# Latest Social Trends -->
     <!-- Answered Tickets -->
+    <!--
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="card">
             <div class="body bg-teal">
@@ -143,11 +148,12 @@
             </div>
         </div>
     </div>
-    <!-- #END# Answered Tickets -->
-</div>
 
+</div>
+  -->
+  <!--
 <div class="row clearfix">
-    <!-- Task Info -->
+
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
         <div class="card">
             <div class="header">
@@ -241,8 +247,10 @@
             </div>
         </div>
     </div>
+  -->
     <!-- #END# Task Info -->
     <!-- Browser Usage -->
+    <!--
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="card">
             <div class="header">
@@ -265,6 +273,7 @@
             </div>
         </div>
     </div>
+  -->
     <!-- #END# Browser Usage -->
 </div>
 @stop
