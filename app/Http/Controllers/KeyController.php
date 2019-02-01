@@ -98,7 +98,7 @@ class KeyController extends Controller
           $notification->title = "Se ha actualizado la llave ".$key->name;
           $notification->message = "Has actualizado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
           $notification->marker = 4;
-          $notification->read = 1;
+          $notification->notificable = 1;
           $notification->user_id = Auth::user()->id;
           $notification->lock_id = $key->lock->id;
           $notification->key_id = $key->id;
@@ -125,6 +125,15 @@ class KeyController extends Controller
       if (Key::where('id',$id)->exists()) {
         $key = Key::find($id);
         if (Auth::user()->id == $key->user_id){
+          $notification = new Notification;
+          $notification->title = "Se ha eliminado la llave ".$key->name;
+          $notification->message = "Has eliminado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
+          $notification->marker = 4;
+          $notification->notificable = 1;
+          $notification->user_id = Auth::user()->id;
+          $notification->lock_id = $key->lock->id;
+          $notification->key_id = $key->id;
+          $notification->save();
           $key->delete();
           $keys = Key::where('user_id', Auth::user()->id)->get();
           //return view('pages/key/keys',['keys'=>$keys]);
