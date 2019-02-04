@@ -97,6 +97,7 @@
                       <td><a href="/admin/user/{{$privilege->id}}">{{$privilege->email}}</a></td>
                       <td>{{$privilege->created_at}}</td>
                       <td>{{$privilege->pivot->privilege}}</td>
+                      <td><a class="btn btn-danger m-t-15 waves-effect" href="{{route('admin.locks.deletePrivilege',[$lock->id, $privilege->id]) }}" role="button">Eliminar</a></td>
                     </tr>
                   @endforeach
                 </tbody>

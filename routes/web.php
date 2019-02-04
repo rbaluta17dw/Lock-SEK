@@ -71,6 +71,7 @@ Route::get('/admin/lock/{id}', ['as'=>'admin.lock','uses'=>'AdminController@lock
 Route::post('/admin/lock/delete/{id}', ['as'=>'admin.lock.delete','uses'=>'AdminController@lockDelete'])->middleware('admin');
 Route::put('/admin/locks/{lock}', ['as'=>'admin.locks.update','uses'=>'AdminController@lockUpdate'])->middleware('admin');
 Route::post('/admin/locks/{lock}/insertPrivilege', ['as'=>'admin.locks.insertPrivilege','uses'=>'AdminController@lockInsertPrivilege'])->middleware('admin');
+Route::get('/admin/locks/{lock}/{user}', ['as'=>'admin.locks.deletePrivilege','uses'=>'AdminController@lockDeletePrivilege'])->middleware('admin');
 Route::get('/admin/messages', ['as'=>'admin.messsages','uses'=>'AdminController@messages'])->middleware('admin');
 
 // Rutas Perfil

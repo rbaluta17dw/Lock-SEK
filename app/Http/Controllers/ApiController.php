@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Lock;
 use App\Key;
+use App\Notification;
 use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
@@ -26,6 +27,13 @@ class ApiController extends Controller
       if ($key->device == $request->usbId) {
         if (Hash::check($key->user_id.$key->lock_id, $request->hash)) {
           $authorized =true;
+          $notification = new Notification;
+          $notification->marker = 6;
+          $notification->notificable = 0;
+          $notification->user_id = $key->user_id;
+          $notification->key_id = $key->id;
+          $notification->lock_id = $key->lock_id;
+          $notification->save();
         }
       }
 
