@@ -57,8 +57,16 @@ class AdminController extends Controller
 }
 */
 
+    
+    for ($i=0; $i <= 11 ; $i++) {
+      $registros[$i] = User::whereMonth('created_at', Carbon::now()->subMonths($i))->count();
+    }
+    for ($i=0; $i <= 11 ; $i++) {
+      $months[$i] = Carbon::parse(Carbon::now()->subMonths($i))->month ;
+    }
 
-return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'monthsPremium' => $monthsPremium,'monthsBasic' => $monthsBasic]);
+
+return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'monthsPremium' => $monthsPremium,'monthsBasic' => $monthsBasic,'registros' => $registros,'months' => $months]);
 }
 public function users()
 {

@@ -7,6 +7,7 @@
 
   <!--  PREMIUM:
     <?php echo print_r($monthsPremium);?> -->
+
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -225,10 +226,27 @@ function getChartJs(type) {
                 config = {
                     type: 'line',
                     data: {
-                        labels: ["January", "February", "March", "April", "May", "June", "July"],
+                        labels: [
+          @for($i = count($months) -1; $i >= 0; $i--)
+              @if($i!=0)
+              "@lang('adminDashboard.month'.$months[$i])",
+              @else
+              "@lang('adminDashboard.month'.$months[$i])"
+              @endif
+            @endfor
+                              ],
                         datasets: [{
-                            label: "My First dataset",
-                            data: [65, 59, 80, 81, 56, 55, 40],
+                            label: "Registros",
+                            data: [
+
+                           @for ($i = count($registros)-1; $i >= 0; $i--)
+                                 @if($i!=0)
+                                  {{$registros[$i]}},
+                                 @else
+                                        {{$registros[$i]}}
+                                 @endif
+                             @endfor
+                              ],
                             borderColor: 'rgba(0, 188, 212, 0.75)',
                             backgroundColor: 'rgba(0, 188, 212, 0.3)',
                             pointBorderColor: 'rgba(0, 188, 212, 0)',
@@ -236,7 +254,7 @@ function getChartJs(type) {
                             pointBorderWidth: 1
                         }, {
                                 label: "My Second dataset",
-                                data: [28, 48, 40, 19, 86, 27, 90],
+                                data: [28, 48, 40, 19, 86, 27, 90, 12, 52, 32, 42, 23],
                                 borderColor: 'rgba(233, 30, 99, 0.75)',
                                 backgroundColor: 'rgba(233, 30, 99, 0.3)',
                                 pointBorderColor: 'rgba(233, 30, 99, 0)',
