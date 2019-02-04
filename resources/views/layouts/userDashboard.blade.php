@@ -75,139 +75,20 @@
                 </li>
               </ul>
             </li>
-            <script type="text/javascript">
-            $(window).click(function(){
-              $.ajax({url: "notifications", success: function(result){
-                $('#notifications').html('');
-                for (var i = 0; i < result.length; i++) {
-                  switch (result[i].marker) {
-                    case 0:
-                    result[i].marker = "fa-info-circle";
-                    break;
-                    case 1:
-                    result[i].marker = "fa-exclamation-triangle";
-                    break;
-                    case 2:
-                    result[i].marker = "fa-user";
-                    break;
-                    case 3:
-                    result[i].marker = "fa-lock";
-                    break;
-                    case 4:
-                    $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>Nuevo permiso otorgado</h4><p><i class="material-icons">access_time</i> 14 mins ago</p></div></a></li>');
-                    break;
-                    default:
-                    result[i].marker = "";
-                  }
-                  $('#notifications').append('<li><a href="notificaion"><div class="'+color+'"><i class="fa '+result[i].marker+' fa-fw"></i>'+result[i].title+'<b class="'+result[i].read+'" > !</b></div></a></li>');
-                }
-              }});
-            });
-            </script>
             <li class="dropdown">
               <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                 <i class="material-icons">notifications</i>
-                <span class="label-count">7</span>
+                <span class="label-count" id="count"></span>
               </a>
               <ul class="dropdown-menu">
                 <li class="header">NOTIFICATIONS</li>
                 <li class="body">
-                  <ul class="menu">
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-light-green">
-                          <i class="material-icons">person_add</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4>Nuevo permiso otorgado</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> 14 mins ago
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-cyan">
-                          <i class="material-icons">lock_open</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4>Acceso autorizado</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> 22 mins ago
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-red">
-                          <i class="material-icons">delete_forever</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4><b>Nancy Doe</b> deleted account</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> 3 hours ago
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-orange">
-                          <i class="material-icons">mode_edit</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4><b>Nancy</b> changed name</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> 2 hours ago
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-blue-grey">
-                          <i class="material-icons">comment</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4><b>John</b> commented your post</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> 4 hours ago
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-light-green">
-                          <i class="material-icons">cached</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4><b>John</b> updated status</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> 3 hours ago
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <div class="icon-circle bg-purple">
-                          <i class="material-icons">settings</i>
-                        </div>
-                        <div class="menu-info">
-                          <h4>Settings updated</h4>
-                          <p>
-                            <i class="material-icons">access_time</i> Yesterday
-                          </p>
-                        </div>
-                      </a>
-                    </li>
+                  <ul class="menu" id="notifications">
+
                   </ul>
                 </li>
                 <li class="footer">
-                  <a href="javascript:void(0);">View All Notifications</a>
+                  <a href="{{ route('notifications.index') }}">View All Notifications</a>
                 </li>
               </ul>
             </li>
@@ -314,7 +195,70 @@
 
       <!-- #END# Right Sidebar -->
     </section>
-
+    <script>
+    $(window).click(function(){
+      $.ajax({url: "/notifications", success: function(result){
+        var count = result.length;
+        $('#notifications').html('');
+        $('#count').html(count);
+        for (var i = 0; i < result.length; i++) {
+          switch (result[i].marker) {
+            case 0:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 1:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 2:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 3:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 4:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 5:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-yellow"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            default:
+            result[i].marker = "";
+          }
+        }
+      }});
+    });
+    $(window).ready(function(){
+      $.ajax({url: "/notifications", success: function(result){
+        var count = result.length;
+        $('#notifications').html('');
+        $('#count').html(count);
+        for (var i = 0; i < result.length; i++) {
+          switch (result[i].marker) {
+            case 0:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 1:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 2:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 3:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 4:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            case 5:
+            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-yellow"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+            break;
+            default:
+            result[i].marker = "";
+          }
+        }
+      }});
+    });
+    </script>
     <section class="content">
       <div class="container-fluid">
         <div class="block-header">
