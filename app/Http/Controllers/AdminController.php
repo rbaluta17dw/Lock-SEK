@@ -58,8 +58,16 @@ class AdminController extends Controller
 */
 
 
+
 return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'monthsPremium' => $monthsPremium,'monthsBasic' => $monthsBasic]);
 }
+public function profile(){
+  return view('pages/user/profile');
+  }
+  public function settings(){
+  
+    return view('pages/user/settings');
+    }
 public function users()
 {
   $users = User::all();
