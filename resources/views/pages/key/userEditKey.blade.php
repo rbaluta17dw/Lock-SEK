@@ -58,7 +58,7 @@
                                 <form class="form" action="{{route('keys.update',$key->id)}}" method="post" >
                                     @csrf
                                     @method('put')
-                                    <label for="name">Nuevo nombre de la cerradura:</label>
+                                    <label for="name">Nuevo nombre de la llave:</label>
                                     <br>
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="newKeyName" placeholder="{{$key->name}}" />

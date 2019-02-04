@@ -21,14 +21,19 @@
     <div class="body">
       <div class="row clearfix">
         <div class="col-sm-6 "><!--left col-->
-          <h4>Haz  doble click para actualizar la ubicación o Haz click derecho para eliminar la ubicación</h4>
+          <h4>Haz  doble click para actualizar la ubicación</h4>
+      
           <div id="lockMap" class="col-sm-6"></div>
           <!--<div class="text-center">
             <img src="https://cdn.website.thryv.com/716ee54454d94272ba5bf64e492f084d/MOBILE/png/961.png" class="avatar img-thumbnail" alt="avatar">
             <div class="prf-img-inp config">
               <input type="file" class="text-center center-block file-upload">
             </div>-->
+            <a id="deleteMap" class="btn btn-info btn-lg"> 
+                <span class="glyphicon glyphicon-trash"></span> Eliminar ubicación 
+              </a>
           </div>
+         
           
           <!--/col-3-->
           <div class="col-sm-4">
@@ -252,7 +257,7 @@
       }});
       
     });
-    mapa.on("contextmenu", function () {
+    document.getElementById("deleteMap").addEventListener("click", function () {
       mapa.removeLayer(marcador);
       $.ajax({url: "/locks/"+{{$lock->id}}+"/deleteLocation", success: function(result){
         alert(result);
