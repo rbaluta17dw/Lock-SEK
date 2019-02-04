@@ -165,7 +165,7 @@ class LockController extends Controller
       $notification = new Notification;
       $notification->title = "Se ha añadido permisos en la cerradura ".$lock->name;
       $notification->message = "Has dado permiso a".$email." con permiso ".$nomMod." en la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
-      $notification->marker = 3;
+      $notification->marker = 4;
       $notification->read = 1;
       $notification->user_id = Auth::user()->id;
       $notification->lock_id = $lock->id;

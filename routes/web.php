@@ -109,4 +109,5 @@ Route::get('/locks/{lock}/{user}', ['as'=>'locks.deletePrivilege','uses'=>'LockC
 
 // rutas Notificaciones
 
-Route::get('/notifications', 'AjaxController@getNotifications')->name('notifications');
+Route::get('/notifications', 'NotificationController@getNotifications')->name('notifications');
+Route::get('/notifications/index', 'NotificationController@index')->name('notifications.index');

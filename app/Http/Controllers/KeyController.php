@@ -52,7 +52,7 @@ class KeyController extends Controller
     $notification = new Notification;
     $notification->title = "Se ha creado la llave ".$key->name;
     $notification->message = "Has creado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
-    $notification->marker = 4;
+    $notification->marker = 2;
     $notification->notificable = 1;
     $notification->user_id = Auth::user()->id;
     $notification->lock_id = $key->lock->id;
@@ -97,7 +97,7 @@ class KeyController extends Controller
           $notification = new Notification;
           $notification->title = "Se ha actualizado la llave ".$key->name;
           $notification->message = "Has actualizado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
-          $notification->marker = 4;
+          $notification->marker = 2;
           $notification->notificable = 1;
           $notification->user_id = Auth::user()->id;
           $notification->lock_id = $key->lock->id;
@@ -128,7 +128,7 @@ class KeyController extends Controller
           $notification = new Notification;
           $notification->title = "Se ha eliminado la llave ".$key->name;
           $notification->message = "Has eliminado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
-          $notification->marker = 4;
+          $notification->marker = 2;
           $notification->notificable = 1;
           $notification->user_id = Auth::user()->id;
           $notification->lock_id = $key->lock->id;

@@ -36,7 +36,6 @@ class ApiController extends Controller
           $notification->save();
         }
       }
-
     }else{
       $key->device = $request->usbId;
       $key->save();

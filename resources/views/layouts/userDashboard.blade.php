@@ -53,229 +53,233 @@
         <a href="javascript:void(0);" class="bars"></a>
         <a class="navbar-brand" href="/home"><img height="40px" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
       </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <!-- Notifications -->
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              {{App::getLocale()}} <img class="flag" src="{{asset('assets/images/'.App::getLocale().'.ico')}}"></i> <i class="fa fa-caret-down"></i>
-            </a>
+      @auth
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Notifications -->
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                {{App::getLocale()}} <img class="flag" src="{{asset('assets/images/'.App::getLocale().'.ico')}}"></i> <i class="fa fa-caret-down"></i>
+              </a>
 
-            <ul class="dropdown-menu">
-              <li class="header">IDIOMA</li>
-              <li>
-                <a href="{{ route('change_lang', ['lang' => 'es']) }}">ES <img class="flag" src="{{asset('assets/images/es.ico')}}"></a>
-              </li>
-              <li>
-                <a href="{{ route('change_lang', ['lang' => 'en']) }}">EN <img class="flag" src="{{asset('assets/images/en.ico')}}"></a>
-              </li>
-              <li>
-                <a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU <img class="flag" src="{{asset('assets/images/eu.ico')}}"></a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-              <i class="material-icons">notifications</i>
-              <span class="label-count">7</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">NOTIFICATIONS</li>
-              <li class="body">
-                <ul class="menu">
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-light-green">
-                        <i class="material-icons">person_add</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4>Nuevo permiso otorgado</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> 14 mins ago
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-cyan">
-                        <i class="material-icons">lock_open</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4>Acceso autorizado</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> 22 mins ago
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-red">
-                        <i class="material-icons">delete_forever</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4><b>Nancy Doe</b> deleted account</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> 3 hours ago
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-orange">
-                        <i class="material-icons">mode_edit</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4><b>Nancy</b> changed name</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> 2 hours ago
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-blue-grey">
-                        <i class="material-icons">comment</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4><b>John</b> commented your post</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> 4 hours ago
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-light-green">
-                        <i class="material-icons">cached</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4><b>John</b> updated status</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> 3 hours ago
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);">
-                      <div class="icon-circle bg-purple">
-                        <i class="material-icons">settings</i>
-                      </div>
-                      <div class="menu-info">
-                        <h4>Settings updated</h4>
-                        <p>
-                          <i class="material-icons">access_time</i> Yesterday
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="javascript:void(0);">View All Notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- #END# Notifications -->
-          <!-- Tasks -->
+              <ul class="dropdown-menu">
+                <li class="header">IDIOMA</li>
+                <li>
+                  <a href="{{ route('change_lang', ['lang' => 'es']) }}">ES <img class="flag" src="{{asset('assets/images/es.ico')}}"></a>
+                </li>
+                <li>
+                  <a href="{{ route('change_lang', ['lang' => 'en']) }}">EN <img class="flag" src="{{asset('assets/images/en.ico')}}"></a>
+                </li>
+                <li>
+                  <a href="{{ route('change_lang', ['lang' => 'eu']) }}">EU <img class="flag" src="{{asset('assets/images/eu.ico')}}"></a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                <i class="material-icons">notifications</i>
+                <span class="label-count">7</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="header">NOTIFICATIONS</li>
+                <li class="body">
+                  <ul class="menu">
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-light-green">
+                          <i class="material-icons">person_add</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4>Nuevo permiso otorgado</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> 14 mins ago
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-cyan">
+                          <i class="material-icons">lock_open</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4>Acceso autorizado</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> 22 mins ago
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-red">
+                          <i class="material-icons">delete_forever</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4><b>Nancy Doe</b> deleted account</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> 3 hours ago
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-orange">
+                          <i class="material-icons">mode_edit</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4><b>Nancy</b> changed name</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> 2 hours ago
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-blue-grey">
+                          <i class="material-icons">comment</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4><b>John</b> commented your post</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> 4 hours ago
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-light-green">
+                          <i class="material-icons">cached</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4><b>John</b> updated status</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> 3 hours ago
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <div class="icon-circle bg-purple">
+                          <i class="material-icons">settings</i>
+                        </div>
+                        <div class="menu-info">
+                          <h4>Settings updated</h4>
+                          <p>
+                            <i class="material-icons">access_time</i> Yesterday
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer">
+                  <a href="javascript:void(0);">View All Notifications</a>
+                </li>
+              </ul>
+            </li>
+            <!-- #END# Notifications -->
+            <!-- Tasks -->
 
-          <!-- #END# Tasks -->
-        </ul>
-      </div>
+            <!-- #END# Tasks -->
+          </ul>
+        </div>
+      @endauth
     </div>
   </nav>
   <!-- #Top Bar -->
   <section>
     <!-- Left Sidebar -->
-    <aside id="leftsidebar" class="sidebar">
-      <!-- User Info -->
-      <div class="user-info">
-        <div class="image">
-          @if (isset(Auth::user()->imgname))
-            <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" width="48" height="48" alt="User" />
-          @else
-            <img src="{{asset('assets/images/user.png')}}" width="48" height="48" alt="User" />
-          @endif
-        </div>
-        <div class="info-container">
-          <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</div>
-          <div class="email">{{Auth::user()->email}}</div>
-          <div class="btn-group user-helper-dropdown">
-            <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-            <ul class="dropdown-menu pull-right">
-              <li><a href="/profile"><i class="material-icons">person</i>Profile</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="/settings"><i class="material-icons">settings</i>Settings</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="material-icons">input</i>Sign Out</a></li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                </form>
-              </ul>
+    @auth
+      <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+          <div class="image">
+            @if (isset(Auth::user()->imgname))
+              <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" width="48" height="48" alt="User" />
+            @else
+              <img src="{{asset('assets/images/user.png')}}" width="48" height="48" alt="User" />
+            @endif
+          </div>
+          <div class="info-container">
+            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</div>
+            <div class="email">{{Auth::user()->email}}</div>
+            <div class="btn-group user-helper-dropdown">
+              <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="/profile"><i class="material-icons">person</i>Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/settings"><i class="material-icons">settings</i>Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();"><i class="material-icons">input</i>Sign Out</a></li>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- #User Info -->
-        <!-- Menu -->
-        <div class="menu">
-          <ul class="list">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="{{ Route::is('dashboard.home') ? 'active' : '' }}">
-              <a href="{{ route('dashboard.home') }}">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-              </a>
-            </li>
+          <!-- #User Info -->
+          <!-- Menu -->
+          <div class="menu">
+            <ul class="list">
+              <li class="header">MAIN NAVIGATION</li>
+              <li class="{{ Route::is('dashboard.home') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.home') }}">
+                  <i class="material-icons">home</i>
+                  <span>Home</span>
+                </a>
+              </li>
 
 
-            <li class="{{ Route::is('keys.index') ? 'active' : '' }}{{ Route::is('keys.create') ? 'active' : '' }}">
-              <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">vpn_key</i>
-                <span>@lang('dashboard.keys')</span>
-              </a>
-              <ul class="ml-menu">
-                <li class="{{ Route::is('keys.index') ? 'active' : '' }}">
-                  <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
-                </li>
-                <li class="{{ Route::is('keys.create') ? 'active' : '' }}">
-                  <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
-                </li>
-              </ul>
-            </li>
-            <li class="{{ Route::is('locks.index') ? 'active' : '' }}{{ Route::is('locks.register') ? 'active' : '' }}">
-              <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">lock</i>
-                <span>@lang('dashboard.locks')</span>
-              </a>
-              <ul class="ml-menu">
-                <li class="{{ Route::is('locks.index') ? 'active' : '' }}">
-                  <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
-                </li>
-                <li class="{{ Route::is('locks.register') ? 'active' : '' }}">
-                  <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <!-- #Menu -->
-        <!-- Footer -->
-        <div class="legal">
-          <div class="copyright">
-            &copy; 2016 - 2017 <a href="javascript:void(0);">LockSEK</a>.
+              <li class="{{ Route::is('keys.index') ? 'active' : '' }}{{ Route::is('keys.create') ? 'active' : '' }}">
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i class="material-icons">vpn_key</i>
+                  <span>@lang('dashboard.keys')</span>
+                </a>
+                <ul class="ml-menu">
+                  <li class="{{ Route::is('keys.index') ? 'active' : '' }}">
+                    <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
+                  </li>
+                  <li class="{{ Route::is('keys.create') ? 'active' : '' }}">
+                    <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="{{ Route::is('locks.index') ? 'active' : '' }}{{ Route::is('locks.register') ? 'active' : '' }}">
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i class="material-icons">lock</i>
+                  <span>@lang('dashboard.locks')</span>
+                </a>
+                <ul class="ml-menu">
+                  <li class="{{ Route::is('locks.index') ? 'active' : '' }}">
+                    <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
+                  </li>
+                  <li class="{{ Route::is('locks.register') ? 'active' : '' }}">
+                    <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
-          <div class="version">
-            <b>Version: </b> 1.0.5
+          <!-- #Menu -->
+          <!-- Footer -->
+          <div class="legal">
+            <div class="copyright">
+              &copy; 2016 - 2017 <a href="javascript:void(0);">LockSEK</a>.
+            </div>
+            <div class="version">
+              <b>Version: </b> 1.0.5
+            </div>
           </div>
-        </div>
-        <!-- #Footer -->
-      </aside>
+          <!-- #Footer -->
+        </aside>
+      @endauth
       <!-- #END# Left Sidebar -->
       <!-- Right Sidebar -->
 
@@ -292,5 +296,4 @@
     @include('includes.userScriptsDashboard')
     @yield('scripts')
   </body>
-
   </html>

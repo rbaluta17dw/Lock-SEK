@@ -31,7 +31,7 @@
         </a>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-      <a href="/notifications">
+      <a href="{{ route('notifications.index') }}">
         <div class="info-box bg-light-green hover-expand-effect">
             <div class="icon">
                 <i class="material-icons">forum</i>

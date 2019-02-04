@@ -7,17 +7,17 @@
   <title>@yield('title')</title>
   <!-- Matomo -->
   <script type="text/javascript">
-    var _paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="//matomo.locksek.com/piwik/";
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '1']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.locksek.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
   </script>
   <!-- End Matomo Code -->
 </head>
@@ -33,11 +33,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        @if (Auth::user()->roleId == 2)
-        <a class="navbar-brand" href="{{route('admin.index')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
-          <span class="label label-warning">Admin</span>
-        @else
-        <a class="navbar-brand" href="{{route('dashboard.home')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
+        @if (isset(Auth::user()->roleId == 2))
+          @if (Auth::user()->roleId == 2)
+            <a class="navbar-brand" href="{{route('admin.index')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
+            <span class="label label-warning">Admin</span>
+          @else
+            <a class="navbar-brand" href="{{route('dashboard.home')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
+          @endif
         @endif
       </div>
       <!-- /.navbar-header -->
@@ -109,73 +111,73 @@
                   <a href="{{route('admin.locks')}}"><i class="fa fa-lock fa-fw"></i> Locks</a>
                 </li>
 
-                    @else
-          <li>
-            <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')  ({{Auth::user()->keys->count()}})<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-              <li>
-                <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
-              </li>
-              <li>
-                <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
-              </li>
-            </ul>
-            <!-- /.nav-second-level -->
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')    ({{Auth::user()->locks->count()}})<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-              <li>
-                <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
+              @else
+                <li>
+                  <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')  ({{Auth::user()->keys->count()}})<span class="fa arrow"></span></a>
+                  <ul class="nav nav-second-level">
                     <li>
-                      <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
+                      <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
+                    </li>
+                    <li>
+                      <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
                     </li>
                   </ul>
                   <!-- /.nav-second-level -->
                 </li>
-              @endif
-            </ul>
+                <li>
+                  <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')    ({{Auth::user()->locks->count()}})<span class="fa arrow"></span></a>
+                  <ul class="nav nav-second-level">
+                    <li>
+                      <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
+                      <li>
+                        <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
+                      </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                  </li>
+                @endif
+              </ul>
 
-          </div>
-          <!-- /.sidebar-collapse -->
-        </div>
-      @endauth
-      <!-- /.navbar-static-side -->
-
-    </nav>
-
-    <!-- Page Content -->
-    <div id="page-wrapper">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1 class="page-header">
-              @yield('subtitle')</h1>
             </div>
-            <!-- /.col-lg-12 -->
+            <!-- /.sidebar-collapse -->
           </div>
-          <!-- /.row -->
+        @endauth
+        <!-- /.navbar-static-side -->
+
+      </nav>
+
+      <!-- Page Content -->
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="page-header">
+                @yield('subtitle')</h1>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+
+          <!--Aqui va el contenido jibiri jibiri-->
+          @yield('content')
+
+
         </div>
-        <!-- /.container-fluid -->
-
-        <!--Aqui va el contenido jibiri jibiri-->
-        @yield('content')
-
+        <!-- /#page-wrapper -->
 
       </div>
-      <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
+      <!-- /#wrapper -->
 
 
 
 
-  </body>
+    </body>
 
-  @include('includes.scriptsDashboard')
+    @include('includes.scriptsDashboard')
 
-  </html>
+    </html>

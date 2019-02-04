@@ -54,7 +54,7 @@ class UserController extends Controller
       $notification = new Notification;
       $notification->title = "Se ha editado el perfil";
       $notification->message = "Has editado el perfil el ".date("Y-m-d H:i:s");
-      $notification->marker = 2;
+      $notification->marker = 1;
       $notification->notificable = 1;
       $notification->user_id = Auth::user()->id;
       $notification->save();
@@ -78,7 +78,7 @@ class UserController extends Controller
     $notification = new Notification;
     $notification->title = "Se ha eliminado el perfil";
     $notification->message = "Has eliminado el perfil el ".date("Y-m-d H:i:s");
-    $notification->marker = 2;
+    $notification->marker = 1;
     $notification->notificable = 1;
     $notification->user_id = Auth::user()->id;
     $notification->save();
