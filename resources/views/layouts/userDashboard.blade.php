@@ -75,6 +75,36 @@
                 </li>
               </ul>
             </li>
+            <script type="text/javascript">
+            $(window).click(function(){
+              $.ajax({url: "notifications", success: function(result){
+                $('#notifications').html('');
+                for (var i = 0; i < result.length; i++) {
+                  switch (result[i].marker) {
+                    case 0:
+                    $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>Nuevo permiso otorgado</h4><p><i class="material-icons">access_time</i> 14 mins ago</p></div></a></li>');
+                    result[i].marker = "fa-info-circle";
+                    break;
+                    case 1:
+                    result[i].marker = "fa-exclamation-triangle";
+                    break;
+                    case 2:
+                    result[i].marker = "fa-user";
+                    break;
+                    case 3:
+                    result[i].marker = "fa-lock";
+                    break;
+                    case 4:
+                    result[i].marker = "fa-key";
+                    break;
+                    default:
+                    result[i].marker = "";
+                  }
+                  $('#notifications').append('<li><a href="notificaion"><div class="'+color+'"><i class="fa '+result[i].marker+' fa-fw"></i>'+result[i].title+'<b class="'+result[i].read+'" > !</b></div></a></li>');
+                }
+              }});
+            });
+            </script>
             <li class="dropdown">
               <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                 <i class="material-icons">notifications</i>
