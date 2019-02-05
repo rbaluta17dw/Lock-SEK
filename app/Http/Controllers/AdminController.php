@@ -66,7 +66,7 @@ public function profile(){
   }
   public function settings(){
   
-    return view('pages/user/settings');
+    return view('pages/admin/settings');
     }
 public function users()
 {
