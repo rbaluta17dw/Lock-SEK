@@ -74,6 +74,7 @@ Route::post('/admin/locks/{lock}/insertPrivilege', ['as'=>'admin.locks.insertPri
 Route::get('/admin/locks/{lock}/{user}', ['as'=>'admin.locks.deletePrivilege','uses'=>'AdminController@lockDeletePrivilege'])->middleware('admin');
 Route::get('/admin/messages', ['as'=>'admin.messsages','uses'=>'AdminController@messages'])->middleware('admin');
 Route::get('/admin/profile', ['as'=>'admin.profile','uses'=>'AdminController@profile']);
+Route::get('/admin/settings', ['as'=>'admin.settings','uses'=>'AdminController@settings']);
 // Rutas Perfil
 
 
