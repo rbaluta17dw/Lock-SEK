@@ -1,5 +1,5 @@
 $(window).click(function(){
-  $.ajax({url: "notifications", success: function(result){
+  $.ajax({url: "/notifications", success: function(result){
     $('#notifications').html('');
     for (var i = 0; i < result.length; i++) {
       if (result[i].read == 0) {
@@ -40,7 +40,7 @@ $('.notSeen').click(function(){
 });
 
 $(window).ready(function(){
-  $.ajax({url: "notifications", success: function(result){
+  $.ajax({url: "/notifications", success: function(result){
     $('#notifications').html('');
     for (var i = 0; i < result.length; i++) {
       if (result[i].read == 0) {
