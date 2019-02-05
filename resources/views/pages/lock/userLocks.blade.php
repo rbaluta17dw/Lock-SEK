@@ -10,40 +10,61 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    CERRADURAS
+                    TUS CERRADURAS
                 </h2>
-                <ul class="header-dropdown m-r--5">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons">more_vert</i>
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another action</a></li>
-                            <li><a href="javascript:void(0);">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
             <div class="body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
-                                <th>Cerraduras </th>
+                                <th>Cerradura</th>
                                 <th>Propietario</th>
                                 <th>Fecha de creacion</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                              <th>Cerraduras </th>
+                              <th>Cerradura</th>
                               <th>Propietario</th>
                               <th>Fecha de creacion</th>
                             </tr>
                         </tfoot>
                         <tbody>
                           @foreach ($locks as $lock)
+                            <tr>
+                                <td><a href="/locks/{{ $lock->id }}">{{ $lock->name }}</a></td>
+                                <td>{{ $lock->user->email }}</td>
+                                <td>{{$lock->created_at}}</td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="header">
+                    <h2>
+                      LAS CERRADURAS A LAS QUE TIENES ACCESO
+                    </h2>
+
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Cerradura</th>
+                                <th>Propietario</th>
+                                <th>Fecha de creacion</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                              <th>Cerradura</th>
+                              <th>Propietario</th>
+                              <th>Fecha de creacion</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                          @foreach (Auth::user()->privileges as $lock)
                             <tr>
                                 <td><a href="/locks/{{ $lock->id }}">{{ $lock->name }}</a></td>
                                 <td>{{ $lock->user->email }}</td>

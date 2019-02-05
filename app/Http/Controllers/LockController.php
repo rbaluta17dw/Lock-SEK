@@ -19,6 +19,7 @@ class LockController extends Controller
   public function index()
   {
     $locks=Lock::where('user_id', Auth::user()->id)->get();
+    
     return view('pages/lock/userLocks',['locks'=>$locks]);
   }
 
