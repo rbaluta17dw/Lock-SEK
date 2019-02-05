@@ -1,6 +1,7 @@
 
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<script src="{{asset('assets/user/plugins/jquery/jquery.min.js')}}"></script>
 
 <!-- Favicon-->
 <link rel="icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">

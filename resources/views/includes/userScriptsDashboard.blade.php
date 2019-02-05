@@ -1,5 +1,4 @@
 <!-- Jquery Core Js -->
-<script src="{{asset('assets/user/plugins/jquery/jquery.min.js')}}"></script>
 
 <!-- Bootstrap Core Js -->
 <script src="{{asset('assets/user/plugins/bootstrap/js/bootstrap.js')}}"></script>
