@@ -32,7 +32,7 @@
     <div class="card">
         <div class="header">
             <h2>TASK INFOS</h2>
-            
+
         </div>
         <div class="body">
             <div class="row clearfix">
@@ -41,7 +41,7 @@
                             <img id="keyImg" src="{{asset('assets/images/key-img.jpg')}}" height="50%" width="40%" >
                     </div><br>
                 </div>
-                
+
                 <!--/col-3-->
                 <div class="col-sm-4">
                     <div class="tab-content">
@@ -65,7 +65,7 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cambiar</button>
+                                    <button type="submit"  class="btn btn-primary m-t-15 waves-effect">Cambiar</button>
                                 </form>
                             </div>
                             <div class="col-xs-3">
@@ -92,21 +92,21 @@
 
 
 <!--<form class="form" action="#" method="post" >
-    
+
     <label for="date">Nuevo rango de fechas</label>
-    
+
     <input type="text" class="form rangeCalendar" name="newDateRange" />
-    
+
     <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
-    
+
 </form>
 <br>
 
 <form action="#" method="post" class="form">
-    
+
     <label for="date">Nuevas fechas</label>
     <input type="text" class="form multiCalendar" name="newMultiDate">
-    
+
     <button type="submit" class="btn btn-default btn-primary">Cambiar</button>
 </form>
 

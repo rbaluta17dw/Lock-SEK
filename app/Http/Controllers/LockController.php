@@ -19,7 +19,7 @@ class LockController extends Controller
   public function index()
   {
     $locks=Lock::where('user_id', Auth::user()->id)->get();
-    
+
     return view('pages/lock/userLocks',['locks'=>$locks]);
   }
 
@@ -65,6 +65,12 @@ class LockController extends Controller
       if (Auth::user()->id == $lock->user_id) {
         return view('pages/lock/userLock',['lock'=>$lock]);
       }else{
+        foreach (Auth::user()->privileges as $privilege) {
+          if ($privilege->id == $lock->id) {
+            $privileged = $privilege->pivot->privilege;
+            return view('pages/lock/userLock',['lock'=>$lock, 'privileged' => $privileged]);
+          }
+        }
         abort(404);
       }
 
@@ -79,7 +85,7 @@ class LockController extends Controller
     $lock=Lock::find($id);
     $lock->latitude = $lat;
     $lock->longitude = $lng;
-/*    $notification = new Notification;
+    /*    $notification = new Notification;
     $notification->title = "Se ha modificado la ubicacion de la cerradura ".$lock->name;
     $notification->message = "Has modificado la ubicacion de la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
     $notification->marker = 3;
@@ -95,7 +101,7 @@ class LockController extends Controller
     $lock=Lock::find($id);
     $lock->latitude = null;
     $lock->longitude = null;
-  /*  $notification = new Notification;
+    /*  $notification = new Notification;
     $notification->title = "Se ha eliminado la ubicacion de la cerradura ".$lock->name;
     $notification->message = "Has eliminado la ubicacion de la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
     $notification->marker = 3;

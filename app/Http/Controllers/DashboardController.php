@@ -27,8 +27,9 @@ class DashboardController extends Controller
     $locks=Lock::where('user_id', Auth::user()->id)->count();
     $keys = Key::where('user_id', Auth::user()->id)->count();
     $notifications = Notification::where('user_id', Auth::user()->id)->count();
-
-      return view('pages/userDashboard',['locks'=>$locks, 'keys'=>$keys, 'notifications'=>$notifications]);
+    $privileges = count(Auth::user()->privileges);
+    $allLocks = $locks + $privileges;
+      return view('pages/userDashboard',['locks'=>$allLocks, 'keys'=>$keys, 'notifications'=>$notifications]);
   }
 
   public function profile()

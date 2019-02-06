@@ -20,7 +20,7 @@ class NotificationController extends Controller
   public function getLocksAccess(){
     $now=date('o');
 
-    $notifications = Notification::where([['created_at', 'like', $now.'%']])->get();
+    $notifications = Notification::where(['user_id' => Auth::user()->id,['created_at', 'like', $now.'%']])->get();
 
     return $notifications;
   }
