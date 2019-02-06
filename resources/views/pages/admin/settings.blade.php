@@ -1,4 +1,4 @@
-@extends('layouts.userDashboard')
+@extends('layouts.dashboard')
 @section('title', 'Profile')
 @section('subtitle', Auth::user()->email)
 @section('content')
