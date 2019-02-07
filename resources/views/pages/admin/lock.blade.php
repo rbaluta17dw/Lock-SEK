@@ -30,11 +30,11 @@
               @csrf
               <div class="form-group">
 
-                <div class="col-xs-6">
+                <div class="col-xs-6 cutText">
                   <label for="first_name"><h4>Nombre de la cerradura</h4></label>
                   <p>{{$lock->name}}</p>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6 cutText" >
                   <label for="first_name"><h4>Dueño</h4></label>
                   <p><a href="/admin/user/{{$lock->user->id}}">{{$lock->user->email}}</a></p>
                 </div>
@@ -43,7 +43,7 @@
                   <p>{{$lock->serial_n}}</p>
                 </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-6 cutText" >
                 <label for="first_name"><h4>Fecha de Registro</h4></label>
                 <p>{{$lock->created_at}}</p>
               </div>
@@ -105,7 +105,7 @@
             </div>
             <!-- /.table-responsive -->
           </div>
-          <div class="col-xs-4 pull-right">
+          <div class="col-xs-4 " >
             <form class="form" action="{{route('admin.locks.insertPrivilege',$lock->id)}}" method="post" >
               @csrf
               @method('post')

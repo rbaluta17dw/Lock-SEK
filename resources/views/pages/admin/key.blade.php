@@ -30,13 +30,15 @@
               @csrf
               <div class="form-group">
 
-                <div class="col-xs-6">
+                <div class="col-xs-6 cutText" >
                   <label for="first_name"><h4>Nombre de la llave</h4></label>
                   <p>{{$key->name}}</p>
                 </div>
-                <div class="col-xs-6">
-                  <label for="first_name"><h4>Dueño</h4></label>
+                <div class="col-xs-6 cutText">
+                  <label for="first_name "><h4>Dueño</h4></label>
+             
                   <p> <a href="/admin/user/{{$key->user->id}}">{{$key->user->email}}</a></p>
+              
                 </div>
                 <div class="col-xs-6">
                   <label for="first_name"><h4>Fecha de Registro</h4></label>
@@ -48,10 +50,11 @@
                 <label for="first_name"><h4>Cerradura</h4></label>
                 <p> <a href="/admin/lock/{{$key->lock->id}}">{{$key->lock->name}}</a></p>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-6 cutText " >
                 <label for="first_name"><h4>Dueño de la Cerradura</h4></label>
-                <p> <a href="/admin/user/{{$key->lock->user->id}}">{{$key->lock->user->email}} </a></p>
+                <p> <a title="{{$key->lock->user->email}}" href="/admin/user/{{$key->lock->user->id}}">{{$key->lock->user->email}} </a></p>
               </div>
+         
 
               <hr>
             </div>
