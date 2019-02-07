@@ -8,7 +8,6 @@
   <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 @stop
 @section('content')
-<<<<<<< HEAD
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header"></h1>
@@ -17,15 +16,6 @@
       <?php echo print_r($monthsPremium);?> -->
     </div>
     <!-- /.col-lg-12 -->
-=======
-<div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header"></h1>
-
-  <!--  PREMIUM:
-    <?php echo print_r($monthsPremium);?> -->
-
->>>>>>> 0e141a5c261c28077a4213c46bbd0bf47d3dd2f6
   </div>
   <!-- /.row -->
   <div class="row">
