@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class NotificationController extends Controller
 {
   public function getNotifications(){
-    $notifications = Notification::where(['user_id' => Auth::user()->id, 'notificable' => 1])->get();
+    $notifications = Notification::where(['user_id' => Auth::user()->id, 'notificable' => 1])->orderBy('id', 'desc')->take(6)->get();
     return $notifications;
   }
 

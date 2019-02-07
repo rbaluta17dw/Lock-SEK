@@ -104,4 +104,18 @@ class UserController extends Controller
     Auth::login($user);
     return view('pages/user/profile');
   }
+
+  public function premium(){
+    return view('pages/user/premium');
+  }
+  public function makePremium(){
+    $user = User::find(Auth::user()->id);
+    if ($user->roleId == 0) {
+      $user->roleId = 1;
+    }else {
+      $user->roleId = 0;
+    }
+    $user->save();
+    return redirect('home');
+  }
 }

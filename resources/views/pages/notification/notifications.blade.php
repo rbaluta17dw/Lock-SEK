@@ -35,7 +35,7 @@
                         <i class="fa fa-unlock fa-fw"></i>{{$notification->title}}</a>
                       </h4>
                     </div>
-                    <div id="collapse{{$notification->id}}" class="panel-collapse collapse in">
+                    <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
                       <div class="panel-body">
                         {{$notification->message}}
                       </div>

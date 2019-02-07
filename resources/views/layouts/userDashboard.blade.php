@@ -180,6 +180,13 @@
           <!-- #Menu -->
           <!-- Footer -->
           <div class="legal">
+            <a href="{{ route( 'user.premium' )}}">
+              @if (Auth::user()->roleId == 0)
+                <button class="btn btn-primary btn-lg btn-block waves-effect" type="button">CAMBIAR A PREMIUM </button>
+              @else
+                <button class="btn btn-danger btn-lg btn-block waves-effect" type="button">DEJAR DE SER PREMIUM </button>
+              @endif
+            </a>
             <div class="copyright">
               &copy; 2016 - 2017 <a href="javascript:void(0);">LockSEK</a>.
             </div>
@@ -201,28 +208,32 @@
         var count = result.length;
         $('#notifications').html('');
         $('#count').html(count);
-        for (var i = 0; i < result.length; i++) {
-          switch (result[i].marker) {
-            case 0:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 1:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 2:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 3:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 4:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 5:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-yellow"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            default:
-            result[i].marker = "";
+        if (result.length == 0) {
+          $('#notifications').append('<p>No hay notificaciones</p>');
+        }else {
+          for (var i = 0; i < result.length; i++) {
+            switch (result[i].marker) {
+              case 0:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 1:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 2:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 3:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 4:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 5:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-yellow"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              default:
+              result[i].marker = "";
+            }
           }
         }
       }});
@@ -232,28 +243,32 @@
         var count = result.length;
         $('#notifications').html('');
         $('#count').html(count);
-        for (var i = 0; i < result.length; i++) {
-          switch (result[i].marker) {
-            case 0:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 1:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 2:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 3:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 4:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            case 5:
-            $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-yellow"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
-            break;
-            default:
-            result[i].marker = "";
+        if (result.length == 0) {
+          $('#notifications').append('<p>No hay notificaciones</p>');
+        }else {
+          for (var i = 0; i < result.length; i++) {
+            switch (result[i].marker) {
+              case 0:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 1:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 2:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 3:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 4:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-light-green"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              case 5:
+              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-yellow"><i class="material-icons">person_add</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              break;
+              default:
+              result[i].marker = "";
+            }
           }
         }
       }});

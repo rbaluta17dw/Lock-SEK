@@ -33,29 +33,48 @@ class LockController extends Controller
   public function create(CreateLockRequest $request)
   {
     $validated = $request->validated();
+    if (Lock::onlyTrashed()->where(['serial_n' => $request->input('lockSerial')])->first() != null) {
+      $lock = Lock::onlyTrashed()->where(['serial_n' => $request->input('lockSerial')])->first();
+      $lock->name = $request->input('lockName');
+      $lock->serial_n = $request->input('lockSerial');
+      $lock->latitude = $request->input('latitude');
+      $lock->longitude = $request->input('longitude');
+      $lock->user_id = Auth::user()->id;
+      $lock->save();
+      $notification = new Notification;
+      $notification->title = "Se ha creado la cerradura ".$lock->name;
+      $notification->message = "Has creado la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
+      $notification->marker = 3;
+      $notification->notificable = 1;
+      $notification->user_id = Auth::user()->id;
+      $notification->lock_id = $lock->id;
+      $notification->save();
+    }else {
+      $lock = new Lock;
+      $lock->name = $request->input('lockName');
+      $lock->serial_n = $request->input('lockSerial');
+      $lock->latitude = $request->input('latitude');
+      $lock->longitude = $request->input('longitude');
+      $lock->user_id = Auth::user()->id;
+      $lock->save();
+      $notification = new Notification;
+      $notification->title = "Se ha creado la cerradura ".$lock->name;
+      $notification->message = "Has creado la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
+      $notification->marker = 3;
+      $notification->notificable = 1;
+      $notification->user_id = Auth::user()->id;
+      $notification->lock_id = $lock->id;
+      $notification->save();
 
-    $lock = new Lock;
-    $lock->name = $request->input('lockName');
-    $lock->serial_n = $request->input('lockSerial');
-    $lock->latitude = $request->input('latitude');
-    $lock->longitude = $request->input('longitude');
-    $lock->user_id = Auth::user()->id;
-    $lock->save();
-    $notification = new Notification;
-    $notification->title = "Se ha creado la cerradura ".$lock->name;
-    $notification->message = "Has creado la cerradura ".$lock->name." el ".date("Y-m-d H:i:s");
-    $notification->marker = 3;
-    $notification->notificable = 1;
-    $notification->user_id = Auth::user()->id;
-    $notification->lock_id = $lock->id;
-    $notification->save();
-    $lock->save();
+      $newLock = Lock::where('serial_n',$request->input('lockSerial'))->first();
 
-    $newLock = Lock::where('serial_n',$request->input('lockSerial'))->first();
+      //añadir a la tabla privileges
 
-    //añadir a la tabla privileges
+      return redirect()->action('LockController@show', ['id' => $newLock]);
+    }
 
-    return redirect()->action('LockController@show', ['id' => $newLock]);
+
+
     //return view('pages/lock/lock',['lock'=>$lock]);
   }
 

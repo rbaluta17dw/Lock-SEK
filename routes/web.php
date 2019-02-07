@@ -113,3 +113,8 @@ Route::get('/locks/{lock}/{user}', ['as'=>'locks.deletePrivilege','uses'=>'LockC
 Route::get('/notifications', 'NotificationController@getNotifications')->name('notifications');
 Route::get('/graficos', 'NotificationController@getLocksAccess')->name('locks.access');
 Route::get('/notifications/index', 'NotificationController@index')->name('notifications.index');
+
+// rutas Premium
+
+Route::get('/user/premium', 'UserController@premium')->name('user.premium');
+Route::get('/user/makePremium', 'UserController@makePremium')->name('user.makePremium');
