@@ -1,13 +1,10 @@
 @extends('layouts.userDashboard')
-@section('css')
-  <link rel="stylesheet" href="{{asset('assets/user/css/customcss.css')}}">
-  <script src="{{asset('assets/js/chart.js')}}"></script>
-@stop
+
 @section('title', 'LockSEK')
 @section('content')
   <div class="row clearfix">
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <a href="/locks">
+      <a href="{{ route('locks.index') }}">
         <div class="info-box bg-pink hover-expand-effect">
           <div class="icon">
             <i class="material-icons">lock</i>
@@ -20,7 +17,7 @@
       </a>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <a href="/locks">
+      <a href="{{ route('keys.index') }}">
         <div class="info-box bg-cyan hover-expand-effect">
           <div class="icon">
             <i class="material-icons">vpn_key</i>
@@ -46,169 +43,6 @@
       </div>
     </a>
   </div>
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <canvas id="densityChart"></canvas>
-  </div>
-  <script>
-  var densityCanvas = document.getElementById("densityChart");
-
-
-  $.ajax({
-    type: "get",
-    url: "/graficos",
-    success:function(data)
-    {
-      console.log(data);
-      var usuario = 0;
-      var llave = 0;
-      var cerradura = 0;
-      var permisos = 0;
-      var admin = 0;
-      var accesos = 0;
-      for (var i = 0; i < data.length; i++) {
-        switch (data[i].marker) {
-          case 1:
-          usuario++;
-          break;
-          case 2:
-          llave++;
-          break;
-          case 3:
-          cerradura++;
-          break;
-          case 4:
-          permisos++;
-          break;
-          case 5:
-          admin++;
-          break;
-          case 6:
-          accesos++;
-          break;
-          default:
-
-        }
-      }
-
-      var densityData = {
-        label: 'Cambios',
-        data: [usuario, llave, cerradura, permisos, admin, accesos],
-        backgroundColor: ['rgba(0, 99, 132, 0.6)',
-        'rgba(0, 29, 52, 0.6)',
-        'rgba(0, 69, 12, 0.6)',
-        'rgba(40, 11, 255, 0.6)',
-        'rgba(130, 99, 132, 0.6)',
-        'rgba(255, 99, 132, 0.6)'
-        ],
-        borderWidth: 0,
-      };
-
-      var planetData = {
-        labels: ['Cambios usuario', 'Cambios llave', 'Cambios cerradura', 'Cambios permisos', 'Cambios admin', 'Accesos'],
-        datasets: [densityData]
-      };
-
-      var chartOptions = {
-        scales: {
-          xAxes: [{
-            barPercentage: 1,
-            categoryPercentage: 0.6
-          }],
-          yAxes: [{
-            id: "y-axis-density"
-          }, ]
-        }
-      };
-
-      var barChart = new Chart(densityCanvas, {
-        type: 'pie',
-        data: planetData,
-        options: chartOptions
-      });
-    }
-
-  });
-  setInterval(function()
-  {
-    $.ajax({
-      type: "get",
-      url: "/graficos",
-      success:function(data)
-      {
-        console.log(data);
-        var usuario = 0;
-        var llave = 0;
-        var cerradura = 0;
-        var permisos = 0;
-        var admin = 0;
-        var accesos = 0;
-        for (var i = 0; i < data.length; i++) {
-          switch (data[i].marker) {
-            case 1:
-            usuario++;
-            break;
-            case 2:
-            llave++;
-            break;
-            case 3:
-            cerradura++;
-            break;
-            case 4:
-            permisos++;
-            break;
-            case 5:
-            admin++;
-            break;
-            case 6:
-            accesos++;
-            break;
-            default:
-
-          }
-        }
-
-        var densityData = {
-          label: 'Cambios',
-          data: [usuario, llave, cerradura, permisos, admin, accesos],
-          backgroundColor: ['rgba(0, 99, 132, 0.6)',
-          'rgba(0, 29, 52, 0.6)',
-          'rgba(0, 69, 12, 0.6)',
-          'rgba(40, 11, 255, 0.6)',
-          'rgba(130, 99, 132, 0.6)',
-          'rgba(255, 99, 132, 0.6)'
-          ],
-          borderWidth: 0,
-        };
-
-        var planetData = {
-          labels: ['Cambios usuario', 'Cambios llave', 'Cambios cerradura', 'Cambios permisos', 'Cambios admin', 'Accesos'],
-          datasets: [densityData]
-        };
-
-        var chartOptions = {
-          scales: {
-            xAxes: [{
-              barPercentage: 1,
-              categoryPercentage: 0.6
-            }],
-            yAxes: [{
-              id: "y-axis-density"
-            }, ]
-          }
-        };
-
-        var barChart = new Chart(densityCanvas, {
-          type: 'pie',
-          data: planetData,
-          options: chartOptions
-        });
-      }
-    });
-  }, 60000);
-
-
-
-</script>
 
 <!-- #END# Widgets -->
 <!-- CPU Usage -->

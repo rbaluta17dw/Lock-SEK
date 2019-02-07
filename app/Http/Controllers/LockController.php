@@ -25,7 +25,9 @@ class LockController extends Controller
 
   public function register()
   {
-    return view('pages/lock/userRegisterLock');
+    $locks = Lock::where('user_id', Auth::user()->id)->count();
+
+    return view('pages/lock/userRegisterLock', ['locks' => $locks]);
   }
 
   public function create(CreateLockRequest $request)
@@ -143,8 +145,6 @@ class LockController extends Controller
 
   public function destroy($id)
   {
-
-
     $lock = Lock::findOrFail($id);
     if (Auth::user()->id == $lock->user_id){
       $notification = new Notification;

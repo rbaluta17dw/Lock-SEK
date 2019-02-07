@@ -71,12 +71,14 @@
     </div>
     <div class="card-body">
       <p class="card-text">Para completar el registro de tu cerradura asegurate de tener cerca la cerradura, la necesitaras durante el proceso.</p>
-      <button type="button" class="btn btn-primary" id="begin" data-toggle="modal" data-target="#exampleModal">
-        Empezar!
-      </button>
-
-
-
+      @if (Auth::user()->roleId == 0 && $locks >= 3)
+        <h2>ACTUALMENTE NO ERES UN USUARIO PREMIUM</h2>
+        <h2>Los usuarios premium pueden crear mas de 3 cerraduras</h2>
+      @else
+        <button type="button" class="btn btn-primary" id="begin" data-toggle="modal" data-target="#exampleModal">
+          Empezar!
+        </button>
+      @endif
     </div>
 
   </div>
