@@ -124,3 +124,6 @@ body.oscuro{
   height: 37vh;
   width: 27vw;
 }
+.cutText{
+  word-wrap: break-word;
+}
