@@ -63,11 +63,16 @@ class LockController extends Controller
     if (Lock::where('id',$id)->exists()) {
       $lock= Lock::find($id);
       if (Auth::user()->id == $lock->user_id) {
-        return view('pages/lock/userLock',['lock'=>$lock]);
+        $notifications  = Notification::where(['lock_id' => $lock->id, 'notificable' => 1])->get();
+        return view('pages/lock/userLock',['lock'=>$lock, 'notifications' => $notifications]);
       }else{
         foreach (Auth::user()->privileges as $privilege) {
           if ($privilege->id == $lock->id) {
             $privileged = $privilege->pivot->privilege;
+            if ($privileged == 1) {
+              $notifications  = Notification::where(['lock_id' => $privilege->id, 'notificable' => 1])->get();
+              return view('pages/lock/userLock',['lock'=>$lock, 'privileged' => $privileged, 'notifications' => $notifications]);
+            }
             return view('pages/lock/userLock',['lock'=>$lock, 'privileged' => $privileged]);
           }
         }
@@ -132,7 +137,7 @@ class LockController extends Controller
     $lock->save();
 
 
-    return view('pages/lock/lock',['lock'=>$lock]);
+    return redirect()->action('LockController@show', ['id' => $lock]);
 
   }
 

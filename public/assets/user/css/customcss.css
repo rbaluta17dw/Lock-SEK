@@ -5,3 +5,7 @@
 .select{
   width: 50%;
 }
+.scroll{
+  height: 56vh !important;
+  overflow-y: scroll;
+}

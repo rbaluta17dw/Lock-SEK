@@ -16,12 +16,12 @@
                 <div class="panel panel-default panel-danger">
                   <div class="panel-heading">
                     <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">
                         <i class="fa fa-key fa-fw"></i> {{$notification->title}}
                       </a>
                     </h4>
                   </div>
-                  <div id="collapse2" class="panel-collapse collapse">
+                  <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
                     <div class="panel-body">
                       {{$notification->message}}
                     </div>
@@ -31,11 +31,11 @@
                 <div class="panel panel-default panel-primary">
                   <div class="panel-heading">
                     <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">
                         <i class="fa fa-unlock fa-fw"></i>{{$notification->title}}</a>
                       </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="collapse{{$notification->id}}" class="panel-collapse collapse in">
                       <div class="panel-body">
                         {{$notification->message}}
                       </div>
@@ -45,13 +45,13 @@
                   <div class="panel panel-default panel-info">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">
                           <i class="fa fa-lock fa-fw"></i> {{$notification->title}}
                         </span>
                       </a>
                     </h4>
                   </div>
-                  <div id="collapse4" class="panel-collapse collapse">
+                  <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
                     <div class="panel-body">
                       {{$notification->message}}
                     </div>
@@ -61,10 +61,10 @@
                 <div class="panel panel-default panel-warning">
                   <div class="panel-heading">
                     <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">{{$notification->title}}</a>
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">{{$notification->title}}</a>
                     </h4>
                   </div>
-                  <div id="collapse8" class="panel-collapse collapse">
+                  <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
                     <div class="panel-body">
                       {{$notification->message}}
                     </div>
@@ -74,10 +74,10 @@
                   <div class="panel panel-default panel-green">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">{{$notification->title}}</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">{{$notification->title}}</a>
                       </h4>
                     </div>
-                    <div id="collapse7" class="panel-collapse collapse">
+                    <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
                       <div class="panel-body">
                         {{$notification->message}}
                       </div>
@@ -87,10 +87,10 @@
                   <div class="panel panel-default panel-warning">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">{{$notification->title}}</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">{{$notification->title}}</a>
                       </h4>
                     </div>
-                    <div id="collapse6" class="panel-collapse collapse">
+                    <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
                       <div class="panel-body">
                         {{$notification->message}}
                       </div>
