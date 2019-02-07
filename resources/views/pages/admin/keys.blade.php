@@ -3,14 +3,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12">
-    @if (true)
-    <a class="btn btn-success disabled" href="/admin/users" role="button">llaves activas</a>
-    <a class="btn btn-warning" href="/admin/users/deleted" role="button">llaves borradas</a>
-    @else
-    <a class="btn btn-success" href="/admin/users" role="button">llaves activas</a>
-    <a class="btn btn-warning disabled" href="/admin/users/deleted" role="button">llaves borradas</a>
-    @endif
-    <div class="pull-right"><a class="btn btn-primary" href="/admin/newKey" role="button">Crear llave</a></div>
+    
     <div class="panel panel-default">
       <div class="panel-heading">
       </div>
@@ -46,8 +39,16 @@
               </tbody>
             </table>
           </div>
+          @if (true)
+          <a class="btn btn-success disabled" href="/admin/users" role="button">Llaves activas</a>
+          <a class="btn btn-warning" href="/admin/users/deleted" role="button">Llaves borradas</a>
+          @else
+          <a class="btn btn-success" href="/admin/users" role="button">Llaves activas</a>
+          <a class="btn btn-warning disabled" href="/admin/users/deleted" role="button">Llaves borradas</a>
+          @endif
+          <a class="btn btn-primary" href="/admin/newKey" role="button">Crear llave</a>
         </div>
-
+        
         <!-- /.panel-body -->
       </div>
       <!-- /.panel -->

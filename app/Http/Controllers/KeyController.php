@@ -65,9 +65,9 @@ class KeyController extends Controller
       $hashed = Hash::make($key->user_id.$key->lock_id, [
         'rounds' => 12
       ]);
-      $finalkey = $key->id."?".$hashed;
-      //Aqui faltan cosas
+      
       $key->save();
+      $finalkey = $key->id."?".$hashed;
       Storage::put("/storage/keys/".time().".key", $finalkey);
       return Storage::download("/storage/keys/".time().".key");
     }
