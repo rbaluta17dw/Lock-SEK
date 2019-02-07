@@ -12,6 +12,7 @@ use App\Form;
 use Hash;
 use DB;
 use Carbon\Carbon;
+use Storage;
 
 
 
@@ -57,7 +58,7 @@ class AdminController extends Controller
 }
 */
 
-    
+
     for ($i=0; $i <= 11 ; $i++) {
       $registros[$i] = User::whereMonth('created_at', Carbon::now()->subMonths($i))->count();
     }

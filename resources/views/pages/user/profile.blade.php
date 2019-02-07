@@ -33,7 +33,7 @@
       <a href="{{ route('change_lang', ['lang' => 'es']) }}"><img src="{{asset('assets/images/es.ico')}}" ></a>
       <a href="{{ route('change_lang', ['lang' => 'en']) }}"><img src="{{asset('assets/images/en.ico')}}" ></a>
       <a href="{{ route('change_lang', ['lang' => 'eu']) }}"><img src="{{asset('assets/images/eu.ico')}}" ></a>
-      
+
 
       </div><!--/col-3-->
       <div class="col-sm-9">
