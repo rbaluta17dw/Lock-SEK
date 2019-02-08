@@ -26,11 +26,14 @@ class ContactFormRequest extends FormRequest
         return [
            
             'email' => 'required|email',
-            'name' => ['nullable', 
+            'name' => ['required', 
                       'string',
                       'max:45',
-                      'min:1', 
-                      ]
+                      'min:1', ],
+            'message'=>['required',
+                      'string',
+                      'max:190',
+                      'min:1',],
         ];
     }
 
@@ -39,8 +42,12 @@ class ContactFormRequest extends FormRequest
         return [
             'email.required' => 'Es necesario introducir el email',
             'email.email' => 'El email no es valido',
+            'name.required' => 'Es necesario introducir un nombre',
             'name.min' => 'El nombre debe de tener minimo 4 caracteres',
-            'name.max' => 'El nombre no puede ser tan largo', 
+            'name.max' => 'El nombre no puede ser tan largo',
+            'message.required' => 'Es necesario introducir un mensaje',
+            'message.max' => 'El nombre no puede ser tan largo',
+            'message.max' => 'El mensaje no puede ser tan largo', 
             
             
             
