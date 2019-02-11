@@ -33,14 +33,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        @if (Auth::user()->roleId != null)
-          @if (Auth::user()->roleId == 2)
             <a class="navbar-brand" href="{{route('admin.index')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
             <span class="label label-warning">Admin</span>
-          @else
-            <a class="navbar-brand" href="{{route('dashboard.home')}}"><img class="logo-no-icon" src="{{asset('assets/img/logodash.png')}}" alt=""></a>
-          @endif
-        @endif
       </div>
       <!-- /.navbar-header -->
       @auth
@@ -100,7 +94,6 @@
         <div class="navbar-default sidebar" role="navigation">
           <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
-              @if (Auth::user()->roleId == 2)
                 <li>
                   <a href="{{route('admin.users')}}"><i class="fa fa-users fa-fw"></i> Users</a>
                 </li>
@@ -110,35 +103,6 @@
                 <li>
                   <a href="{{route('admin.locks')}}"><i class="fa fa-lock fa-fw"></i> Locks</a>
                 </li>
-
-              @else
-                <li>
-                  <a href="/profile"><i class="fa fa-user fa-fw"></i> @lang('dashboard.user')</a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-key fa-fw"></i> @lang('dashboard.keys')  ({{Auth::user()->keys->count()}})<span class="fa arrow"></span></a>
-                  <ul class="nav nav-second-level">
-                    <li>
-                      <a href="{{ route('keys.index') }}">@lang('dashboard.listkeys')</a>
-                    </li>
-                    <li>
-                      <a href="{{ route('keys.create') }}">@lang('dashboard.createkey')</a>
-                    </li>
-                  </ul>
-                  <!-- /.nav-second-level -->
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-lock fa-fw"></i> @lang('dashboard.locks')    ({{Auth::user()->locks->count()}})<span class="fa arrow"></span></a>
-                  <ul class="nav nav-second-level">
-                    <li>
-                      <a href="{{ route('locks.index') }}">@lang('dashboard.listlocks')</a>
-                      <li>
-                        <a href="{{ route('locks.register') }}">@lang('dashboard.registerlock')</a>
-                      </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                  </li>
-                @endif
               </ul>
 
             </div>

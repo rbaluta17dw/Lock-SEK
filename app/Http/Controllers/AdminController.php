@@ -202,6 +202,48 @@ public function userEditImg(Request $request, $id)
   $notification->save();
   return view('pages/admin/user',['user'=>$user]);
 }
+public function convertToAdmin($id)
+{
+  $user = User::find($id);
+  $user->roleId = 2;
+  $user->save();
+  $notification = new Notification;
+  $notification->title = "El administrador ".Auth::user()->email." ha convertido a Admin ". $user->email;
+  $notification->message = "El administrador ".Auth::user()->email." ha convertido a Admin ". $user->email." el ".date("Y-m-d H:i:s");
+  $notification->marker = 5;
+  $notification->notificable = 0;
+  $notification->user_id = $user->id;
+  $notification->save();
+  return redirect()->action('AdminController@user',['user'=>$user]);
+}
+public function convertToUser($id)
+{
+  $user = User::find($id);
+  $user->roleId = 0;
+  $user->save();
+  $notification = new Notification;
+  $notification->title = "El administrador ".Auth::user()->email." ha convertido a Usuario ". $user->email;
+  $notification->message = "El administrador ".Auth::user()->email." ha convertido a Usuario ". $user->email." el ".date("Y-m-d H:i:s");
+  $notification->marker = 5;
+  $notification->notificable = 0;
+  $notification->user_id = $user->id;
+  $notification->save();
+  return redirect()->action('AdminController@user',['user'=>$user]);
+}
+public function convertToSuperAdmin($id)
+{
+  $user = User::find($id);
+  $user->roleId = 3;
+  $user->save();
+  $notification = new Notification;
+  $notification->title = "El administrador ".Auth::user()->email." ha convertido a SuperAdmin ". $user->email;
+  $notification->message = "El administrador ".Auth::user()->email." ha convertido a SuperAdmin ". $user->email." el ".date("Y-m-d H:i:s");
+  $notification->marker = 5;
+  $notification->notificable = 0;
+  $notification->user_id = $user->id;
+  $notification->save();
+  return redirect()->action('AdminController@user',['user'=>$user]);
+}
 public function keys()
 {
   $keys = Key::all();

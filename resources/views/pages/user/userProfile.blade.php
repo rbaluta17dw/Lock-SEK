@@ -1,4 +1,7 @@
 @extends('layouts.userDashboard')
+@section('css')
+<link rel="stylesheet" href="{{asset('assets/user/plugins/dropzone/dropzone.css')}}" />
+@stop
 @section('title', 'LockSEK')
 @section('css')
   <link rel="stylesheet" href="{{asset('assets/user/css/customcss.css')}}" />
@@ -123,31 +126,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="InputExperience" class="col-sm-2 control-label">Experience</label>
-
-                                <div class="col-sm-10">
-                                    <div class="form-line">
-                                        <textarea class="form-control" id="InputExperience" name="InputExperience" rows="3" placeholder="Experience"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="InputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                <div class="col-sm-10">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" id="InputSkills" name="InputSkills" placeholder="Skills">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <input type="checkbox" id="terms_condition_check" class="chk-col-red filled-in" />
-                                    <label for="terms_condition_check">I agree to the <a href="#">terms and conditions</a></label>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button type="submit" class="btn btn-danger">SUBMIT</button>
@@ -155,6 +134,7 @@
                             </div>
                         </form>
                     </div>
+
                     <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
                         <form class="form-horizontal">
                             <div class="form-group">
@@ -194,4 +174,8 @@
         </div>
     </div>
 </div>
+@stop
+@section('scripts')
+
+<script src="{{asset('assets/user/plugins/dropzone/dropzone.js')}}"></script>
 @stop
