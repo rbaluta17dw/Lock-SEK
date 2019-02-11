@@ -1,15 +1,18 @@
 @extends('layouts.userDashboard')
 @section('title', 'LockSEK')
+@section('css')
+  <link rel="stylesheet" href="{{asset('assets/user/css/customcss.css')}}" />
+@stop
 @section('content')
 <div class="col-xs-12 col-sm-3">
     <div class="card profile-card">
         <div class="profile-header">&nbsp;</div>
         <div class="profile-body">
-            <div class="image-area">
+            <div class="image-area imgprf">
                 @if (isset(Auth::user()->imgname))
                 <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" alt="AdminBSB - Profile Image" />
                 @else
-                  <img src="{{asset('assets/images/user.png')}}" alt="AdminBSB - Profile Image" />
+                  <img src="{{asset('assets/images/user.png')}}" width="100" height="100" alt="AdminBSB - Profile Image" />
                 @endif
             </div>
             <div class="content-area">
@@ -98,7 +101,7 @@
 
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="home">
-                        
+
 
 
                     </div>
