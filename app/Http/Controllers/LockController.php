@@ -37,8 +37,10 @@ class LockController extends Controller
       $lock = Lock::onlyTrashed()->where(['serial_n' => $request->input('lockSerial')])->first();
       $lock->name = $request->input('lockName');
       $lock->serial_n = $request->input('lockSerial');
-      $lock->latitude = $request->input('latitude');
-      $lock->longitude = $request->input('longitude');
+      if ($request->input('checkaddress') == 'checked') {
+        $lock->latitude = $request->input('latitude');
+        $lock->longitude = $request->input('longitude');
+      }
       $lock->user_id = Auth::user()->id;
       $lock->save();
       $notification = new Notification;
@@ -53,8 +55,10 @@ class LockController extends Controller
       $lock = new Lock;
       $lock->name = $request->input('lockName');
       $lock->serial_n = $request->input('lockSerial');
-      $lock->latitude = $request->input('latitude');
-      $lock->longitude = $request->input('longitude');
+      if ($request->input('checkaddress') == 'checked') {
+        $lock->latitude = $request->input('latitude');
+        $lock->longitude = $request->input('longitude');
+      }
       $lock->user_id = Auth::user()->id;
       $lock->save();
       $notification = new Notification;

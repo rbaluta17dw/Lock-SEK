@@ -10,6 +10,11 @@ use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
 class Key extends Model
 {
 
+  use SoftDeletes;
+  use SoftCascadeTrait;
+  protected $dates = ['deleted_at'];
+  protected $softCascade = ['notifications'];
+
     protected $table = 'whitelist';
 
     public function lock()
