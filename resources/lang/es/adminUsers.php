@@ -8,6 +8,7 @@ return [
   'email' => 'Email',
   'typeUser' => 'Tipo de Usuario',
   'verifiedEmail' => 'Email verificado',
+  'superAdmin' => 'Super Admin',
   'admin' => 'Admin',
   'premiun' => 'Premiun',
   'basic' => 'Basico',

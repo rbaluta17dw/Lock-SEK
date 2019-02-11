@@ -75,6 +75,10 @@ Route::get('/admin/locks/{lock}/{user}', ['as'=>'admin.locks.deletePrivilege','u
 Route::get('/admin/messages', ['as'=>'admin.messsages','uses'=>'AdminController@messages'])->middleware('admin');
 Route::get('/admin/profile', ['as'=>'admin.profile','uses'=>'AdminController@profile']);
 Route::get('/admin/settings', ['as'=>'admin.settings','uses'=>'AdminController@settings']);
+Route::post('/admin/user/convertAdmin/{id}', ['as'=>'admin.convertToAdmin','uses'=>'AdminController@convertToAdmin'])->middleware('superAdmin');
+Route::post('/admin/user/convertUser/{id}', ['as'=>'admin.convertToUser','uses'=>'AdminController@convertToUser'])->middleware('superAdmin');
+Route::post('/admin/user/convertSuperAdmin/{id}', ['as'=>'admin.convertToSuperAdmin','uses'=>'AdminController@convertToSuperAdmin'])->middleware('superAdmin');
+
 // Rutas Perfil
 
 

@@ -3,8 +3,8 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        
-        
+
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 DataTables Advanced Tables
@@ -29,7 +29,9 @@
                                 <td>{{ $user->name }}</td>
                                 <td><a href="/admin/user/{{ $user->id }}">{{ $user->email }}</a></td>
                                 <td>
-                                    @if ($user->roleId == 2)
+                                    @if ($user->roleId == 3)
+                                    <span class="label label-info">@lang('adminUsers.SuperAdmin')</span>
+                                    @elseif ($user->roleId == 2)
                                     <span class="label label-info">@lang('adminUsers.admin')</span>
                                     @elseif ($user->roleId == 1)
                                     <span class="label label-success">@lang('adminUsers.premiun')</span>
@@ -46,7 +48,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>

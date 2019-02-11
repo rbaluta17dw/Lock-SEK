@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class isAdmin
+class isSuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-      if (Auth::user() && ( Auth::user()->roleId == 2 || Auth::user()->roleId == 3 )) {
+      if (Auth::user() &&  Auth::user()->roleId == 3) {
              return $next($request);
       }
 
