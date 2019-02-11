@@ -368,6 +368,15 @@
 
       <div class="body">
         <div class="row clearfix">
+                  <!--Privilege-->
+        @if (Session::has('privilegeOk'))
+        <div class="alert alert-success">{!! Session::get('privilegeOk') !!}</div>
+      @endif
+
+      @if (Session::has('privilegeFail'))
+        <div class="alert alert-danger">{!! Session::get('privilegeFail') !!}</div>
+      @endif
+      <!--End Privilege -->
           <div class="col-sm-6 "><!--left col-->
             <h4>Haz  doble click para actualizar la ubicación</h4>
 
@@ -452,6 +461,7 @@
       </div>
     </div>
   </div>
+  
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="card">
       <div class="header">
@@ -514,15 +524,7 @@
             </form>
           </div>
         </div>
-        <!--Privilege-->
-        @if (Session::has('privilegeOk'))
-          <div class="alert alert-success">{!! Session::get('privilegeOk') !!}</div>
-        @endif
 
-        @if (Session::has('privilegeFail'))
-          <div class="alert alert-danger">{!! Session::get('privilegeFail') !!}</div>
-        @endif
-        <!--End Privilege -->
 
         <!-- For Material Design Colors -->
         <div class="modal fade" id="mdModal" tabindex="-1" role="dialog">
@@ -639,6 +641,7 @@
     mapa.removeLayer(marcador);
     $.ajax({url: "/locks/"+{{$lock->id}}+"/deleteLocation", success: function(result){
       alert(result);
+
     }});
   });
   </script>

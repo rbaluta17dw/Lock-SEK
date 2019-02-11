@@ -29,7 +29,7 @@ class UserEditRequest extends FormRequest
                       'string',
                       'max:45',
                       'min:4', 
-                      'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.]+$/'],
+                      ],
             'password' => ['required',
                      'min:6',
                      'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
@@ -43,7 +43,6 @@ class UserEditRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.regex' => 'El nombre no acepta caracteres especiales',
             'name.min' => 'El nombre debe de tener minimo 4 caracteres',
             'name.max' => 'El nombre no puede ser tan largo', 
             'email.email' => 'Debe introducir un email valido',

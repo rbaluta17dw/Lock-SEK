@@ -25,23 +25,30 @@ class ContactFormRequest extends FormRequest
     {
         return [
            
-            'email' => 'required|email|unique:users',
-            'name' => ['nullable', 
+            'email' => 'required|email',
+            'name' => ['required', 
                       'string',
                       'max:45',
-                      'min:1', 
-                      'regex:/^(?!.*__.*)(?!.*\.\..*)[a-z0-9_.\s]+$/']
+                      'min:1', ],
+            'message'=>['required',
+                      'string',
+                      'max:190',
+                      'min:1',],
         ];
     }
 
     public function messages()
     {
         return [
-            'email.required' => 'Es necesairo introducir el email',
+            'email.required' => 'Es necesario introducir el email',
             'email.email' => 'El email no es valido',
+            'name.required' => 'Es necesario introducir un nombre',
             'name.min' => 'El nombre debe de tener minimo 4 caracteres',
-            'name.max' => 'El nombre no puede ser tan largo', 
-            'name.regex' => 'No se aceptan caracteres especiales'
+            'name.max' => 'El nombre no puede ser tan largo',
+            'message.required' => 'Es necesario introducir un mensaje',
+            'message.max' => 'El nombre no puede ser tan largo',
+            'message.max' => 'El mensaje no puede ser tan largo', 
+            
             
             
         ];

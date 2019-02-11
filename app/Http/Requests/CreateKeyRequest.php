@@ -28,7 +28,7 @@ class CreateKeyRequest extends FormRequest
             'string',
             'max:45',
             'min:4', 
-            'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.\s]+$/']
+            ]
         ];
     }
 
@@ -36,7 +36,6 @@ class CreateKeyRequest extends FormRequest
     {
         return [
             'keyName.required' => 'El nuevo nombre no puede estar vacio',
-            'keyName.regex' => 'El nombre no acepta caracteres especiales',
             'keyName.min' => 'El nombre debe de tener minimo 4 caracteres',
             'keyName.max' => 'El nombre no puede ser tan largo'
         ];

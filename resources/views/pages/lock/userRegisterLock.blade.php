@@ -67,6 +67,7 @@
 
   <div class="card text-center">
     <div class="card-header">
+      <br>
       <h1>Registra tu cerradura</h1>
     </div>
     <div class="card-body">
@@ -80,7 +81,7 @@
         </button>
       @endif
     </div>
-
+    <br>
   </div>
   @if ($errors->any())
     <div class="alert alert-danger">

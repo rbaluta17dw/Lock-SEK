@@ -13,3 +13,8 @@
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
+
+  #txtBox{
+
+    resize: none;
+  }

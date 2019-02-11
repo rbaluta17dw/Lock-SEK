@@ -27,8 +27,8 @@ class CreateLockRequest extends FormRequest
             'lockName' => ['required',
             'string',
             'max:45',
-            'min:4', 
-            'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.\s]+$/'],
+            'min:4', ],
+            // 'regex:/^(?!.*__.*)(?!.*\.\..*)[a-zA-Z0-9_.\s]+$/'],
             'lockSerial' => ['required',
                       'string',
                       'max:15',
@@ -40,7 +40,6 @@ class CreateLockRequest extends FormRequest
     {
         return [
             'lockName.required' => 'El nuevo nombre no puede estar vacio',
-            'lockName.regex' => 'El nombre no acepta caracteres especiales',
             'lockName.min' => 'El nombre debe de tener minimo 4 caracteres',
             'lockName.max' => 'El nombre no puede ser tan largo',
             
