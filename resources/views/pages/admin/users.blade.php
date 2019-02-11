@@ -30,7 +30,7 @@
                                 <td><a href="/admin/user/{{ $user->id }}">{{ $user->email }}</a></td>
                                 <td>
                                     @if ($user->roleId == 3)
-                                    <span class="label label-info">@lang('adminUsers.SuperAdmin')</span>
+                                    <span class="label label-info">@lang('adminUsers.superAdmin')</span>
                                     @elseif ($user->roleId == 2)
                                     <span class="label label-info">@lang('adminUsers.admin')</span>
                                     @elseif ($user->roleId == 1)
