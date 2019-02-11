@@ -38,6 +38,36 @@
 </div>
 <!-- /Modal -->
 
+<!-- Modal -->
+<div class="modal fade" id="succesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Atencion!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        
+        @if (Session::has('messageOk'))
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#succesModal').modal('show');
+          });
+        </script>
+          <div class="alert alert-success">{!! Session::get('messageOk') !!}</div>
+          @endif
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal -->
+
 
 
 <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"  id="section-home">
@@ -153,7 +183,7 @@
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-key pb_icon-gradient"></i></div>
               <div class="media-body">
-                <h3 class="mt-2 mb-2 heading">Un dispositivo único llave</h3>
+                <h3 class="mt-2 mb-2 heading">Un dispositivo único</h3>
                 <p class="text-sans-serif pb_font-16">Lleva cuantas llaves quieras en un mismo dispositivo USB.</p>
               </div>
             </div>
@@ -262,7 +292,7 @@
                       <input type="text" class="form-control {{ $errors->has('name') ? 'alert-danger':''}}" name="name" required="" placeholder="Nombre*" data-form-field="Name" value="{{old('name')}}">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control {{ $errors->has('email') ? 'alert-danger':''}}" name="email" required="" placeholder="Email*" data-form-field="Email" value="{{old('email')}}">
+                      <input type="email" class="form-control {{ $errors->has('email') ? 'alert-danger':''}}" name="email" required=""  placeholder="Email*" data-form-field="Email" value="{{old('email')}}">
                     </div>
                     <div >
                       {{-- <input type="text" class="form-control {{ $errors->has('message') ? 'alert-danger':''}}" name="message" required="" placeholder="Mensaje*" rows="7" data-form-field="Message" value="{{old('message')}}"> --}}
