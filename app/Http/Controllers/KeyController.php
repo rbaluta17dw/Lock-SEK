@@ -23,12 +23,7 @@ class KeyController extends Controller
   */
   public function index()
   {
-    if (Auth::user()->roleId == 0) {
-      $keys = Key::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(2)->get();
-    }else {
-      $keys = Key::where('user_id', Auth::user()->id)->get();
-    }
-
+    $keys = Key::where('user_id', Auth::user()->id)->get();
     return view('pages/key/userKeys',['keys'=>$keys]);
   }
   /**
