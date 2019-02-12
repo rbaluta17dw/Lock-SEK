@@ -12,9 +12,9 @@
         <div class="profile-body">
             <div class="image-area imgprf">
                 @if (isset(Auth::user()->imgname))
-                <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" alt="AdminBSB - Profile Image" />
+                <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" width="120" height="120" alt="AdminBSB - Profile Image" />
                 @else
-                  <img src="{{asset('assets/images/user.png')}}" width="100" height="100" alt="AdminBSB - Profile Image" />
+                  <img src="{{asset('assets/images/user.png')}}" width="120" height="120" alt="AdminBSB - Profile Image" />
                 @endif
             </div>
             <div class="content-area">
