@@ -2,13 +2,12 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            {{ config('app.name') }}
+            <img src="https://i.imgur.com/jL1LdCd.png" width="200" alt="logo LockSEK">
         @endcomponent
     @endslot
 
     {{-- Body --}}
-    {{ $slot }}
-
+    {{$slot}}
     {{-- Subcopy --}}
     @isset($subcopy)
         @slot('subcopy')
@@ -21,7 +20,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
+            © {{ date('Y') }} LockSEK. @lang('Todos los derechos reservados.')
         @endcomponent
     @endslot
 @endcomponent

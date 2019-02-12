@@ -7,8 +7,9 @@
     @endslot
 
 {{-- Body --}}
-    Bienvenido a LockSEK
-
+@slot('body')
+<h2>Bienvenido a LockSEK</h2>
+@endslot
 {{-- Subcopy --}}
     @isset($subcopy)
         @slot('subcopy')
@@ -21,7 +22,7 @@
 {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            © {{ date('Y') }} {{ config('app.name') }}. Todos los derechos reservados.
+            © {{ date('Y') }} LockSEK. Todos los derechos reservados.
         @endcomponent
     @endslot
 @endcomponent
