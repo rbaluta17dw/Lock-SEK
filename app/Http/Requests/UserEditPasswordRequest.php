@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserEditRequest extends FormRequest
+class UserEditPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,14 @@ class UserEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'nullable|email|unique:users',
-            'name' => ['nullable',
-                      'string',
-                      'max:45',
-                      'min:4', 
-                      ],
-            'password' => ['required',
+
+            'OldPassword' => ['required',
                      'min:6',
                      'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
-            'password2' => ['nullable',
+            'NewPassword' => ['nullable',
+                     'min:6',
+                     'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/'],
+            'NewPassword' => ['same:NewPassword',
                      'min:6',
                      'regex:/^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{6,15}$/']
         ];
@@ -43,15 +41,12 @@ class UserEditRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.min' => 'El nombre debe de tener minimo 4 caracteres',
-            'name.max' => 'El nombre no puede ser tan largo', 
-            'email.email' => 'Debe introducir un email valido',
             'password.required' => 'Es necesario introducir la contraseña',
             'password.regex' => 'La contraseña debe contener al menos una letra un numero y un caracter especial "mipassword123!"',
             'password.min' => 'La contraseña debe de tener al menos 6 caracteres',
             'password2.regex' => 'La contraseña debe contener al menos una letra un numero y un caracter especial "mipassword123!"',
             'password2.min' => 'La contraseña debe de tener al menos 6 caracteres'
-            
+
         ];
     }
 }

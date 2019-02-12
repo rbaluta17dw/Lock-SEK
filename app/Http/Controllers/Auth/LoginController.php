@@ -51,12 +51,12 @@ class LoginController extends Controller
     */
     protected function validator(array $data)
     {
-        
+
         $messages = [
             'password.required' => 'Es necesario introducir una contraseña',
             'email.required' => 'Es necesario introducir un email',
         ];
-        
+
         return Validator::make($data, [
             'email' => ['required'],
             //'password' => ['required', 'string', 'min:6', 'confirmed'],
@@ -67,8 +67,8 @@ class LoginController extends Controller
     {
       $role = Auth::user()->roleId;
       switch ($role) {
-        case '1':
-                return '/dashboard';
+        case '3':
+                return '/admin/dashboard';
             break;
         case '2':
                 return '/admin/dashboard';
