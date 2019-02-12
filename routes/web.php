@@ -85,7 +85,9 @@ Route::post('/admin/user/convertSuperAdmin/{id}', ['as'=>'admin.convertToSuperAd
 
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);
-Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf'])->middleware('verified');
+Route::post('/editprfname', ['as'=>'profile.editName','uses'=>'UserController@editprfname'])->middleware('verified');
+Route::post('/editprfemail', ['as'=>'profile.editEmail','uses'=>'UserController@editprfemail'])->middleware('verified');
+Route::post('/editprfpassword', ['as'=>'profile.editPassword','uses'=>'UserController@editprfpassword'])->middleware('verified');
 Route::post('/editImg', ['as'=>'profile.editImg','uses'=>'UserController@editImg']);
 Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete']);
 
