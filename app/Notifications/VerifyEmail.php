@@ -43,13 +43,14 @@ class VerifyEmail extends Notification
     }
 
     return (new MailMessage)
+    ->greeting('Bienvenido a LockSEK')
     ->subject(Lang::getFromJson('Verificaion de email de LockSEK'))
     ->line(Lang::getFromJson('Este mensaje es un mensaje automatico para asegurar que usted ha solicitado el registro de una cuenta en nuestra plataforma.'))
     ->action(
       Lang::getFromJson('Verificar email'),
       $this->verificationUrl($notifiable)
       )
-      ->line(Lang::getFromJson('Si usted no solicito el registro ignore este mensaje.'));
+    ->line(Lang::getFromJson('Si usted no solicito el registro ignore este mensaje.'));
 
     }
 
