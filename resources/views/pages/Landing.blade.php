@@ -362,9 +362,9 @@
                 <h3>Free</h3>
                 <span class="price">0<sub>€</sub></span>
                 <ul style="text-align: left">
-                  <li>Registra hasta 3 cerraduras!</li>
+                  <li>Registra las cerraduras que quieras!</li>
                   <li>Controla quien accede.</li>
-                  <li>Crea hasta 5 llaves por cerradura.</li>
+                  <li>Crea hasta 2 llaves por cerradura.</li>
                 </ul>
                 <!--  <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p> -->
               </div>
@@ -375,9 +375,9 @@
                 <span class="price">19<sub>€</sub></span>
                 <ul style="text-align: left">
                   <li>Registra cerraduras ilimitadas!</li>
-                  <li>Crea cerraduras ilimitadas!</li>
-                  <li>Establece horarios a las llaves.</li>
-                  <li>Recibe avisos por email.</li>
+                  <li>Crea llaves ilimitadas!</li>
+                  {{-- <li>Establece horarios a las llaves.</li> --}}
+                  {{-- <li>Recibe avisos por email.</li> --}}
                 </ul>
                 <!-- <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue">Ver vendedores</a></p>  -->
               </div>
