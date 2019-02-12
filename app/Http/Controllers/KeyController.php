@@ -23,7 +23,12 @@ class KeyController extends Controller
   */
   public function index()
   {
-    $keys = Key::where('user_id', Auth::user()->id)->get();
+    if (Auth::user()->roleId == 0) {
+      $keys = Key::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(2)->get();
+    }else {
+      $keys = Key::where('user_id', Auth::user()->id)->get();
+    }
+
     return view('pages/key/userKeys',['keys'=>$keys]);
   }
   /**
@@ -45,7 +50,7 @@ class KeyController extends Controller
   {
     $user = User::find(Auth::user()->id);
     $keys = Key::where(['lock_id' => $request->input('lock'), 'user_id' => $user->id])->count();
-    if ($user->roleId == 0 && $keys >= 5) {
+    if ($user->roleId == 0 && $keys >= 2) {
 
     }else {
       $validated = $request->validated();
