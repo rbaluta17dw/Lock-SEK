@@ -17,7 +17,7 @@ class CreateWhitelistTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('device')->nullable();
-
+            $table->integer('active')->default('1');
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')

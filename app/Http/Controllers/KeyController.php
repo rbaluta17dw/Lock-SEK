@@ -68,8 +68,8 @@ class KeyController extends Controller
 
       $key->save();
       $finalkey = $key->id."?".$hashed;
-      Storage::put("/storage/keys/prueba.key", $finalkey);
-      //Storage::put("/storage/keys/".time().".key", $finalkey);
+      //Storage::put("/storage/keys/prueba.key", $finalkey);
+      Storage::put("/storage/keys/".time().".key", $finalkey);
       return Storage::download("/storage/keys/".time().".key");
     }
   }

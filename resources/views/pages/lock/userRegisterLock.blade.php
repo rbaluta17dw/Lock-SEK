@@ -42,7 +42,7 @@
             <div class="form-group row">
               <label for="colFormLabel" class="col-sm-2 col-form-label">Dirección</label>
               <div class="switch">
-                <label>NO<input name="checkaddress" type="checkbox" id="yespapa" checked><span class="lever"></span>SI</label>
+                <label>NO<input name="checkAddress" type="checkbox" value="checked" id="yespapa" checked><span class="lever"></span>SI</label>
               </div>
 
               <div class="col-sm-10">
