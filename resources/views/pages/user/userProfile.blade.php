@@ -1,6 +1,5 @@
 @extends('layouts.userDashboard')
 @section('css')
-<link rel="stylesheet" href="{{asset('assets/user/plugins/dropzone/dropzone.css')}}" />
 @stop
 @section('title', 'LockSEK')
 @section('css')
@@ -109,34 +108,75 @@
 
                     </div>
                     <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
-                        <form class="form-horizontal">
+                        <form method="post" action="{{ route('profile.editName') }}" class="form-horizontal">
+                          @csrf
                             <div class="form-group">
                                 <label for="NameSurname" class="col-sm-2 control-label">Name Surname</label>
                                 <div class="col-sm-10">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" id="NameSurname" name="NameSurname" placeholder="{{Auth::user()->name}}" value="{{Auth::user()->name}}" required>
+                                        <input type="text" class="form-control" id="NameSurname" name="name" placeholder="{{Auth::user()->name}}" value="{{Auth::user()->name}}" required>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-danger">Cambiar Nombre</button>
+                                </div>
+                            </div>
+                        </form>
+                        <form method="post" action="{{ route('profile.editEmail') }}" class="form-horizontal">
+                          @csrf
                             <div class="form-group">
                                 <label for="Email" class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-10">
                                     <div class="form-line">
-                                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" value="{{Auth::user()->email}}" required>
+                                        <input type="email" class="form-control" id="Email" name="email" placeholder="Email" value="{{Auth::user()->email}}" required>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-danger">SUBMIT</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Cambiar Email</button>
                                 </div>
                             </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Atencion!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+
+                                  <div class="modal-body">
+                                    <h1>Introduzca su contraseña actual </h1>
+                                    <div class="form-group">
+                                        <label for="password" class="col-sm-3 control-label">Contraseña:</label>
+                                        <div class="col-sm-9">
+                                            <div class="form-line">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                      <button type="submit" class="btn btn-danger">Cambiar</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- /Modal -->
                         </form>
                     </div>
 
                     <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
-                        <form class="form-horizontal">
+                        <form method="post" action="{{ route('profile.editPassword') }}" class="form-horizontal">
+                          @csrf
                             <div class="form-group">
                                 <label for="OldPassword" class="col-sm-3 control-label">Old Password</label>
                                 <div class="col-sm-9">
@@ -174,8 +214,24 @@
         </div>
     </div>
 </div>
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+
+@endif
+@if (Session::has('success'))
+    <div class="alert alert-success">{!! Session::get('success') !!}</div>
+@endif
+
+@if (Session::has('failure'))
+    <div class="alert alert-danger">{!! Session::get('failure') !!}</div>
+@endif
 @stop
 @section('scripts')
 
-<script src="{{asset('assets/user/plugins/dropzone/dropzone.js')}}"></script>
 @stop

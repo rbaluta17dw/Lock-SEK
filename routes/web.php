@@ -74,8 +74,8 @@ Route::put('/admin/locks/{lock}', ['as'=>'admin.locks.update','uses'=>'AdminCont
 Route::post('/admin/locks/{lock}/insertPrivilege', ['as'=>'admin.locks.insertPrivilege','uses'=>'AdminController@lockInsertPrivilege'])->middleware('admin');
 Route::get('/admin/locks/{lock}/{user}', ['as'=>'admin.locks.deletePrivilege','uses'=>'AdminController@lockDeletePrivilege'])->middleware('admin');
 Route::get('/admin/messages', ['as'=>'admin.messsages','uses'=>'AdminController@messages'])->middleware('admin');
-Route::get('/admin/profile', ['as'=>'admin.profile','uses'=>'AdminController@profile']);
-Route::get('/admin/settings', ['as'=>'admin.settings','uses'=>'AdminController@settings']);
+Route::get('/admin/profile', ['as'=>'admin.profile','uses'=>'AdminController@profile'])->middleware('admin');
+Route::get('/admin/settings', ['as'=>'admin.settings','uses'=>'AdminController@settings'])->middleware('admin');
 Route::post('/admin/user/convertAdmin/{id}', ['as'=>'admin.convertToAdmin','uses'=>'AdminController@convertToAdmin'])->middleware('superAdmin');
 Route::post('/admin/user/convertUser/{id}', ['as'=>'admin.convertToUser','uses'=>'AdminController@convertToUser'])->middleware('superAdmin');
 Route::post('/admin/user/convertSuperAdmin/{id}', ['as'=>'admin.convertToSuperAdmin','uses'=>'AdminController@convertToSuperAdmin'])->middleware('superAdmin');
@@ -85,7 +85,9 @@ Route::post('/admin/user/convertSuperAdmin/{id}', ['as'=>'admin.convertToSuperAd
 
 Route::get('/profile', ['as'=>'profile.index','uses'=>'UserController@index']);
 Route::get('/settings', ['as'=>'profile.settings','uses'=>'UserController@settings']);
-Route::post('/editprf', ['as'=>'profile.edit','uses'=>'UserController@editprf'])->middleware('verified');
+Route::post('/editprfname', ['as'=>'profile.editName','uses'=>'UserController@editprfname'])->middleware('verified');
+Route::post('/editprfemail', ['as'=>'profile.editEmail','uses'=>'UserController@editprfemail'])->middleware('verified');
+Route::post('/editprfpassword', ['as'=>'profile.editPassword','uses'=>'UserController@editprfpassword'])->middleware('verified');
 Route::post('/editImg', ['as'=>'profile.editImg','uses'=>'UserController@editImg']);
 Route::post('/delete', ['as'=>'profile.delete','uses'=>'UserController@delete']);
 

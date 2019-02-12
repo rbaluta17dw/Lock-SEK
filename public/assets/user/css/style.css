@@ -8215,3 +8215,14 @@ html.ie11 .bs-searchbox .form-control {
   .flag{
     width: 25px !important;
   }
+
+#notifications li{
+  list-style-type: none;
+
+}
+.cutText{
+  word-wrap: break-word;
+}
+.premium{
+  padding:15px;
+}

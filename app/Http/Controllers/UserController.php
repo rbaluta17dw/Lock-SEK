@@ -8,7 +8,9 @@ use Hash;
 use App\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\UserEditRequest;
+use App\Http\Requests\UserEditNameRequest;
+use App\Http\Requests\UserEditPasswordRequest;
+use App\Http\Requests\UserEditEmailRequest;
 
 
 class UserController extends Controller
@@ -27,31 +29,19 @@ class UserController extends Controller
   {
     return view('pages/user/settings');
   }
-  public function editprf(UserEditRequest $request)
+  public function editprfname(UserEditNameRequest $request)
   {
     $validated = $request->validated();
 
-
     $name = $request->input('name');
-    $email = $request->input('email');
-    $passwordnew = $request->input('password2');
-
 
     $user = User::find(Auth::user()->id);
-    $oldPassword=$user->password;
 
 
-    if (Hash::check($request->password, $oldPassword)) {
       if ($name != '') {
         $user->name = $name;
       }
-      if ($email != '') {
-        $user->email = $email;
-      }
 
-      if ($passwordnew != '') {
-        $user->password = Hash::make($passwordnew);
-      }
       $notification = new Notification;
       $notification->title = "Se ha editado el perfil";
       $notification->message = "Has editado el perfil el ".date("Y-m-d H:i:s");
@@ -64,6 +54,77 @@ class UserController extends Controller
       Auth::login($user);
 
       $request->session()->flash('success', 'Cambios guardados con exito');
+      // return view('pages/user/profile');
+      return back();
+
+    //return view('pages/user/profile');
+    return back();
+
+  }
+  public function editprfemail(UserEditEmailRequest $request)
+  {
+    $validated = $request->validated();
+
+    $email = $request->input('email');
+    $password = $request->input('password');
+
+    $user = User::find(Auth::user()->id);
+
+    if (Hash::check($password, $user->password)) {
+      if(User::where('email',$email)->doesntExist()){
+      $user->email = $email;
+
+      $notification = new Notification;
+      $notification->title = "Se ha cambiado el email";
+      $notification->message = "Has cambiado el email de la cuenta el ".date("Y-m-d H:i:s");
+      $notification->marker = 1;
+      $notification->notificable = 1;
+      $notification->user_id = Auth::user()->id;
+      $notification->save();
+      $user->save();
+
+      Auth::login($user);
+
+      $request->session()->flash('success', 'Email cambiado con exito');
+      // return view('pages/user/profile');
+      return back();
+      }
+      $request->session()->flash('failure', 'El email ya existe');
+      return back();
+    }
+
+    $request->session()->flash('failure', 'La contraseña introducida es erronea');
+    //return view('pages/user/profile');
+    return back();
+
+  }
+  public function editprfpassword(UserEditPasswordRequest $request)
+  {
+    $validated = $request->validated();
+
+    $oldPassword = $request->input('OldPassword');
+    $newPassword = $request->input('NewPassword');
+    $newPasswordConfirm = $request->input('NewPasswordConfirm');
+
+    $user = User::find(Auth::user()->id);
+    $oldHashedPassword=$user->password;
+
+    if (Hash::check($oldPassword, $oldHashedPassword)) {
+
+      $user->password = Hash::make($newPassword);
+
+      $notification = new Notification;
+      $notification->title = "Se ha cambiado la contraseña";
+      $notification->message = "Has cambiado la contraseña de la cuenta el ".date("Y-m-d H:i:s");
+      $notification->marker = 1;
+      $notification->notificable = 1;
+      $notification->user_id = Auth::user()->id;
+      $notification->save();
+      $user->save();
+
+      Auth::login($user);
+
+      $request->session()->flash('success', 'Contraseña cambiada con exito');
       // return view('pages/user/profile');
       return back();
     }
