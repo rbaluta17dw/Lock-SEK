@@ -8,14 +8,15 @@
   <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 @stop
 @section('content')
+<a class="btn btn-primary" href="{{route('liveStats')}}" role="button">Live View</a>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"></h1>
 
-      <!--  PREMIUM:
-      <?php echo print_r($monthsPremium);?> -->
+
+
     </div>
     <!-- /.col-lg-12 -->
+
   </div>
   <!-- /.row -->
   <div class="row">
@@ -201,7 +202,88 @@
     <!-- /.panel -->
   </div>
   <!-- line chart canvas element -->
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Login/Registros
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="chartjs-wrapper">
+          <iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1">
+          </iframe>
 
+
+
+          <canvas id="Chartnuevo" width="600" height="400"></canvas>
+
+          <script>
+
+
+            new Chart(document.getElementById("Chartnuevo").getContext("2d"), getChartJs());
+function getChartJs(type) {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [
+    @for($i = count($months) -1; $i >= 0; $i--)
+        @if($i!=0)
+        "@lang('adminDashboard.month'.$months[$i])",
+        @else
+        "@lang('adminDashboard.month'.$months[$i])"
+        @endif
+      @endfor
+                        ],
+                  datasets: [{
+                      label: "Registros",
+                      data: [
+
+                     @for ($i = count($registros)-1; $i >= 0; $i--)
+                           @if($i!=0)
+                            {{$registros[$i]}},
+                           @else
+                                  {{$registros[$i]}}
+                           @endif
+                       @endfor
+                        ],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "My Second dataset",
+                          data: [28, 48, 40, 19, 86, 27, 90, 12, 52, 32, 42, 23],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+return config;
+}
+
+//          var barChart = new Chart(densityCanvas, {
+//            type: 'bar',
+//            data: planetData,
+//            options: chartOptions
+//          });
+
+
+  </script>
+
+        </div>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
   <!-- bar chart canvas element -->
 
   <div class="col-lg-6">
