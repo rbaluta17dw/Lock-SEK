@@ -129,6 +129,17 @@ class LoginController extends Controller
             Auth::user()->markEmailAsVerified();
             event(new Verified(Auth::user()));
         }
-        return redirectTo();
+        $role = Auth::user()->roleId;
+        switch ($role) {
+          case '3':
+                  return '/admin/dashboard';
+              break;
+          case '2':
+                  return '/admin/dashboard';
+              break;
+          default:
+                  return '/home';
+              break;
+      }
     }
 }
