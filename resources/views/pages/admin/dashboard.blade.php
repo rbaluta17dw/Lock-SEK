@@ -119,7 +119,7 @@
   <div class="col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Line Chart Example
+        Usuarios Basicos/Premium
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -140,7 +140,7 @@
   <div class="col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Registros Basicos/Admin
+        No funciona
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -289,7 +289,7 @@ return config;
   <div class="col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Login/Registros
+        Notificaciones
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -379,82 +379,6 @@ return config;
           }
 
         });
-        setInterval(function()
-        {
-          $.ajax({
-            type: "get",
-            url: "/graficos",
-            success:function(data)
-            {
-              var usuario = 0;
-              var llave = 0;
-              var cerradura = 0;
-              var permisos = 0;
-              var admin = 0;
-              var accesos = 0;
-              for (var i = 0; i < data.length; i++) {
-                switch (data[i].marker) {
-                  case 1:
-                  usuario++;
-                  break;
-                  case 2:
-                  llave++;
-                  break;
-                  case 3:
-                  cerradura++;
-                  break;
-                  case 4:
-                  permisos++;
-                  break;
-                  case 5:
-                  admin++;
-                  break;
-                  case 6:
-                  accesos++;
-                  break;
-                  default:
-
-                }
-              }
-
-              var densityData = {
-                label: 'Cambios',
-                data: [usuario, llave, cerradura, permisos, admin, accesos],
-                backgroundColor: ['rgba(0, 99, 132, 0.6)',
-                'rgba(0, 29, 52, 0.6)',
-                'rgba(0, 69, 12, 0.6)',
-                'rgba(40, 11, 255, 0.6)',
-                'rgba(130, 99, 132, 0.6)',
-                'rgba(255, 99, 132, 0.6)'
-              ],
-              borderWidth: 0,
-            };
-
-            var planetData = {
-              labels: ['Cambios usuario', 'Cambios llave', 'Cambios cerradura', 'Cambios permisos', 'Cambios admin', 'Accesos'],
-              datasets: [densityData]
-            };
-
-            var chartOptions = {
-              scales: {
-                xAxes: [{
-                  barPercentage: 1,
-                  categoryPercentage: 0.6
-                }],
-                yAxes: [{
-                  id: "y-axis-density"
-                }, ]
-              }
-            };
-
-            var barChart = new Chart(densityCanvas, {
-              type: 'pie',
-              data: planetData,
-              options: chartOptions
-            });
-          }
-        });
-      }, 60000);
 
 
 
