@@ -1,9 +1,12 @@
 @extends('layouts.userDashboard')
-@section('css')
-@stop
 @section('title', 'LockSEK')
 @section('css')
+  <link rel="stylesheet" href="{{asset('assets/user/plugins/dropzone/dropzone.css')}}" />
   <link rel="stylesheet" href="{{asset('assets/user/css/customcss.css')}}" />
+@stop
+@section('scriptsTop')
+<script src="{{asset('assets/user/plugins/dropzone/dropzone.js')}}"></script>
+
 @stop
 @section('content')
 <div class="col-xs-12 col-sm-3">
@@ -12,15 +15,23 @@
         <div class="profile-body">
             <div class="image-area imgprf">
                 @if (isset(Auth::user()->imgname))
-                <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" alt="AdminBSB - Profile Image" />
+                <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" width="120" height="120" alt="AdminBSB - Profile Image" />
                 @else
-                  <img src="{{asset('assets/images/user.png')}}" width="100" height="100" alt="AdminBSB - Profile Image" />
+                  <img src="{{asset('assets/images/user.png')}}" width="120" height="120" alt="AdminBSB - Profile Image" />
                 @endif
             </div>
             <div class="content-area">
                 <h3>{{Auth::user()->name}}</h3>
                 <p>{{Auth::user()->email}}</p>
-                <p>Tipo de Usuario</p>
+                @if (Auth::user()->roleId == 3)
+                <span class="label label-info">@lang('adminUsers.superAdmin')</span>
+                @elseif (Auth::user()->roleId == 2)
+                <span class="label label-info">@lang('adminUsers.admin')</span>
+                @elseif (Auth::user()->roleId == 1)
+                <span class="label label-success">@lang('adminUsers.premiun')</span>
+                @else
+                <span class="label label-primary">@lang('adminUsers.basic')</span>
+                @endif
             </div>
         </div>
         <div class="profile-footer">
@@ -42,54 +53,6 @@
         </div>
     </div>
 
-    <div class="card card-about-me">
-        <div class="header">
-            <h2>ABOUT ME</h2>
-        </div>
-        <div class="body">
-            <ul>
-                <li>
-                    <div class="title">
-                        <i class="material-icons">library_books</i>
-                        Education
-                    </div>
-                    <div class="content">
-                        B.S. in Computer Science from the University of Tennessee at Knoxville
-                    </div>
-                </li>
-                <li>
-                    <div class="title">
-                        <i class="material-icons">location_on</i>
-                        Location
-                    </div>
-                    <div class="content">
-                        Malibu, California
-                    </div>
-                </li>
-                <li>
-                    <div class="title">
-                        <i class="material-icons">edit</i>
-                        Skills
-                    </div>
-                    <div class="content">
-                        <span class="label bg-red">UI Design</span>
-                        <span class="label bg-teal">JavaScript</span>
-                        <span class="label bg-blue">PHP</span>
-                        <span class="label bg-amber">Node.js</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="title">
-                        <i class="material-icons">notes</i>
-                        Description
-                    </div>
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
 </div>
 <div class="col-xs-12 col-sm-9">
     <div class="card">
@@ -172,6 +135,23 @@
                             </div>
                             <!-- /Modal -->
                         </form>
+
+
+                                        <form action="{{ route('profile.editImg') }}" id="FileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                                          @csrf
+                                            <div class="dz-message">
+                                                <div class="drag-icon-cph">
+                                                    <i class="material-icons">touch_app</i>
+                                                </div>
+                                                <h3>Drop files here or click to upload.</h3>
+
+                                            </div>
+                                            <div class="fallback">
+                                                <input name="img"  id="img" type="file"  />
+                                            </div>
+                                          <button type="submit" class="btn btn-danger">Cambiar</button>
+                                        </form>
+
                     </div>
 
                     <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">

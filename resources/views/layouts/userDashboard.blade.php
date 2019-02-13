@@ -183,7 +183,7 @@
             <a href="{{ route( 'user.premium' )}}">
               @if (Auth::user()->roleId == 0)
                 <button class="btn btn-primary btn-lg btn-block waves-effect" type="button">CAMBIAR A PREMIUM </button>
-              @else
+              @elseif (Auth::user()->roleId == 1)
                 <button class="btn btn-danger btn-lg btn-block waves-effect" type="button">DEJAR DE SER PREMIUM </button>
               @endif
             </a>
