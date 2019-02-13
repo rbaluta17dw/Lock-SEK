@@ -1,11 +1,10 @@
 @extends('layouts.dashboard')
 @section('title', 'LockSEK')
 @section('content')
-
 <hr>
 <div class="container bootstrap snippet">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-7">
       @if (isset($user->name))
       <h1>{{$user->name}}</h1>
       @else
@@ -18,7 +17,9 @@
       <h3><span class="label label-warning">@lang('adminUser.notVerified')</span></h3>
       @endif
     </div>
-    <div class="col-sm-2">
+  </div>
+    <div class="row">
+    <div class="col-sm-5">
       @if (isset($user->imgname))
       <a href="/users"><img title="profile image" class="img-circle img-responsive" src="{{Storage::url('avatars/'.$user->imgname)}}"></a>
       @else
@@ -33,8 +34,9 @@
       </form>
     </div>
   </div>
+  
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-7">
       <!--left col-->
 
       <ul class="list-group">
@@ -65,7 +67,7 @@
 
     </div>
     <!--/col-3-->
-    <div class="col-sm-9">
+    <div class="col-sm-7">
 
       <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#locks" data-toggle="tab">@lang('adminUser.locks')</a></li>
