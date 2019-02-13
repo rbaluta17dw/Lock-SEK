@@ -129,6 +129,6 @@ class LoginController extends Controller
             Auth::user()->markEmailAsVerified();
             event(new Verified(Auth::user()));
         }
-        return redirect()->to('/home');
+        return redirectTo();
     }
 }
