@@ -132,13 +132,13 @@ class LoginController extends Controller
         $role = Auth::user()->roleId;
         switch ($role) {
           case '3':
-                  return '/admin/dashboard';
+                  return redirect()->action('AdminController@index');
               break;
           case '2':
-                  return '/admin/dashboard';
+                  return redirect()->action('AdminController@index');
               break;
           default:
-                  return '/home';
+                  return redirect()->action('DashboardController@index');
               break;
       }
     }
