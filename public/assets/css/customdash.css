@@ -131,3 +131,7 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
+.scroll{
+  height:56vh !important; 
+  overflow-y: scroll;
+}

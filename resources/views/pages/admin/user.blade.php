@@ -47,7 +47,7 @@
           <span class="pull-left">
             <strong>@lang('adminUser.typeAccount')</strong>
           </span>
-          @elseif ($user->roleId == 3)
+          @if ($user->roleId == 3)
           <span class="label label-info">@lang('adminUser.superAdmin')</span>
           @elseif ($user->roleId == 2)
           <span class="label label-info">@lang('adminUser.admin')</span>

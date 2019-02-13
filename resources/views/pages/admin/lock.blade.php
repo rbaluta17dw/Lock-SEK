@@ -142,13 +142,28 @@
           <i class="fa fa-bell fa-fw"></i> Notifications Panel
         </div>
         <!-- /.panel-heading -->
-        <div class="panel-body">
+        <div class="panel-body scroll">
           <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-success">
-              <i class="fa fa-unlock fa-fw"></i> <span class="negrita">Asier</span> apertura de cerradura
-              <span class="pull-right text-muted small"><em>4 minutes ago</em>
-              </span>
-            </a>
+              @if (isset($notifications))
+              @foreach ($notifications as $notification)
+                <div class="panel panel-default panel-primary">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$notification->id}}">
+                        <i class="fa fa-unlock fa-fw"></i>{{$notification->title}}</a>
+                      </h4>
+                    </div>
+                    <div id="collapse{{$notification->id}}" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        {{$notification->message}}
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              @else
+                <h2>No hay notificaciones</h2>
+              @endif
+
 
           </div>
           <!-- /.list-group -->
