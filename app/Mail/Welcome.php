@@ -31,6 +31,6 @@ class Welcome extends Mailable
     public function build()
     {
       $user = Auth::user();
-        return $this->view('emails.welcome')->with(['user',$user,]);
+        return $this->subject('Welcome to LockSEK')->view('emails.welcome')->with(['user',$user,]);
     }
 }

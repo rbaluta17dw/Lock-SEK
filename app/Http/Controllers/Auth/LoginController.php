@@ -9,6 +9,7 @@ use Auth;
 use Socialite;
 use App\User;
 use Storage;
+use Illuminate\Auth\Events\Verified;
 
 class LoginController extends Controller
 {
@@ -123,8 +124,10 @@ class LoginController extends Controller
 
 
             $newUser->save();
-            event(new Verified($newUser));
+
             auth()->login($newUser, true);
+            Auth::user()->markEmailAsVerified();
+            event(new Verified(Auth::user()));
         }
         return redirect()->to('/home');
     }
