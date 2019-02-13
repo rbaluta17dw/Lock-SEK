@@ -345,12 +345,12 @@ return config;
               var densityData = {
                 label: 'Cambios',
                 data: [usuario, llave, cerradura, permisos, admin, accesos],
-                backgroundColor: ['rgba(0, 99, 132, 0.6)',
-                'rgba(0, 29, 52, 0.6)',
-                'rgba(0, 69, 12, 0.6)',
-                'rgba(40, 11, 255, 0.6)',
-                'rgba(130, 99, 132, 0.6)',
-                'rgba(255, 99, 132, 0.6)'
+                backgroundColor: ['rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)'
               ],
               borderWidth: 0,
             };
@@ -375,7 +375,6 @@ return config;
             var barChart = new Chart(densityCanvas, {
               type: 'pie',
               data: planetData,
-              options: chartOptions
             });
           }
 

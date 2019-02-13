@@ -16,21 +16,7 @@
 
 
   <title>LiveStats</title>
-  <!-- Matomo -->
-  <script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.locksek.com/piwik/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-  </script>
-  <!-- End Matomo Code -->
+
 </head>
 <body>
   <div id="wrapper">
@@ -43,7 +29,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-              <h1 class="page-header">
+              
                 <a class="btn btn-primary" href="{{route('admin.index')}}" role="button">Dashboard</a>
 
               </div>
@@ -120,12 +106,12 @@
             var densityData = {
               label: 'Cambios',
               data: [usuario, llave, cerradura, permisos, admin, accesos],
-              backgroundColor: ['rgba(0, 99, 132, 0.6)',
-              'rgba(0, 29, 52, 0.6)',
-              'rgba(0, 69, 12, 0.6)',
-              'rgba(40, 11, 255, 0.6)',
-              'rgba(130, 99, 132, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
+              backgroundColor: ['rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)'
             ],
             borderWidth: 0,
           };
@@ -140,17 +126,14 @@
               xAxes: [{
                 barPercentage: 1,
                 categoryPercentage: 0.6
-              }],
-              yAxes: [{
-                id: "y-axis-density"
-              }, ]
+              }]
+
             }
           };
 
           var barChart = new Chart(densityCanvas, {
             type: 'pie',
             data: planetData,
-            options: chartOptions
           });
         }
 
@@ -230,7 +213,7 @@
           });
         }
       });
-    }, 60000);
+    }, 10000);
 
 
 
