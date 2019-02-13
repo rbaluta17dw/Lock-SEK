@@ -43,7 +43,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>LockSEK Team
+@lang('Saludos'),<br>LockSEK Team
 @endif
 
 {{-- Subcopy --}}
