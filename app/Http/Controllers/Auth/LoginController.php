@@ -119,10 +119,11 @@ class LoginController extends Controller
             $name = $user->name . time() . '.' . 'jpg';
             Storage::put('public/avatars/'.$name, $contents);
             $newUser->imgname = $name;
-            $newUser->email_verified_at = now();
+          //  $newUser->email_verified_at = now();
 
 
             $newUser->save();
+            event(new Verified($newUser));
             auth()->login($newUser, true);
         }
         return redirect()->to('/home');
