@@ -28,7 +28,7 @@
               <h1>Inicia sesion con tu cuenta</h1><br>
               <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <input type="text" name="email" placeholder="Email" id="myEmail">
+                <input type="text" name="email" placeholder="Email" id="myEmail" value="{{ old('email') }}">
                 <input type="password" name="password" placeholder="Contraseña">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
