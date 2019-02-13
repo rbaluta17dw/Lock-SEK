@@ -30,7 +30,7 @@
           @csrf
           <label for="keyName">Nombre de la llave</label>
           <p> <input type="text" name="keyName" placeholder="Nombre de la llave" class="{{ $errors->has('keyName') ? 'alert-danger':''}}" value="{{old('keyName')}}"/></p>
-          <select class="form-control show-tick" name="lock">
+          <select required class="form-control show-tick" name="lock">
             @foreach(Auth::user()->locks as $lock)
               <option value="{{$lock->id}}">{{$lock->name}}</option>
             @endforeach

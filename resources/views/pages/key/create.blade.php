@@ -11,7 +11,7 @@
           @csrf
           <label for="date">Nombre de la llave</label>
           <p> <input type="text" name="keyName" placeholder="Nombre de la llave" class="{{ $errors->has('keyName') ? 'alert-danger':''}}" value="{{old('keyName')}}"/></p>
-        
+
           <select name="lock">
             @foreach(Auth::user()->privileges as $privilege)
               <option value="{{$privilege->id}}">{{$privilege->name}}</option>
@@ -19,7 +19,7 @@
             @foreach(Auth::user()->locks as $lock)
               <option value="{{$lock->id}}">{{$lock->name}}</option>
             @endforeach
-          </select> 
+          </select>
           <button type="submit" class="btn btn-default btn-primary">Añadir</button>
         </form>
         <br>
