@@ -29,8 +29,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-              
-                <a class="btn btn-primary" href="{{route('admin.index')}}" role="button">Dashboard</a>
+
 
               </div>
               <!-- /.col-lg-12 -->
@@ -41,11 +40,11 @@
 
           <!--Aqui va el contenido jibiri jibiri-->
 <div class="col-lg-6">
-<div id="widgetIframe"><iframe width="100%" height="350" src="http://matomo.locksek.com/piwik/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=Live&actionToWidgetize=getSimpleLastVisitCount&idSite=1&period=day&date=yesterday&disableLink=1&widget=1&token_auth=b3a9c5115a548614c5414cb6c7e07f7e
+<div id="widgetIframe"><iframe width="100%" height="350" src="https://matomo.locksek.com/piwik/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=Live&actionToWidgetize=getSimpleLastVisitCount&idSite=1&period=day&date=yesterday&disableLink=1&widget=1&token_auth=b3a9c5115a548614c5414cb6c7e07f7e
 " scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
 </div>
 <div class="col-lg-6">
-<div id="widgetIframe"><iframe width="100%" height="350" src="http://matomo.locksek.com/piwik/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=UserCountryMap&actionToWidgetize=realtimeMap&idSite=1&period=day&date=yesterday&disableLink=1&widget=1&token_auth=b3a9c5115a548614c5414cb6c7e07f7e" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
+<div id="widgetIframe"><iframe width="100%" height="350" src="https://matomo.locksek.com/piwik/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=UserCountryMap&actionToWidgetize=realtimeMap&idSite=1&period=day&date=yesterday&disableLink=1&widget=1&token_auth=b3a9c5115a548614c5414cb6c7e07f7e" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
 </div>
 <div class="col-lg-6">
   <div class="panel panel-default">
@@ -231,7 +230,17 @@
       </div>
       <!-- /#wrapper -->
 
+      <script>
+      window.onload = function() {
+         window.focus();
+      };
 
+      document.body.addEventListener("keydown", function (event) {
+      if (event.keyCode === 32) {
+        window.location.replace("{{route('liveStats')}}");
+      }
+      });
+      </script>
   <script src=" {{asset('assets/js/chart.js')}} "></script>
 
     </body>

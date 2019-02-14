@@ -49,6 +49,9 @@ Route::get('lang/{lang}', function($lang) {
 })->middleware('web')->name('change_lang');
 
 Route::get('/liveStats', ['as'=>'liveStats','uses'=>'StatsController@index'])->middleware('admin');
+Route::get('/liveStats/general', ['as'=>'liveStats.general','uses'=>'StatsController@general'])->middleware('admin');
+Route::get('/liveStats/map', ['as'=>'liveStats.map','uses'=>'StatsController@map'])->middleware('admin');
+
 
 //admin
 Route::get('/admin/dashboard', ['as'=>'admin.index','uses'=>'AdminController@index'])->middleware('admin');

@@ -17,8 +17,15 @@ class StatsController extends Controller
 
   public function index()
   {
-    $userLastDay = User::where('created_at', '>=', Carbon::now()->subDay())->count();
-    return view('pages/stats/liveStats',['userLastDay'=>$userLastDay]);
+    return view('pages/stats/index');
+  }
+  public function general()
+  {
+    return view('pages/stats/general');
+  }
+  public function map()
+  {
+    return view('pages/stats/map');
   }
 
 
