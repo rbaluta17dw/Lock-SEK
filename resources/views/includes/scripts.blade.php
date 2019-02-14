@@ -9,7 +9,7 @@
 <script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
 
 <script src="{{asset('assets/js/main.js')}}"></script>
-<!--<script src="{{asset('assets/js/email.js')}}"></script>-->
+<script src="{{asset('assets/js/email.js')}}"></script>
 <script src="{{asset('assets/js/parallax/parallax.min.js')}}"></script>
 
 <script src="{{asset('assets/js/validation.js')}}"></script>
