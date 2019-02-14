@@ -153,6 +153,9 @@ class UserController extends Controller
   public function editImg(Request $request)
   {
     $image = $request->file('img');
+    if ($image == null) {
+      return back();
+    }
     $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
     $request->file('img')->storeAs('public/avatars', $input['imagename']);
 
@@ -163,7 +166,7 @@ class UserController extends Controller
     $user->imgname = $input['imagename'];
     $user->save();
     Auth::login($user);
-    return view('pages/user/profile');
+    return back();
   }
 
   public function premium(){

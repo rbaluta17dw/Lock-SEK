@@ -39,7 +39,7 @@
       <div class="col-sm-9">
         <div class="tab-content">
           <hr>
-          <form class="form" action="{{ route('profile.edit') }}" method="post" id="registrationForm">
+          <form class="form" action="{{ route('admin.edit') }}" method="post" id="registrationForm">
             @csrf
             <div class="form-group">
 

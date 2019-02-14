@@ -59,23 +59,23 @@ class AdminController extends Controller
 */
 
 
-    for ($i=0; $i <= 11 ; $i++) {
-      $registros[$i] = User::whereMonth('created_at', Carbon::now()->subMonths($i))->count();
-    }
-    for ($i=0; $i <= 11 ; $i++) {
-      $months[$i] = Carbon::parse(Carbon::now()->subMonths($i))->month ;
-    }
+for ($i=0; $i <= 11 ; $i++) {
+  $registros[$i] = User::whereMonth('created_at', Carbon::now()->subMonths($i))->count();
+}
+for ($i=0; $i <= 11 ; $i++) {
+  $months[$i] = Carbon::parse(Carbon::now()->subMonths($i))->month ;
+}
 
 
 return view('pages/admin/dashboard',['users'=>$users,'locks'=>$locks,'keys'=>$keys, 'messages'=>$messages,'statBasic' => $statBasic,'statPremium' => $statPremium,'monthsPremium' => $monthsPremium,'monthsBasic' => $monthsBasic,'registros' => $registros,'months' => $months]);
 }
 public function profile(){
   return view('pages/user/profile');
-  }
-  public function settings(){
+}
+public function settings(){
 
-    return view('pages/admin/settings');
-    }
+  return view('pages/admin/settings');
+}
 public function users()
 {
   $users = User::all();
@@ -375,6 +375,45 @@ public function lockDeletePrivilege($lock, $user)
   $lock->privileges()->detach($user);
 
   return redirect()->action('AdminController@lock',['id'=>$lock->id]);
+}
+public function profileEdit(Request $request){
+  $validated = $request->validated();
+
+
+  $name = $request->input('name');
+  $email = $request->input('email');
+  $passwordnew = $request->input('password2');
+
+
+  $user = User::find(Auth::user()->id);
+  $oldPassword=$user->password;
+
+
+  if (Hash::check($request->password, $oldPassword)) {
+    if ($name != '') {
+      $user->name = $name;
+    }
+    if ($email != '') {
+      $user->email = $email;
+    }
+
+    if ($passwordnew != '') {
+      $user->password = Hash::make($passwordnew);
+    }
+
+    $user->save();
+
+    Auth::login($user);
+
+    $request->session()->flash('success', 'Cambios guardados con exito');
+    // return view('pages/user/profile');
+    return back();
+  }
+
+  $request->session()->flash('failure', 'Contraseña erronea, los cambios no se han guardado');
+  //return view('pages/user/profile');
+  return back();
+
 }
 public function lock($id)
 {

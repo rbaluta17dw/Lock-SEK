@@ -41,6 +41,7 @@ class ResetPassword extends Notification
   {
 
     return (new MailMessage)
+    ->greeting('Bienvenido a LockSEK')
     ->line('Este mensaje es para reiniciar la contraseña.')
     ->action('Reiniciar contraseña', url(config('app.url').route('password.reset', $this->token, false)))
     ->line('Si no ha pedido un reinicio de contraseña por favor ignore este mensaje!');
