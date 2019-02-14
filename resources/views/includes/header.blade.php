@@ -19,7 +19,11 @@
         <li class="nav-item cta-btn ml-xl-1 ml-lg-1 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="/redirect"><img class="logo-white" src="{{asset('assets/img/btn_google_normal.png')}}" alt=""> </a></li>
         @endguest
         @auth
+        @if (Auth::user()->roleId==2 || Auth::user()->roleId==3)
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">{{Auth::user()->email}}</a></li>
+        @else
         <li class="nav-item"><a class="nav-link" href="profile">{{Auth::user()->email}}</a></li>
+        @endif
         @endauth
 
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
