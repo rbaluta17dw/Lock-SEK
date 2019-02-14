@@ -126,6 +126,10 @@ body.oscuro{
 }
 .cutText{
   word-wrap: break-word;
+ 
+}
+li{
+  word-break: break-all;
 }
 html, body {
   max-width: 100%;

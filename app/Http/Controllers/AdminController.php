@@ -382,7 +382,7 @@ public function lock($id)
 {
 
   $lock = Lock::find($id);
-  $notifications  = Notification::where(['lock_id' => $lock->id, 'notificable' => 1])->get();
+  $notifications  = Notification::where(['lock_id' => $lock->id, 'notificable' => 1])->orderBy('id', 'desc')->get();
   return view('pages/admin/lock',['lock'=>$lock, 'notifications' => $notifications]);
 
 }
