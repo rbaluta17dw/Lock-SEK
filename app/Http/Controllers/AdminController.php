@@ -13,6 +13,7 @@ use Hash;
 use DB;
 use Carbon\Carbon;
 use Storage;
+use App\Http\Requests\EditLockRequest;
 
 
 
@@ -326,7 +327,8 @@ public function lockDelete($id){
   $lock->delete();
   return view('pages/admin/dashboard');
 }
-public function lockUpdate(Request $request, $id){
+public function lockUpdate(EditLockRequest $request, $id){
+  $validated = $request->validated();
   $lock=Lock::find($id);
   $user = User::find($lock->user->id);
   $lock->name = $request->input('newLockName');
@@ -417,8 +419,11 @@ public function profileEdit(Request $request){
 }
 public function lock($id)
 {
+
   $lock = Lock::find($id);
-  return view('pages/admin/lock',['lock'=>$lock]);
+  $notifications  = Notification::where(['lock_id' => $lock->id, 'notificable' => 1])->orderBy('id', 'desc')->get();
+  return view('pages/admin/lock',['lock'=>$lock, 'notifications' => $notifications]);
+
 }
 public function queryRegistros($roleId)
 {

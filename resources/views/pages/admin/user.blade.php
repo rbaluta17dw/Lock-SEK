@@ -4,7 +4,7 @@
 <hr>
 <div class="container bootstrap snippet">
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col col-sm-7 col-md-9 col-lg-12 col-xl-12">
       @if (isset($user->name))
       <h1>{{$user->name}}</h1>
       @else
@@ -19,7 +19,7 @@
     </div>
   </div>
     <div class="row">
-    <div class="col-sm-5">
+    <div class="col col-sm-5 col-md-9 col-lg-12 col-xl-12">
       @if (isset($user->imgname))
       <a href="/users"><img title="profile image" class="img-circle img-responsive" src="{{Storage::url('avatars/'.$user->imgname)}}"></a>
       @else
@@ -36,7 +36,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col col-sm-7 col-md-9 col-lg-12 col-xl-12">
       <!--left col-->
 
       <ul class="list-group">
@@ -67,7 +67,7 @@
 
     </div>
     <!--/col-3-->
-    <div class="col-sm-7">
+    <div class="col col-sm-7 col-md-9 col-lg-12 col-xl-12">
 
       <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#locks" data-toggle="tab">@lang('adminUser.locks')</a></li>
@@ -165,7 +165,7 @@
           <ul class="list-group">
             <li class="list-group-item text-muted">@lang('adminUser.inbox')</li>
             @foreach ($user->notifications as $notification)
-            <li class="list-group-item text-right"><a href="#" class="pull-left">{{$notification->title}}</a> {{$notification->message}}</li>
+            <li class="list-group-item"><a href="#" class="cutText">{{$notification->title}}</a><p>{{$notification->message}}</p> </li>
             @endforeach
 
           </ul>
@@ -204,7 +204,7 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="col-xs-12">
+                    <div class="col col-sm-7 col-md-9 col-lg-12 col-xl-12">
                       <br>
                       <button class="btn btn-lg btn-success" formaction="/admin/user/edit/{{$user->id}}" type="submit"><i class="fa fa-check fa-1x"></i>@lang('adminUser.save')</button>
                       <button class="btn btn-lg" type="reset"><i class="fa fa-retweet fa-1x"></i>@lang('adminUser.reset')</button>

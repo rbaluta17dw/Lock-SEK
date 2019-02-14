@@ -126,8 +126,16 @@ body.oscuro{
 }
 .cutText{
   word-wrap: break-word;
+ 
+}
+li{
+  word-break: break-all;
 }
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+}
+.scroll{
+  height:56vh !important; 
+  overflow-y: scroll;
 }

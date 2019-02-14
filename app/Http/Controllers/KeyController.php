@@ -43,12 +43,12 @@ class KeyController extends Controller
   */
   public function store(CreateKeyRequest $request)
   {
+    $validated = $request->validated();
     $user = User::find(Auth::user()->id);
     $keys = Key::where(['lock_id' => $request->input('lock'), 'user_id' => $user->id])->count();
     if ($user->roleId == 0 && $keys >= 2) {
 
     }else {
-      $validated = $request->validated();
       $key = new Key;
       $key->name = $request->input('keyName');
       $key->user_id = $user->id;

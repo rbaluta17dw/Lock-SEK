@@ -28,7 +28,8 @@ class CreateKeyRequest extends FormRequest
             'string',
             'max:45',
             'min:4', 
-            ]
+        ],
+            'lock'=>['required'],
         ];
     }
 
@@ -37,7 +38,8 @@ class CreateKeyRequest extends FormRequest
         return [
             'keyName.required' => 'El nuevo nombre no puede estar vacio',
             'keyName.min' => 'El nombre debe de tener minimo 4 caracteres',
-            'keyName.max' => 'El nombre no puede ser tan largo'
+            'keyName.max' => 'El nombre no puede ser tan largo',
+            'lock.required'=>'Selecciona una cerradura',
         ];
     }
 }
