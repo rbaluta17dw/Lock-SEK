@@ -88,14 +88,14 @@ class LockController extends Controller
     if (Lock::where('id',$id)->exists()) {
       $lock= Lock::find($id);
       if (Auth::user()->id == $lock->user_id) {
-        $notifications  = Notification::where(['lock_id' => $lock->id, 'notificable' => 1])->get();
+        $notifications  = Notification::where(['lock_id' => $lock->id, 'notificable' => 1])->orderBy('id', 'desc')->get();
         return view('pages/lock/userLock',['lock'=>$lock, 'notifications' => $notifications]);
       }else{
         foreach (Auth::user()->privileges as $privilege) {
           if ($privilege->id == $lock->id) {
             $privileged = $privilege->pivot->privilege;
             if ($privileged == 1) {
-              $notifications  = Notification::where(['lock_id' => $privilege->id, 'notificable' => 1])->get();
+              $notifications  = Notification::where(['lock_id' => $privilege->id, 'notificable' => 1])->orderBy('id', 'desc')->get();
               return view('pages/lock/userLock',['lock'=>$lock, 'privileged' => $privileged, 'notifications' => $notifications]);
             }
             return view('pages/lock/userLock',['lock'=>$lock, 'privileged' => $privileged]);
@@ -178,6 +178,9 @@ class LockController extends Controller
       $notification->user_id = Auth::user()->id;
       $notification->lock_id = $lock->id;
       $notification->save();
+      foreach ($lock->privileges as $privilege) {
+        $lock->privileges()->detach($privilege->id);
+      }
       $lock->delete();
       return redirect()->action('LockController@index');
     }else{
