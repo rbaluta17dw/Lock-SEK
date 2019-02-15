@@ -2,9 +2,17 @@
 <html>
 
 <head>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{{asset('assets/user/plugins/font-awesome/css/font-awesome.min.css')}}" />
+
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+  <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{asset('assets/user/plugins/bootstrap/css/bootstrap.min.css')}}" />
+
+  <!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
   <style>
   .clearfix:before,
 .clearfix:after {
