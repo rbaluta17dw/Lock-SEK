@@ -216,7 +216,7 @@
 
           for (var i = 0; i < result.length; i++) {
             if (result[i].title.length>10) {
-              result[i].title=result[i].title.substring(0,33)+"...";
+              result[i].title=result[i].title.substring(0,30)+"...";
             }
             switch (result[i].marker) {
               case 0:
