@@ -10,21 +10,21 @@ class FormController extends Controller
         
 	public function insert(ContactFormRequest $request){
                 
-        $validated = $request->validated();
-                        
-                        
-                        $data= new Form;
-                        
-                        $data->name = $request->input('name');
-                        $data->email = $request->input('email');
-                        $data->message = $request->input('message');
-                        
-                        
-                        
-                        $data->save();
-                        $request->session()->flash('messageOk', 'Mensaje enviado con exito');
-                        
-
+                $validated = $request->validated();
+                
+                
+                $data= new Form;
+                
+                $data->name = $request->input('name');
+                $data->email = $request->input('email');
+                $data->message = $request->input('message');
+                
+                
+                
+                $data->save();
+                $request->session()->flash('messageOk', 'Mensaje enviado con exito');
+                
+                
                 
                 //return view('pages/Landing');
                 
