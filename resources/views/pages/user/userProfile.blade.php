@@ -36,21 +36,16 @@
             </div>
         </div>
         <div class="profile-footer">
-            <ul>
-                <li>
-                    <span>Followers</span>
-                    <span>1.234</span>
-                </li>
-                <li>
-                    <span>Following</span>
-                    <span>1.201</span>
-                </li>
-                <li>
-                    <span>Friends</span>
-                    <span>14.252</span>
-                </li>
-            </ul>
-            <button class="btn btn-primary btn-lg waves-effect btn-block">FOLLOW</button>
+          <ul>
+           <li>
+             <span>Llaves</span>
+             <span>{{count(Auth::user()->keys)}}</span>
+           </li>
+           <li>
+             <span>Cerraduras</span>
+             <span>{{count(Auth::user()->locks)}}</span>
+           </li>
+         </ul>
         </div>
     </div>
 
