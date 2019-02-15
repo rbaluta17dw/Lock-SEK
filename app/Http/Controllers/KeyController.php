@@ -60,13 +60,13 @@ class KeyController extends Controller
       $notification->notificable = 1;
       $notification->user_id = Auth::user()->id;
       $notification->lock_id = $key->lock->id;
-      $notification->key_id = $key->id;
-      $notification->save();
       $hashed = Hash::make($key->user_id.$key->lock_id, [
         'rounds' => 12
       ]);
 
       $key->save();
+      $notification->key_id = $key->id;
+      $notification->save();
       $finalkey = $key->id."?".$hashed;
       //Storage::put("/storage/keys/prueba.key", $finalkey);
       Storage::put("/storage/keys/".time().".key", $finalkey);

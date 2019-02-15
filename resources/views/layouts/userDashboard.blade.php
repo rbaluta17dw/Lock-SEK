@@ -223,10 +223,10 @@
               $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-red"><i class="material-icons">delete_forever</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
               break;
               case 1:
-              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              $('#notifications').append('<li><a href="{{route('profile.index')}}"><div class="icon-circle bg-orange"><i class="material-icons">mode_edit</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
               break;
               case 2:
-              $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
+              $('#notifications').append('<li><a href="/keys/'+result[i].key_id+'/edit"><div class="icon-circle bg-blue-grey"><i class="material-icons">comment</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
               break;
               case 3:
               $('#notifications').append('<li><a href="javascript:void(0);"><div class="icon-circle bg-purple"><i class="material-icons">settings</i></div><div class="menu-info"><h4>'+result[i].title+'</h4></div></a></li>');
