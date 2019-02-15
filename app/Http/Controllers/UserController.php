@@ -163,7 +163,8 @@ class UserController extends Controller
     $user->imgname = $input['imagename'];
     $user->save();
     Auth::login($user);
-    return view('pages/user/profile');
+    return redirect('profile');
+    //return view('pages/user/profile');
   }
 
   public function premium(){
