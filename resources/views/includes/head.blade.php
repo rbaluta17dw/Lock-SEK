@@ -3,8 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="icon" href="{{asset('assets/img/favicon.png')}}">
-<meta name="description" content="Free Bootstrap 4 Template by uicookies.com">
-<meta name="keywords" content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
+<meta name="description" content="LockSEK es una plataforma para administrar llaves para cerraduras electronicas accionadas por dispositivos USB">
+<meta name="keywords" content="Locksek, LockSEK, usb lock, usb key, locksek usb">
 
 <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 

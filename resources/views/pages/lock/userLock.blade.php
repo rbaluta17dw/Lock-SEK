@@ -418,9 +418,9 @@
                   <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cambiar</button>
                 </form>
               </div>
-              <div class="col-xs-3">
+              <div class="col col-sm-10">
                 <div class="button-demo js-modal-buttons">
-                  <button type="button" data-color="red" class="btn btn-danger m-t-15 waves-effect">Eliminar Cerradura</button>
+                  <button type="button" data-color="red" class="btn btn-danger m-t-15 waves-effect">Eliminar</button>
                 </div>
               </div>
             </div>

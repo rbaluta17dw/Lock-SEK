@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 
 <head>
   @yield('css')
@@ -188,7 +188,7 @@
               @endif
             </a>
             <div class="copyright">
-              &copy; 2016 - 2017 <a href="javascript:void(0);">LockSEK</a>.
+              &copy; {{date('Y')}}  <a href="javascript:void(0);"> LockSEK</a>
             </div>
             <div class="version">
               <b>Version: </b> 1.0.5
@@ -216,7 +216,7 @@
 
           for (var i = 0; i < result.length; i++) {
             if (result[i].title.length>10) {
-              result[i].title=result[i].title.substring(0,33)+"...";
+              result[i].title=result[i].title.substring(0,30)+"...";
             }
             switch (result[i].marker) {
               case 0:

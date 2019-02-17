@@ -2,17 +2,9 @@
 <html>
 
 <head>
-
-<link rel="stylesheet" type="text/css" href="{{asset('assets/user/plugins/font-awesome/css/font-awesome.min.css')}}" />
-
-  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-
-  <script src="{{asset('assets/js/jquery.min.js')}}"></script>
-
-<link rel="stylesheet" type="text/css" href="{{asset('assets/user/plugins/bootstrap/css/bootstrap.min.css')}}" />
-
-  <!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <style>
   .clearfix:before,
 .clearfix:after {
@@ -123,7 +115,7 @@ body {
 }
 
   </style>
-  <title>@yield('404')</title>
+  <title>@yield('405')</title>
 </head>
 
 <body>
@@ -133,7 +125,7 @@ body {
           <div class="middle">
               <div class="inner">
                   <!--BEGIN CONTENT-->
-                  <div class="inner-circle"><i class="fa fa-home"></i><span>404</span></div>
+                  <div class="inner-circle"><i class="fa fa-home"></i><span>405</span></div>
                   <span class="inner-status">Oops! You're lost</span>
                   <span class="inner-detail" style="color:#fff;">
                       We can not find the page you're looking for.

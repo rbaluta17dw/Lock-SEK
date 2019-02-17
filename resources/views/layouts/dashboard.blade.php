@@ -97,7 +97,7 @@
                   <a href="{{route('admin.locks')}}"><i class="fa fa-lock fa-fw"></i> Locks</a>
                 </li>
                 <li>
-                  <a href="{{route('liveStats')}}"><i class="fa fa-bar-chart fa-fw"></i><i class="fa fa-line-chart fa-fw"></i><i class="fa fa-pie-chart fa-fw"></i><i class="fa fa-area-chart fa-fw"></i> LiveStats</a>
+                  <a href="{{route('liveStats')}}"><i class="fa fa-area-chart fa-fw"></i> LiveStats</a>
                 </li>
               </ul>
 

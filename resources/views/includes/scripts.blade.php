@@ -11,10 +11,8 @@
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('assets/js/email.js')}}"></script>
 <script src="{{asset('assets/js/parallax/parallax.min.js')}}"></script>
-<script src="{{asset('assets/js/parallax/parallax.min.js')}}"></script>
 
 <script src="{{asset('assets/js/validation.js')}}"></script>
-<script src="{{asset('assets/js/editKey.js')}}"></script>
 
 <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
