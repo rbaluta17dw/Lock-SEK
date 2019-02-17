@@ -144,6 +144,9 @@ class UserController extends Controller
     $notification->notificable = 1;
     $notification->user_id = Auth::user()->id;
     $notification->save();
+    foreach ($user->privileges as $privilege) {
+      $user->privileges()->detach($privilege->id);
+    }
     Auth::logout($user);
     $user->delete();
 

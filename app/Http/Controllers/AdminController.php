@@ -332,6 +332,7 @@ public function lockUpdate(EditLockRequest $request, $id){
   $lock=Lock::find($id);
   $user = User::find($lock->user->id);
   $lock->name = $request->input('newLockName');
+  $lock->save();
   $notification = new Notification;
   $notification->title = "El administrador ".Auth::user()->email." ha actualizado la cerradura ". $lock->name." para el usuario ".$user->email;
   $notification->message = "El administrador ".Auth::user()->email." ha actualizado la cerradura ". $lock->name." para el usuario ".$user->email." el ".date("Y-m-d H:i:s");
@@ -340,8 +341,6 @@ public function lockUpdate(EditLockRequest $request, $id){
   $notification->lock_id = $lock->id;
   $notification->user_id = $user->id;
   $notification->save();
-  $lock->save();
-
 
   return view('pages/admin/lock',['lock'=>$lock]);
 }

@@ -100,6 +100,8 @@ class KeyController extends Controller
     if (Key::where('id',$id)->exists()) {
       $key=Key::find($id);
       if (Auth::user()->id == $key->user_id){
+        $key->name = $request->input('newKeyName');
+        $key->save();
         $notification = new Notification;
         $notification->title = "Se ha actualizado la llave ".$key->name;
         $notification->message = "Has actualizado la llave ".$key->name." para la cerradura ".$key->lock->name." el ".date("Y-m-d H:i:s");
@@ -109,8 +111,6 @@ class KeyController extends Controller
         $notification->lock_id = $key->lock->id;
         $notification->key_id = $key->id;
         $notification->save();
-        $key->name = $request->input('newKeyName');
-        $key->save();
         //return view('pages/key/editKey',['key'=>$key]);
         return redirect()->action('KeyController@edit',['key'=>$key]);
       }else{
