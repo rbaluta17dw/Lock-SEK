@@ -11,7 +11,7 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="defaultModalLabel">Atencion!</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body cutText">
                 Esta usted a punto de eliminar la llave {{$key->name}}
             </div>
             <form class="form" action="{{route('keys.destroy',$key->id)}}" method="POST" >
@@ -46,7 +46,7 @@
                 <div class="col-sm-4">
                     <div class="tab-content">
                         <div class="form-group">
-                            <div class="col-xs-6">
+                            <div class="col-xs-6 cutText">
                                 <label for="keyName">Nombre de la llave:</label>
                                 <p>{{$key->name}}</p>
                             </div>
@@ -54,7 +54,7 @@
                                 <label for="keyName">Creada:</label>
                                 <p>{{$key->created_at}}</p>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-6 cutText">
                                 <form class="form" action="{{route('keys.update',$key->id)}}" method="post" >
                                     @csrf
                                     @method('put')
