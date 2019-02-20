@@ -414,7 +414,7 @@
               <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq2" aria-expanded="false" aria-controls="pb_faq2" class="pb_font-22 py-4">¿Esta disponible en mi pais?</a>
               <div id="pb_faq2" class="collapse" role="tabpanel">
                 <div class="py-3">
-                  <p>Actualmente nuestro producto esta displonible unicamente en España.</p>
+                  <p>Actualmente nuestro producto esta disponible unicamente en España.</p>
                 </div>
               </div>
             </div>

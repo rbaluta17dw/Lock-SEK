@@ -396,7 +396,7 @@
         <div class="col-sm-6">
           <div class="tab-content">
             <div class="form-group">
-              <div class="col-xs-6">
+              <div class="col-xs-6 cutText">
                 <label for="lockName">Nombre de la cerradura:</label>
                 <p>{{$lock->name}}</p>
               </div>
@@ -404,13 +404,13 @@
                 <label for="lockName">Creada:</label>
                 <p>{{$lock->created_at}}</p>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-6 ">
                 <form class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
                   @csrf
                   @method('put')
                   <label for="name">Nuevo nombre de la cerradura:</label>
                   <br>
-                  <div class="form-line">
+                  <div class="form-line cutText">
                     <input type="text" class="form-control" name="newLockName" placeholder="{{$lock->name}}" />
                   </div>
                   <br>
