@@ -38,4 +38,61 @@ $(document).ready(function () {
       }
     }
   });
+  $('#createKey').validate({
+    errorPlacement: function(label, element) {
+      element.addClass('error');
+      return true;
+    },
+    rules: {
+      keyName:{
+        required: true,
+        minlength: 4,
+        maxlength: 45
+      }
+    }
+  });
+  $('#editKey').validate({
+    errorPlacement: function(label, element) {
+      element.addClass('error');
+      return true;
+    },
+    rules: {
+      newKeyName:{
+        required: true,
+        minlength: 4,
+        maxlength: 45
+      }
+    }
+  });
+  $('#registerLock').validate({
+    errorPlacement: function(label, element) {
+      element.addClass('error');
+      return true;
+    },
+    rules: {
+      lockName:{
+        required: true,
+        minlength: 4,
+        maxlength: 45
+      },
+      lockSerial:{
+        required: true,
+        minlength: 15,
+        maxlength: 15
+      }
+    }
+  });
+  $('#newLockName').validate({
+    errorPlacement: function(label, element) {
+      element.addClass('error');
+      return true;
+    },
+    rules: {
+      newLockName:{
+        required: true,
+        minlength: 4,
+        maxlength: 45
+      }
+    }
+  });
 });

@@ -12,7 +12,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{route('locks.create')}}" method="post">
+      <form id="registerLock" action="{{route('locks.create')}}" method="post">
         @csrf
         <div class="modal-body">
           <div class="form-group row">
@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           <button type="submit" class="btn btn-primary" >Registrar</button>

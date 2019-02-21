@@ -2,6 +2,9 @@
 @section('css')
   <link href="{{asset('assets/user/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet">
 @stop
+@section('scriptsTop')
+  <script src="{{asset('assets/js/validation.js')}}"></script>
+@stop
 @section('title', 'LockSEK')
 @section('content')
   <div class="row">
@@ -26,7 +29,7 @@
       <div class="col-xs-2">
 
 
-        <form class="form" action="{{route('keys.store')}}" method="post">
+        <form id="createKey" class="form" action="{{route('keys.store')}}" method="post">
           @csrf
           <label for="keyName">Nombre de la llave</label>
           <p> <input type="text" name="keyName" placeholder="Nombre de la llave" class="{{ $errors->has('keyName') ? 'alert-danger':''}}" value="{{old('keyName')}}"/></p>

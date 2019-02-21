@@ -11,6 +11,7 @@
   <script src="{{asset('assets/js/esri-leaflet.js')}}"></script>
   <script src="{{asset('assets/js/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/map-search.js')}}"></script>
+  <script src="{{asset('assets/js/validation.js')}}"></script>
 @stop
 @section('content')
 
@@ -24,7 +25,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{route('locks.create')}}" method="post">
+        <form id="registerLock" action="{{route('locks.create')}}" method="post">
           @csrf
           <div class="modal-body">
             <div class="form-group row">

@@ -10,6 +10,7 @@
   <script src="{{asset('assets/js/leaflet/leaflet.js')}}"></script>
   <script src="{{asset('assets/js/esri-leaflet.js')}}"></script>
   <script src="{{asset('assets/js/map-search.js')}}"></script>
+  <script src="{{asset('assets/js/validation.js')}}"></script>
 @stop
 @section('title', 'LockSEK')
 @section('content')
@@ -405,7 +406,7 @@
                 <p>{{$lock->created_at}}</p>
               </div>
               <div class="col-xs-6 ">
-                <form class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
+                <form id="newLockName" class="form" action="{{route('locks.update',$lock->id)}}" method="post" >
                   @csrf
                   @method('put')
                   <label for="name">Nuevo nombre de la cerradura:</label>
@@ -461,7 +462,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="card">
       <div class="header">

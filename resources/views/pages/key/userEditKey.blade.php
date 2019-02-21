@@ -1,9 +1,9 @@
 @extends('layouts.userDashboard')
 @section('title', 'LockSEK')
+@section('scriptsTop')
+  <script src="{{asset('assets/js/validation.js')}}"></script>
+@stop
 @section('content')
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="mdModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -55,7 +55,7 @@
                                 <p>{{$key->created_at}}</p>
                             </div>
                             <div class="col-xs-6 cutText">
-                                <form class="form" action="{{route('keys.update',$key->id)}}" method="post" >
+                                <form id="editKey" class="form" action="{{route('keys.update',$key->id)}}" method="post" >
                                     @csrf
                                     @method('put')
                                     <label for="name">Nuevo nombre de la llave:</label>
