@@ -12,9 +12,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+
       <div class="modal-body">
-        
+
         @if ($errors->any())
         <script type="text/javascript">
           $(document).ready(function(){
@@ -48,9 +48,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+
       <div class="modal-body">
-        
+
         @if (Session::has('messageOk'))
         <script type="text/javascript">
           $(document).ready(function(){
@@ -71,7 +71,7 @@
 
 
 <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"  id="section-home">
-  
+
   <div class="container">
     <div class="row align-items-center justify-content-center">
       <div class="col-md-6">
@@ -84,9 +84,9 @@
       <div class="col-md-1">
       </div>
       @guest
-      
-      
-      
+
+
+
       <div class="col-md-5 relative align-self-center" >
         <form method="POST" action="{{ route('register') }}" id="register" class="bg-white rounded pb_form_v1 reg">
           @csrf
@@ -122,7 +122,7 @@
       <div class="col-lg-6 col-md- col-sm-6">
         <div class="media d-block pb_feature-v1 text-left">
           <div class="media-body">
-            <iframe id="video" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+            <iframe id="video" src="https://www.youtube.com/embed/WZmUwnicATo"></iframe>
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -157,29 +157,29 @@
         </div>
         <div class="row">
           <div class="col-lg">
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-checkmark-outline pb_icon-gradient"></i></div>
-              
+
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Accesos fiables</h3>
                 <p class="text-sans-serif pb_font-16">Gestionar el acceso de trabajadores domésticos</p>
               </div>
             </div>
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-happy-outline pb_icon-gradient"></i></div>
-              
+
               <div class="media-body">
-                
+
                 <h3 class="mt-2 mb-2 heading">Olvidate de perder las llaves</h3>
                 <p class="text-sans-serif pb_font-16">Perder las llaves deja de ser un problema, elimina tu llave perdida y genera una nueva.</p>
               </div>
             </div>
-            
+
           </div>
           <div class="col-lg">
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-key pb_icon-gradient"></i></div>
               <div class="media-body">
@@ -187,7 +187,7 @@
                 <p class="text-sans-serif pb_font-16">Lleva cuantas llaves quieras en un mismo dispositivo USB.</p>
               </div>
             </div>
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-home pb_icon-gradient"></i></div>
               <div class="media-body">
@@ -195,10 +195,10 @@
                 <p class="text-sans-serif pb_font-16">Crea y elimina llaves para tus inquilinos sin preocupaciones.</p>
               </div>
             </div>
-            
+
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -220,34 +220,34 @@
         </div>
         <div class="row">
           <div class="col-lg">
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-bookmarks-outline pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Administra permisos</h3>
                 <p class="text-sans-serif pb_font-16">Maneja los permisos de accesos de los empleados.</p>
-                
+
               </div>
             </div>
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Cerraduras y llaves ilimitadas</h3>
                 <p class="text-sans-serif pb_font-16">Amplia tu infraestructura gracias a la escalabilidad de este sistema.</p>
-                
+
               </div>
             </div>
-            
+
           </div>
           {{-- <div class="col-lg">
-            
+
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
               <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-clock-outline pb_icon-gradient"></i></div>
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Establece horarios</h3>
                 <p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
-                
+
               </div>
             </div>
             <div class="media pb_feature-v2 text-left mb-1 mt-5">
@@ -255,19 +255,19 @@
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Gestión sencilla</h3>
                 <p class="text-sans-serif pb_font-16">Controla y limita el acceso de los empleados a zonas y a sistemas.</p>
-                
+
               </div>
             </div>
-            
-            
-            
+
+
+
           </div> --}}
         </div>
-        
+
       </div>
     </div>
   </div>
-  
+
 </section>
 <!-- END section -->
 
@@ -310,10 +310,10 @@
         </div>
       </section>
     </div>
-    
+
   </section>
   <!-- END section -->
-  
+
   <section class="pb_section bg-light pb_slant-white" id="section-pricing">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -343,9 +343,9 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Modal Precios -->
-  
+
   <div class="modal fade bd-example-modal-lg" id="price-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -387,9 +387,9 @@
       </div>
     </div>
   </div>
-  
+
   <!-- ENDs section -->
-  
+
   <section class="pb_section pb_slant-white" id="section-faq">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -406,7 +406,7 @@
               <div id="pb_faq1" class="collapse show" role="tabpanel">
                 <div class="py-3">
                   <p>Sí, ya que el sistema de llaves funciona con claves cifradas, únicas, e independientes que permiten el acceso a la cerradura.</p>
-                  
+
                 </div>
               </div>
             </div>
@@ -434,7 +434,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="item">
               <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq5" aria-expanded="false" aria-controls="pb_faq5" class="pb_font-22 py-4">¿Que pasa si no me funciona la llave/cerradura?</a>
               <div id="pb_faq5" class="collapse" role="tabpanel">
@@ -450,16 +450,15 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
   @stop
   @section('loader')
   <!-- <div id="pb_loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#1d82ff"/></svg></div> -->
-  
+
   @stop
-  
