@@ -7,7 +7,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Atencion!</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Atención!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -43,7 +43,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Atencion!</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Atención!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -57,8 +57,8 @@
             $('#succesModal').modal('show');
           });
         </script>
-          <div class="alert alert-success">{!! Session::get('messageOk') !!}</div>
-          @endif
+        <div class="alert alert-success">{!! Session::get('messageOk') !!}</div>
+        @endif
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
@@ -77,7 +77,7 @@
       <div class="col-md-6">
         <h2 class="heading mb-3">LockSEK</h2>
         <div class="sub-heading">
-          <p class="mb-4">LockSEK es una plataforma para administrar llaves para cerraduras electronicas accionadas por dispositivos USB </p>
+          <p class="mb-4">LockSEK es una plataforma para administrar llaves para cerraduras electrónicas accionadas por dispositivos USB </p>
           <p class="mb-5"><a class="btn btn-success btn-lg pb_btn-pill smoothscroll" href="#section-contact"><span class="pb_font-14 text-uppercase pb_letter-spacing-1">Contacta con nosotros</span></a></p>
         </div>
       </div>
@@ -90,7 +90,7 @@
       <div class="col-md-5 relative align-self-center" >
         <form method="POST" action="{{ route('register') }}" id="register" class="bg-white rounded pb_form_v1 reg">
           @csrf
-          <h2 class="mb-4 mt-0 text-center">REGISTRATE</h2>
+          <h2 class="mb-4 mt-0 text-center">REGÍSTRATE</h2>
           <div class="form-group">
             <input type="email" name="email" class="form-control pb_height-50 reverse" placeholder="Email" value="{{ old('email') }}">
           </div>
@@ -152,7 +152,7 @@
         <div class="row">
           <div class="col">
             <h2>Para uso particular</h2>
-            <p class="pb_font-20">Administra tus cerraduras electronicas de una forma sencilla y eficaz</p>
+            <p class="pb_font-20">Administra tus cerraduras electrónicas de una forma sencilla y eficaz</p>
           </div>
         </div>
         <div class="row">
@@ -163,7 +163,7 @@
               
               <div class="media-body">
                 <h3 class="mt-2 mb-2 heading">Accesos fiables</h3>
-                <p class="text-sans-serif pb_font-16">Gestionar el acceso de trabajadores domesticos</p>
+                <p class="text-sans-serif pb_font-16">Gestionar el acceso de trabajadores domésticos</p>
               </div>
             </div>
             
@@ -215,7 +215,7 @@
         <div class="row">
           <div class="col">
             <h2>Para empresas</h2>
-            <p class="pb_font-20">Administra, crea y elimina tus llaves de forma sencilla y rapida</p>
+            <p class="pb_font-20">Administra, crea y elimina tus llaves de forma sencilla y rápida</p>
           </div>
         </div>
         <div class="row">
@@ -327,7 +327,7 @@
             <h3>Empezando desde</h3>
             <span class="price"><sup>€</sup>0<span></span></span>
             <p class="pb_font-15">Utiliza nuestra plataforma de forma gratuita</p>
-            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue" data-toggle="modal" data-target="#price-modal">Saber mas</a></p>
+            <p class="mb-0"><a href="#" role="button" class="btn btn-primary btn-shadow-blue" data-toggle="modal" data-target="#price-modal">Saber más</a></p>
           </div>
         </div>
         <!--
@@ -405,16 +405,16 @@
               <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq1" aria-expanded="true" aria-controls="pb_faq1" class="pb_font-22 py-4">¿Es seguro?</a>
               <div id="pb_faq1" class="collapse show" role="tabpanel">
                 <div class="py-3">
-                  <p>Sí, ya que el sistema de llaves funciona con claves cifradas, únicas, e independientes que permiten el acceso a la cerradura..</p>
-                  .</p>
+                  <p>Sí, ya que el sistema de llaves funciona con claves cifradas, únicas, e independientes que permiten el acceso a la cerradura.</p>
+                  
                 </div>
               </div>
             </div>
             <div class="item">
-              <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq2" aria-expanded="false" aria-controls="pb_faq2" class="pb_font-22 py-4">¿Esta disponible en mi pais?</a>
+              <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq2" aria-expanded="false" aria-controls="pb_faq2" class="pb_font-22 py-4">¿Está disponible en mi país?</a>
               <div id="pb_faq2" class="collapse" role="tabpanel">
                 <div class="py-3">
-                  <p>Actualmente nuestro producto esta disponible unicamente en España.</p>
+                  <p>Actualmente nuestro producto esta disponible únicamente en España.</p>
                 </div>
               </div>
             </div>
@@ -422,7 +422,7 @@
               <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq3" aria-expanded="false" aria-controls="pb_faq3" class="pb_font-22 py-4">¿Porque utilizar este sistema?</a>
               <div id="pb_faq3" class="collapse" role="tabpanel">
                 <div class="py-3">
-                  <p>Este sistema es un sistema seguro, practico, sencillo y economico, hoy en dia cualquier persona tiene acceso a un USB en el que podremos guardar tantas llaves como queramos, ademas nuestra página web ofrece una interfaz sencilla y  explicaciones claras  de su funcionamiento.</p>
+                  <p>Este sistema es un sistema seguro, práctico, sencillo y económico. Hoy en día cualquier persona tiene acceso a un USB, en el que podrá guardar tantas llaves como quiera, además nuestra página web ofrece una interfaz sencilla y  explicaciones claras  de su funcionamiento.</p>
                 </div>
               </div>
             </div>
@@ -430,7 +430,7 @@
               <a data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq4" aria-expanded="false" aria-controls="pb_faq4" class="pb_font-22 py-4">¿Es rentable?</a>
               <div id="pb_faq4" class="collapse" role="tabpanel">
                 <div class="py-3">
-                  <p> Sí, ya que este sistema te permite realizar copias de las llaves sin ningun coste adicional, ademas del bajo coste que supone adquirir un USB, lo mas caro es la cerradura y no tiene un coste demasiado elevado.</p>
+                  <p> Sí, ya que este sistema te permite realizar copias de las llaves sin ningún coste adicional, además del bajo coste que supone adquirir un USB.</p>
                 </div>
               </div>
             </div>
@@ -442,15 +442,9 @@
                   <p>
                     Si tiene cualquier problema puede contactar con nuestro servicio al cliente:
                     <p>
-                      Mediante correo electronico enviando un mensaje a:
+                      Mediante correo electrónico enviando un mensaje a:
                       <br>
                       <a>locksek@support.com</a>
-                      <br>
-                      O por telefono llamando a:
-                      <br>
-                      Tel: 987654321
-                      <br>
-                      Tel: 987654320 (24h Gratuito)
                     </p>
                   </p>
                 </div>
