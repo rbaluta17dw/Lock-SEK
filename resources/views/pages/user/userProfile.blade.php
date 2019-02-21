@@ -19,11 +19,18 @@
           @endforeach
         </ul>
       </div>
-
+ 
     @endif
+    @if (Session::has('success'))
+    <div class="alert alert-success">{!! Session::get('success') !!}</div>
+  @endif
+
+  @if (Session::has('failure'))
+    <div class="alert alert-danger">{!! Session::get('failure') !!}</div>
+  @endif
     <div class="card profile-card">
       <div class="profile-header">&nbsp;</div>
-      <div class="profile-body">
+      <div class="profile-body cutText">
         <div class="image-area imgprf">
           @if (isset(Auth::user()->imgname))
             <img src="{{Storage::url('avatars/'.Auth::user()->imgname)}}" width="120" height="120" alt="AdminBSB - Profile Image" />
@@ -66,8 +73,8 @@
       <div class="body">
         <div>
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile Settings</a></li>
-            <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">Change Password</a></li>
+            <li role="presentation" class="active"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Ajustes de perfil</a></li>
+            <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">Cambiar contraseña</a></li>
           </ul>
 
           <div class="tab-content">
@@ -144,9 +151,9 @@
                     <div class="form-line">
                       <div class="box">
                         <input type="file" name="img" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple />
-                        <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+                        <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Seleccionar archivo&hellip;</span></label>
                       </div>
-                      <button type="submit" class="btn btn-danger">Cambiar</button>
+                      <button type="submit" class="btn btn-danger">Actualziar imagen</button>
                     </div>
                   </div>
 
@@ -164,6 +171,7 @@
                   </div>
                 </div>
               </form>
+              <br>
 
             </div>
 
@@ -171,33 +179,33 @@
               <form method="post" action="{{ route('profile.editPassword') }}" class="form-horizontal">
                 @csrf
                 <div class="form-group">
-                  <label for="OldPassword" class="col-sm-3 control-label">Old Password</label>
+                  <label for="OldPassword" class="col-sm-3 control-label">Contraseña actual</label>
                   <div class="col-sm-9">
                     <div class="form-line">
-                      <input type="password" class="form-control" id="OldPassword" name="OldPassword" placeholder="Old Password" required>
+                      <input type="password" class="form-control" id="OldPassword" name="OldPassword" placeholder="Contraseña actual" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="NewPassword" class="col-sm-3 control-label">New Password</label>
+                  <label for="NewPassword" class="col-sm-3 control-label">Nueva contraseña</label>
                   <div class="col-sm-9">
                     <div class="form-line">
-                      <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="New Password" required>
+                      <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="Nueva contraseña" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="NewPasswordConfirm" class="col-sm-3 control-label">New Password (Confirm)</label>
+                  <label for="NewPasswordConfirm" class="col-sm-3 control-label">Nueva contraseña (Confirmar)</label>
                   <div class="col-sm-9">
                     <div class="form-line">
-                      <input type="password" class="form-control" id="NewPasswordConfirm" name="NewPasswordConfirm" placeholder="New Password (Confirm)" required>
+                      <input type="password" class="form-control" id="NewPasswordConfirm" name="NewPasswordConfirm" placeholder="Nueva contraseña (Confirmar)" required>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-danger">SUBMIT</button>
+                    <button type="submit" class="btn btn-danger">Guardar</button>
                   </div>
                 </div>
               </form>
@@ -208,13 +216,7 @@
     </div>
   </div>
 
-  @if (Session::has('success'))
-    <div class="alert alert-success">{!! Session::get('success') !!}</div>
-  @endif
 
-  @if (Session::has('failure'))
-    <div class="alert alert-danger">{!! Session::get('failure') !!}</div>
-  @endif
 @stop
 @section('scripts')
 
