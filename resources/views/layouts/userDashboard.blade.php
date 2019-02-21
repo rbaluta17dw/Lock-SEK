@@ -123,8 +123,6 @@
               <ul class="dropdown-menu pull-right">
                 <li><a href="/profile"><i class="material-icons">person</i>Profile</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="/settings"><i class="material-icons">settings</i>Settings</a></li>
-                <li role="separator" class="divider"></li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();"><i class="material-icons">input</i>Sign Out</a></li>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
