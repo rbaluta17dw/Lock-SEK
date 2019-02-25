@@ -17,8 +17,8 @@
           <ol class="font-18">
             <li>Tienes que o bien tener <b>registrada</b> una cerradura o tener <b>permiso</b> para poder crear una llave</li>
             <li>Tienes que elegir el <b>nombre</b> que quieres que tenga la llave, te aconsejamos poner un nombre que te haga <b>reconocer</b> la llave como <b>"Llave de casa de Paublo"</b></li>
-            <li>Elige la <b>cerradura</b> a la cual tendra <b>acceso</b> la llave</li>
-            <li>Pulsa el boton de <b>crear</b> e <b>introduce</b> el archivo creado en un <b>pendrive</b></li>
+            <li>Elige la <b>cerradura</b> a la cual tendrá <b>acceso</b> la llave</li>
+            <li>Pulsa el botón de <b>crear</b> e <b>introduce</b> el archivo creado en un <b>pendrive</b></li>
             <li>Ahora tu llave esta <b>lista</b> para abrir la <b>cerradura</b></li>
           </ol>
         </div>

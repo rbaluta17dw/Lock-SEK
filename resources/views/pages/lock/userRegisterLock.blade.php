@@ -73,12 +73,12 @@
     </div>
     <div class="body text-left">
       <ol class="font-18">
-        <li>Tienes que <b>adquirir</b> tu <b>cerradura electronica</b> y tenerla <b>cerca</b>.</li>
+        <li>Tienes que <b>adquirir</b> tu <b>cerradura electrónica</b> y tenerla <b>cerca</b>.</li>
         <li>Abre el producto y busca el <b>numero de serie</b>.</li>
-        <li>El <b>numero de serie</b> contiene 15 caracteres, ubiquelo, le hara falta para completar el <b>registro</b>.</li>
-        <li>Pulsa el boton de <b>Empezar!</b> e <b>introduce</b> el nombre de la cerradura y el <b>numero de serie</b>.</li>
+        <li>El <b>numero de serie</b> contiene 15 caracteres, localízalo, te hará falta para completar el <b>registro</b>.</li>
+        <li>Pulsa el botón de <b>Empezar!</b> e <b>introduce</b> el nombre de la cerradura y el <b>número de serie</b>.</li>
         <img src="{{asset('assets/img/serialnumber.png')}}" width="400" alt="numero se serie de ejemplo">
-        <li>Añadale una <b>ubicacion</b> si desea.</li>
+        <li>Añádele una <b>ubicación</b> si lo deseas.</li>
       </ol>
     </div>
     <div class="card-header">
