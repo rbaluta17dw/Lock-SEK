@@ -10,7 +10,7 @@
             <i class="material-icons">lock</i>
           </div>
           <div class="content">
-            <div class="text">Cerraduras</div>
+            <div class="text">@lang('userDashboard.locks')</div>
             <div class="number count-to" data-from="0" data-to="{{$locks}}" data-speed="15" data-fresh-interval="20"></div>
           </div>
         </div>
@@ -23,7 +23,7 @@
             <i class="material-icons">vpn_key</i>
           </div>
           <div class="content">
-            <div class="text">Llaves</div>
+            <div class="text">@lang('userDashboard.keys')</div>
             <div class="number count-to" data-from="0" data-to="{{$keys}}" data-speed="1000" data-fresh-interval="20"></div>
           </div>
         </div>
@@ -36,7 +36,7 @@
             <i class="material-icons">forum</i>
           </div>
           <div class="content">
-            <div class="text">Notificaciones</div>
+            <div class="text">@lang('userDashboard.notifications')</div>
             <div class="number count-to" data-from="0" data-to="{{$notifications}}" data-speed="1000" data-fresh-interval="20"></div>
           </div>
         </div>

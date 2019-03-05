@@ -19,7 +19,7 @@
           @endforeach
         </ul>
       </div>
- 
+
     @endif
     @if (Session::has('success'))
     <div class="alert alert-success">{!! Session::get('success') !!}</div>
@@ -55,11 +55,11 @@
       <div class="profile-footer">
         <ul>
           <li>
-            <span>Llaves</span>
+            <span>@lang('userProfile.keys')</span>
             <span>{{count(Auth::user()->keys)}}</span>
           </li>
           <li>
-            <span>Cerraduras</span>
+            <span>@lang('userProfile.locks')</span>
             <span>{{count(Auth::user()->locks)}}</span>
           </li>
         </ul>
@@ -73,8 +73,8 @@
       <div class="body">
         <div>
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Ajustes de perfil</a></li>
-            <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">Cambiar contraseña</a></li>
+            <li role="presentation" class="active"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">@lang('userProfile.profileSettings')</a></li>
+            <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">@lang('userProfile.changePassword')</a></li>
           </ul>
 
           <div class="tab-content">
@@ -82,7 +82,7 @@
               <form method="post" action="{{ route('profile.editName') }}" class="form-horizontal">
                 @csrf
                 <div class="form-group">
-                  <label for="NameSurname" class="col-sm-2 control-label">@lang('profile.name')</label>
+                  <label for="NameSurname" class="col-sm-2 control-label">@lang('userProfile.name')</label>
                   <div class="col-sm-10">
                     <div class="form-line">
                       <input type="text" class="form-control" id="NameSurname" name="name" placeholder="{{Auth::user()->name}}" value="{{Auth::user()->name}}" required>
@@ -91,14 +91,14 @@
                 </div>
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-danger">Cambiar Nombre</button>
+                    <button type="submit" class="btn btn-danger">@lang('userProfile.changeName')</button>
                   </div>
                 </div>
               </form>
               <form method="post" action="{{ route('profile.editEmail') }}" class="form-horizontal">
                 @csrf
                 <div class="form-group">
-                  <label for="Email" class="col-sm-2 control-label">Email</label>
+                  <label for="Email" class="col-sm-2 control-label">@lang('userProfile.email')</label>
                   <div class="col-sm-10">
                     <div class="form-line">
                       <input type="email" class="form-control" id="Email" name="email" placeholder="Email" value="{{Auth::user()->email}}" required>
@@ -108,7 +108,7 @@
 
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Cambiar Email</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">@lang('userProfile.changeEmail')</button>
                   </div>
                 </div>
                 <!-- Modal -->
@@ -116,27 +116,27 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Atencion!</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">@lang('userProfile.attention')!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
 
                       <div class="modal-body">
-                        <h1>Introduzca su contraseña actual </h1>
+                        <h1>@lang('userProfile.insertCurrentPassword')</h1>
                         <div class="form-group">
-                          <label for="password" class="col-sm-3 control-label">Contraseña:</label>
+                          <label for="password" class="col-sm-3 control-label">@lang('userProfile.password'):</label>
                           <div class="col-sm-9">
                             <div class="form-line">
-                              <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                              <input type="password" class="form-control" id="password" name="password" placeholder="@lang('userProfile.password')" required>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-danger">Cambiar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('userProfile.cancel')</button>
+                        <button type="submit" class="btn btn-danger">@lang('userProfile.change')</button>
                       </div>
                     </div>
                   </div>
@@ -146,14 +146,14 @@
               <form method="post" action="{{ route('profile.editImg') }}" class="form-horizontal" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                  <label for="NameSurname" class="col-sm-2 control-label">Imagen de perfil</label>
+                  <label for="NameSurname" class="col-sm-2 control-label">@lang('userProfile.profileImage')</label>
                   <div class="col-sm-10">
                     <div class="form-line">
                       <div class="box">
                         <input type="file" name="img" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple />
-                        <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Seleccionar archivo&hellip;</span></label>
+                        <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>@lang('userProfile.chooseFile')&hellip;</span></label>
                       </div>
-                      <button type="submit" class="btn btn-danger">Actualizar imagen</button>
+                      <button type="submit" class="btn btn-danger">@lang('userProfile.updateImage')</button>
                     </div>
                   </div>
 
@@ -163,10 +163,10 @@
               <form class="" action="{{ route('profile.delete') }}" method="post">
                 @csrf
                 <div class="form-group">
-                  <label for="delete" class="col-sm-2 control-label">Eliminar cuenta</label>
+                  <label for="delete" class="col-sm-2 control-label">@lang('userProfile.deleteAccount')</label>
                   <div class="col-sm-10">
                     <div class="form-line">
-                      <button type="submit" class="btn btn-danger">Eliminar</button>
+                      <button type="submit" class="btn btn-danger">@lang('userProfile.delete')</button>
                     </div>
                   </div>
                 </div>
@@ -179,33 +179,33 @@
               <form method="post" action="{{ route('profile.editPassword') }}" class="form-horizontal">
                 @csrf
                 <div class="form-group">
-                  <label for="OldPassword" class="col-sm-3 control-label">Contraseña actual</label>
+                  <label for="OldPassword" class="col-sm-3 control-label">@lang('userProfile.currentPassword')</label>
                   <div class="col-sm-9">
                     <div class="form-line">
-                      <input type="password" class="form-control" id="OldPassword" name="OldPassword" placeholder="Contraseña actual" required>
+                      <input type="password" class="form-control" id="OldPassword" name="OldPassword" placeholder="@lang('userProfile.currentPassword')" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="NewPassword" class="col-sm-3 control-label">Nueva contraseña</label>
+                  <label for="NewPassword" class="col-sm-3 control-label">@lang('userProfile.newPassword')</label>
                   <div class="col-sm-9">
                     <div class="form-line">
-                      <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="Nueva contraseña" required>
+                      <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="@lang('userProfile.newPassword')" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="NewPasswordConfirm" class="col-sm-3 control-label">Nueva contraseña (Confirmar)</label>
+                  <label for="NewPasswordConfirm" class="col-sm-3 control-label">@lang('userProfile.newPasswordConfirmation')</label>
                   <div class="col-sm-9">
                     <div class="form-line">
-                      <input type="password" class="form-control" id="NewPasswordConfirm" name="NewPasswordConfirm" placeholder="Nueva contraseña (Confirmar)" required>
+                      <input type="password" class="form-control" id="NewPasswordConfirm" name="NewPasswordConfirm" placeholder="@lang('userProfile.newPasswordConfirmation')" required>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-danger">Guardar</button>
+                    <button type="submit" class="btn btn-danger">@lang('userProfile.save')</button>
                   </div>
                 </div>
               </form>

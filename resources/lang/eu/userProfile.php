@@ -1,0 +1,26 @@
+<?php
+
+return [
+  'name' => 'Izena',
+  'email' => 'Emaila',
+  'changeName' => 'Izena aldatu',
+  'changeEmail' => 'Emaila aldatu',
+  'profileImage' => 'Profileko argazkia',
+  'chooseFile' => 'Fitxategia aukeratu',
+  'updateImage' => 'Argazkia aldatu',
+  'deleteAccount' => 'Kontua ezabatu',
+  'delete' => 'Ezabatu',
+  'profileSettings' => 'Profileko ezarpenak',
+  'changePassword' => 'Pasahitza aldatu',
+  'currentPassword' => 'Oraingo pasahitza',
+  'newPassword' => 'Pasahitz berria',
+  'newPasswordConfirmation' => 'Pasahitz berria (Egiaztatu)',
+  'save' => 'Gorde',
+  'keys' => 'Giltzak',
+  'locks' => 'Sarrailak',
+  'insertCurrentPassword' => 'Zure pasahitza sartu ezazu',
+  'password' => 'Pasahitza',
+  'change' => 'Aldatu',
+  'cancel' => 'Ezeztatu',
+  'attention' => 'Adi',
+];

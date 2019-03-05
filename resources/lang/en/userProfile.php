@@ -1,0 +1,26 @@
+<?php
+
+return [
+  'name' => 'Name',
+  'email' => 'Email',
+  'changeName' => 'Change name',
+  'changeEmail' => 'Change email',
+  'profileImage' => 'Profile image',
+  'chooseFile' => 'Choose file',
+  'updateImage' => 'Update image',
+  'deleteAccount' => 'Delete account',
+  'delete' => 'Delete',
+  'profileSettings' => 'Profile settings',
+  'changePassword' => 'Change password',
+  'currentPassword' => 'Current password',
+  'newPassword' => 'New password',
+  'newPasswordConfirmation' => 'New password (Confirmation)',
+  'save' => 'Save',
+  'keys' => 'Keys',
+  'locks' => 'Locks',
+  'insertCurrentPassword' => 'Insert the current password',
+  'password' => 'Password',
+  'change' => 'Change',
+  'cancel' => 'Cancel',
+  'attention' => 'Attention',
+];
